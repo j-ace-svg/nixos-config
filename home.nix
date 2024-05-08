@@ -103,6 +103,7 @@ in {
     pkgs.nuclear
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
+    pkgs.libnotify
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
 
