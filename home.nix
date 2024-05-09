@@ -104,7 +104,7 @@ in {
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
     pkgs.libnotify
-    pkgs.webcamoid
+    pkgs.libsForQt5.kamoso
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
 
