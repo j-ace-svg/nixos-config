@@ -103,11 +103,18 @@ in {
     pkgs.nuclear
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
-    pkgs.libnotify
-    pkgs.gnome.cheese
-    pkgs.grim
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
+
+    # Basic Services
+    pkgs.libnotify
+
+    # Basic Utilities
+    pkgs.gnome.cheese
+    pkgs.grim
+
+    # Games
+    pkgs.mari0
 
     pkgs.steamcmd
     #pkgs.steam-tui
