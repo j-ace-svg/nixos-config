@@ -112,6 +112,7 @@ in {
     # Basic Utilities
     pkgs.gnome.cheese
     pkgs.grim
+    pkgs.audacity
 
     # Games
     pkgs.mari0
