@@ -112,10 +112,13 @@ in {
     # Basic Utilities
     pkgs.gnome.cheese
     pkgs.grim
-    pkgs.audacity
 
     # Games
     pkgs.mari0
+
+    # Video editing
+    pkgs.audacity
+    pkgs.libsForQt5.kdenlive
 
     pkgs.steamcmd
     #pkgs.steam-tui
