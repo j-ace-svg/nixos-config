@@ -120,6 +120,9 @@ in {
     pkgs.audacity
     pkgs.libsForQt5.kdenlive
 
+    # Game dev
+    pkgs.godot_4
+
     pkgs.steamcmd
     #pkgs.steam-tui
     (pkgs.callPackage
