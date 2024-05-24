@@ -54,6 +54,7 @@ in {
 
     # Visual creation
     pkgs.audacity
+    pkgs.obs-studio
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
     pkgs.krita
