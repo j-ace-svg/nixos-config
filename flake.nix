@@ -29,7 +29,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.j-ace-svg = import ./home.nix;
+            home-manager.users.j-ace-svg = import ./j-ace-svg/home.nix;
           }
         ];
       };
