@@ -66,4 +66,9 @@
       exec snap run accountable2you
     '';
   };
+
+  home.packages = [
+    pkgs.xdg-desktop-portal-wlr
+    pkgs.wireplumber
+  ];
 }
