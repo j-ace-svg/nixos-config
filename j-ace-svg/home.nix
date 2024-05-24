@@ -15,7 +15,7 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
-    ./sway.nix
+    ./sway/sway.nix
   ];
 
   # Notification daemon
