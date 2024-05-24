@@ -109,6 +109,7 @@ in {
     # Basic Services
     pkgs.libnotify
     pkgs.xdg-desktop-portal-wlr
+    pkgs.wireplumber
 
     # Basic Utilities
     pkgs.gnome.cheese
