@@ -108,6 +108,7 @@ in {
 
     # Basic Services
     pkgs.libnotify
+    pkgs.xdg-desktop-portal-wlr
 
     # Basic Utilities
     pkgs.gnome.cheese
