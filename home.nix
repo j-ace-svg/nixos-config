@@ -116,9 +116,11 @@ in {
     # Games
     pkgs.mari0
 
-    # Video editing
+    # Visual creation
     pkgs.audacity
     pkgs.libsForQt5.kdenlive
+    pkgs.inkscape
+    pkgs.krita
 
     # Game dev
     pkgs.godot_4
