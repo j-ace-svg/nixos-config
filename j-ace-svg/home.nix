@@ -32,7 +32,6 @@ in {
     pkgs.unzip
     pkgs.mpv
     pkgs.rnnoise
-    pkgs.bc
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
@@ -48,6 +47,7 @@ in {
     # Basic Utilities
     pkgs.gnome.cheese
     pkgs.grim
+    pkgs.bc
 
     # Games
     pkgs.mari0

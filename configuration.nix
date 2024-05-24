@@ -93,6 +93,8 @@
 
     firefox-beta
     firefox-devedition
+
+    (writeShellScriptBin "rebuild" (builtins.readFile ./rebuild))
   ];
 
   programs.steam = {
