@@ -66,7 +66,7 @@ in {
     pkgs.android-tools
 
     # PostmarketOS (and eventually maybe Mobile NixOS?)
-    pkgs.pmbootstrap
+    # pkgs.pmbootstrap # (Out of date for some reason? Use `nix run`)
 
     # Games
     pkgs.steamcmd
