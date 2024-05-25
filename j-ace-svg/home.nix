@@ -62,6 +62,10 @@ in {
     # Game dev
     pkgs.godot_4
 
+    # Installing postmarketos
+    pkgs.android-tools
+
+    # Games
     pkgs.steamcmd
     #pkgs.steam-tui
     (pkgs.callPackage
@@ -70,6 +74,10 @@ in {
         hash = "sha256-ejgsDfmE3HJMbdHRYNW+TMHDUQsmmc8soRtSl0YczKo=";
       })
       {})
+
+    # Voicechanger (custom derivation, pulled from pypi)
+    #(import ./voicechanger/default.nix { inherit buildPythonPackage pkgs fetchurl })
+    #./voicechanger/default.nix
   ];
 
   # This value determines the Home Manager release from which the default
