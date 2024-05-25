@@ -65,6 +65,9 @@ in {
     # Installing postmarketos
     pkgs.android-tools
 
+    # PostmarketOS (and eventually maybe Mobile NixOS?)
+    pkgs.pmbootstrap
+
     # Games
     pkgs.steamcmd
     #pkgs.steam-tui
