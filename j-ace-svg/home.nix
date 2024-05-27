@@ -53,7 +53,7 @@ in {
     pkgs.mari0
 
     # Visual creation
-    pkgs.audacity
+    pkgs.tenacity # The community fork of alacritty after the controversy
     pkgs.obs-studio
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
