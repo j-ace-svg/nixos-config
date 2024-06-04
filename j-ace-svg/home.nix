@@ -49,9 +49,6 @@ in {
     pkgs.grim
     pkgs.bc
 
-    # Games
-    pkgs.mari0
-
     # Visual creation
     pkgs.tenacity # The community fork of alacritty after the controversy
     pkgs.obs-studio
@@ -69,6 +66,7 @@ in {
     # pkgs.pmbootstrap # (Out of date for some reason? Use `nix run`)
 
     # Games
+    pkgs.mari0
     pkgs.steamcmd
     #pkgs.steam-tui
     (pkgs.callPackage
