@@ -22,7 +22,7 @@ if [[ "$previous" == "$current" ]]; then
 fi
 
 # Shows your changes
-sudo git diff -U0
+sudo git diff -U0 '/etc/nixos' ':!*.log'
 
 # Commit all changes witih the generation metadata
 sudo git commit -am "$current"
