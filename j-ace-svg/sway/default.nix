@@ -12,7 +12,7 @@
       };
       output = {
         "*" = {
-          bg = "${./sway-wallpaper.webp} fill";
+          bg = "${./sway-wallpaper.png} fill";
           #bg = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
         };
       };
