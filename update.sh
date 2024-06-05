@@ -9,6 +9,12 @@ echo "NixOS Updating..."
 sudo sh -c 'nix flake update &> /etc/nixos/nixos-update.log' || (cat /etc/nixos/nixos-update.log | grep --color error && exit 1)
 sudo sh -c 'nixos-rebuild --flake /etc/nixos#nixos switch &> /etc/nixos/nixos-switch.log' || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
 
+# Early return if no changes were detected
+if sudo git diff --quiet; then
+    echo "No changes detected, exiting."
+    exit 0
+fi
+
 # Shows your changes
 sudo git diff -U0
 
