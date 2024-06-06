@@ -22,10 +22,10 @@ if [[ "$previous" == "$current" ]]; then
 fi
 
 # Shows your changes
-sudo git diff -U0 '/etc/nixos' ':!*.log'
+sudo git diff -U0 -C /etc/nixos/.git '/etc/nixos' ':!*.log'
 
 # Commit all changes witih the generation metadata
-sudo git commit -am "$current"
+sudo git commit -am -C /etc/nixos/.git "$current"
 
 # Notify all OK!
 notify-send -e "NixOS Updated OK!" --icon=software-update-available

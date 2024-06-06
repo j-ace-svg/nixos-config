@@ -67,6 +67,10 @@
     '';
   };
 
+  programs.i3status = {
+    enable = true;
+  };
+
   home.packages = [
     pkgs.xdg-desktop-portal-wlr
     pkgs.wireplumber
