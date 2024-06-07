@@ -49,6 +49,7 @@ in {
     pkgs.gnome.cheese
     pkgs.grim
     pkgs.bc
+    pkgs.wl-clipboard
 
     # Visual creation
     pkgs.tenacity # The community fork of alacritty after the controversy
