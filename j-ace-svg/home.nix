@@ -50,6 +50,7 @@ in {
     pkgs.grim
     pkgs.bc
     pkgs.wl-clipboard
+    pkgs.ripgrep
 
     # Visual creation
     pkgs.tenacity # The community fork of alacritty after the controversy
