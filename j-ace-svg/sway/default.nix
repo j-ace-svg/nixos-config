@@ -69,6 +69,55 @@
 
   programs.i3status = {
     enable = true;
+
+    modules = {
+      ipv6 = {position = 1;};
+
+      "wireless _first_" = {
+        position = 2;
+        settings = {
+          format_up = "W: (%quality at %essid) %ip";
+          format_down = "W: down";
+        };
+      };
+
+      "ethernet _first_" = {
+        position = 3;
+        settings = {
+          format_up = "E: %ip (%speed)";
+          format_down = "E: down";
+        };
+      };
+
+      "battery all" = {
+        position = 4;
+        settings = {format = "%status %percentage %remaining";};
+      };
+
+      "disk /" = {
+        position = 5;
+        settings = {format = "%avail";};
+      };
+
+      load = {
+        position = 6;
+        settings = {format = "%1min";};
+      };
+
+      memory = {
+        position = 7;
+        settings = {
+          format = "%used | %available";
+          threshold_degraded = "1G";
+          format_degraded = "MEMORY < %available";
+        };
+      };
+
+      "tztime local" = {
+        position = 8;
+        settings = {format = "%Y-%m-%d %H:%M:%S";};
+      };
+    };
   };
 
   home.packages = [

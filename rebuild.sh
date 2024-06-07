@@ -4,7 +4,7 @@
 set -e
 
 # Early return if no changes were detected
-if sudo git diff --quiet -C /etc/nixos/.git '/etc/nixos/*.nix'; then
+if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
     echo "No changes detected, exiting."
     exit 0
 fi
@@ -14,7 +14,7 @@ sudo alejandra . &>/dev/null \
   || ( sudo alejandra . ; echo "formatting failed!" && exit 1)
 
 # Shows your changes
-sudo git diff -U0 -C /etc/nixos/.git '/etc/nixos/*.nix'
+sudo git -C /etc/nixos/ diff -U0 '/etc/nixos/*.nix'
 
 echo "NixOS Rebuilding..."
 
@@ -25,7 +25,7 @@ sudo sh -c 'nixos-rebuild --flake /etc/nixos#nixos switch &> /etc/nixos/nixos-sw
 current=$(nixos-rebuild list-generations | grep current)
 
 # Commit all changes witih the generation metadata
-sudo git commit -am -C /etc/nixos/.git "$current"
+sudo git -C /etc/nixos/ commit -am "$current"
 
 # Notify all OK!
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available

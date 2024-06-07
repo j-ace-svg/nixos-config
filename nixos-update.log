@@ -1,1 +1,9 @@
 warning: Git tree '/etc/nixos' is dirty
+warning: updating lock file '/etc/nixos/flake.lock':
+• Updated input 'nix-snapd':
+    'github:io12/nix-snapd/01cbb6c0044e1ff65d9f2c7ddf218c420728e651' (2024-06-03)
+  → 'github:io12/nix-snapd/fa85faa9e69ae3ebea194292e8438bfc1ab807dd' (2024-06-05)
+• Updated input 'nixpkgs':
+    'github:NixOS/nixpkgs/57610d2f8f0937f39dbd72251e9614b1561942d8' (2024-05-31)
+  → 'github:NixOS/nixpkgs/e8057b67ebf307f01bdcc8fba94d94f75039d1f6' (2024-06-05)
+warning: Git tree '/etc/nixos' is dirty
