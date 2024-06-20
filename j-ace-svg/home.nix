@@ -52,12 +52,13 @@ in {
     pkgs.wl-clipboard
     pkgs.ripgrep
 
-    # Visual creation
+    # Media creation
     pkgs.tenacity # The community fork of alacritty after the controversy
     pkgs.obs-studio
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
     pkgs.krita
+    pkgs.lmms
 
     # Game dev
     pkgs.godot_4
