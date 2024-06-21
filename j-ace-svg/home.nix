@@ -51,6 +51,7 @@ in {
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep
+    pkgs.rnnoise
 
     # Media creation
     pkgs.tenacity # The community fork of alacritty after the controversy
