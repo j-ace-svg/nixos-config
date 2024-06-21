@@ -30,6 +30,7 @@ in {
     pkgs.armcord
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
+    pkgs.vimiv-qt # Other image viewer (maybe more vim-like?)
     pkgs.zip
     pkgs.unzip
     pkgs.mpv
