@@ -58,6 +58,7 @@ in {
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
     pkgs.krita
+    pkgs.gimp
     pkgs.lmms
 
     # Game dev
