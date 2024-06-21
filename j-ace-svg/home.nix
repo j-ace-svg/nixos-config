@@ -28,7 +28,8 @@ in {
     pkgs.qutebrowser
     pkgs.alacritty
     pkgs.armcord
-    pkgs.zathura
+    pkgs.zathura # Document viewer/PDF viewer
+    pkgs.sxiv # Image viewer
     pkgs.zip
     pkgs.unzip
     pkgs.mpv
