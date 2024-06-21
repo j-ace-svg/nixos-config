@@ -31,7 +31,6 @@ in {
     pkgs.zip
     pkgs.unzip
     pkgs.mpv
-    pkgs.rnnoise
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
@@ -51,7 +50,7 @@ in {
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep
-    pkgs.rnnoise
+    pkgs.rnnoise-plugin
 
     # Media creation
     pkgs.tenacity # The community fork of alacritty after the controversy
