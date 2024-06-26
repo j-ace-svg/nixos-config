@@ -42,6 +42,8 @@ in {
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
     pkgs.mov-cli
+    pkgs.bitwarden-desktop
+    pkgs.bitwarden-cli
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
 
