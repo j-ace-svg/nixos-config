@@ -38,6 +38,7 @@ in {
     pkgs.sx
     pkgs.hollywood
     pkgs.nuclear
+    pkgs.yt-dlp
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
     pkgs.mov-cli
