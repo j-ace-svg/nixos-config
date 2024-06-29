@@ -77,6 +77,11 @@
       isNormalUser = true;
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     };
+    test-second-user = {
+      createHome = true;
+      isNormalUser = true;
+      # No sudo
+    };
   };
 
   # List packages installed in system profile. To search, run:
