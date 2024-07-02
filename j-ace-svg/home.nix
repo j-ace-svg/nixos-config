@@ -26,7 +26,7 @@ in {
 
   home.packages = [
     pkgs.qutebrowser
-    pkgs.alacritty
+    #pkgs.alacritty
     pkgs.armcord
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
