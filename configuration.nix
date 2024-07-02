@@ -44,9 +44,11 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
   # xkb configuration for console keyboard
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.variant = "dvorak";
-  services.xserver.xkb.options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "dvorak";
+    options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+  };
 
   # Wayland
   programs.sway.enable = true;
