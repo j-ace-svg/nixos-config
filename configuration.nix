@@ -45,9 +45,18 @@
   };
   # xkb configuration for console keyboard
   services.xserver.xkb = {
-    layout = "us,us";
-    variant = "dvorak,";
-    options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+    #layout = "us,us";
+    #variant = "dvorak,";
+    #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+  };
+  services.kmonad = {
+    enable = true;
+    keyboards = {
+      myKMonadOutput = {
+        device = "/dev/input/by-id/my-keyboard-kbd";
+        config = builtins.readFile ./kmonad/config.kbd;
+      };
+    };
   };
 
   # Wayland

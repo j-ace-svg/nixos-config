@@ -3,10 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-snapd.url = "github:io12/nix-snapd";
-    nix-snapd.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-snapd = {
+      url = "github:io12/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    kmonad = {
+      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -14,6 +25,7 @@
     nixpkgs,
     nix-snapd,
     home-manager,
+    kmonad,
     ...
   }: {
     nixosConfigurations = {
@@ -31,6 +43,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.j-ace-svg = import ./j-ace-svg/home.nix;
           }
+          kmonad.nixosModules.default
         ];
       };
     };
