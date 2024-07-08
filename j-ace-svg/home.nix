@@ -46,6 +46,8 @@ in {
     pkgs.bitwarden-cli
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
+    pkgs.ghc
+    pkgs.stack
 
     # Basic Services
     pkgs.libnotify

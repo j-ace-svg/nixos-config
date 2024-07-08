@@ -10,7 +10,7 @@ if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
 fi
 
 # Autoformat your nix files
-sudo alejandra . &>/dev/null \
+sudo alejandra /etc/nixos &>/dev/null \
   || ( sudo alejandra . ; echo "formatting failed!" && exit 1)
 
 # Shows your changes
