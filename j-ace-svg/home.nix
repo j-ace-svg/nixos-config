@@ -48,6 +48,7 @@ in {
     pkgs.file # |
     pkgs.ghc
     pkgs.stack
+    pkgs.emacs
 
     # Basic Services
     pkgs.libnotify
