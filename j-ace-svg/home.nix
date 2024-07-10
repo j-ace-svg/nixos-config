@@ -49,7 +49,6 @@ in {
     pkgs.ghc
     pkgs.stack
     pkgs.emacs
-    pkgs.python312Packages.osmnx
 
     # Basic Services
     pkgs.libnotify
@@ -78,6 +77,10 @@ in {
 
     # PostmarketOS (and eventually maybe Mobile NixOS?)
     # pkgs.pmbootstrap # (Out of date for some reason? Use `nix run`)
+
+    # Python
+    pkgs.python312Packages.osmnx
+    pkgs.python312Packages.haversine
 
     # Games
     pkgs.mari0
