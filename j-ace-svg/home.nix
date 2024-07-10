@@ -81,6 +81,7 @@ in {
     # Python
     pkgs.python312Packages.osmnx
     pkgs.python312Packages.haversine
+    pkgs.python312Packages.geopy
 
     # Games
     pkgs.mari0
