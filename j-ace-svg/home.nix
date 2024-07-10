@@ -49,6 +49,7 @@ in {
     pkgs.ghc
     pkgs.stack
     pkgs.emacs
+    pkgs.python312Packages.osmpythontools
 
     # Basic Services
     pkgs.libnotify
