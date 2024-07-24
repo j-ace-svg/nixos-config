@@ -64,7 +64,6 @@
   security.polkit.enable = true;
   hardware.opengl = {
     enable = true;
-    driSupport = true;
   };
 
   # Enable CUPS to print documents.
@@ -74,7 +73,6 @@
   };
 
   # Enable sound.
-  sound.enable = true;
   nixpkgs.config.pulseaudio = true;
   hardware.pulseaudio.enable = true;
 

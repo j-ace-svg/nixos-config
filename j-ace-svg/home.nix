@@ -30,7 +30,7 @@ in {
     pkgs.armcord
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
-    pkgs.vimiv-qt # Other image viewer (maybe more vim-like?)
+    #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.zip
     pkgs.unzip
     pkgs.mpv
@@ -79,9 +79,10 @@ in {
     # pkgs.pmbootstrap # (Out of date for some reason? Use `nix run`)
 
     # Python
-    pkgs.python312Packages.osmnx
-    pkgs.python312Packages.haversine
-    pkgs.python312Packages.geopy
+    # Uncomment these later, pry once py12 is fixed
+    #pkgs.python311Packages.osmnx
+    #pkgs.python311Packages.haversine
+    #pkgs.python311Packages.geopy
 
     # Games
     pkgs.mari0

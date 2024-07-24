@@ -9,7 +9,7 @@ echo "NixOS Updating..."
 previous=$(nixos-rebuild list-generations | grep current)
 
 # Rebuild, output simplified errors, log trackebacks
-sudo sh -c 'nix flake update &> /etc/nixos/nixos-update.log' || (cat /etc/nixos/nixos-update.log | grep --color error && exit 1)
+sudo sh -c 'nix flake update /etc/nixos/flake.lock &> /etc/nixos/nixos-update.log' || (cat /etc/nixos/nixos-update.log | grep --color error && exit 1)
 sudo sh -c 'nixos-rebuild --flake /etc/nixos#nixos switch &> /etc/nixos/nixos-switch.log' || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
 
 # Get current generation metadata

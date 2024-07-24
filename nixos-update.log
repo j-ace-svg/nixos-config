@@ -1,1 +1,3 @@
+path '/etc/nixos/flake.lock' does not contain a 'flake.nix', searching up
 warning: Git tree '/etc/nixos' is dirty
+[K[K[K[K[K[K
