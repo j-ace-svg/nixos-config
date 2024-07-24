@@ -52,6 +52,8 @@ in {
 
     # Basic Services
     pkgs.libnotify
+    pkgs.ueberzugpp
+    pkgs.ydotool
 
     # Basic Utilities
     pkgs.gnome.cheese
