@@ -15,8 +15,9 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
-    ./sway/default.nix
+    ./mpv/default.nix
     ./rnnoise/default.nix
+    ./sway/default.nix
   ];
 
   # Notification daemon
@@ -26,14 +27,12 @@ in {
 
   home.packages = [
     pkgs.qutebrowser
-    #pkgs.alacritty
     pkgs.armcord
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
     #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.zip
     pkgs.unzip
-    pkgs.mpv
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
@@ -63,6 +62,7 @@ in {
 
     # Media creation
     pkgs.tenacity # The community fork of alacritty after the controversy
+    #pkgs.alacritty
     pkgs.obs-studio
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
