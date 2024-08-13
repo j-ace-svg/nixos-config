@@ -48,6 +48,7 @@ in {
     pkgs.ghc
     pkgs.stack
     pkgs.emacs
+    pkgs.cmus
 
     # Basic Services
     pkgs.libnotify
@@ -55,7 +56,6 @@ in {
 
     # Basic Utilities
     pkgs.gnome.cheese
-    pkgs.grim
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep

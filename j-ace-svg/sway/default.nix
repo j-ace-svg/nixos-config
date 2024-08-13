@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
@@ -61,6 +65,9 @@
           };
         }
       ];
+      keybindings = lib.mkOptionDefault {
+        "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(xdg-user-dir PICTURES)/$(date + 'screenshot_%Y-%m-%d-%H%M%S.png')";
+      };
     };
     extraConfig = ''
       exec snap run accountable2you
@@ -122,6 +129,9 @@
 
   home.packages = [
     pkgs.xdg-desktop-portal-wlr
+    pkgs.xdg-user-dirs
+    pkgs.grim
+    pkgs.slurp
     pkgs.wireplumber
   ];
 }
