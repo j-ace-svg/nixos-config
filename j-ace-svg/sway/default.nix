@@ -127,7 +127,12 @@
     };
   };
 
-  xdg.userDirs.enable = true;
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
 
   home.packages = [
     pkgs.xdg-desktop-portal-wlr
