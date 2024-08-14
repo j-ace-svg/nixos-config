@@ -66,7 +66,7 @@
         }
       ];
       keybindings = lib.mkOptionDefault {
-        "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(xdg-user-dir PICTURES)/$(date + 'screenshot_%Y-%m-%d-%H%M%S.png')";
+        "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
       };
     };
     extraConfig = ''
