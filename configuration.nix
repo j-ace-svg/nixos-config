@@ -33,7 +33,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable windows file system support (to mount and read windows ssd)
   boot.supportedFilesystems = ["ntfs"];
+
+  # Enable sysrq
+  boot.kernel.sysctl."kernel.sysrq" = 502;
 
   networking.hostName = "nixos"; # Define your hostname.
 
