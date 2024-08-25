@@ -49,6 +49,7 @@ in {
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
+    pkgs.fzf
 
     # Basic Services
     pkgs.libnotify
