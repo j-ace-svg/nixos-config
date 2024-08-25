@@ -25,6 +25,9 @@ in {
     enable = true;
   };
 
+  # Fuzzy finding
+  programs.fzf.enable = true;
+
   home.packages = [
     pkgs.qutebrowser
     pkgs.armcord
@@ -49,7 +52,6 @@ in {
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
-    pkgs.fzf
 
     # Basic Services
     pkgs.libnotify
