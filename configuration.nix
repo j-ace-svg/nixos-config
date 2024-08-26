@@ -118,6 +118,8 @@
     (writeShellScriptBin "update" (builtins.readFile ./update.sh))
   ];
 
+  programs.nix-ld.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
