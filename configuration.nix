@@ -110,7 +110,6 @@
     htop
     system-config-printer
     alejandra
-    docker
 
     firefox-beta
     firefox-devedition
@@ -118,6 +117,8 @@
     (writeShellScriptBin "rebuild" (builtins.readFile ./rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ./update.sh))
   ];
+
+  virtualisation.docker.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
