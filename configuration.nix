@@ -110,6 +110,7 @@
     htop
     system-config-printer
     alejandra
+    docker
 
     firefox-beta
     firefox-devedition
