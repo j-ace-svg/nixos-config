@@ -98,6 +98,7 @@ in {
         hash = "sha256-ejgsDfmE3HJMbdHRYNW+TMHDUQsmmc8soRtSl0YczKo=";
       })
       {})
+    pkgs.prismlauncher
 
     # Voicechanger (custom derivation, pulled from pypi)
     #(import ./voicechanger/default.nix { inherit buildPythonPackage pkgs fetchurl })
