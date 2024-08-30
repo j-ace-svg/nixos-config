@@ -98,7 +98,15 @@ in {
         hash = "sha256-ejgsDfmE3HJMbdHRYNW+TMHDUQsmmc8soRtSl0YczKo=";
       })
       {})
+
+    # Minecraft
     pkgs.prismlauncher
+    (pkgs.jdk8.overrideAttrs
+      (oldAttrs: {meta.priority = 8;}))
+    (pkgs.jdk17.overrideAttrs
+      (oldAttrs: {meta.priority = 9;}))
+    (pkgs.jdk21.overrideAttrs
+      (oldAttrs: {meta.priority = 10;}))
 
     # Voicechanger (custom derivation, pulled from pypi)
     #(import ./voicechanger/default.nix { inherit buildPythonPackage pkgs fetchurl })
