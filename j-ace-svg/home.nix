@@ -73,6 +73,9 @@ in {
     pkgs.gimp
     pkgs.lmms
 
+    # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
+    pkgs.brave
+
     # Game dev
     pkgs.godot_4
 
