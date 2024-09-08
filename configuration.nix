@@ -78,9 +78,16 @@
     drivers = [pkgs.hplipWithPlugin];
   };
 
-  # Enable sound.
-  nixpkgs.config.pulseaudio = true;
-  hardware.pulseaudio.enable = true;
+  # Enable sound. (replaced PulseAudio with Pipewire because it was installing for some reason so I gave up trying to stop it)
+  security.rtkit.enable = true; # rtkit is optional but recommended
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    jack.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
