@@ -58,7 +58,7 @@ in {
     pkgs.ueberzugpp
 
     # Basic Utilities
-    pkgs.cheese
+    #pkgs.cheese
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep
