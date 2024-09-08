@@ -70,6 +70,7 @@
       };
     };
     extraConfig = ''
+      workspace 1
       exec snap run accountable2you
     '';
   };
