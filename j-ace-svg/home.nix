@@ -52,6 +52,7 @@ in {
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
+    pkgs.picard
 
     # Basic Services
     pkgs.libnotify
@@ -72,6 +73,7 @@ in {
     pkgs.krita
     pkgs.gimp
     pkgs.lmms
+    pkgs.ffmpeg
 
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
     pkgs.brave
