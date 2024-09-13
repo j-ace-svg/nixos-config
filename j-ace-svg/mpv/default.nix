@@ -5,6 +5,7 @@
       pkgs.mpvScripts.sponsorblock
       pkgs.mpvScripts.quality-menu
       pkgs.mpvScripts.thumbfast
+      pkgs.mpvScripts.mpv-slicing
     ];
     bindings = {
       "<" = "add chapter -1";
