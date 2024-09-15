@@ -53,6 +53,7 @@ in {
     pkgs.emacs
     pkgs.cmus
     pkgs.picard
+    pkgs.ventoy-full
 
     # Basic Services
     pkgs.libnotify
