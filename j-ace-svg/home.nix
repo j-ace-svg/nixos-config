@@ -30,18 +30,20 @@ in {
 
   home.packages = [
     pkgs.qutebrowser
-    pkgs.armcord
+    pkgs.legcord
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
     #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.vifm
     pkgs.zip
     pkgs.unzip
+    pkgs.ripgrep
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
     pkgs.nuclear
-    pkgs.yt-dlp
+    pkgs.yt-dlp # Youtube downloader
+    pkgs.zotify # Spotify downloader
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
     pkgs.mov-cli
