@@ -25,11 +25,11 @@ in {
     enable = true;
   };
 
-  # Fuzzy finding
-  programs.fzf.enable = true;
-
-  # Automatically enter shell.nix when changing directories
   programs = {
+    # Fuzzy finding
+    fzf.enable = true;
+
+    # Automatically enter shell.nix when changing directories
     direnv = {
       enable = true;
       enableBashIntegration = true; # see note on other shells below
