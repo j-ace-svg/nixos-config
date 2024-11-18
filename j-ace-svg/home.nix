@@ -28,6 +28,17 @@ in {
   # Fuzzy finding
   programs.fzf.enable = true;
 
+  # Automatically enter shell.nix when changing directories
+  programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+
+    bash.enable = true; # see note on other shells below
+  };
+
   home.packages = [
     pkgs.qutebrowser
     pkgs.legcord
