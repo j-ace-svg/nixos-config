@@ -63,7 +63,6 @@ in {
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
     pkgs.ghc
-    pkgs.libgcc
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
