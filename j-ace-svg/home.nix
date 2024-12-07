@@ -131,8 +131,8 @@ in {
       (oldAttrs: {meta.priority = 10;}))
 
     # Voicechanger (custom derivation, pulled from pypi)
-    #(import ./voicechanger/default.nix { inherit buildPythonPackage pkgs fetchurl })
-    #./voicechanger/default.nix
+    #(pkgs.callPackage ./voicechanger/default.nix { inherit fetchFromGithub lib python3 })
+    (pkgs.callPackage ./voicechanger/default.nix {})
   ];
 
   # This value determines the Home Manager release from which the default
