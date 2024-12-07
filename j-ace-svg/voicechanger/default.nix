@@ -15,6 +15,8 @@ python3.pkgs.buildPythonApplication rec {
     hash = "sha256-I+SLPC9ZFfFlm1ApJUgoYIcuTjvTYscQ68tJqVNCgdA=";
   };
 
+  propogatedBuildInputs = with python3.pkgs; [pyqt5];
+
   build-system = [
     python3.pkgs.setuptools
     python3.pkgs.wheel
