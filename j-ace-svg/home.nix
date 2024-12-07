@@ -64,6 +64,7 @@ in {
     pkgs.file # |
     pkgs.ghc
     pkgs.gnumake
+    pkgs.nix-init
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
