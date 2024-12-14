@@ -132,7 +132,7 @@ in {
 
     # Voicechanger (custom derivation, pulled from pypi)
     #(pkgs.callPackage ./voicechanger/default.nix { inherit fetchFromGithub lib python3 })
-    (pkgs.callPackage ./voicechanger/default.nix {})
+    #(pkgs.callPackage ./voicechanger/default.nix {})
   ];
 
   # This value determines the Home Manager release from which the default
