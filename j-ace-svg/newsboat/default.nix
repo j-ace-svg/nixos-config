@@ -3,6 +3,20 @@
     enable = true;
     urls = [
       {
+        title = "---NEWS---";
+        url = "";
+      }
+      {
+        title = "~NEWS: Qutebrowser";
+        tags = ["NEWS"];
+        url = "https://kill-the-newsletter.com/feeds/utegqnhc27zcnb9f.xml";
+      }
+      {
+        title = "~NEWS: This week in neovim";
+        tags = ["NEWS"];
+        url = "https://this-week-in-neovim.org/rss";
+      }
+      {
         title = "---BLOG---";
         url = "";
       }
