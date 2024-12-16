@@ -13,6 +13,7 @@
       }
     ];
     autoReload = false;
+    browser = "{./linkhandler}";
     extraConfig = ''
       #color background          default default
       #color listnormal          default default
