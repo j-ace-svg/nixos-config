@@ -3,10 +3,12 @@
 # Make script fail if any individual commands fail
 set -e
 
-# Early return if no changes were detected
-if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
-    echo "No changes detected, exiting."
-    exit 0
+if [ "$1" != "-f" ]; then
+    # Early return if no changes were detected
+    if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
+        echo "No changes detected, exiting."
+        exit 0
+    fi
 fi
 
 # Autoformat your nix files

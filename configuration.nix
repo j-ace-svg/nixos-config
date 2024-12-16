@@ -120,7 +120,6 @@
     alejandra
 
     firefox-beta
-    firefox-devedition
 
     (writeShellScriptBin "rebuild" (builtins.readFile ./rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ./update.sh))

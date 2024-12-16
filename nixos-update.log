@@ -1,3 +1,2 @@
-path '/etc/nixos/flake.lock' does not contain a 'flake.nix', searching up
-warning: Git tree '/etc/nixos' is dirty
-[K[K[K[K[K[K
+warning: Invalid flake input '/etc/nixos/flake.lock'. To update a specific flake, use 'nix flake update --flake /etc/nixos/flake.lock' instead.
+error: invalid flake input path element 'flake.lock'
