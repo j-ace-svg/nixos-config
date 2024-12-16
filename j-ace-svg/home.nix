@@ -18,6 +18,7 @@ in {
     ./mpv/default.nix
     ./rnnoise/default.nix
     ./sway/default.nix
+    ./newsboat/default.nix
   ];
 
   # Notification daemon
