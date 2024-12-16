@@ -14,7 +14,7 @@
       {
         title = "~NEWS: This week in neovim";
         tags = ["NEWS"];
-        url = "https://this-week-in-neovim.org/rss";
+        url = "https://dotfyle.com/this-week-in-neovim/rss.xml";
       }
       {
         title = "---BLOG---";
