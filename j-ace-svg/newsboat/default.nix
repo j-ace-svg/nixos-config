@@ -56,7 +56,7 @@
       }
     ];
     autoReload = false;
-    browser = "{./linkhandler}";
+    browser = "${./linkhandler}";
     extraConfig = ''
       #color background          default default
       #color listnormal          default default

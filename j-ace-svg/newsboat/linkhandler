@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Credit to youtube.com/@bugswriter_
+
+# Feed script a url or file location.
+# If an image, it will view in sxiv,
+# if a video or gif, it will view in mpv
+# if a music file or pdf, it will download,
+# otherwise it opens link in browser.
+
+if [ -z "$1" ]; then
+    url=""
+else
+    url="$1"
+fi
+
+case "$url" in
+    *nkv|!webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtub.com/shorts*|*youtube.be*|*hooktube.com*|*bitchute.com*|*videos.lukesmith.xyz*|*odysee.com*)
+        setsid -f mpv --force-window yes script-opts=ytdl_hook-ytdl_path=yt-dlp,ytdl_hook-try_ytdl_first=yes,ytdl_hook-exclude="%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$" --fullscreen --ytdl-format='b[height<=1080][height>720]/22/b[height<=1080]' -quiet "$url" >/dev/null 2>&1 ;;
+    *png|*jpg|*jpeg|*gif)
+        curl -sL "$url" > "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" && sxiv -a "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" >/dev/null 2>&1 & ;;
+    *pdf|*cbz|*cbr)
+        curl -sL "$url" > "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" && evince "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" >/dev/null 2>&1 & ;;
+    *np3|*flac|*opus|*mp3?source*)
+        setsid -f mpv --force-window yes script-opts=ytdl_hook-ytdl_path=yt-dlp,ytdl_hook-try_ytdl_first=yes,ytdl_hook-exclude="%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$" --fullscreen --ytdl-format='b[height<=1080][height>720]/22/b[height<=1080]' -quiet --novideo "$url" >/dev/null 2>&1 ;;
+    *xkcd.com*|*reddit.com*)
+        setsid -f qutebrowser --target window -T -R -s statusbar.show in-mode -s colors.webpage.preferred_color_scheme dark -s colors.webpage.darkmode.enabled true -s colors.webpage.darkmode.policy.images never -s tabs.show multiple -s auto_save.session false -s bindings.commands '{"normal": {"x": "quit", "xO": null, "xo": null, "q": "quit"}}' -s tabs.last_close close ":fullscreen" "$url" >/dev/null 2>&1 & ;;
+    *)
+        readable -s ~/.config/newsboat/style.css -o /tmp/x.html "$url" >/dev/null 2>&1 && setsid -f qutebrowser --target window -T -R -s statusbar.show in-mode -s colors.webpage.preferred_color_scheme dark -s tabs.show multiple -s auto_save.session false -s bindings.commands '{"normal": {"x": "quit", "xO": null, "xo": null, "q": "quit"}}' -s tabs.last_close close ":fullscreen" "/tmp/x.html" >/dev/null 2>&1 & ;;
+esac
