@@ -21,6 +21,7 @@
     };
     config = {
       af-add = "scaletempo2=max-speed=32.0";
+      speed = 2;
     };
   };
 
