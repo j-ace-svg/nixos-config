@@ -10,7 +10,7 @@
       {
         title = "~YOUTUBE: Mumbo Jumbo";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UChFur_NwVSbUozOcF_F2kMg";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UChFur_NwVSbUozOcF_F2kMg&name=Mumbo Jumbo";
       }
       {
         title = "~YOUTUBE: Mental Outlaw";
