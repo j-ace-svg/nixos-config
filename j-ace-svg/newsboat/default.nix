@@ -41,6 +41,11 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
       }
       {
+        title = "~GAME DEV: delgoodie (Astro dev)";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLwIwKFEh0Dy_IGCDXZuoWA";
+      }
+      {
         title = "---NEWS---";
         url = "";
       }
