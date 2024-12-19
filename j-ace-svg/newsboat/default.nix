@@ -17,6 +17,11 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
       }
       {
+        title = "~YOUTUBE: LibrePhoenix";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCeZyoDTk0J-UPhd7MUktexw";
+      }
+      {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg";
