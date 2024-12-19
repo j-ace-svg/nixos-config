@@ -17,16 +17,6 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
       }
       {
-        title = "~YOUTUBE: CodeParade";
-        tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw";
-      }
-      {
-        title = "~YOUTUBE: Virus";
-        tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
-      }
-      {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg";
@@ -35,6 +25,20 @@
         title = "~YOUTUBE: ThrillSeeker";
         tags = ["YOUTUBE"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCSbdMXOI_3HGiFviLZO6kNA";
+      }
+      {
+        title = "---GAME DEV---";
+        url = "";
+      }
+      {
+        title = "~GAME DEV: CodeParade";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw";
+      }
+      {
+        title = "~GAME DEV: Virus (Wavefront dev)";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
       }
       {
         title = "---NEWS---";
