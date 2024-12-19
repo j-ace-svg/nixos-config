@@ -32,6 +32,11 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCSbdMXOI_3HGiFviLZO6kNA";
       }
       {
+        title = "~YOUTUBE: PhrogPollen";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA";
+      }
+      {
         title = "---GAME DEV---";
         url = "";
       }
