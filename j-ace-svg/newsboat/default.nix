@@ -34,7 +34,7 @@
       {
         title = "~YOUTUBE: PhrogPollen";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA&name=PhrogPollen";
       }
       {
         title = "---GAME DEV---";
