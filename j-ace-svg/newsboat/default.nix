@@ -22,6 +22,11 @@
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw";
       }
       {
+        title = "~YOUTUBE: Virus";
+        tags = ["YOUTUBE"];
+        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
+      }
+      {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg";
