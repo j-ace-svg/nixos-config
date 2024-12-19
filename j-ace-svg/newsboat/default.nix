@@ -5,6 +5,7 @@
       {
         title = "---YOUTUBE---";
         url = "";
+        # Original url base for youtube feeds: https://www.youtube.com/feeds/videos.xml?channel_id=
       }
       {
         title = "~YOUTUBE: Mumbo Jumbo";
@@ -14,22 +15,22 @@
       {
         title = "~YOUTUBE: Mental Outlaw";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
       }
       {
         title = "~YOUTUBE: LibrePhoenix";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCeZyoDTk0J-UPhd7MUktexw";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
       }
       {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=Two Minute Papers";
       }
       {
         title = "~YOUTUBE: ThrillSeeker";
         tags = ["YOUTUBE"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCSbdMXOI_3HGiFviLZO6kNA";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCSbdMXOI_3HGiFviLZO6kNA&name=ThrillSeeker";
       }
       {
         title = "~YOUTUBE: PhrogPollen";
