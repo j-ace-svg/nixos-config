@@ -19,6 +19,9 @@
       "Alt+f" = "script-binding quality_menu/audio_formats_toggle";
       "F12" = "ignore";
     };
+    config = {
+      af-add = "scaletempo2=max-speed=32.0";
+    };
   };
 
   home.packages = [
