@@ -19,6 +19,7 @@ in {
     ./rnnoise/default.nix
     ./sway/default.nix
     ./newsboat/default.nix
+    ./custom-scripts/default.nix
   ];
 
   # Notification daemon
