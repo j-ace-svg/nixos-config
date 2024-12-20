@@ -55,7 +55,6 @@ in {
     pkgs.sx
     pkgs.hollywood
     pkgs.nuclear
-    pkgs.yt-dlp # Youtube downloader
     pkgs.zotify # Spotify downloader
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint

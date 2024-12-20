@@ -25,6 +25,13 @@
     };
   };
 
+  programs.yt-dlp = {
+    enable = true;
+    extraConfig = ''
+      -S "res:1080,quality,+size"
+    '';
+  };
+
   home.packages = [
   ];
 }
