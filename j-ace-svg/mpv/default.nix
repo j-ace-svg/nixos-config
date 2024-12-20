@@ -27,9 +27,9 @@
 
   programs.yt-dlp = {
     enable = true;
-    #extraConfig = ''
-    #  -S "res:1080,quality,+size"
-    #'';
+    extraConfig = ''
+      -S "proto:m3u8"
+    '';
   };
 
   home.packages = [
