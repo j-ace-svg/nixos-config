@@ -27,9 +27,6 @@
 
   programs.yt-dlp = {
     enable = true;
-    extraConfig = ''
-      -S "proto:m3u8"
-    '';
   };
 
   home.packages = [
