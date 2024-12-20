@@ -71,6 +71,7 @@ in {
     pkgs.cmus
     pkgs.picard
     pkgs.ventoy-full
+    pkgs.go-sct
 
     # Basic Services
     pkgs.libnotify
