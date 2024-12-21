@@ -1,11 +1,15 @@
 {pkgs, ...}: {
   programs.mpv = {
     enable = true;
-    scripts = [
-      pkgs.mpvScripts.sponsorblock
-      pkgs.mpvScripts.quality-menu
-      pkgs.mpvScripts.thumbfast
-      pkgs.mpvScripts.mpv-slicing
+    scripts = with pkgs; [
+      mpvScripts.sponsorblock
+      mpvScripts.quality-menu
+      mpvScripts.thumbfast
+      mpvScripts.mpv-slicing
+      (callPackage ./mpv-youtube-chat.nix {
+        inherit fetchFromGitHub lib unstableGitUpdater;
+        buildLua = mpvScripts.buildLua;
+      })
     ];
     bindings = {
       "<" = "add chapter -1";
