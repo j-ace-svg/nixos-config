@@ -23,6 +23,11 @@
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
       }
       {
+        title = "~YOUTUBE: No Boilerplate";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA&name=NoBoilerplate";
+      }
+      {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=Two Minute Papers";
