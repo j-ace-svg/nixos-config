@@ -21,7 +21,8 @@
       {
         title = "~YOUTUBE: LibrePhoenix";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
+        #url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
+        url = "https://odysee.com/$/rss/@LibrePhoenix:8";
       }
       {
         title = "~YOUTUBE: No Boilerplate";
