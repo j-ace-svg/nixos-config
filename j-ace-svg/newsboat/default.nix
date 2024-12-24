@@ -15,14 +15,14 @@
       {
         title = "~YOUTUBE: Mental Outlaw";
         tags = ["YOUTUBE"];
-        #url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
-        url = "https://odysee.com/$/rss/@AlphaNerd:8";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
+        #url = "https://odysee.com/$/rss/@AlphaNerd:8";
       }
       {
         title = "~YOUTUBE: LibrePhoenix";
         tags = ["YOUTUBE"];
-        #url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
-        url = "https://odysee.com/$/rss/@LibrePhoenix:8";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
+        #url = "https://odysee.com/$/rss/@LibrePhoenix:8";
       }
       {
         title = "~YOUTUBE: No Boilerplate";
