@@ -15,7 +15,8 @@
       {
         title = "~YOUTUBE: Mental Outlaw";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
+        #url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
+        url = "https://odysee.com/$/rss/@AlphaNerd:8";
       }
       {
         title = "~YOUTUBE: LibrePhoenix";
