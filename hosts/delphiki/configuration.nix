@@ -40,7 +40,7 @@
   # Enable sysrq
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "delphiki"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Localization

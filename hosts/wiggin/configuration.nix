@@ -40,7 +40,7 @@
   # Enable sysrq
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "wiggin"; # Define your hostname.
 
   # Localization
   # `timedatectl list-timezones`
