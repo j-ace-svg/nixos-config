@@ -62,7 +62,7 @@
     keyboards = {
       myKMonadOutput = {
         device = "/dev/input/by-id/my-keyboard-kbd";
-        config = builtins.readFile ./kmonad/config.kbd;
+        config = builtins.readFile ../../kmonad/config.kbd;
       };
     };
   };
@@ -123,8 +123,8 @@
     firefox-beta
     firefox-devedition
 
-    (writeShellScriptBin "rebuild" (builtins.readFile ./rebuild.sh))
-    (writeShellScriptBin "update" (builtins.readFile ./update.sh))
+    (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
+    (writeShellScriptBin "update" (builtins.readFile ../../update.sh))
   ];
 
   virtualisation.docker.enable = true;
