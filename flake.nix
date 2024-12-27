@@ -31,6 +31,7 @@
     nix-snapd,
     home-manager,
     kmonad,
+    firefox-addons,
     ...
   }: {
     nixosConfigurations = {
@@ -47,6 +48,8 @@
           ./home-manager/default.nix
           kmonad.nixosModules.default
         ];
+
+        specialArgs = {inherit inputs;};
       };
 
       # Laptop
@@ -62,6 +65,8 @@
           ./home-manager/default.nix
           kmonad.nixosModules.default
         ];
+
+        specialArgs = {inherit inputs;};
       };
     };
   };

@@ -1,4 +1,9 @@
-{pkgs, ...}:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 #let
 #  canvasWebApp = pkgs.qutebrowser.override {
 #
@@ -19,6 +24,7 @@ in {
     ./rnnoise/default.nix
     ./sway/default.nix
     ./newsboat/default.nix
+    ./firefox/default.nix
     ./custom-scripts/default.nix
   ];
 

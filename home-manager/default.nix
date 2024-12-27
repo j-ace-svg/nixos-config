@@ -1,13 +1,13 @@
-{pkgs, ...}:
-#let
-#  canvasWebApp = pkgs.qutebrowser.override {
-#
-#  }
-#in
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.j-ace-svg = import ./j-ace-svg/home.nix;
+    users.j-ace-svg.imports = [./j-ace-svg/home.nix];
+    extraSpecialArgs = {inherit inputs;};
+    backupFileExtension = "hm-backup";
   };
 }
