@@ -33,17 +33,13 @@
       wiggin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/wiggin/configuration.nix
+          ./nixos/hosts/wiggin/configuration.nix
           nix-snapd.nixosModules.default
           {
             services.snap.enable = true;
           }
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.j-ace-svg = import ./j-ace-svg/home.nix;
-          }
+          ./home-manager/default.nix
           kmonad.nixosModules.default
         ];
       };
@@ -52,17 +48,13 @@
       delphiki = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/delphiki/configuration.nix
+          ./nixos/hosts/delphiki/configuration.nix
           nix-snapd.nixosModules.default
           {
             services.snap.enable = true;
           }
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.j-ace-svg = import ./j-ace-svg/home.nix;
-          }
+          ./home-manager/default.nix
           kmonad.nixosModules.default
         ];
       };

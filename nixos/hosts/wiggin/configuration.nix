@@ -57,7 +57,7 @@
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
   services.kmonad = {
-    enable = true;
+    #enable = true;
     keyboards = {
       myKMonadOutput = {
         device = "/dev/input/by-id/my-keyboard-kbd";
