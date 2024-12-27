@@ -62,7 +62,7 @@
     keyboards = {
       myKMonadOutput = {
         device = "/dev/input/by-path/platform-thinkpad_acpi-event";
-        config = builtins.readFile ../../kmonad/config.kbd;
+        config = builtins.readFile ./kmonad/config.kbd;
       };
     };
   };
