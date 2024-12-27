@@ -5,6 +5,7 @@
 }: {
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-beta;
     profiles.j-ace-svg = {
       search.engines = {
         "Nix Packages" = {
@@ -36,6 +37,7 @@
         ublock-origin
         sponsorblock
         darkreader
+        dearrow
       ];
 
       settings = {
