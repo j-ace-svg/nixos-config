@@ -69,7 +69,7 @@
   # Wayland
   programs.sway.enable = true;
   security.polkit.enable = true;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 
