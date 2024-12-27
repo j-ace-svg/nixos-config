@@ -61,7 +61,7 @@
     #enable = true;
     keyboards = {
       myKMonadOutput = {
-        device = "/dev/input/by-id/my-keyboard-kbd";
+        device = "/dev/input/by-path/platform-thinkpad_acpi-event";
         config = builtins.readFile ../../kmonad/config.kbd;
       };
     };
