@@ -27,7 +27,7 @@
               ];
             }
           ];
-          definedAliases = ["@n"];
+          definedAliases = ["ns"];
         };
       };
 
@@ -37,6 +37,11 @@
         sponsorblock
         darkreader
       ];
+
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+      };
     };
   };
 
