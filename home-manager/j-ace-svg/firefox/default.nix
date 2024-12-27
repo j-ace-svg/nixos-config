@@ -6,6 +6,11 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-beta;
+    policies = {
+      DisablePocket = true;
+      DisableTelemetry = true;
+    };
+
     profiles.j-ace-svg = {
       search.engines = {
         "Nix Packages" = {
@@ -43,6 +48,7 @@
       settings = {
         "extensions.autoDisableScopes" = 0;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        "trailhead.firstrun.didSeeAboutWelcome" = true;
       };
     };
   };
