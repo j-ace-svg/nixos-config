@@ -57,6 +57,9 @@
     #variant = "dvorak,";
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
+  systemd.user.services.custom-kmonad = {
+    script = "kmonad ${./kmonad/config.kbd}";
+  };
   services.kmonad = {
     enable = false;
     keyboards = {
