@@ -122,7 +122,7 @@
 
     firefox-beta
 
-    #kmonad
+    haskellPackages.kmonad
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))
