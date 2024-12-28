@@ -23,7 +23,7 @@
 ;;   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl
 ;;   caps a    s    d    f    g    h    j    k    l    ;    '              ret
 ;;   lsft z    x    c    v    b    n    m    ,    .    /                   rsft
-;;   fn   lctl lmet lalt      spc            ralt @prt rctl     pgup up   pgdn
+;;   fn   lctl lmet lalt      spc            ralt ssrq rctl     pgup up   pgdn
 ;;                                                               left down rght
 ;; )
 ;;
@@ -105,7 +105,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl
   caps a    s    d    f    g    h    j    k    l    ;    '              ret
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft
-  fn   lctl lmet lalt      spc            ralt @prt rctl     pgup up   pgdn
+  fn   lctl lmet lalt      spc            ralt ssrq rctl     pgup up   pgdn
                                                               left down rght
 )
 
