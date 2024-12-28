@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../kmonad.mod.nix
   ];
 
   nix = {
@@ -57,16 +58,13 @@
     #variant = "dvorak,";
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
-  systemd.user.services.custom-kmonad = {
-    description = "Custom systemd service to automatically run KMonad";
-    script = "${pkgs.haskellPackages.kmonad}/bin/kmonad ${./kmonad/config.kbd}";
-    wantedBy = ["default.target"];
-  };
-  services.kmonad = {
-    enable = false;
+  services.kmonad-mod = {
+    enable = true;
+    package = pkgs.haskellPackages.kmonad;
     keyboards = {
-      myKMonadOutput = {
+      thinkpad = {
         device = "/dev/input/by-path/platform-thinkpad_acpi-event";
+        defcfg.enable = false;
         config = builtins.readFile ./kmonad/config.kbd;
       };
     };

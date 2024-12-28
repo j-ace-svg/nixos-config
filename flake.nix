@@ -14,10 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kmonad = {
-      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #kmonad = {
+    #  url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -30,7 +30,6 @@
     nixpkgs,
     nix-snapd,
     home-manager,
-    kmonad,
     firefox-addons,
     ...
   }: {
@@ -46,7 +45,7 @@
           }
           home-manager.nixosModules.home-manager
           ./home-manager/default.nix
-          kmonad.nixosModules.default
+          #kmonad.nixosModules.default
         ];
 
         specialArgs = {inherit inputs;};
@@ -63,7 +62,7 @@
           }
           home-manager.nixosModules.home-manager
           ./home-manager/default.nix
-          kmonad.nixosModules.default
+          #kmonad.nixosModules.default
         ];
 
         specialArgs = {inherit inputs;};
