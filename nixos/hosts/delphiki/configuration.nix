@@ -58,7 +58,7 @@
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
   services.kmonad = {
-    #enable = true;
+    enable = false;
     keyboards = {
       myKMonadOutput = {
         device = "/dev/input/by-path/platform-thinkpad_acpi-event";
@@ -99,7 +99,7 @@
     j-ace-svg = {
       createHome = true;
       isNormalUser = true;
-      extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+      extraGroups = ["wheel" "input" "uinput"]; # Enable ‘sudo’ for the user.
     };
     test-second-user = {
       createHome = true;
@@ -121,6 +121,8 @@
     alejandra
 
     firefox-beta
+
+    #kmonad
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))

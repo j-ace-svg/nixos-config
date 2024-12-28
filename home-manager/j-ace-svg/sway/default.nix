@@ -7,13 +7,13 @@
     enable = true;
     config = rec {
       modifier = "Mod4";
-      input = {
-        "*" = {
-          xkb_layout = "us,us";
-          xkb_variant = "dvorak,";
-          xkb_options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
-        };
-      };
+      #input = {
+      #  "*" = {
+      #    xkb_layout = "us,us";
+      #    xkb_variant = "dvorak,";
+      #    xkb_options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+      #  };
+      #};
       output = {
         "*" = {
           bg = "${./sway-wallpaper.png} fill";
