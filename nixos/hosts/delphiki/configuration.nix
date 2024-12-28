@@ -60,7 +60,7 @@
   systemd.user.services.custom-kmonad = {
     description = "Custom systemd service to automatically run KMonad";
     script = "${pkgs.haskellPackages.kmonad}/bin/kmonad ${./kmonad/config.kbd}";
-    wantedBy = ["multi-user.target"];
+    wantedBy = ["default.target"];
   };
   services.kmonad = {
     enable = false;
