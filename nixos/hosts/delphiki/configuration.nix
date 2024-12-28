@@ -58,6 +58,21 @@
     #variant = "dvorak,";
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
+  systemd.services."kmonad-thinkpad-manual" = {
+    description = "KMonad for thinkpad";
+    script = lib.escapeShellArgs [
+      "${pkgs.haskellPackages.kmonad}/bin/kmonad"
+      "--input"
+      ''device-file "/dev/input/by-path/platform-thinkpad_acpi-event"''
+      ''"${./kmonad/config.kbd}"''
+    ];
+    serviceConfig = {
+      Restart = "always";
+      User = "kmonad";
+      SupplementaryGroups = ["input" "uinput"];
+      Nice = -20;
+    };
+  };
   services.kmonad-mod = {
     enable = true;
     package = pkgs.haskellPackages.kmonad;
