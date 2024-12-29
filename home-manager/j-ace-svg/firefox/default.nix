@@ -12,6 +12,7 @@
       DisableFirefoxStudies = true;
       DisablePocket = true;
       #DisableFirefoxScreenshots = true;
+      PasswordManagerEnabled = false;
 
       #DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "never"; # Previously appeared when pressing alt
