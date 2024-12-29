@@ -7,13 +7,13 @@
     enable = true;
     config = rec {
       modifier = "Mod4";
-      input = {
-        "*" = {
-          xkb_layout = "us,us";
-          xkb_variant = "dvorak,";
-          xkb_options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
-        };
-      };
+      #input = {
+      #  "*" = {
+      #    xkb_layout = "us,us";
+      #    xkb_variant = "dvorak,";
+      #    xkb_options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
+      #  };
+      #};
       output = {
         "*" = {
           bg = "${./sway-wallpaper.png} fill";
@@ -72,6 +72,7 @@
     extraConfig = ''
       workspace 1
       exec snap run accountable2you
+      exec ${pkgs.kmonad}/bin/kmonad /etc/kmonad/config.kbd
     '';
   };
 
@@ -141,5 +142,6 @@
     pkgs.grim
     pkgs.slurp
     pkgs.wireplumber
+    pkgs.haskellPackages.kmonad
   ];
 }

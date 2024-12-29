@@ -58,32 +58,45 @@
     #variant = "dvorak,";
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
+  /*
+     Don't work for some reason
   systemd.services."kmonad-thinkpad-manual" = {
     description = "KMonad for thinkpad";
     script = lib.escapeShellArgs [
-      "${pkgs.haskellPackages.kmonad}/bin/kmonad"
-      "--input"
-      ''device-file "/dev/input/by-path/platform-thinkpad_acpi-event"''
-      ''"${./kmonad/config.kbd}"''
+      "${pkgs.kmonad}/bin/kmonad"
+      #"--input"
+      #"device-file /dev/input/by-path/platform-i8042-serio-0-event-kbd"
+      "${./kmonad/config.kbd}"
     ];
+    unitConfig = {
+      StartLimitIntervalSec = 2;
+      StartLimitBurst = 5;
+    };
     serviceConfig = {
       Restart = "always";
+      RestartSec = 2;
+      RestartSteps = 30;
+      RestartMaxDelaySec = "1min";
+      DynamicUser = true;
       User = "kmonad";
       SupplementaryGroups = ["input" "uinput"];
       Nice = -20;
     };
+    wantedBy = ["mutli-user.target"];
   };
   services.kmonad-mod = {
     enable = true;
     package = pkgs.haskellPackages.kmonad;
     keyboards = {
       thinkpad = {
-        device = "/dev/input/by-path/platform-thinkpad_acpi-event";
+        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
         defcfg.enable = false;
         config = builtins.readFile ./kmonad/config.kbd;
       };
     };
   };
+  */
+  environment.etc."kmonad/config.kbd".source = ./kmonad/config.kbd;
 
   # Wayland
   programs.sway.enable = true;
@@ -139,8 +152,6 @@
     alejandra
 
     firefox-beta
-
-    haskellPackages.kmonad
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))
