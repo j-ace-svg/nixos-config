@@ -60,7 +60,25 @@
 
     profiles.j-ace-svg = {
       search = {
-        engines = {
+        engines = let
+          mkSearXNG = {
+            url,
+            alias,
+          }: {
+            urls = [
+              {
+                template = url + "search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [alias];
+          };
+        in {
           "Nix Packages" = {
             urls = [
               {
@@ -83,19 +101,13 @@
             ];
             definedAliases = ["ns"];
           };
-          "Searx Belgium" = {
-            urls = [
-              {
-                template = "https://searx.be/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            definedAliases = ["sb"];
+          "Searx Belgium" = mkSearXNG {
+            url = "https://searx.be/";
+            alias = "sb";
+          };
+          "PaulGO" = mkSearXNG {
+            url = "https://paulgo.io/";
+            alias = "pg";
           };
         };
         default = "DuckDuckGo";
