@@ -109,8 +109,12 @@
             url = "https://paulgo.io/";
             alias = "pg";
           };
+          "PrivAU" = mkSearXNG {
+            url = "https://priv.au/";
+            alias = "au";
+          };
         };
-        default = "DuckDuckGo";
+        default = "PrivAU";
         force = true;
       };
 
