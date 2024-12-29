@@ -84,6 +84,7 @@
             definedAliases = ["ns"];
           };
         };
+        default = "DuckDuckGo";
         force = true;
       };
 
