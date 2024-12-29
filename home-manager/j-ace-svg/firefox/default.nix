@@ -13,6 +13,8 @@
       DisablePocket = true;
       #DisableFirefoxScreenshots = true;
       PasswordManagerEnabled = false;
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
 
       #DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "never"; # Previously appeared when pressing alt
