@@ -83,6 +83,20 @@
             ];
             definedAliases = ["ns"];
           };
+          "Searx Belgium" = {
+            urls = [
+              {
+                template = "https://searx.be/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["sb"];
+          };
         };
         default = "DuckDuckGo";
         force = true;
