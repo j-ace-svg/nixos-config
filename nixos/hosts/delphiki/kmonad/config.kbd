@@ -59,7 +59,7 @@
 (defalias
   amt (tap-next-release a lmet)
   oal (tap-next-release o lalt)
-  ect (tap-next-release e caps)
+  ect (tap-next-release e lctl)
   usf (tap-next-release u @lsl)
   hsf (tap-next-release h @rsl)
   tct (tap-next-release t rctl)
@@ -113,9 +113,9 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc
   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \
-  lctl a    o    e    u    i    d    h    t    n    s    -              ret
+  lctl a    o    e    @usf i    d    @hsf t    n    s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  a    lmet lalt f13       spc            bspc @prt @qwt      pgup up   pgdn
+  fn   lmet lalt f13       spc            bspc @prt @qwt      pgup up   pgdn
                                                               left down rght
 )
 
