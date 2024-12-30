@@ -6,13 +6,13 @@
 ;; Template for a new layer:
 ;;
 ;; (deflayer name
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _         _    
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _         _    
-;;   _    _    _    _    _    _    _    _    _    _    _    _              _    
-;;   _    _    _    _    _    _    _    _    _    _    _                   _    
-;;   _    _    _    _         _              _    _    _         _    _    _    
-;;                                                               _    _    _    
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _         _
+;;   _    _    _    _    _    _    _    _    _    _    _    _    _         _
+;;   _    _    _    _    _    _    _    _    _    _    _    _              _
+;;   _    _    _    _    _    _    _    _    _    _    _                   _
+;;   _    _    _    _         _              _    _    _         _    _    _
+;;                                                               _    _    _
 ;; )
 ;;
 ;; Template for a QWERTY layer:
@@ -23,7 +23,7 @@
 ;;   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl
 ;;   caps a    s    d    f    g    h    j    k    l    ;    '              ret
 ;;   lsft z    x    c    v    b    n    m    ,    .    /                   rsft
-;;   fn   lctl lmet lalt      spc            ralt ssrq rctl     pgup up   pgdn
+;;   fn   lctl lmet lalt      spc            ralt ssrq rctl      pgup up   pgdn
 ;;                                                               left down rght
 ;; )
 ;;
@@ -32,7 +32,7 @@
 ;; (deflayer name
 ;;   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
 ;;   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc
-;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \   
+;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \
 ;;   caps a    o    e    u    i    d    h    t    n    s    -              ret
 ;;   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
 ;;   fn   lctl lmet lalt      spc            ralt @prt rctl     pgup up   pgdn
@@ -112,31 +112,31 @@
 (deflayer rpdv
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc
-  tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \   
+  tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \
   lctl a    o    e    u    i    d    h    t    n    s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  fn   lalt lmet f13       spc            bspc @prt @qwt     pgup up   pgdn
+  fn   lalt lmet f13       spc            bspc @prt @qwt      pgup up   pgdn
                                                               left down rght
 )
 
 (deflayer rpdv-lsft
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _   
-  ~    @ls1 @ls2 @ls3 @ls4 @ls5 @ls6 @ls7 @ls8 @ls9 @ls0 %    `         _   
-  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #   
-  _    A    O    E    U    I    D    H    T    N    S    \_             _   
-  caps "    Q    J    K    X    B    M    W    V    Z                   caps
-  _    _    _    _         _              _    _    _         _    _    _   
-                                                              _    _    _   
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  ~    @ls1 @ls2 @ls3 @ls4 @ls5 @ls6 @ls7 @ls8 @ls9 @ls0 %    `         _
+  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #
+  _    A    O    E    U    I    D    H    T    N    S    \_             _
+  _    "    Q    J    K    X    B    M    W    V    Z                   caps
+  _    _    _    _         _              _    _    _         _    _    _
+                                                              _    _    _
 )
 
 (deflayer rpdv-rsft
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _   
-  ~    @rs1 @rs2 @rs3 @rs4 @rs5 @rs6 @rs7 @rs8 @rs9 @rs0 %    `         _   
-  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #   
-  _    A    O    E    U    I    D    H    T    N    S    \_             _   
-  caps "    Q    J    K    X    B    M    W    V    Z                   caps
-  _    _    _    _         _              _    _    _         _    _    _   
-                                                              _    _    _   
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  ~    @rs1 @rs2 @rs3 @rs4 @rs5 @rs6 @rs7 @rs8 @rs9 @rs0 %    `         _
+  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #
+  _    A    O    E    U    I    D    H    T    N    S    \_             _
+  caps "    Q    J    K    X    B    M    W    V    Z                   _
+  _    _    _    _         _              _    _    _         _    _    _
+                                                              _    _    _
 )
 
 (deflayer qwerty
@@ -145,7 +145,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl
   caps a    s    d    f    g    h    j    k    l    ;    '              ret
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft
-  fn   lctl lmet lalt      spc            ralt @prt @dvk     pgup up   pgdn
+  fn   lctl lmet lalt      spc            ralt @prt @dvk      pgup up   pgdn
                                                               left down rght
 )
 
