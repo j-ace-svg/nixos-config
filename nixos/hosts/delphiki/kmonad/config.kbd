@@ -54,7 +54,7 @@
   rsl (around (layer-toggle rpdv-rsft) rsft)
   dvk (layer-switch rpdv)
   qwt (layer-switch qwerty)
-  mvt (layer-switch mvmt))
+  mvt (layer-toggle mvmt))
 
 ;; Functions
 (defalias
