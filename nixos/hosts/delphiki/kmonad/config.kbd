@@ -60,6 +60,7 @@
 (defalias
   amv (tap-hold-next-release 500 a @mvt :timeout-button a)
   oal (tap-hold-next-release 500 o lalt :timeout-button o)
+  .al (tap-hold-next-release 500 . lmet :timeout-button o)
   ect (tap-hold-next-release 500 e lctl :timeout-button e)
   usf (tap-hold-next-release 500 u @lsl :timeout-button u)
   hsf (tap-hold-next-release 500 h @rsl :timeout-button h)
@@ -113,8 +114,8 @@
 (deflayer rpdv
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc
-  tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \
-  lctl @amv o    @ect @usf i    d    @hsf @tct n    s    -              ret
+  tab  ;    ,    @.al p    y    f    g    c    r    l    /    @         \
+  lctl @amv @oal @ect @usf i    d    @hsf @tct @oal s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
   fn   lmet lalt f13       spc            bspc @prt @qwt      pgup up   pgdn
                                                               left down rght
@@ -144,7 +145,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _         _
   _    _    _    _    _    _    _    pgup up   pgdn _    _    _         _
-  _    _    _    _    _    _    _    left down rght _    _              _
+  _    _    _    _    _    _    _    left down rght ret  _              _
   _    _    _    _    _    _    _    _    _    _    _                   _
   _    _    _    _         _              _    _    _         _    _    _
                                                               _    _    _
