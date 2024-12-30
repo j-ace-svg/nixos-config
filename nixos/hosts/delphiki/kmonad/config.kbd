@@ -115,7 +115,7 @@
   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \   
   lctl a    o    e    u    i    d    h    t    n    s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  lmet lalt fn   f13       spc            bspc @prt @qwt     pgup up   pgdn
+  fn   lalt lmet f13       spc            bspc @prt @qwt     pgup up   pgdn
                                                               left down rght
 )
 
