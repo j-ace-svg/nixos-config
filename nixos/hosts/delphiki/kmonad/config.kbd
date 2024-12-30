@@ -57,14 +57,14 @@
 
 ;; Functions
 (defalias
-  amt (tap-next a lmet)
-  oal (tap-next o lalt)
-  ect (tap-next e caps)
-  usf (tap-next u @lsl)
-  hsf (tap-next h @rsl)
-  tct (tap-next t rctl)
-  nal (tap-next n ralt)
-  smt (tap-next s rmet))
+  amt (tap-next-release a lmet)
+  oal (tap-next-release o lalt)
+  ect (tap-next-release e caps)
+  usf (tap-next-release u @lsl)
+  hsf (tap-next-release h @rsl)
+  tct (tap-next-release t rctl)
+  nal (tap-next-release n ralt)
+  smt (tap-next-release s rmet))
 
 ;; Shifted Dvorak keys
 (defalias
@@ -113,9 +113,9 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end  ins  del
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc
   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \   
-  caps a    o    e    u    i    d    h    t    n    s    -              ret
+  lctl a    o    e    u    i    d    h    t    n    s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  fn   lctl lmet lalt      spc            ralt @prt @qwt     pgup up   pgdn
+  lmet lalt fn   f13       spc            bspc @prt @qwt     pgup up   pgdn
                                                               left down rght
 )
 
