@@ -72,8 +72,8 @@
     extraConfig = ''
       workspace 1
       exec snap run accountable2you
-      exec ${pkgs.kmonad}/bin/kmonad /etc/kmonad/config.kbd
     '';
+    # Was here ^ # exec ${pkgs.kmonad}/bin/kmonad /etc/kmonad/config.kbd
   };
 
   programs.i3status = {
@@ -142,6 +142,6 @@
     pkgs.grim
     pkgs.slurp
     pkgs.wireplumber
-    pkgs.haskellPackages.kmonad
+    #pkgs.haskellPackages.kmonad
   ];
 }
