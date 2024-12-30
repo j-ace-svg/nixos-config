@@ -58,14 +58,14 @@
 
 ;; Functions
 (defalias
-  amv (tap-next-release a @mvt)
-  oal (tap-next-release o lalt)
-  ect (tap-next-release e lctl)
-  usf (tap-next-release u @lsl)
-  hsf (tap-next-release h @rsl)
-  tct (tap-next-release t rctl)
-  nal (tap-next-release n ralt)
-  smt (tap-next-release s rmet))
+  amv (tap-hold-next-release 2000 a @mvt)
+  oal (tap-hold-next-release 2000 o lalt)
+  ect (tap-hold-next-release 2000 e lctl)
+  usf (tap-hold-next-release 2000 u @lsl)
+  hsf (tap-hold-next-release 2000 h @rsl)
+  tct (tap-hold-next-release 2000 t rctl)
+  nal (tap-hold-next-release 2000 n ralt)
+  smt (tap-hold-next-release 2000 s rmet))
 
 ;; Shifted Dvorak keys
 (defalias
