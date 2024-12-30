@@ -25,9 +25,10 @@ sudo sh -c 'nixos-rebuild --flake /etc/nixos switch &> /etc/nixos/nixos-switch.l
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
+hostname=$(hostname)
 
 # Commit all changes witih the generation metadata
-sudo git -C /etc/nixos/ commit -am "$current"
+sudo git -C /etc/nixos/ commit -am "$hostname: $current"
 
 # Notify all OK!
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
