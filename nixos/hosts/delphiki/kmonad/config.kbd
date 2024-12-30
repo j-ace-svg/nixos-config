@@ -60,7 +60,7 @@
 (defalias
   amv (tap-hold-next-release 500 a @mvt :timeout-button a)
   oal (tap-hold-next-release 500 o lalt :timeout-button o)
-  .al (tap-hold-next-release 500 . lmet :timeout-button o)
+  .al (tap-hold-next-release 500 . lmet :timeout-button .)
   ect (tap-hold-next-release 500 e lctl :timeout-button e)
   usf (tap-hold-next-release 500 u @lsl :timeout-button u)
   hsf (tap-hold-next-release 500 h @rsl :timeout-button h)
