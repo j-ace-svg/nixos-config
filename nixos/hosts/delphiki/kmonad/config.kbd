@@ -53,11 +53,12 @@
   lsl (around (layer-toggle rpdv-lsft) lsft)
   rsl (around (layer-toggle rpdv-rsft) rsft)
   dvk (layer-switch rpdv)
-  qwt (layer-switch qwerty))
+  qwt (layer-switch qwerty)
+  mvt (layer-switch mvmt))
 
 ;; Functions
 (defalias
-  amt (tap-next-release a lmet)
+  amv (tap-next-release a @mvt)
   oal (tap-next-release o lalt)
   ect (tap-next-release e lctl)
   usf (tap-next-release u @lsl)
