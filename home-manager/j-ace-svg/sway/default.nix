@@ -155,10 +155,8 @@
       };
     };
     extraConfig = ''
-      workspace 1
       exec snap run accountable2you
     '';
-    # Was here ^ # exec ${pkgs.kmonad}/bin/kmonad /etc/kmonad/config.kbd
   };
 
   programs.i3status = {
