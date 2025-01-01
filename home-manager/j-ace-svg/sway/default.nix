@@ -67,6 +67,7 @@
       ];
       keybindings = lib.mkOptionDefault {
         "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
+        "${modifier}+t" = "exec ${pkgs.firefox}/bin/firefox";
       };
     };
     extraConfig = ''
