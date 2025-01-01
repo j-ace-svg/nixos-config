@@ -58,15 +58,15 @@
 
 ;; Functions
 (defalias
-  amv (tap-hold-next-release 500 a @mvt :timeout-button a)
-  oal (tap-hold-next-release 500 o lalt :timeout-button o)
-  .mt (tap-hold-next-release 500 . lmet :timeout-button .)
-  ect (tap-hold-next-release 500 e lctl :timeout-button e)
-  usf (tap-hold-next-release 500 u @lsl :timeout-button u)
-  hsf (tap-hold-next-release 500 h @rsl :timeout-button h)
-  tct (tap-hold-next-release 500 t rctl :timeout-button t)
-  nal (tap-hold-next-release 500 n ralt :timeout-button n)
-  cmt (tap-hold-next-release 500 c rmet :timeout-button c))
+  amv (tap-hold-next-release 1000 a @mvt :timeout-button a)
+  oal (tap-hold-next-release 1000 o lalt :timeout-button o)
+  .mt (tap-hold-next-release 1000 . lmet :timeout-button .)
+  ect (tap-hold-next-release 1000 e lctl :timeout-button e)
+  usf (tap-hold-next-release 1000 u @lsl :timeout-button u)
+  hsf (tap-hold-next-release 1000 h @rsl :timeout-button h)
+  tct (tap-hold-next-release 1000 t rctl :timeout-button t)
+  nal (tap-hold-next-release 1000 n ralt :timeout-button n)
+  cmt (tap-hold-next-release 1000 c rmet :timeout-button c))
 
 ;; Shifted Dvorak keys
 (defalias
