@@ -70,8 +70,8 @@
       up = "k";
       right = "l";
       defaultWorkspace = "workspace number 1";
-      terminal = "\${pkgs.foot}/bin/foot";
-      menu = "\${pkgs.dmenu}/bin/dmenu_path | \${pkgs.dmenu}/bin/dmenu | \${pkgs.findutils}/bin/xargs swaymsg exec --";
+      terminal = "${pkgs.foot}/bin/foot";
+      menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       keybindings = {
         # Workspaces
         "${modifier}+1" = "workspace number 1";
