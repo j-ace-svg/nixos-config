@@ -177,6 +177,8 @@
         "identity.fxaccounts.enabled" = false;
         # Disable "save password" prompt
         "signon.rememberSignons" = false;
+        # Disable about:config warning
+        "browser.aboutConfig.showWarning" = false;
         # Harden
         "privacy.trackingprotection.enabled" = true;
         "dom.security.https_only_mode" = true;
