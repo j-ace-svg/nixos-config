@@ -131,6 +131,7 @@
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 
         # Disable first-run stuff
+        "browser.aboutwelcome.enabled" = false;
         "trailhead.firstrun.didSeeAboutWelcome" = true;
         "browser.disableResetPrompt" = true;
         "browser.feeds.showFirstRunUI" = false;
@@ -172,6 +173,8 @@
         "toolkit.telemetry.unified" = false;
         "toolkit.telemetry.unifiedIsOptIn" = false;
         "toolkit.telemetry.updatePing.enabled" = false;
+        "extensions.pocket.enabled" = false;
+        "middlemouse.paste" = false;
 
         # Disable fx accounts
         "identity.fxaccounts.enabled" = false;
@@ -182,7 +185,10 @@
         # Harden
         "privacy.trackingprotection.enabled" = true;
         "dom.security.https_only_mode" = true;
+
         # Layout
+        "browser.uidensity" = 1;
+        "browser.compactmode.show" = true;
         "browser.uiCustomization.state" = builtins.toJSON {
           currentVersion = 20;
           newElementCount = 5;
