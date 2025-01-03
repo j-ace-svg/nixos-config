@@ -187,6 +187,7 @@
         "dom.security.https_only_mode" = true;
 
         # Layout
+        "browser.tabs.tabmanager.enabled" = true;
         "browser.uidensity" = 1;
         "browser.compactmode.show" = true;
         "browser.uiCustomization.state" = builtins.toJSON {
