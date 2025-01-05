@@ -111,7 +111,7 @@
   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @qwt pause
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  ;    ,    @.mt p    y    f    g    @cmt r    l    /    @         \         del  end  pgdn      kp7  kp8  kp9  kp+
-  caps @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
+  lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl           up             kp1  kp2  kp3  kprt
   lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
 )
