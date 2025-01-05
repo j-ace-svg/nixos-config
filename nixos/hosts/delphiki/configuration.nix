@@ -59,7 +59,7 @@
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
   };
   systemd.services."kmonad-thinkpad-manual" = {
-    description = "KMonad for thinkpad";
+    description = "KMonad for Thinkpad";
     #unitConfig = {
     #  StartLimitIntervalSec = 2;
     #  StartLimitBurst = 5;
