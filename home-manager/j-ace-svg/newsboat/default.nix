@@ -30,6 +30,11 @@
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA&name=NoBoilerplate";
       }
       {
+        title = "~YOUTUBE: Shnee";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCIJhUaFcOoxyE4ImRpCaNhw&name=Shnee";
+      }
+      {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=Two Minute Papers";
@@ -43,6 +48,11 @@
         title = "~YOUTUBE: PhrogPollen";
         tags = ["YOUTUBE"];
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA&name=PhrogPollen";
+      }
+      {
+        title = "~YOUTUBE: Samuel Bonilla";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA&name=Samuel Bonilla";
       }
       {
         title = "---GAME DEV---";
