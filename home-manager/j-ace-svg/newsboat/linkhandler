@@ -19,6 +19,7 @@ suffix="&"
 case $(tty) in /dev/tty[0-9]*)
     prefix=""; suffix="" ;;
 esac
+echo $prefix
 
 case "$url" in
     *nkv|!webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtub.com/shorts*|*youtube.be*|*hooktube.com*|*bitchute.com*|*videos.lukesmith.xyz*|*odysee.com*)
