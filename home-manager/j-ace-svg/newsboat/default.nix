@@ -52,7 +52,7 @@
       {
         title = "~YOUTUBE: Samuel Bonilla";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA&name=Samuel Bonilla";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCjU1efB7RcrXTc6M5FwkEmg&name=Samuel Bonilla";
       }
       {
         title = "---GAME DEV---";
