@@ -22,7 +22,7 @@ if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
 fi
 
 if [ "$1" = "-s" ]; then
-    echo hi
+    yt-dlp -xo "%(title)s.%(ext)s" "$1"
 fi
 
 if [ "$1" = "-r" ]; then
@@ -31,7 +31,7 @@ if [ "$1" = "-r" ]; then
         echo "$channel"
         mkdir "$channel"
         pushd "$channel"
-        yt-dlp -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"; wait
+        yt-dlp -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
         shift
         popd
     done
