@@ -26,6 +26,11 @@ if [ "$1" = "-s" ]; then
     yt-dlp -xo "%(title)s.%(ext)s" "$1"
 fi
 
+if [ "$1" = "-a" ]; then
+    shift
+    yt-dlp -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+fi
+
 if [ "$1" = "-r" ]; then
     while [[ $# != 0 ]]; do
         channel="$(yt-dlp --print channel "$1")"
