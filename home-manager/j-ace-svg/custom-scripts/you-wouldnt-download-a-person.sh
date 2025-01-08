@@ -3,6 +3,8 @@
 # Make script fail if any individual commands fail
 set -e
 
+wait $!
+
 if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
     if [[ $# = 0 ]]; then
       # App introduction
