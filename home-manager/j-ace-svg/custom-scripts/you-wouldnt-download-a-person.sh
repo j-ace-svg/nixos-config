@@ -22,6 +22,7 @@ if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
 fi
 
 if [ "$1" = "-s" ]; then
+    shift
     yt-dlp -xo "%(title)s.%(ext)s" "$1"
 fi
 
