@@ -101,6 +101,20 @@
             ];
             definedAliases = ["ns"];
           };
+          "Youtube" = {
+            urls = [
+              {
+                template = "https://youtube.com/results";
+                params = [
+                  {
+                    name = "search_query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["yt"];
+          };
           "Searx Belgium" = mkSearXNG {
             url = "https://searx.be/";
             alias = "sb";
