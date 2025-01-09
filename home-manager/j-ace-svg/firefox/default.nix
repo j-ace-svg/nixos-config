@@ -107,12 +107,12 @@
                 template = "https://home-manager-options.extranix.com/";
                 params = [
                   {
-                    name = "release";
-                    value = "unstable";
-                  }
-                  {
                     name = "query";
                     value = "{searchTerms}";
+                  }
+                  {
+                    name = "release";
+                    value = "master";
                   }
                 ];
               }
