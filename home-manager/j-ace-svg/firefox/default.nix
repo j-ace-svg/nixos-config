@@ -101,6 +101,24 @@
             ];
             definedAliases = ["ns"];
           };
+          "Home-Manager Options" = {
+            urls = [
+              {
+                template = "https://home-manager-options.extranix.com/?query=e&release=master";
+                params = [
+                  {
+                    name = "release";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = ["hs"];
+          };
           "Youtube" = {
             urls = [
               {
