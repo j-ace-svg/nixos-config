@@ -104,7 +104,7 @@
           "Home-Manager Options" = {
             urls = [
               {
-                template = "https://home-manager-options.extranix.com/?query=e&release=master";
+                template = "https://home-manager-options.extranix.com/";
                 params = [
                   {
                     name = "release";
