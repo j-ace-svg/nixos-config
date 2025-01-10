@@ -17,7 +17,9 @@ if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
     printf '%s\n' \
 	    "-h/Display this help text" \
 	    "-r/Download all songs from a channel's releases page" \
-	    "-s/Download a single song to an artist's folder" | column -t -s "/"
+	    "-a/Download a single album from within an artist's folder" \
+	    "-s/Download a single song to an artist's folder" \
+	    | column -t -s "/"
     exit 0
 fi
 
