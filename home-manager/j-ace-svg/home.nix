@@ -67,7 +67,6 @@ in {
     pkgs.mov-cli
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
-    pkgs.goldwarden
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
     pkgs.ghc
