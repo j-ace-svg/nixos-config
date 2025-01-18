@@ -95,6 +95,12 @@
   };
   environment.etc."kmonad/config.kbd".source = ./kmonad/config.kbd;
 
+  hardware.trackpoint = {
+    enable = true;
+    device = "Elan TrackPoint";
+    speed = 97;
+  };
+
   # Wayland
   programs.sway.enable = true;
   security.polkit.enable = true;
