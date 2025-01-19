@@ -98,7 +98,7 @@
   hardware.trackpoint = {
     enable = true;
     device = "Elan TrackPoint";
-    speed = 97;
+    speed = 120; # Default 97
   };
 
   # Wayland
