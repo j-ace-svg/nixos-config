@@ -118,7 +118,7 @@
 
   hardware.trackpoint = {
     enable = true;
-    device = "TPPS/2 Elan TrackPoint";
+    device = "Elan TrackPoint";
     speed = 20; # Default 97
   };
 
