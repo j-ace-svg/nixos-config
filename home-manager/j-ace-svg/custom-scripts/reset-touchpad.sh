@@ -4,4 +4,5 @@
 set -e
 
 sudo modprobe -r psmouse
+sleep 3
 sudo modprobe psmouse
