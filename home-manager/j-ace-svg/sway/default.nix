@@ -75,35 +75,35 @@
       keybindings = let
         workspaces = {
           "1" = {
-            key = "a";
+            key = "u";
             name = "1";
           };
           "2" = {
-            key = "o";
+            key = "e";
             name = "2";
           };
           "3" = {
-            key = "e";
+            key = "o";
             name = "3";
           };
           "4" = {
-            key = "u";
+            key = "a";
             name = "4";
           };
           "5" = {
-            key = "semicolon";
+            key = "p";
             name = "5";
           };
           "6" = {
-            key = "comma";
+            key = "period";
             name = "6";
           };
           "7" = {
-            key = "period";
+            key = "comma";
             name = "7";
           };
           "8" = {
-            key = "p";
+            key = "semicolon";
             name = "8";
           };
         };
