@@ -72,28 +72,56 @@
       defaultWorkspace = "workspace number 1";
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
-      keybindings = {
+      keybindings = let
+        workspaces = {
+          "1" = "a";
+          "2" = "o";
+          "3" = "e";
+          "4" = "u";
+          "5" = "semicolon";
+          "6" = "comma";
+          "7" = "period";
+          "8" = "p";
+        };
+      in {
         # Workspaces
-        "${modifier}+1" = "workspace number 1";
-        "${modifier}+2" = "workspace number 2";
-        "${modifier}+3" = "workspace number 3";
-        "${modifier}+4" = "workspace number 4";
-        "${modifier}+5" = "workspace number 5";
-        "${modifier}+6" = "workspace number 6";
-        "${modifier}+7" = "workspace number 7";
-        "${modifier}+8" = "workspace number 8";
-        "${modifier}+9" = "workspace number 9";
-        "${modifier}+0" = "workspace number 10";
-        "${modifier}+Shift+1" = "move container to workspace number 1";
-        "${modifier}+Shift+2" = "move container to workspace number 2";
-        "${modifier}+Shift+3" = "move container to workspace number 3";
-        "${modifier}+Shift+4" = "move container to workspace number 4";
-        "${modifier}+Shift+5" = "move container to workspace number 5";
-        "${modifier}+Shift+6" = "move container to workspace number 6";
-        "${modifier}+Shift+7" = "move container to workspace number 7";
-        "${modifier}+Shift+8" = "move container to workspace number 8";
-        "${modifier}+Shift+9" = "move container to workspace number 9";
-        "${modifier}+Shift+0" = "move container to workspace number 10";
+        # "${modifier}+1" = "workspace number 1";
+        # "${modifier}+2" = "workspace number 2";
+        # "${modifier}+3" = "workspace number 3";
+        # "${modifier}+4" = "workspace number 4";
+        # "${modifier}+5" = "workspace number 5";
+        # "${modifier}+6" = "workspace number 6";
+        # "${modifier}+7" = "workspace number 7";
+        # "${modifier}+8" = "workspace number 8";
+        # "${modifier}+9" = "workspace number 9";
+        # "${modifier}+0" = "workspace number 10";
+        # "${modifier}+Shift+1" = "move container to workspace number 1";
+        # "${modifier}+Shift+2" = "move container to workspace number 2";
+        # "${modifier}+Shift+3" = "move container to workspace number 3";
+        # "${modifier}+Shift+4" = "move container to workspace number 4";
+        # "${modifier}+Shift+5" = "move container to workspace number 5";
+        # "${modifier}+Shift+6" = "move container to workspace number 6";
+        # "${modifier}+Shift+7" = "move container to workspace number 7";
+        # "${modifier}+Shift+8" = "move container to workspace number 8";
+        # "${modifier}+Shift+9" = "move container to workspace number 9";
+        # "${modifier}+Shift+0" = "move container to workspace number 10";
+
+        "${modifier}+${workspaces."1"}" = "workspace number 1";
+        "${modifier}+${workspaces."2"}" = "workspace number 2";
+        "${modifier}+${workspaces."3"}" = "workspace number 3";
+        "${modifier}+${workspaces."4"}" = "workspace number 4";
+        "${modifier}+${workspaces."5"}" = "workspace number 5";
+        "${modifier}+${workspaces."6"}" = "workspace number 6";
+        "${modifier}+${workspaces."7"}" = "workspace number 7";
+        "${modifier}+${workspaces."8"}" = "workspace number 8";
+        "${modifier}+Shift+${workspaces."1"}" = "move container to workspace number 1";
+        "${modifier}+Shift+${workspaces."2"}" = "move container to workspace number 2";
+        "${modifier}+Shift+${workspaces."3"}" = "move container to workspace number 3";
+        "${modifier}+Shift+${workspaces."4"}" = "move container to workspace number 4";
+        "${modifier}+Shift+${workspaces."5"}" = "move container to workspace number 5";
+        "${modifier}+Shift+${workspaces."6"}" = "move container to workspace number 6";
+        "${modifier}+Shift+${workspaces."7"}" = "move container to workspace number 7";
+        "${modifier}+Shift+${workspaces."8"}" = "move container to workspace number 8";
 
         # Navigation
         "${modifier}+Left" = "focus left";
@@ -116,11 +144,11 @@
         "${modifier}+b" = "splith";
         "${modifier}+v" = "splith";
         "${modifier}+f" = "fullscreen toggle";
-        "${modifier}+a" = "focus parent";
+        "${modifier}+c" = "focus parent";
 
         "${modifier}+s" = "layout stacking";
         "${modifier}+w" = "layout tabbed";
-        "${modifier}+e" = "layout toggle split";
+        "${modifier}+y" = "layout toggle split";
 
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+minus" = "scratchpad show";
@@ -129,7 +157,7 @@
         "${modifier}+space" = "focus mode_toggle";
 
         "${modifier}+Shift+c" = "reload";
-        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+        "${modifier}+Shift+g" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
         "${modifier}+r" = "mode resize";
 
