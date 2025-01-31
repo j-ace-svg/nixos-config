@@ -93,12 +93,14 @@ in {
     pkgs.tenacity # The community fork of alacritty after the controversy
     #pkgs.alacritty
     pkgs.musescore # It's actually FOSS! This is a surprise and absolutely a win
+    pkgs.lilypond # Text-based music engraving
     pkgs.obs-studio
     pkgs.libsForQt5.kdenlive
     pkgs.inkscape
     pkgs.krita
     pkgs.gimp
     pkgs.lmms
+    pkgs.ardour
     pkgs.ffmpeg
 
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
@@ -106,6 +108,7 @@ in {
 
     # Game dev
     pkgs.godot_4
+    #pkgs.godot_4-mono
 
     # Installing postmarketos
     pkgs.android-tools

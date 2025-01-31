@@ -30,6 +30,11 @@
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA&name=NoBoilerplate";
       }
       {
+        title = "~YOUTUBE: TheVimeagen";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCVk4b-svNJoeytrrlOixebQ&name=TheVimeagen";
+      }
+      {
         title = "~YOUTUBE: Shnee";
         tags = ["YOUTUBE"];
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCIJhUaFcOoxyE4ImRpCaNhw&name=Shnee";
