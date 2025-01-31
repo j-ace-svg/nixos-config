@@ -74,14 +74,38 @@
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       keybindings = let
         workspaces = {
-          "1" = "a";
-          "2" = "o";
-          "3" = "e";
-          "4" = "u";
-          "5" = "semicolon";
-          "6" = "comma";
-          "7" = "period";
-          "8" = "p";
+          "1" = {
+            key = "a";
+            name = "1";
+          };
+          "2" = {
+            key = "o";
+            name = "2";
+          };
+          "3" = {
+            key = "e";
+            name = "3";
+          };
+          "4" = {
+            key = "u";
+            name = "4";
+          };
+          "5" = {
+            key = "semicolon";
+            name = "5";
+          };
+          "6" = {
+            key = "comma";
+            name = "6";
+          };
+          "7" = {
+            key = "period";
+            name = "7";
+          };
+          "8" = {
+            key = "p";
+            name = "8";
+          };
         };
       in {
         # Workspaces
@@ -106,22 +130,22 @@
         # "${modifier}+Shift+9" = "move container to workspace number 9";
         # "${modifier}+Shift+0" = "move container to workspace number 10";
 
-        "${modifier}+${workspaces."1"}" = "workspace number 1";
-        "${modifier}+${workspaces."2"}" = "workspace number 2";
-        "${modifier}+${workspaces."3"}" = "workspace number 3";
-        "${modifier}+${workspaces."4"}" = "workspace number 4";
-        "${modifier}+${workspaces."5"}" = "workspace number 5";
-        "${modifier}+${workspaces."6"}" = "workspace number 6";
-        "${modifier}+${workspaces."7"}" = "workspace number 7";
-        "${modifier}+${workspaces."8"}" = "workspace number 8";
-        "${modifier}+Shift+${workspaces."1"}" = "move container to workspace number 1";
-        "${modifier}+Shift+${workspaces."2"}" = "move container to workspace number 2";
-        "${modifier}+Shift+${workspaces."3"}" = "move container to workspace number 3";
-        "${modifier}+Shift+${workspaces."4"}" = "move container to workspace number 4";
-        "${modifier}+Shift+${workspaces."5"}" = "move container to workspace number 5";
-        "${modifier}+Shift+${workspaces."6"}" = "move container to workspace number 6";
-        "${modifier}+Shift+${workspaces."7"}" = "move container to workspace number 7";
-        "${modifier}+Shift+${workspaces."8"}" = "move container to workspace number 8";
+        "${modifier}+${workspaces."1".key}" = "workspace number ${workspaces."1".name}";
+        "${modifier}+${workspaces."2".key}" = "workspace number ${workspaces."2".name}";
+        "${modifier}+${workspaces."3".key}" = "workspace number ${workspaces."3".name}";
+        "${modifier}+${workspaces."4".key}" = "workspace number ${workspaces."4".name}";
+        "${modifier}+${workspaces."5".key}" = "workspace number ${workspaces."5".name}";
+        "${modifier}+${workspaces."6".key}" = "workspace number ${workspaces."6".name}";
+        "${modifier}+${workspaces."7".key}" = "workspace number ${workspaces."7".name}";
+        "${modifier}+${workspaces."8".key}" = "workspace number ${workspaces."8".name}";
+        "${modifier}+Shift+${workspaces."1".key}" = "move container to workspace number ${workspaces."1".name}";
+        "${modifier}+Shift+${workspaces."2".key}" = "move container to workspace number ${workspaces."2".name}";
+        "${modifier}+Shift+${workspaces."3".key}" = "move container to workspace number ${workspaces."3".name}";
+        "${modifier}+Shift+${workspaces."4".key}" = "move container to workspace number ${workspaces."4".name}";
+        "${modifier}+Shift+${workspaces."5".key}" = "move container to workspace number ${workspaces."5".name}";
+        "${modifier}+Shift+${workspaces."6".key}" = "move container to workspace number ${workspaces."6".name}";
+        "${modifier}+Shift+${workspaces."7".key}" = "move container to workspace number ${workspaces."7".name}";
+        "${modifier}+Shift+${workspaces."8".key}" = "move container to workspace number ${workspaces."8".name}";
 
         # Navigation
         "${modifier}+Left" = "focus left";
