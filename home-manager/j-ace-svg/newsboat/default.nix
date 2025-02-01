@@ -25,6 +25,12 @@
         #url = "https://odysee.com/$/rss/@LibrePhoenix:8";
       }
       {
+        title = "~YOUTUBE: Ryclic";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7d6soE3Z3Duuo4OD-BibpQ=Ryclic";
+        #url = "https://odysee.com/$/rss/@LibrePhoenix:8";
+      }
+      {
         title = "~YOUTUBE: No Boilerplate";
         tags = ["YOUTUBE"];
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA&name=NoBoilerplate";
