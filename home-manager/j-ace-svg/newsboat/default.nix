@@ -27,8 +27,7 @@
       {
         title = "~YOUTUBE: Ryclic";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7d6soE3Z3Duuo4OD-BibpQ=Ryclic";
-        #url = "https://odysee.com/$/rss/@LibrePhoenix:8";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7d6soE3Z3Duuo4OD-BibpQ&name=Ryclic";
       }
       {
         title = "~YOUTUBE: No Boilerplate";
