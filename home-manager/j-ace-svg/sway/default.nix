@@ -25,7 +25,7 @@
           hiddenState = "hide";
           position = "top";
           workspaceButtons = true;
-          workspaceNumbers = true;
+          workspaceNumbers = false;
           statusCommand = "${pkgs.i3status}/bin/i3status";
           fonts = {
             names = ["monospace"];
@@ -74,6 +74,7 @@
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       keybindings = let
         workspaces = {
+          # Numbers done through ╷ (BOX DRAWINGS LIGHT DOWN) and │ (BOX DRAWINGS LIGHT VERTICAL)
           "1" = {
             key = "u";
             name = "1:╷╷╷";
