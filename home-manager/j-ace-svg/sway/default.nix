@@ -77,35 +77,35 @@
           # Numbers done through ╷ (BOX DRAWINGS LIGHT DOWN) and │ (BOX DRAWINGS LIGHT VERTICAL)
           "1" = {
             key = "u";
-            name = "1:╶─╴";
+            name = "1:╷̲╷̲╷̲";
           };
           "2" = {
             key = "e";
-            name = "2:╶─┚";
+            name = "2:╷̲╷̲│̲";
           };
           "3" = {
             key = "o";
-            name = "3:╶┸╴";
+            name = "3:╷̲│̲╷̲";
           };
           "4" = {
             key = "a";
-            name = "4:╶┸┚";
+            name = "4:╷̲│̲│̲";
           };
           "5" = {
             key = "p";
-            name = "5:┖─╴";
+            name = "5:│̲╷̲╷̲";
           };
           "6" = {
             key = "period";
-            name = "6:┖─┚";
+            name = "6:│̲╷̲│̲";
           };
           "7" = {
             key = "comma";
-            name = "7:┖┸╴";
+            name = "7:│̲│̲╷̲";
           };
           "8" = {
             key = "semicolon";
-            name = "8:┖┸┚";
+            name = "8:│̲│̲│̲";
           };
         };
       in {
