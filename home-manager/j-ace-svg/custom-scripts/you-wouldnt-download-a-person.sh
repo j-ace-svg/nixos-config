@@ -34,6 +34,7 @@ if [ "$1" = "-a" ]; then
 fi
 
 if [ "$1" = "-r" ]; then
+    shift
     while [[ $# != 0 ]]; do
         channel="$(yt-dlp --print channel "$1")"
         echo "$channel"
