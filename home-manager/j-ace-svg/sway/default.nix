@@ -115,7 +115,7 @@ in {
       right = "l";
       defaultWorkspace = "workspace number ${workspaces."1".name}";
       assigns = {
-        "${workspaces."1".name}" = [{class = "^Firefox$";}];
+        "${workspaces."1".name}" = [{class = "^firefox$";}];
       };
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
