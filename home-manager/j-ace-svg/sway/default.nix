@@ -2,7 +2,51 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  workspaces = {
+    # Numbers done through ╻ (BOX DRAWINGS HEAVY DOWN) and ┃ (BOX DRAWINGS HEAVY VERTICAL)
+    "1" = {
+      key = "u";
+      # name = "1:╻╻╻";
+      name = "1:Browser";
+    };
+    "2" = {
+      key = "e";
+      # name = "2:╻╻┃";
+      name = "2:╻╻┃";
+    };
+    "3" = {
+      key = "o";
+      # name = "3:╻┃╻";
+      name = "3:╻┃╻";
+    };
+    "4" = {
+      key = "a";
+      # name = "4:╻┃┃";
+      name = "4:╻┃┃";
+    };
+    "5" = {
+      key = "p";
+      # name = "5:┃╻╻";
+      name = "5:┃╻╻";
+    };
+    "6" = {
+      key = "period";
+      # name = "6:┃╻┃";
+      name = "6:┃╻┃";
+    };
+    "7" = {
+      key = "comma";
+      # name = "7:┃┃╻";
+      name = "7:┃┃╻";
+    };
+    "8" = {
+      key = "semicolon";
+      # name = "8:┃┃┃";
+      name = "8:┃┃┃";
+    };
+  };
+in {
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
@@ -69,46 +113,13 @@
       down = "j";
       up = "k";
       right = "l";
-      defaultWorkspace = "workspace number 1";
+      defaultWorkspace = "workspace number ${workspaces."1".name}";
+      assigns = {
+        "${workspaces."1".name}" = [{class = "^Firefox$";}];
+      };
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
-      keybindings = let
-        workspaces = {
-          # Numbers done through ╷ (BOX DRAWINGS LIGHT DOWN) and │ (BOX DRAWINGS LIGHT VERTICAL)
-          "1" = {
-            key = "u";
-            name = "1:╻╻╻";
-          };
-          "2" = {
-            key = "e";
-            name = "2:╻╻┃";
-          };
-          "3" = {
-            key = "o";
-            name = "3:╻┃╻";
-          };
-          "4" = {
-            key = "a";
-            name = "4:╻┃┃";
-          };
-          "5" = {
-            key = "p";
-            name = "5:┃╻╻";
-          };
-          "6" = {
-            key = "period";
-            name = "6:┃╻┃";
-          };
-          "7" = {
-            key = "comma";
-            name = "7:┃┃╻";
-          };
-          "8" = {
-            key = "semicolon";
-            name = "8:┃┃┃";
-          };
-        };
-      in {
+      keybindings = {
         # Workspaces
         # "${modifier}+1" = "workspace number 1";
         # "${modifier}+2" = "workspace number 2";
