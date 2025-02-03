@@ -8,7 +8,7 @@
     "1" = {
       key = "u";
       # name = "1:╻╻╻";
-      name = "1:Browser";
+      name = "1:Web";
     };
     "2" = {
       key = "e";
@@ -38,7 +38,7 @@
     "7" = {
       key = "comma";
       # name = "7:┃┃╻";
-      name = "7:┃┃╻";
+      name = "7:Game";
     };
     "8" = {
       key = "semicolon";
@@ -116,6 +116,7 @@ in {
       defaultWorkspace = "workspace number ${workspaces."1".name}";
       assigns = {
         "${workspaces."1".name}" = [{app_id = "^firefox$";}];
+        "${workspaces."7".name}" = [{class = "^steam$";}];
       };
       terminal = "${pkgs.foot}/bin/foot";
       menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
