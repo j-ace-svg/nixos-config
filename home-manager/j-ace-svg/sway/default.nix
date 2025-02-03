@@ -33,7 +33,7 @@
     "6" = {
       key = "period";
       # name = "6:┃╻┃";
-      name = "6:┃╻┃";
+      name = "6:Messaging";
     };
     "7" = {
       key = "comma";
@@ -116,6 +116,7 @@ in {
       defaultWorkspace = "workspace number ${workspaces."1".name}";
       assigns = {
         "${workspaces."1".name}" = [{app_id = "^firefox$";}];
+        "${workspaces."6".name}" = [{class = "^legcord$";}];
         "${workspaces."7".name}" = [{class = "^steam$";}];
       };
       terminal = "${pkgs.foot}/bin/foot";
