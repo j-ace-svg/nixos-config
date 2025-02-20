@@ -201,6 +201,19 @@
     spiceUSBRedirection.enable = true;
   };
 
+  networking.nat.forwardPorts = [
+    {
+      from = "host";
+      host.port = 2222;
+      guest.port = 22;
+    }
+    {
+      from = "host";
+      host.port = 80;
+      guest.port = 80;
+    }
+  ];
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc.lib
