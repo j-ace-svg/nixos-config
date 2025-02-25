@@ -24,7 +24,7 @@ in {
     ./rnnoise/default.nix
     ./sway/default.nix
     ./newsboat/default.nix
-    #./nvim/default.nix
+    ./nvim/default.nix
     ./firefox/default.nix
     ./custom-scripts/default.nix
   ];
