@@ -150,6 +150,8 @@
   ];
 
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["j-ace-svg"];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
