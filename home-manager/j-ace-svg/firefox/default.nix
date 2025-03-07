@@ -154,6 +154,7 @@
           };
           "Google".metaData.hidden = true;
           "Bing".metaData.hidden = true;
+          "DuckDuckGo".metaData.alias = "ddg";
         };
         default = "PrivAU";
         force = true;
