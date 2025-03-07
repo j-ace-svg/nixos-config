@@ -167,6 +167,7 @@
         darkreader
         dearrow
         youtube-shorts-block
+        firenvim
       ];
 
       settings = {
