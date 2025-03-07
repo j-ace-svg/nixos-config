@@ -3,13 +3,7 @@
   pkgs,
   inputs,
   ...
-}:
-#let
-#  canvasWebApp = pkgs.qutebrowser.override {
-#
-#  }
-#in
-let
+}: let
   nixosRecentCommitTarball = builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/0e575a459e4c3a96264e7a10373ed738ec1d708f.tar.gz"; # 2021-09-18
     # to find this, click on "commits" at https://github.com/NixOS/nixpkgs and then follow nose to get e.g. https://github.com/NixOS/nixpkgs/commit/0e575a459e4c3a96264e7a10373ed738ec1d708f, and then change "commit" to "archive" and add ".tar.gz"

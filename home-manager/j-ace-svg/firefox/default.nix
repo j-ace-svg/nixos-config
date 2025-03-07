@@ -133,6 +133,13 @@
             ];
             definedAliases = ["yt"];
           };
+          "Wayback Machine" = {
+            urls = [
+              {
+                template = "https://web.archive.org/web/*/{searchTerms}";
+              }
+            ];
+          };
           "Searx Belgium" = mkSearXNG {
             url = "https://searx.be/";
             alias = "sb";
@@ -145,6 +152,8 @@
             url = "https://priv.au/";
             alias = "au";
           };
+          "Google".metaData.hidden = true;
+          "Bing".metaData.hidden = true;
         };
         default = "PrivAU";
         force = true;
