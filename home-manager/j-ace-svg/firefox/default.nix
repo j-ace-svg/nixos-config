@@ -166,6 +166,7 @@
         sponsorblock
         darkreader
         dearrow
+        youtube-shorts-block
       ];
 
       settings = {
