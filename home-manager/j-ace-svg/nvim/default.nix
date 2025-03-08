@@ -27,7 +27,7 @@ in {
         ];
       # see the packageDefinitions below.
       # This says which of those to install.
-      packageNames = ["myHomeModuleNvim"];
+      packageNames = ["nvim" "testnvim"];
 
       luaPath = "${./.}";
 
@@ -100,14 +100,40 @@ in {
       packageDefinitions.replace = {
         # These are the names of your packages
         # you can include as many as you wish.
-        myHomeModuleNvim = {pkgs, ...}: {
+        nvim = {pkgs, ...}: {
           # they contain a settings set defined above
           # see :help nixCats.flake.outputs.settings
           settings = {
             wrapRc = true;
             # IMPORTANT:
             # your alias may not conflict with your other packages.
-            aliases = ["vi" "vim" "nvim" "homeVim"];
+            aliases = ["vi" "vim"];
+            # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          };
+          # and a set of categories that you want
+          # (and other information to pass to lua)
+          categories = {
+            general = true;
+            test = false;
+            example = {
+              youCan = "add more than just booleans";
+              toThisSet = [
+                "and the contents of this categories set"
+                "will be accessible to your lua with"
+                "nixCats('path.to.value')"
+                "see :help nixCats"
+              ];
+            };
+          };
+        };
+        testnvim = {pkgs, ...}: {
+          # they contain a settings set defined above
+          # see :help nixCats.flake.outputs.settings
+          settings = {
+            wrapRc = false;
+            # IMPORTANT:
+            # your alias may not conflict with your other packages.
+            aliases = ["tvi" "tvim" "tnvim"];
             # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
           };
           # and a set of categories that you want
