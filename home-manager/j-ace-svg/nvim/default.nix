@@ -132,6 +132,7 @@ in {
           # see :help nixCats.flake.outputs.settings
           settings = {
             wrapRc = false;
+            unwrappedCfgPath = "${opts.configPath}/home-manager/j-ace-svg/nvim/";
             # IMPORTANT:
             # your alias may not conflict with your other packages.
             aliases = ["tvi" "tvim" "tnvim"];
