@@ -1,2 +1,0 @@
-warning: Invalid flake input '/etc/nixos/flake.lock'. To update a specific flake, use 'nix flake update --flake /etc/nixos/flake.lock' instead.
-error: invalid flake input path element 'flake.lock'
