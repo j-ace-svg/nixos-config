@@ -33,7 +33,11 @@
     firefox-addons,
     ...
   }: {
-    nixosConfigurations = {
+    nixosConfigurations = let
+      defaultOpts = {
+        configPath = "/etc/nixos/";
+      };
+    in {
       # Desktop
       wiggin = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -48,7 +52,10 @@
           #kmonad.nixosModules.default
         ];
 
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          opts = defaultOpts // {};
+        };
       };
 
       # Laptop
@@ -65,7 +72,10 @@
           #kmonad.nixosModules.default
         ];
 
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          opts = defaultOpts // {};
+        };
       };
     };
   };
