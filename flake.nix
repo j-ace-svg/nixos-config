@@ -35,7 +35,7 @@
   }: {
     nixosConfigurations = let
       defaultOpts = {
-        configPath = "/etc/nixos/";
+        configPath = "/etc/nixos";
       };
     in {
       # Desktop
