@@ -160,7 +160,7 @@ in {
 
     home.packages = [
       (pkgs.texlive.combine {
-        inherit (pkgs.texlive) scheme-basic latexmk;
+        inherit (pkgs.texlive) scheme-full latexmk;
       })
     ];
   };
