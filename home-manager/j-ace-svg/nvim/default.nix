@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   inputs,
@@ -156,5 +157,9 @@ in {
         };
       };
     };
+
+    home.packages = [
+      (pkgs.texlive.withPackages (ps: [ps.latexmk]))
+    ];
   };
 }
