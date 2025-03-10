@@ -292,6 +292,7 @@ in {
     pkgs.slurp
     pkgs.wireplumber
     pkgs.wlprop
+    pkgs.dipc
     #pkgs.haskellPackages.kmonad
   ];
 }
