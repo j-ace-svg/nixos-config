@@ -159,7 +159,9 @@ in {
     };
 
     home.packages = [
-      (pkgs.texlive.withPackages (ps: [ps.latexmk]))
+      (pkgs.texlive.combine {
+        inherit (pkgs.texlive) scheme-basic latexmk;
+      })
     ];
   };
 }
