@@ -139,6 +139,7 @@
                 template = "https://web.archive.org/web/*/{searchTerms}";
               }
             ];
+            definedAliases = ["way"];
           };
           "Searx Belgium" = mkSearXNG {
             url = "https://searx.be/";
