@@ -90,7 +90,7 @@ in {
         # vim.g.python3_host_prog
         # or run from nvim terminal via :!<packagename>-python3
         extraPython3Packages = {
-          test = _: [];
+          test = ps: [ps.pynvim];
         };
         # populates $LUA_PATH and $LUA_CPATH
         extraLuaPackages = {
