@@ -115,7 +115,7 @@ in {
       right = "l";
       defaultWorkspace = "workspace number ${workspaces."1".name}";
       assigns = {
-        "${workspaces."1".name}" = [{app_id = "^firefox$";}];
+        "${workspaces."1".name}" = [{app_id = "^floorp$";}];
         "${workspaces."6".name}" = [{class = "^legcord$";}];
         "${workspaces."7".name}" = [{class = "^steam$";}];
       };
@@ -203,7 +203,7 @@ in {
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+d" = "exec ${menu}";
         "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
-        "${modifier}+t" = "exec ${pkgs.firefox}/bin/firefox";
+        "${modifier}+t" = "exec ${pkgs.floorp}/bin/floorp";
       };
       modes = {
         resize = {
