@@ -223,13 +223,18 @@
 
         # Disable fx accounts
         "identity.fxaccounts.enabled" = false;
-        # Disable "save password" prompt
+        # Disable password/address/payment method autofill
         "signon.rememberSignons" = false;
+        "extensions.formautofill.addresses.enabled" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
         # Disable about:config warning
         "browser.aboutConfig.showWarning" = false;
         # Harden
         "privacy.trackingprotection.enabled" = true;
         "dom.security.https_only_mode" = true;
+        "privacy.globalprivacycontrol.enabled" = true;
+        "privacy.donottrackheader.enabled" = true;
+        "privacy.globalprivacycontrol.was_ever_enabled" = true;
 
         # Layout
         "browser.tabs.tabmanager.enabled" = true;
@@ -249,6 +254,7 @@
           };
           seen = ["save-to-pocket-button" "developer-button" "ublock0_raymondhill_net-browser-action" "_testpilot-containers-browser-action"];
         };
+        "floorp.lepton.interface" = 3;
       };
     };
   };
