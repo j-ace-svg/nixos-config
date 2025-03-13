@@ -3,9 +3,9 @@
   inputs,
   ...
 }: {
-  programs.firefox = {
+  programs.floorp = {
     enable = true;
-    package = pkgs.firefox-beta;
+    package = pkgs.floorp;
     policies = {
       DontCheckDefaultBrowser = true;
       DisableTelemetry = true;

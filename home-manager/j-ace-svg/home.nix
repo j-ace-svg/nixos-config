@@ -14,7 +14,7 @@
     ./sway/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
-    ./firefox/default.nix
+    ./floorp/default.nix
     ./easyeffects/default.nix
     ./custom-scripts/default.nix
   ];
