@@ -222,8 +222,8 @@ in {
           "Return" = "mode default";
         };
         launch = {
-          "t" = "exec ${pkgs.floorp}/bin/floorp";
-          "b" = "exec ${pkgs.bitwarden}/bin/bitwarden";
+          "t" = "exec ${pkgs.floorp}/bin/floorp; mode default";
+          "b" = "exec ${pkgs.bitwarden}/bin/bitwarden; mode default";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
