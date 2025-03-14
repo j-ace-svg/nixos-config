@@ -111,6 +111,9 @@ in {
       window = {
         titlebar = false;
       };
+      gaps = {
+        inner = 10;
+      };
       modifier = "Mod4";
       left = "h";
       down = "j";
