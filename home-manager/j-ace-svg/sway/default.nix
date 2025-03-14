@@ -108,6 +108,9 @@ in {
           };
         }
       ];
+      window = {
+        titlebar = false;
+      };
       modifier = "Mod4";
       left = "h";
       down = "j";
@@ -203,7 +206,7 @@ in {
         "${modifier}+Return" = "exec ${terminal}";
         "${modifier}+d" = "exec ${menu}";
         "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
-        "${modifier}+t" = "exec ${pkgs.floorp}/bin/floorp";
+        "${modifier}+t" = "mode launch";
       };
       modes = {
         resize = {
@@ -215,6 +218,12 @@ in {
           "Down" = "resize grow height 10 px";
           "Up" = "resize shrink height 10 px";
           "Right" = "resize grow width 10 px";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+        };
+        launch = {
+          "t" = "exec ${pkgs.floorp}/bin/floorp";
+          "b" = "exec ${pkgs.bitwarden}/bin/bitwarden";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
