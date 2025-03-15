@@ -15,6 +15,7 @@
     ./newsboat/default.nix
     ./nvim/default.nix
     ./firefox/default.nix
+    ./easyeffects/default.nix
     ./custom-scripts/default.nix
   ];
 
@@ -93,7 +94,6 @@
     pkgs.lmms
     pkgs.ardour
     pkgs.ffmpeg
-    pkgs.easyeffects
 
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
     pkgs.brave
