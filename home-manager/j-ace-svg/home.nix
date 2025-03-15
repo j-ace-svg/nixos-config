@@ -93,6 +93,7 @@
     pkgs.lmms
     pkgs.ardour
     pkgs.ffmpeg
+    pkgs.easyeffects
 
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
     pkgs.brave
