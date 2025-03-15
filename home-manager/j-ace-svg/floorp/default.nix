@@ -169,6 +169,7 @@
         dearrow
         youtube-shorts-block
         firenvim
+        gruvbox-dark-theme
       ];
 
       settings = {

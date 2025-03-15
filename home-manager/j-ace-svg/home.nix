@@ -51,6 +51,7 @@
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
+    pkgs.unimatrix
     pkgs.nuclear
     pkgs.zotify # Spotify downloader
     pkgs.python3Full
