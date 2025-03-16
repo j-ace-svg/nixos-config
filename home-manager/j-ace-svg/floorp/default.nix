@@ -194,6 +194,10 @@
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
 
+        # Customize newtab page
+        "browser.newtabpage.activity-stream.floorp.background.type" = 4;
+        "browser.newtabpage.activity-stream.floorp.background.image.path" = "/etc/nixos/home-manager/j-ace-svg/sway/sway-wallpaper.png";
+
         # Disable telemetry stuff
         "app.shield.optoutstudies.enabled" = false;
         "browser.discovery.enabled" = false;
