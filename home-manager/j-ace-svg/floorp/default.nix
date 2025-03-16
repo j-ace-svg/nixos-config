@@ -224,6 +224,10 @@
 
         # Disable fx accounts
         "identity.fxaccounts.enabled" = false;
+        # Disable DRM prompt
+        "media.gmp-widevinecdm.visible" = false;
+        # Disable download popup on completion
+        "browser.download.alwaysOpenPanel" = false;
         # Disable password/address/payment method autofill
         "signon.rememberSignons" = false;
         "extensions.formautofill.addresses.enabled" = false;
