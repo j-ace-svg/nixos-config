@@ -99,6 +99,7 @@
                 ];
               }
             ];
+            iconUpdateURL = "https://search.nixos.org/favicon.png";
             definedAliases = ["ns"];
           };
           "Home-Manager Options" = {
@@ -117,6 +118,7 @@
                 ];
               }
             ];
+            iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
             definedAliases = ["hs"];
           };
           "Youtube" = {
@@ -131,6 +133,7 @@
                 ];
               }
             ];
+            iconUpdateURL = "https://www.youtube.com/s/desktop/ee47b5e0/img/logos/favicon_32x32.png";
             definedAliases = ["yt"];
           };
           "Wayback Machine" = {
@@ -139,6 +142,7 @@
                 template = "https://web.archive.org/web/*/{searchTerms}";
               }
             ];
+            iconUpdateURL = "https://web-static.archive.org/_static/images/archive.ico";
             definedAliases = ["way"];
           };
           "Searx Belgium" = mkSearXNG {
