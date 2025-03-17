@@ -61,9 +61,10 @@
     profiles.j-ace-svg = {
       search = {
         engines = let
-          mkSearXNG = {
+          mkSearXNG = args @ {
             url,
             alias,
+            iconPath ? args.url + "static/themes/simple/img/favicon.png",
           }: {
             urls = [
               {
@@ -76,6 +77,7 @@
                 ];
               }
             ];
+            iconUpdateURL = iconPath;
             definedAliases = [alias];
           };
         in {
