@@ -168,16 +168,7 @@
         force = true;
       };
 
-      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-        bitwarden
-        ublock-origin
-        sponsorblock
-        darkreader
-        dearrow
-        youtube-shorts-block
-        firenvim
-        gruvbox-dark-theme
-      ];
+      extensions = import ./extensions.nix {inherit pkgs inputs;};
 
       settings = {
         "extensions.autoDisableScopes" = 0;
