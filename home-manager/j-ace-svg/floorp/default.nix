@@ -160,10 +160,10 @@
   };
 
   xdg.mimeApps.defaultApplications = {
-    "text/html" = ["firefox.desktop"];
-    "text/xml" = ["firefox.desktop"];
-    "x-scheme-handler/http" = ["firefox.desktop"];
-    "x-scheme-handler/https" = ["firefox.desktop"];
+    "text/html" = ["floorp.desktop"];
+    "text/xml" = ["floorp.desktop"];
+    "x-scheme-handler/http" = ["floorp.desktop"];
+    "x-scheme-handler/https" = ["floorp.desktop"];
   };
 
   home.packages = [
