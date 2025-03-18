@@ -92,6 +92,7 @@ in {
         extraPython3Packages = {
           test = [(_: [])];
         };
+        optionalLuaPreInit.fixPy = ''vim.g.python3_host_prog = "nvim-python3"'';
         # populates $LUA_PATH and $LUA_CPATH
         extraLuaPackages = {
           test = [(_: [])];
