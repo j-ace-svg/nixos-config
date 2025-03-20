@@ -36,7 +36,7 @@ in {
       # the .replace vs .merge options are for modules based on existing configurations,
       # they refer to how multiple categoryDefinitions get merged together by the module.
       # for useage of this section, refer to :h nixCats.flake.outputs.categories
-      categoryDefinitions.replace = {
+      categoryDefinitions.merge = {
         pkgs,
         settings,
         categories,
