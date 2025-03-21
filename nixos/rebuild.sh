@@ -3,7 +3,15 @@
 # Make script fail if any individual commands fail
 set -e
 
-if [ "$1" != "-f" ]; then
+args = ""
+
+for arg in "$@"; do
+    if [ "${arg:0:1}" = "-"]; then
+	args+="${arg:0}"
+    fi
+done
+
+if [[ "$args" == *"f"* ]]; then
     # Early return if no changes were detected
     if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
         echo "No changes detected, exiting."
