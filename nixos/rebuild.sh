@@ -3,7 +3,10 @@
 # Make script fail if any individual commands fail
 set -e
 
-args = ""
+args=""
+# Possible args:
+# -f: Rebuild even if no .nix files are changed
+# -o: Rebuild offline
 
 for arg in "$@"; do
     if [ "${arg:0:1}" = "-"]; then
@@ -11,7 +14,7 @@ for arg in "$@"; do
     fi
 done
 
-if [[ "$args" == *"f"* ]]; then
+if [[ "$args" != *"f"* ]]; then
     # Early return if no changes were detected
     if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
         echo "No changes detected, exiting."
@@ -28,8 +31,13 @@ sudo git -C /etc/nixos/ diff -U0 '/etc/nixos/*.nix'
 
 echo "NixOS Rebuilding..."
 
+rebuild_extra_args=""
+if [[ "$args" == *"o"* ]]; then
+  rebuild_extra_args+=" --offline "
+fi
+
 # Rebuild, output simplified errors, log trackebacks
-sudo sh -c 'nixos-rebuild --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log' || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
+sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
