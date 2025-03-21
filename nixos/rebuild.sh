@@ -9,7 +9,7 @@ args=""
 # -o: Rebuild offline
 
 for arg in "$@"; do
-    if [ "${arg:0:1}" = "-"]; then
+    if [ "${arg:0:1}" = "-" ]; then
 	args+="${arg:0}"
     fi
 done
