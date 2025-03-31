@@ -50,6 +50,7 @@
           "adguard-widgets"
           "ublock-annoyances"
         ];
+        userFilters = "! Mar 30, 2025 https://www.youtube.com\\nwww.youtube.com###player:remove()";
       };
     };
   };
