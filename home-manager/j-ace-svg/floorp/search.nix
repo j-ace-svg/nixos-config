@@ -90,6 +90,21 @@
       iconUpdateURL = "https://web-static.archive.org/_static/images/archive.ico";
       definedAliases = ["way"];
     };
+    "WordReference" = {
+      urls = [
+        {
+          template = "https://www.wordreference.com/es/translation.asp";
+          params = [
+            {
+              name = "tranword";
+              value = "{searchTerms}";
+            }
+          ];
+        }
+      ];
+      iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+      definedAliases = ["wr"];
+    };
     "Searx Belgium" = mkSearXNG {
       url = "https://searx.be/";
       alias = "sb";
