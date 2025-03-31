@@ -117,6 +117,7 @@ in {
           # (and other information to pass to lua)
           categories = {
             general = true;
+            fixPy = true;
             test = false;
             example = {
               youCan = "add more than just booleans";
@@ -144,6 +145,7 @@ in {
           # (and other information to pass to lua)
           categories = {
             general = true;
+            fixPy = true;
             test = true;
             example = {
               youCan = "add more than just booleans";
