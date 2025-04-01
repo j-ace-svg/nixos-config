@@ -61,7 +61,7 @@
 ;; Functions
 (defalias
   amv (tap-hold-next-release 1000 a @mvt :timeout-button a)
-  ,nm (tap-hold-next-release 1000 , @lnl :timeout-button ,)
+  ,nm (tap-hold-next-release 1000 , @rnl :timeout-button ,)
   oal (tap-hold-next-release 1000 o lalt :timeout-button o)
   .mt (tap-hold-next-release 1000 . lmet :timeout-button .)
   ect (tap-hold-next-release 1000 e lctl :timeout-button e)
@@ -70,7 +70,7 @@
   tct (tap-hold-next-release 1000 t rctl :timeout-button t)
   cmt (tap-hold-next-release 1000 c rmet :timeout-button c)
   nal (tap-hold-next-release 1000 n ralt :timeout-button n)
-  rnm (tap-hold-next-release 1000 r @rnl :timeout-button r))
+  rnm (tap-hold-next-release 1000 r @lnl :timeout-button r))
 
 ;; Shifted Dvorak keys
 (defalias
