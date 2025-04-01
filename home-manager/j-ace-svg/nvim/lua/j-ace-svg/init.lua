@@ -3,3 +3,4 @@ require("nixCatsUtils").setup {
 }
 
 require("j-ace-svg.lazy")
+require("j-ace-svg.sets")
