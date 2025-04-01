@@ -30,6 +30,7 @@
     profiles = {
       audio-only = {
         profile-cond = "(get('estimated-frame-count', 0) < 2)";
+        profile-restore = "copy";
         speed = 1;
       };
     };
