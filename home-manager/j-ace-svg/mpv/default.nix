@@ -29,7 +29,7 @@
     };
     profiles = {
       audio-only = {
-        profile-cond = "(get('estimated-frame-count', math.huge) < 2)";
+        profile-cond = "(get('estimated-frame-count', 0) < 2)";
         speed = 1;
       };
     };
