@@ -197,7 +197,7 @@
     system-config-printer
     alejandra
 
-    firefox-beta
+    floorp
 
     haskellPackages.kmonad
 

@@ -143,7 +143,7 @@
     system-config-printer
     alejandra
 
-    firefox-beta
+    floorp
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))
