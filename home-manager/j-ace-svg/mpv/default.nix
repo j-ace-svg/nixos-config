@@ -29,7 +29,7 @@
     };
     profiles = {
       audio-only = {
-        profile-cond = "(get('estimated-frame-count', 0) < 2)";
+        profile-cond = "(get('video-frame-info/picture-type', 'I') == 'I')";
         profile-restore = "copy";
         speed = 1;
       };
