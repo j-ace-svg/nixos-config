@@ -54,19 +54,23 @@
   rsl (around (layer-toggle rpdv-rsft) rsft)
   dvk (layer-switch rpdv)
   qwt (layer-switch qwerty)
-  mvt (layer-toggle mvmt))
+  mvt (layer-toggle mvmt)
+  lnl (layer-toggle lnum)
+  rnl (layer-toggle rnum))
 
 ;; Functions
 (defalias
   amv (tap-hold-next-release 1000 a @mvt :timeout-button a)
+  ,nm (tap-hold-next-release 1000 , @lnl :timeout-button ,)
   oal (tap-hold-next-release 1000 o lalt :timeout-button o)
   .mt (tap-hold-next-release 1000 . lmet :timeout-button .)
   ect (tap-hold-next-release 1000 e lctl :timeout-button e)
   usf (tap-hold-next-release 1000 u @lsl :timeout-button u)
   hsf (tap-hold-next-release 1000 h @rsl :timeout-button h)
   tct (tap-hold-next-release 1000 t rctl :timeout-button t)
+  cmt (tap-hold-next-release 1000 c rmet :timeout-button c)
   nal (tap-hold-next-release 1000 n ralt :timeout-button n)
-  cmt (tap-hold-next-release 1000 c rmet :timeout-button c))
+  rnm (tap-hold-next-release 1000 r @rnl :timeout-button r))
 
 ;; Shifted Dvorak keys
 (defalias
@@ -149,6 +153,26 @@
   _    _    _    _    _    _    _    pgup up   pgdn _    _    _         _
   _    _    _    lctl lsft _    _    left down rght ret  _              _
   _    _    _    _    _    _    esc  _    _    _    _                   _
+  _    _    _    _         _              _    _    _         _    _    _
+                                                              _    _    _
+)
+
+(deflayer lnum
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    0    1    2    3    4    _    _    _    _    _    _    _         _
+  _    5    6    7    8    9    _    _    _    _    _    _              _
+  _    _    _    _    _    _    _    _    _    _    _                   _
+  _    _    _    _         _              _    _    _         _    _    _
+                                                              _    _    _
+)
+
+(deflayer rnum
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    _    0    1    2    3    4    _         _
+  _    _    _    _    _    _    _    5    6    7    8    9              _
+  _    _    _    _    _    _    _    _    _    _    _                   _
   _    _    _    _         _              _    _    _         _    _    _
                                                               _    _    _
 )
