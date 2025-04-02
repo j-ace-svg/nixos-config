@@ -160,7 +160,8 @@
   };
 
   xdg = {
-    desktopEntries.floorp = {
+    /*
+      desktopEntries.floorp = {
       name = "Floorp";
       exec = "${pkgs.floorp}/bin/floorp %u";
       terminal = false;
@@ -168,6 +169,7 @@
       categories = ["Application" "Network" "WebBrowser"];
       mimeType = ["text/html" "text/xml"];
     };
+    */
 
     mimeApps.defaultApplications = {
       "text/html" = ["floorp.desktop"];
