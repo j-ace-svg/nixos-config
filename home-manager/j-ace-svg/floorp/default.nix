@@ -159,24 +159,11 @@
     };
   };
 
-  xdg = {
-    /*
-      desktopEntries.floorp = {
-      name = "Floorp";
-      exec = "${pkgs.floorp}/bin/floorp %u";
-      terminal = false;
-      type = "Application";
-      categories = ["Application" "Network" "WebBrowser"];
-      mimeType = ["text/html" "text/xml"];
-    };
-    */
-
-    mimeApps.defaultApplications = {
-      "text/html" = ["floorp.desktop"];
-      "text/xml" = ["floorp.desktop"];
-      "x-scheme-handler/http" = ["floorp.desktop"];
-      "x-scheme-handler/https" = ["floorp.desktop"];
-    };
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = ["floorp.desktop"];
+    "text/xml" = ["floorp.desktop"];
+    "x-scheme-handler/http" = ["floorp.desktop"];
+    "x-scheme-handler/https" = ["floorp.desktop"];
   };
 
   home.packages = [

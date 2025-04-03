@@ -56,7 +56,8 @@
   qwt (layer-switch qwerty)
   mvt (layer-toggle mvmt)
   lnl (layer-toggle lnum)
-  rnl (layer-toggle rnum))
+  rnl (layer-toggle rnum)
+  lay (layer-toggle layer-sel))
 
 ;; Functions
 (defalias
@@ -123,7 +124,7 @@
   tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @         \
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  fn   lmet lalt f13       spc            bspc @prt @qwt      pgup up   pgdn
+  fn   lmet lalt f13       spc            bspc @prt @lay      pgup up   pgdn
                                                               left down rght
 )
 
@@ -183,8 +184,18 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl
   caps a    s    d    f    g    h    j    k    l    ;    '              ret
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft
-  fn   lctl lmet lalt      spc            ralt @prt @dvk      pgup up   pgdn
+  fn   lctl lmet lalt      spc            ralt @prt @lay      pgup up   pgdn
                                                               left down rght
+)
+
+(deflayer layer-sel
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  _    @qwt @dvk _    _    _    _    _    _    _    _    _    _         _
+  _    _    _    _    _    _    _    _    _    _    _    _              _
+  _    _    _    _    _    _    _    _    _    _    _                   _
+  _    _    _    _         _              _    _    _         _    _    _
+                                                              _    _    _
 )
 
 ;; vim: tabstop=2 shiftwidth=2
