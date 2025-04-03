@@ -15,6 +15,7 @@
     ./newsboat/default.nix
     ./nvim/default.nix
     ./floorp/default.nix
+    ./foot/default.nix
     ./easyeffects/default.nix
     ./custom-scripts/default.nix
   ];

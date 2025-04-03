@@ -7,7 +7,9 @@
 in {
   programs.foot = {
     enable = true;
-    server = true;
-    colors = colors.gruvbox-dark;
+    server.enable = true;
+    settings = {
+      colors = colors.gruvbox-dark;
+    };
   };
 }
