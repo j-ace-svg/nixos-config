@@ -186,7 +186,7 @@ in {
         "${modifier}+Shift+${right}" = "move right";
 
         "${modifier}+b" = "splith";
-        "${modifier}+v" = "splith";
+        "${modifier}+v" = "splitv";
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+c" = "focus parent";
 
