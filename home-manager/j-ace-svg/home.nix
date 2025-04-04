@@ -54,7 +54,6 @@
     pkgs.hollywood
     pkgs.unimatrix
     pkgs.nuclear
-    pkgs.spotube
     pkgs.zotify # Spotify downloader
     pkgs.python3Full
     pkgs.libsForQt5.kolourpaint
