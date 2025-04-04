@@ -9,7 +9,7 @@ in {
     enable = true;
     server.enable = true;
     settings = {
-      colors = colors.gruvbox-dark;
+      colors = colors.gruvbox-dark // {alpha = 0.9;};
     };
   };
 }
