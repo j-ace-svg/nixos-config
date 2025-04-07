@@ -50,7 +50,7 @@ in {
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.swayfx;
-    checkConfig = false; # Temporary fix due to a bug with nixos/swayfx
+    checkConfig = false; # Fix until nix-community/home-manager#5379 is resolved.
     config = rec {
       #input = {
       #  "*" = {
@@ -112,6 +112,14 @@ in {
       ];
       window = {
         titlebar = false;
+        commands = [
+          {
+            command = "blur enable";
+            criteria = {
+              app_id = "foot"; # get with `swaymsg -t get_tree | grep app_id`
+            };
+          }
+        ];
       };
       gaps = {
         inner = 10;
