@@ -14,6 +14,7 @@
     ./sway/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
+    ./vifm/default.nix
     ./floorp/default.nix
     ./foot/default.nix
     ./easyeffects/default.nix

@@ -5,7 +5,7 @@
 }: {
   programs.vifm = {
     enable = true;
-    extraConfig = builtins.readfile ./vifmrc;
+    extraConfig = builtins.readFile ./vifmrc;
   };
 
   home.file.".config/vifm/scripts".source = ./scripts;
