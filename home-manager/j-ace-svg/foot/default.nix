@@ -12,4 +12,8 @@ in {
       colors = colors.gruvbox-dark // {alpha = colors.alpha;};
     };
   };
+
+  home.packages = [
+    pkgs.libsixel
+  ];
 }
