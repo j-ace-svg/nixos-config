@@ -8,7 +8,10 @@
     extraConfig = builtins.readFile ./vifmrc;
   };
 
-  home.file.".config/vifm/scripts".source = ./scripts;
+  home.file.".config/vifm/scripts" = {
+    source = ./scripts;
+    executable = true;
+  };
 
   home.packages = [
     pkgs.libsixel
