@@ -49,6 +49,8 @@
 in {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.swayfx;
+    checkConfig = false; # Temporary fix due to a bug with nixos/swayfx
     config = rec {
       #input = {
       #  "*" = {
