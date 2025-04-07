@@ -112,6 +112,7 @@ in {
       ];
       window = {
         titlebar = false;
+        border = 0;
         commands = [
           {
             command = "corner_radius 10";
