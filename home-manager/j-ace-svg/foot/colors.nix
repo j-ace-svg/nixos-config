@@ -1,5 +1,5 @@
 {
-  alpha = 0.8;
+  alpha = 0.7;
   gruvbox-dark = {
     background = "282828"; #282828
     foreground = "ebdbb2"; #ebdbb2
