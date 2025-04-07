@@ -46,6 +46,7 @@
     pkgs.sxiv # Image viewer
     #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.vifm
+    pkgs.ranger
     pkgs.zip
     pkgs.unzip
     pkgs.ripgrep
