@@ -114,9 +114,17 @@ in {
         titlebar = false;
         commands = [
           {
+            command = "corner_radius 10";
+            criteria = {
+              app_id = ".*";
+              title = ".*";
+              class = ".*";
+            };
+          }
+          {
             command = "blur enable";
             criteria = {
-              app_id = "foot"; # get with `swaymsg -t get_tree | grep app_id`
+              app_id = "^foot$"; # get with `swaymsg -t get_tree | grep app_id`
             };
           }
         ];
