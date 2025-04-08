@@ -17,6 +17,7 @@
     ./vifm/default.nix
     ./floorp/default.nix
     ./foot/default.nix
+    ./fastfetch/default.nix
     ./easyeffects/default.nix
     ./custom-scripts/default.nix
   ];
