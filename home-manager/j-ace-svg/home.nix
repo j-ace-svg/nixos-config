@@ -46,7 +46,6 @@
     pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
     #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
-    pkgs.vifm
     pkgs.zip
     pkgs.unzip
     pkgs.ripgrep
