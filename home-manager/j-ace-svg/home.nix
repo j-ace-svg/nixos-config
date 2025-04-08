@@ -72,7 +72,6 @@
     pkgs.picard
     pkgs.ventoy-full
     pkgs.go-sct
-    pkgs.fastfetch
 
     # Basic Services
     pkgs.libnotify
