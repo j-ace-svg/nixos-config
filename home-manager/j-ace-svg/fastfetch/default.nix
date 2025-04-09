@@ -14,9 +14,10 @@
           binaryPrefix = "si";
         };
         color = "blue";
-        separator = "  ";
+        separator = ": ";
       };
-      modules = [
+      /*
+        modules = [
         {
           type = "datetime";
           key = "Date";
@@ -31,6 +32,7 @@
         "player"
         "media"
       ];
+      */
     };
   };
 }
