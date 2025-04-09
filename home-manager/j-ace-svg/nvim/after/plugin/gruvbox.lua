@@ -1,8 +1,6 @@
 vim.cmd.colorscheme("gruvbox")
 
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
+vim.api.nvim_set_hl(0, 'Normal', {guibg=nil})
+vim.api.nvim_set_hl(0, 'NonText', {guibg=nil})
+vim.api.nvim_set_hl(0, 'Normal', {ctermbg=nil})
+vim.api.nvim_set_hl(0, 'NonText', {ctermbg=nil})
