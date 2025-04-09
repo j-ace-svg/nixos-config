@@ -331,5 +331,6 @@ in {
     pkgs.wireplumber
     pkgs.wlprop
     pkgs.dipc # Convert wallpapers to ther color schemes
+    pkgs.brightnessctl
   ];
 }
