@@ -18,6 +18,7 @@
     ./floorp/default.nix
     ./foot/default.nix
     ./fastfetch/default.nix
+    ./fonts/default.nix
     ./easyeffects/default.nix
     ./custom-scripts/default.nix
   ];
