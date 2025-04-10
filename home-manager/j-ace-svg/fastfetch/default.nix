@@ -13,25 +13,38 @@
         size = {
           binaryPrefix = "si";
         };
-        color = {
-          title = "blue";
-          keys = "green";
-        };
         separator = ": ";
       };
       modules = [
         "title"
         "separator"
-        {
-          type = "datetime";
-          key = "Date";
-          format = "{1}-{3}-{11}";
-        }
-        {
-          type = "datetime";
-          key = "Time";
-          format = "{14}:{17}:{20}";
-        }
+        "os"
+        "host"
+        "kernel"
+        "uptime"
+        "packages"
+        "shell"
+        "display"
+        "de"
+        "wm"
+        "wmtheme"
+        "theme"
+        "icons"
+        "font"
+        "cursor"
+        "terminal"
+        "terminalfont"
+        "cpu"
+        "gpu"
+        "memory"
+        "swap"
+        "disk"
+        "localip"
+        "battery"
+        "poweradapter"
+        "locale"
+        "break"
+        "colors"
       ];
     };
   };
