@@ -16,8 +16,9 @@
         color = "blue";
         separator = ": ";
       };
-      /*
-        modules = [
+      modules = [
+        "title"
+        "separator"
         {
           type = "datetime";
           key = "Date";
@@ -32,7 +33,6 @@
         "player"
         "media"
       ];
-      */
     };
   };
 }
