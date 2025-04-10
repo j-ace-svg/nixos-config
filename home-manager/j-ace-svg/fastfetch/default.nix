@@ -13,7 +13,10 @@
         size = {
           binaryPrefix = "si";
         };
-        color = "blue";
+        color = {
+          title = "blue";
+          keys = "green";
+        };
         separator = ": ";
       };
       modules = [
@@ -29,9 +32,6 @@
           key = "Time";
           format = "{14}:{17}:{20}";
         }
-        "break"
-        "player"
-        "media"
       ];
     };
   };
