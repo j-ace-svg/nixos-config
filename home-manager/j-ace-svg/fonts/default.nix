@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = [
-    pkgs.fontforge
+    pkgs.fontforge-gtk
     (pkgs.callPackage ./ninjargon-font.nix {inherit pkgs;})
   ];
 }
