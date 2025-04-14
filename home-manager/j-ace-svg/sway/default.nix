@@ -253,6 +253,8 @@ in {
           "Shift+l" = "exec ${pkgs.legcord}/bin/legcord";
           "n" = "exec ${terminal} nvim; mode default";
           "Shift+n" = "exec ${terminal} nvim";
+          "d" = "exec ${terminal} dc; mode default";
+          "Shift+d" = "exec ${terminal} dc";
           "Escape" = "mode default";
           "Return" = "mode default";
         };
