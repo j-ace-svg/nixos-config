@@ -129,6 +129,8 @@
         "extensions.formautofill.creditCards.enabled" = false;
         # Disable about:config warning
         "browser.aboutConfig.showWarning" = false;
+        # Disable alt menu
+        "ui.key.menuAccessKeyFocuses" = false;
         # Harden
         "privacy.trackingprotection.enabled" = true;
         "dom.security.https_only_mode" = true;
