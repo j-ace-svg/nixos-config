@@ -51,19 +51,24 @@
   rsl (around (layer-toggle rpdv-rsft) rsft)
   dvk (layer-switch rpdv)
   qwt (layer-switch qwerty)
-  mvt (layer-toggle mvmt))
+  mvt (layer-toggle mvmt)
+  lnl (layer-toggle lnum)
+  rnl (layer-toggle rnum)
+  lay (layer-toggle layer-sel))
 
 ;; Functions
 (defalias
   amv (tap-hold-next-release 1000 a @mvt :timeout-button a)
+  ,nm (tap-hold-next-release 1000 , @rnl :timeout-button ,)
   oal (tap-hold-next-release 1000 o lalt :timeout-button o)
   .mt (tap-hold-next-release 1000 . lmet :timeout-button .)
   ect (tap-hold-next-release 1000 e lctl :timeout-button e)
   usf (tap-hold-next-release 1000 u @lsl :timeout-button u)
   hsf (tap-hold-next-release 1000 h @rsl :timeout-button h)
   tct (tap-hold-next-release 1000 t rctl :timeout-button t)
+  cmt (tap-hold-next-release 1000 c rmet :timeout-button c)
   nal (tap-hold-next-release 1000 n ralt :timeout-button n)
-  cmt (tap-hold-next-release 1000 c rmet :timeout-button c))
+  rnm (tap-hold-next-release 1000 r @lnl :timeout-button r))
 
 ;; Shifted Dvorak keys
 (defalias
@@ -110,9 +115,9 @@
 )
 
 (deflayer rpdv
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @qwt pause
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc      ins  home pgup      nlck kp/  kp*  kp-
-  tab  ;    ,    @.mt p    y    f    g    @cmt r    l    /    @         \         del  end  pgdn      kp7  kp8  kp9  kp+
+  tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @         \         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl           up             kp1  kp2  kp3  kprt
   lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
@@ -145,13 +150,40 @@
   _    _    _              _              _    _    _                   _         _    _    _         _         _
 )
 
+(deflayer lnum
+  _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
+  _    0    1    2    3    4    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
+  _    5    6    7    8    9    _    _    _    _    _    _              _                             _    _    _
+  _    _    _    _    _    _    _    _    _    _    _                   _              _              _    _    _    _
+  _    _    _              _              _    _    _                   _         _    _    _         _         _
+)
+
+(deflayer rnum
+  _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
+  _    _    _    _    _    _    _    0    1    2    3    4    _         _         _    _    _         _    _    _    _
+  _    _    _    _    _    _    _    5    6    7    8    9              _                             _    _    _
+  _    _    _    _    _    _    _    _    _    _    _                   _              _              _    _    _    _
+  _    _    _              _              _    _    _                   _         _    _    _         _         _
+)
+
 (deflayer qwerty
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @dvk pause
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
   `    1    2    3    4    5    6    7    8    9    0    -    =         bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
   caps a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
   lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+)
+
+(deflayer layer-sel
+  _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
+  _    @qwt @dvk _    _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _              _                             _    _    _
+  _    _    _    _    _    _    _    _    _    _    _                   _              _              _    _    _    _
+  _    _    _              _              _    _    _                   _         _    _    _         _         _
 )
 
 ;; vim: tabstop=2 shiftwidth=2
