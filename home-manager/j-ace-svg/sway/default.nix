@@ -238,6 +238,7 @@ in {
           "t" = "mode launch";
           "Escape" = "mode default";
           "Return" = "mode default";
+          "Alt_R" = "mode default";
         };
         resize = {
           ${left} = "resize shrink width 10 px";
@@ -250,6 +251,7 @@ in {
           "Right" = "resize grow width 10 px";
           "Escape" = "mode default";
           "Return" = "mode default";
+          "Alt_R" = "mode default";
         };
         launch = {
           "t" = "exec ${pkgs.floorp}/bin/floorp; mode default";
@@ -264,6 +266,7 @@ in {
           "Shift+d" = "exec ${terminal} dc";
           "Escape" = "mode default";
           "Return" = "mode default";
+          "Alt_R" = "mode default";
         };
       };
     };
