@@ -80,15 +80,6 @@
     };
     wantedBy = ["default.target"];
   };
-  services.kmonad = {
-    #enable = true;
-    keyboards = {
-      myKMonadOutput = {
-        device = "/dev/input/by-id/my-keyboard-kbd";
-        config = builtins.readFile ./kmonad/config.kbd;
-      };
-    };
-  };
 
   # Wayland
   programs.sway.enable = true;
