@@ -230,7 +230,7 @@ in {
         "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
         "${modifier}+t" = "mode launch";
         "${modifier}+n" = "${pkgs.mako}/bin/makoctl dismiss";
-        "ralt" = "mode leader";
+        "Alt_R" = "mode leader";
       };
       modes = {
         leader = {
