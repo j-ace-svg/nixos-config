@@ -234,7 +234,10 @@ in {
       };
       modes = {
         leader = {
+          "r" = "mode resize";
           "t" = "mode launch";
+          "Escape" = "mode default";
+          "Return" = "mode default";
         };
         resize = {
           ${left} = "resize shrink width 10 px";
