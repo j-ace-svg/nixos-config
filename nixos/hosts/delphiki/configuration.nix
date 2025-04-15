@@ -103,18 +103,6 @@
     };
     wantedBy = ["default.target"];
   };
-  services.kmonad-mod = {
-    enable = true;
-    package = pkgs.haskellPackages.kmonad;
-    keyboards = {
-      thinkpad = {
-        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
-        defcfg.enable = false;
-        config = builtins.readFile ./kmonad/config.kbd;
-      };
-    };
-  };
-  environment.etc."kmonad/config.kbd".source = ./kmonad/config.kbd;
 
   hardware.trackpoint = {
     enable = true;
