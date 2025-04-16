@@ -14,6 +14,7 @@
     ./sway/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
+    ./latex/default.nix
     ./vifm/default.nix
     ./floorp/default.nix
     ./foot/default.nix

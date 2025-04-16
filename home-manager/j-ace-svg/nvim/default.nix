@@ -162,9 +162,6 @@ in {
     };
 
     home.packages = [
-      (pkgs.texlive.combine {
-        inherit (pkgs.texlive) scheme-full latexmk;
-      })
     ];
   };
 }

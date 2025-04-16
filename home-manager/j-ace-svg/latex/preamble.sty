@@ -1,0 +1,142 @@
+\ProvidesPackage{preamble}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float} % Allow arbitrary positioning of images
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=1.18}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx}
+\setlength{\parskip}{0.5cm}  % Set vertical space between paragraphs
+\setlength{\parindent}{0pt}  % Remove paragraph indentation
+\usepackage{xparse}
+
+\newcommand\pder[2]{%
+    \begingroup
+    \@temptokena{\@gobble}%
+    \@tempcnta\z@
+    \@for\var:=#2\do{%
+        \expandafter\@pder\var\relax
+    }%
+    \ensuremath{\frac{\partial
+    \ifnum\@tempcnta>\@ne
+        ^{\the\@tempcnta}%
+    \fi
+    #1}{\the\@temptokena}}%
+    \endgroup
+}
+
+\def\@pder#1#2\relax{%
+    \ifx\relax#2\relax
+        \advance\@tempcnta by \@ne
+        \@temptokena\expandafter{\the\@temptokena\,\partial{#1}}%
+    \else
+        \advance\@tempcnta by #2\relax
+        \@temptokena\expandafter{\the\@temptokena\,\partial{#1}^{#2}}%
+    \fi
+}
+
+\newcommand{\pgraph}[5]{
+   \resizebox{#5\textwidth}{!}{ 
+    \centering
+    \begin{tikzpicture}   	
+        \begin{polaraxis}[
+        xticklabels={,0,$\frac\tau{12}$,$\frac\tau6$,$\frac\tau4$,$\frac{\tau}3$,$\frac{5\tau}{12}$,
+    $\frac{\tau}{2}$,$\frac{7\tau}{12}$,$\frac{2\tau}3$,$\frac{3\tau}4$,$\frac{5\tau}6$,$\frac{11\tau}{12}$}
+        ]
+            \addplot+[mark=none,domain=#2:#3,samples=600] 
+    		{#1};
+    	% equivalent to (x,{sin(..)cos(..)}), i.e.
+    	% the expression is the RADIUS
+    	\end{polaraxis}
+    \end{tikzpicture}
+    }
+\caption{#4}
+}
+
+\newcommand{\graph}[5]{
+\centering
+ \resizebox{#5\textwidth}{!}{
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle, % Places the axes in the middle
+      xlabel = {$x$}, % Label for the x-axis
+      ylabel = {$y$}, % Label for the y-axis
+      grid=major,
+      width=8cm,
+      height=8cm
+    ]
+      \addplot[domain=#2:#3, samples=100, color=blue]{#1};
+    \end{axis}
+  \end{tikzpicture}
+  }
+\caption{#4}
+}
+
+% Game Theory
+\newcommand{\altmatrix}[2]{%
+    \left[\begin{array}{#1} #2\end{array}\right]
+}
+
+\newcommand{\gamematrix}[5][0.7]{%
+    \def\tempwidth{#1}
+    \def\tempplayera{#2}
+    \def\tempplayerb{#3}
+    \def\tempplayeracoop{#4}
+    \def\tempplayeracomp{#5}
+    \def\tempplayerbcoop{#4}
+    \def\tempplayerbcomp{#5}
+    \gamematrixwrapper
+}
+
+\newcommand{\gamematrixuneven}[7][0.7]{%
+    \def\tempwidth{#1}
+    \def\tempplayera{#2}
+    \def\tempplayeracoop{#3}
+    \def\tempplayeracomp{#4}
+    \def\tempplayerb{#5}
+    \def\tempplayerbcoop{#6}
+    \def\tempplayerbcomp{#7}
+    \gamematrixwrapper
+}
+
+\newcommand{\gamematrixwrapper}[4]{%
+    \begin{tabularx}{\tempwidth\textwidth}{
+        |>{\centering\arraybackslash}X
+         >{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+         >{\centering\arraybackslash}X|}
+        \hline
+         & & \multicolumn{2}{c|}{\tempplayera}\\
+         & & \tempplayeracoop & \tempplayeracomp\\
+        \hline
+        \multirow{2}{=}{\tempplayerb} & \tempplayerbcoop & #1 & #2\\
+         & \tempplayerbcomp & #3 & #4\\
+        \hline
+    \end{tabularx}
+}
+
+% Good binary notation
+\newcommand{\+}{\mkern2mu}
+\newcommand{\bi}{
+    \ensuremath
+    \+
+    \begin{tikzpicture}
+       \draw (0, 0) -- (0, 1ex);
+    \end{tikzpicture}
+    \+
+}
+\newcommand{\bI}{
+    \ensuremath
+    \+
+    \begin{tikzpicture}
+       \draw (0, 0) -- (0, 2ex);
+    \end{tikzpicture}
+    \+
+}
