@@ -22,7 +22,8 @@ fi
 name="$1"
 
 mkdir -p "$name"
-pushd "$name"
+pushd "$name" >/dev/null
 ln -s ~/.config/latex/preamble.sty .
 cp ~/.config/latex/main.tex .
-popd
+chmod u+w main.tex
+popd >/dev/null
