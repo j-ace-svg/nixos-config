@@ -133,7 +133,7 @@
   tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @         \
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl
-  fn   lmet lalt f13       spc            bspc @prt @lay      pgup up   pgdn
+  fn   lmet lalt tab       spc            bspc @prt @lay      pgup up   pgdn
                                                               left down rght
 )
 
