@@ -175,7 +175,7 @@ My friends are going to hate me when they see my keyboard now.
   tab  ;    @,nw @.mt p    y    @    \    f    g    @cmt @rnm l         /         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amw @oal @ect @usw i    -    ret  d    @hsw @tct @nal           s                             kp4  kp5  kp6
   @lsw '    q    j    k    x    @rsw z    b    m    w                   v              up             kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+  lctl lmet lalt           spc            f13  rmet cmp                 rctl      left down rght      kp0       kp.
 )
 
 (deflayer rpdv-lsft-wide
