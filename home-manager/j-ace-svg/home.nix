@@ -56,6 +56,7 @@
     pkgs.pavucontrol
     pkgs.sx
     pkgs.hollywood
+    pkgs.nms
     pkgs.unimatrix
     pkgs.nuclear
     pkgs.cava
