@@ -230,7 +230,7 @@ in {
         "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
         "${modifier}+t" = "mode launch";
         "${modifier}+n" = "${pkgs.mako}/bin/makoctl dismiss";
-        "Alt_R" = "mode leader";
+        "F13" = "mode leader";
       };
       modes = {
         leader = {
@@ -238,7 +238,7 @@ in {
           "t" = "mode launch";
           "Escape" = "mode default";
           "Return" = "mode default";
-          "Alt_R" = "mode default";
+          "F13" = "mode default";
         };
         resize = {
           ${left} = "resize shrink width 10 px";
@@ -251,7 +251,7 @@ in {
           "Right" = "resize grow width 10 px";
           "Escape" = "mode default";
           "Return" = "mode default";
-          "Alt_R" = "mode default";
+          "F13" = "mode default";
         };
         launch = {
           "t" = "exec ${pkgs.floorp}/bin/floorp; mode default";
@@ -266,7 +266,7 @@ in {
           "Shift+d" = "exec ${terminal} dc";
           "Escape" = "mode default";
           "Return" = "mode default";
-          "Alt_R" = "mode default";
+          "F13" = "mode default";
         };
       };
     };
