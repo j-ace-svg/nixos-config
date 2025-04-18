@@ -119,6 +119,7 @@ in {
           categories = {
             general = true;
             fixPy = true;
+            latex = true;
             test = false;
             example = {
               youCan = "add more than just booleans";
@@ -147,6 +148,7 @@ in {
           categories = {
             general = true;
             fixPy = true;
+            latex = true;
             test = true;
             example = {
               youCan = "add more than just booleans";
