@@ -16,6 +16,7 @@
     ./floorp/default.nix
     ./fonts/default.nix
     ./foot/default.nix
+    ./games/default.nix
     ./latex/default.nix
     ./mpv/default.nix
     ./newsboat/default.nix
