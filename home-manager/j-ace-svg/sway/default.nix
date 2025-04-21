@@ -262,8 +262,8 @@ in {
           "Shift+b" = "exec ${pkgs.bitwarden}/bin/bitwarden";
           "l" = "exec ${pkgs.legcord}/bin/legcord; mode default";
           "Shift+l" = "exec ${pkgs.legcord}/bin/legcord";
-          "s" = "exec ${pkgs.steam}/bin/steam";
-          "Shift+s" = "exec ${pkgs.steam}/bin/steam; mode default";
+          "s" = "exec ${pkgs.steam}/bin/steam; mode default";
+          "Shift+s" = "exec ${pkgs.steam}/bin/steam";
           "n" = "exec ${terminal} nvim; mode default";
           "Shift+n" = "exec ${terminal} nvim";
           "d" = "exec ${terminal} dc; mode default";
