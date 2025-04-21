@@ -20,6 +20,7 @@
     ./mpv/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
+    ./plover/default.nix
     ./rnnoise/default.nix
     ./sway/default.nix
     ./vifm/default.nix
