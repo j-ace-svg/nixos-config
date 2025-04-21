@@ -155,13 +155,51 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
+    "plover-update": {
+      "locked": {
+        "lastModified": 1714371516,
+        "narHash": "sha256-MA545Hf1h8ez1joKIfPvpxmR2dUjvHJ7SukIbgdWXl0=",
+        "owner": "FirelightFlagboy",
+        "repo": "nixpkgs",
+        "rev": "83c4b4366d9dab01f807b9e279e99f92952d5e68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FirelightFlagboy",
+        "ref": "update-plover-4.0.0.dev12",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plover-wayland": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "plover-update": "plover-update"
+      },
+      "locked": {
+        "lastModified": 1714741944,
+        "narHash": "sha256-BtSDA897tiyS3o9ZSs/ibHW4vviJ3FANlmKONLcHu5A=",
+        "owner": "FirelightFlagboy",
+        "repo": "plover-wayland-nix",
+        "rev": "43277a2dd253dc9f7b7d5fa4523c17346d4e7c3f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FirelightFlagboy",
+        "repo": "plover-wayland-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nix-snapd": "nix-snapd",
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plover-wayland": "plover-wayland"
       }
     }
   },

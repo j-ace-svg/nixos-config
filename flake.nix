@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plover-wayland = {
+      url = "github:FirelightFlagboy/plover-wayland-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixCats = {
       url = "github:BirdeeHub/nixCats-nvim";
       inputs.nixpkgs.follows = "nixpkgs";

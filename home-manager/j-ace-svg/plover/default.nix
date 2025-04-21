@@ -1,5 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = [
-    pkgs.plover.dev
+    #inputs.plover-wayland.packages."x86_64-linux".plover-wtype
   ];
 }
