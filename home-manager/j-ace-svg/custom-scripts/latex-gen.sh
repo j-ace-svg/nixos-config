@@ -26,4 +26,5 @@ pushd "$name" >/dev/null
 ln -s ~/.config/latex/preamble.sty .
 cp ~/.config/latex/main.tex .
 chmod u+w main.tex
+mkdir images
 popd >/dev/null
