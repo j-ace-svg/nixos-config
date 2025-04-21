@@ -271,6 +271,7 @@ in {
       };
     };
     extraConfig = ''
+      exec inactive-windows-transparency -o 0.8
       exec snap run accountable2you
     '';
   };
@@ -336,6 +337,7 @@ in {
   };
 
   home.packages = [
+    pkgs.sway-contrib.inactive-windows-transparency
     pkgs.xdg-desktop-portal-wlr
     pkgs.xdg-user-dirs
     pkgs.grim
