@@ -24,3 +24,4 @@ url="$1"
 curl "$url" -o /tmp/remote.pdf
 mkdir images
 pdfimages -all /tmp/remote.pdf images/ext
+rm /tmp/remote.pdf
