@@ -4,7 +4,7 @@ return {
   init = function()
     vim.g.firenvim_config = {
       globalSettings = {
-        ['<C-w>'] = 'noop',
+        ['<C-w>'] = 'default',
         ['<C-n>'] = 'default'
       }
     }
