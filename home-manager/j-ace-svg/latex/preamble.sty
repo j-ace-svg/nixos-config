@@ -44,9 +44,8 @@
     \fi
 }
 
-\newcommand{\pgraph}[5]{
-   \resizebox{#5\textwidth}{!}{ 
-    \centering
+\newcommand{\pgraph}[4]{
+   \resizebox{#4\textwidth}{!}{ 
     \begin{tikzpicture}   	
         \begin{polaraxis}[
         xticklabels={,0,$\frac\tau{12}$,$\frac\tau6$,$\frac\tau4$,$\frac{\tau}3$,$\frac{5\tau}{12}$,
@@ -59,12 +58,10 @@
     	\end{polaraxis}
     \end{tikzpicture}
     }
-\caption{#4}
 }
 
-\newcommand{\graph}[5]{
-\centering
- \resizebox{#5\textwidth}{!}{
+\newcommand{\graph}[4]{
+ \resizebox{#4\textwidth}{!}{
   \begin{tikzpicture}
     \begin{axis}[
       axis lines = middle, % Places the axes in the middle
@@ -78,7 +75,6 @@
     \end{axis}
   \end{tikzpicture}
   }
-\caption{#4}
 }
 
 % Game Theory
