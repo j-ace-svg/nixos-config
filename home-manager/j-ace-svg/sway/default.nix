@@ -268,6 +268,8 @@ in {
           "Shift+n" = "exec ${terminal} nvim";
           "d" = "exec ${terminal} dc; mode default";
           "Shift+d" = "exec ${terminal} dc";
+          "z" = "exec ${terminal} zathura; mode default";
+          "Shift+z" = "exec ${terminal} zathura";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
