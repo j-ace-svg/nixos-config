@@ -11,6 +11,6 @@ local ca = Remap.ca
 
 if vim.g.started_by_firenvim == true then
   vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<CR>", {})
-  vim.opt.signcolumn = "no"
+  vim.opt_local.signcolumn = "no"
   vim.opt.colorcolumn = ""
 end
