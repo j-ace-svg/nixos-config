@@ -266,10 +266,10 @@ in {
           "Shift+s" = "exec ${pkgs.steam}/bin/steam";
           "n" = "exec ${terminal} nvim; mode default";
           "Shift+n" = "exec ${terminal} nvim";
-          "d" = "exec ${terminal} dc; mode default";
-          "Shift+d" = "exec ${terminal} dc";
-          "z" = "exec ${terminal} zathura; mode default";
-          "Shift+z" = "exec ${terminal} zathura";
+          "d" = "exec ${terminal} ${pkgs.bc}/bin/dc; mode default";
+          "Shift+d" = "exec ${terminal} ${pkgs.bc}/bin/dc";
+          "z" = "exec ${pkgs.zathura}; mode default";
+          "Shift+z" = "exec ${pkgs.zathura}";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
