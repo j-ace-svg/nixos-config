@@ -9,20 +9,21 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./bash/default.nix
+    ./custom-scripts/default.nix
+    ./easyeffects/default.nix
+    ./fastfetch/default.nix
+    ./floorp/default.nix
+    ./fonts/default.nix
+    ./foot/default.nix
+    ./latex/default.nix
     ./mpv/default.nix
-    ./rnnoise/default.nix
-    ./sway/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
-    ./latex/default.nix
+    ./rnnoise/default.nix
+    ./sway/default.nix
     ./vifm/default.nix
-    ./floorp/default.nix
-    ./foot/default.nix
-    ./bash/default.nix
-    ./fastfetch/default.nix
-    ./fonts/default.nix
-    ./easyeffects/default.nix
-    ./custom-scripts/default.nix
+    ./zathura/default.nix
   ];
 
   # Notification daemon
@@ -47,7 +48,6 @@
   home.packages = [
     pkgs.qutebrowser
     pkgs.legcord
-    pkgs.zathura # Document viewer/PDF viewer
     pkgs.sxiv # Image viewer
     #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.zip
