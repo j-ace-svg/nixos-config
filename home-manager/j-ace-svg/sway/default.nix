@@ -125,7 +125,9 @@ in {
           {
             command = "blur enable";
             criteria = {
-              app_id = "^foot$"; # get with `swaymsg -t get_tree | grep app_id`
+              app_id = ".*"; # get with `swaymsg -t get_tree | grep app_id`
+              title = ".*";
+              class = ".*";
             };
           }
         ];
