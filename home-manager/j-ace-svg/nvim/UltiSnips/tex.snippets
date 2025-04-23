@@ -43,6 +43,13 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
+snippet img "Image figure environment" b
+\begin{figure}[${1:htpb}]
+	${2:\includegraphics[width=${3:0.5}\textwidth]{$4}}
+	\label{fig:${5:${4/\W+/-/g}}}
+\end{figure}
+endsnippet
+
 snippet enum "Enumerate" bA
 \begin{enumerate}
 	\item $0
