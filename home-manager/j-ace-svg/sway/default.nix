@@ -269,8 +269,8 @@ in {
           "Shift+n" = "exec ${terminal} nvim";
           "d" = "exec ${terminal} ${pkgs.bc}/bin/dc; mode default";
           "Shift+d" = "exec ${terminal} ${pkgs.bc}/bin/dc";
-          "z" = "exec ${config.programs.zathura.package}; mode default";
-          "Shift+z" = "exec ${config.programs.zathura.package}";
+          "z" = "exec ${config.programs.zathura.package}/bin/zathura; mode default";
+          "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
