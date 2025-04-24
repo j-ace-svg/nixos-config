@@ -13,6 +13,9 @@
       default-bg = "rgba(15.625%, 15.625%, 15.625%, 0.7)"; #B3
       default-fg = "#ebdbb2";
     };
+    mappings = {
+      "R" = "set recolor";
+    };
   };
 
   home.packages = [

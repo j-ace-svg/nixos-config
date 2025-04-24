@@ -23,6 +23,7 @@ snippet ... "ldots" iA
 \ldots
 endsnippet
 
+context "not math()"
 snippet table "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
@@ -34,6 +35,7 @@ snippet table "Table environment" b
 \end{table}
 endsnippet
 
+context "not math()"
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb}]
 	\centering
@@ -43,6 +45,7 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
+context "not math()"
 snippet img "Image figure environment" b
 \begin{figure}[${1:htpb}]
 	${2:\includegraphics[width=${3:0.5}\textwidth]{$4}}
@@ -50,6 +53,7 @@ snippet img "Image figure environment" b
 \end{figure}
 endsnippet
 
+context "not math()"
 snippet enum "Enumerate" bA
 \begin{enumerate}
 	\item $0
@@ -62,6 +66,21 @@ snippet item "Itemize" bA
 \end{itemize}
 endsnippet
 
+snippet ii "Italics" bA
+\textit{$0}
+endsnippet
+
+context "not math()"
+snippet bb "Bold" bA
+\textbf{$0}
+endsnippet
+
+context "not math()"
+snippet uu "Underline" bA
+\underline{$0}
+endsnippet
+
+context "not math()"
 snippet pac "Package" b
 \usepackage[${1:options}]{${2:package}}$0
 endsnippet
@@ -79,6 +98,7 @@ snippet iff "iff" Ai
 \iff
 endsnippet
 
+context "not math()"
 snippet mk "Math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
@@ -88,12 +108,14 @@ else:
 `$2
 endsnippet
 
+context "not math()"
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
 .\] $0
 endsnippet
 
+context "not math()"
 snippet ali "Align" bA
 \begin{align*}
 	${1:${VISUAL}}
@@ -106,6 +128,7 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
+context "math()"
 snippet / "Fraction" i
 \\frac{${VISUAL}}{$1}$0
 endsnippet
