@@ -2,11 +2,12 @@
   pkgs,
   lib,
   config,
+  opts,
   ...
 }: {
   home.file = {
     ".config/legcord/storage/settings.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./settings.json;
+      source = config.lib.file.mkOutOfStoreSymlink "${opts.configPath}/settings.json";
     };
   };
 
