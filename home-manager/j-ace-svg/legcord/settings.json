@@ -1,0 +1,36 @@
+{
+    "windowStyle": "default",
+    "channel": "stable",
+    "legcordCSP": true,
+    "minimizeToTray": true,
+    "keybinds": [],
+    "audio": "loopbackWithMute",
+    "multiInstance": false,
+    "mods": [
+        "vencord"
+    ],
+    "transparency": "universal",
+    "spellcheck": true,
+    "hardwareAcceleration": true,
+    "performanceMode": "none",
+    "skipSplash": true,
+    "inviteWebsocket": true,
+    "startMinimized": false,
+    "tray": "disabled",
+    "disableHttpCache": false,
+    "customJsBundle": "https://legcord.app/placeholder.js",
+    "customCssBundle": "https://legcord.app/placeholder.css",
+    "disableAutogain": false,
+    "useLegacyCapturer": false,
+    "mobileMode": false,
+    "trayIcon": "dynamic",
+    "doneSetup": true,
+    "clientName": "Legcord",
+    "customIcon": "/nix/store/fknlss1bxfdrql9h3hmsyxmbiqr9hfdj-legcord-1.0.2/share/lib/legcord/resources/app.asar/assets/desktop.png",
+    "smoothScroll": true,
+    "autoScroll": false,
+    "modCache": {
+        "shelter": "9d5ffe082956019177e29abc78baae5e4e8e104d",
+        "vencord": "cf78ddcfe27e48d3c49e6a12a4bf1834ae6ea29c"
+    }
+}

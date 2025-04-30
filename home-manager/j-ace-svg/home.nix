@@ -18,6 +18,7 @@
     ./foot/default.nix
     ./games/default.nix
     ./latex/default.nix
+    ./legcord/default.nix
     ./mpv/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
