@@ -1,0 +1,26 @@
+snippet !!def "Default program template" bA
+#!/usr/bin/env python
+
+def main():
+	$0
+	return None
+
+if __name__ == "__main__":
+	main()
+endsnippet
+
+snippet !!cli "CLI program template" bA
+#!/usr/bin/env python
+import argparse
+
+__TITLE__ = "${1:main}"
+
+def main(parser=argparse.ArgumentParser()):
+	print(__TITLE__)
+
+	$0
+	args = parser.parse_args()
+
+if __name__ == "__main__":
+	main()
+endsnippet
