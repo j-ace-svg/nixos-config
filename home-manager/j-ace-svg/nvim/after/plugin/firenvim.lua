@@ -13,5 +13,5 @@ if vim.g.started_by_firenvim == true then
   vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>call firenvim#focus_page()<CR>", {})
   vim.opt_local.signcolumn = "no"
   vim.opt.colorcolumn = ""
-  vim.opt.statusline = 0
+  vim.opt.laststatus = 0
 end
