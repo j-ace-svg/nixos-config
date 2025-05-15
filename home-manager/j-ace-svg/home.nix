@@ -105,6 +105,7 @@
     pkgs.gimp
     pkgs.lmms
     pkgs.ardour
+    pkgs.sfizz
     pkgs.ffmpeg
     pkgs.dl-librescore
 
