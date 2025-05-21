@@ -1,5 +1,5 @@
 {
-    "windowStyle": "default",
+    "windowStyle": "native",
     "channel": "stable",
     "legcordCSP": true,
     "minimizeToTray": true,
@@ -30,7 +30,7 @@
     "smoothScroll": true,
     "autoScroll": false,
     "modCache": {
-        "shelter": "9d5ffe082956019177e29abc78baae5e4e8e104d",
-        "vencord": "cf78ddcfe27e48d3c49e6a12a4bf1834ae6ea29c"
+        "shelter": "fab6f100bd0ab8583d67f792f66722a7d2a14bd1",
+        "vencord": "8473b593a7c7cea5e0b3ee5c66c50d494dd97328"
     }
 }

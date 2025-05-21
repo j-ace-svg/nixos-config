@@ -17,6 +17,7 @@
     ./fonts/default.nix
     ./foot/default.nix
     ./games/default.nix
+    ./git/default.nix
     ./latex/default.nix
     ./legcord/default.nix
     ./mpv/default.nix
@@ -24,6 +25,7 @@
     ./nvim/default.nix
     ./plover/default.nix
     ./rnnoise/default.nix
+    ./ssh/default.nix
     ./sway/default.nix
     ./vifm/default.nix
     ./zathura/default.nix
