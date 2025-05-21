@@ -11,7 +11,7 @@
     userName = "J.ace.svg";
     extraConfig = {
       core = {
-        sshCommand = "ssh -F ${config.home.homeDirectory}/.ssh/config";
+        sshCommand = "HOME=${config.home.homeDirectory} ssh";
       };
     };
   };
