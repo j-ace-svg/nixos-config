@@ -9,11 +9,6 @@
     lfs.enable = true;
     userEmail = "j.ace.svg@gmail.com";
     userName = "J.ace.svg";
-    extraConfig = {
-      core = {
-        sshCommand = "HOME=${config.home.homeDirectory} ssh";
-      };
-    };
   };
 
   home.packages = [
