@@ -271,7 +271,7 @@ in {
           "Shift+d" = "exec ${terminal} ${pkgs.bc}/bin/dc";
           "z" = "exec ${config.programs.zathura.package}/bin/zathura; mode default";
           "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
-          "h" = "exec ${terminal} man home-configuration.nix; mode default";
+          "h" = "mode docs";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
