@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-snapd = {
       url = "github:io12/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,6 +38,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    sops-nix,
     nix-snapd,
     home-manager,
     firefox-addons,
@@ -48,6 +54,7 @@
         system = "x86_64-linux";
         modules = [
           ./nixos/hosts/wiggin/configuration.nix
+          sops-nix.nixosModules.sops
           nix-snapd.nixosModules.default
           {
             services.snap.enable = true;
@@ -68,6 +75,7 @@
         system = "x86_64-linux";
         modules = [
           ./nixos/hosts/delphiki/configuration.nix
+          sops-nix.nixosModules.sops
           nix-snapd.nixosModules.default
           {
             services.snap.enable = true;
