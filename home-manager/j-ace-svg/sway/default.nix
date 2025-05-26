@@ -271,6 +271,16 @@ in {
           "Shift+d" = "exec ${terminal} ${pkgs.bc}/bin/dc";
           "z" = "exec ${config.programs.zathura.package}/bin/zathura; mode default";
           "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
+          "h" = "exec ${terminal} man home-configuration.nix; mode default";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+          "F13" = "mode default";
+        };
+        docs = {
+          "h" = "exec ${terminal} man home-configuration.nix; mode default";
+          "Shift+h" = "exec ${terminal} man home-configuration.nix; mode launch";
+          "n" = "exec ${terminal} man configuration.nix; mode default";
+          "Shift+n" = "exec ${terminal} man configuration.nix; mode launch";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";

@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./website.nix
   ];
 
   nix = {
@@ -133,7 +134,6 @@
     htop
     system-config-printer
     alejandra
-    ddclient
 
     floorp
 
