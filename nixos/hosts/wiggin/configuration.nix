@@ -133,6 +133,7 @@
     htop
     system-config-printer
     alejandra
+    ddclient
 
     floorp
 
