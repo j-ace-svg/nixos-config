@@ -65,6 +65,11 @@
         url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCjU1efB7RcrXTc6M5FwkEmg&name=Samuel Bonilla";
       }
       {
+        title = "~YOUTUBE: SkilledMusician";
+        tags = ["YOUTUBE"];
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCxDJZNKl0RHU3wnT3c6LhSQ&name=SkilledMusician";
+      }
+      {
         title = "---GAME DEV---";
         url = "";
       }
