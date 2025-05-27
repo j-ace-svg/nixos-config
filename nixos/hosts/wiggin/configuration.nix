@@ -135,6 +135,9 @@
     system-config-printer
     alejandra
 
+    age
+    sops
+
     floorp
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))

@@ -185,6 +185,9 @@
     system-config-printer
     alejandra
 
+    age
+    sops
+
     floorp
 
     haskellPackages.kmonad
