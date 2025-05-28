@@ -10,12 +10,12 @@
       {
         title = "~YOUTUBE: Mumbo Jumbo";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UChFur_NwVSbUozOcF_F2kMg&name=Mumbo Jumbo";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UChFur_NwVSbUozOcF_F2kMg&name=MumboJumbo";
       }
       {
         title = "~YOUTUBE: Mental Outlaw";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=Mental Outlaw";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=MentalOutlaw";
         #url = "https://odysee.com/$/rss/@AlphaNerd:8";
       }
       {
@@ -47,7 +47,7 @@
       {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=Two Minute Papers";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=TwoMinutePapers";
       }
       {
         title = "~YOUTUBE: ThrillSeeker";
@@ -62,7 +62,7 @@
       {
         title = "~YOUTUBE: Samuel Bonilla";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCjU1efB7RcrXTc6M5FwkEmg&name=Samuel Bonilla";
+        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCjU1efB7RcrXTc6M5FwkEmg&name=SamuelBonilla";
       }
       {
         title = "~YOUTUBE: SkilledMusician";
@@ -75,17 +75,17 @@
       }
       {
         title = "~GAME DEV: CodeParade";
-        tags = ["YOUTUBE"];
+        tags = ["GAME DEV"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw";
       }
       {
         title = "~GAME DEV: Virus (Wavefront dev)";
-        tags = ["YOUTUBE"];
+        tags = ["GAME DEV"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
       }
       {
         title = "~GAME DEV: delgoodie (Astro dev)";
-        tags = ["YOUTUBE"];
+        tags = ["GAME DEV"];
         url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLwIwKFEh0Dy_IGCDXZuoWA";
       }
       {
