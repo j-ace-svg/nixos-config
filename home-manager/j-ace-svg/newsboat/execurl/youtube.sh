@@ -8,9 +8,9 @@ channel_id="$1"
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-channel_name="$(yt-dlp -I 1 --print channel "$channel_url" 2>/dev/null)"
-echo $channel_name
-mapfile -t video_ids < <(yt-dlp --print id "$channel_url/videos" 2>/dev/null)
+channel_name="$(yt-dlp --extractor-args youtube:player-skip=js -I 1 --print channel "$channel_url" 2>/dev/null)"
+# Angle brackets are one of the few characters not allowed in video titles
+mapfile -t video_infos < <(yt-dlp --extractor-args youtube:player-skip=js --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos")
 
 # Starting RSS boilerplate
 cat <<EOF
@@ -29,12 +29,14 @@ cat <<EOF
 
 EOF
 {
-    for video_id in "${video_ids[@]}"; do
+    for video_info in "${video_infos[@]}"; do
         # Get video attributes
-        video_url="https://www.youtube.com/watch?v=$video_id"
-        video_title="$(yt-dlp --print title "$video_url" 2>/dev/null)"
-        video_date="$(yt-dlp --get-filename -o "%(release_date>%Y-%m-%d)" "$video_url" 2>/dev/null)"
-        video_description="$(yt-dlp --print description "$video_url" 2>/dev/null)"
+        mapfile -d ">" -t video_info_array <<< "$video_info"
+        video_id="${video_info_array[0]}"
+        video_url="${video_info_array[1]}"
+        video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g' <<< "${video_info_array[2]}")"
+        video_date="${video_info_array[3]}"
+        video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g' <<< "${video_info_array[4]}")"
         # Video RSS entry
         echo " <entry>"
         echo "  <id>yt:video:$video_id</id>"
