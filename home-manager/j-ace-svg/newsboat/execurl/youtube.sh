@@ -7,9 +7,10 @@ set -e
 channel_id="$1"
 
 # Get channel attributes
-channel_url="https://www.youtube.com/channel/$id"
-channel_name="$(yt-dlp --print channel "$channel_url")"
-mapfile -t video_ids < <(yt-dlp --print id)
+channel_url="https://www.youtube.com/channel/$channel_id"
+channel_name="$(yt-dlp -I 1 --print channel "$channel_url" 2>/dev/null)"
+echo $channel_name
+mapfile -t video_ids < <(yt-dlp --print id "$channel_url/videos" 2>/dev/null)
 
 # Starting RSS boilerplate
 cat <<EOF
@@ -31,9 +32,9 @@ EOF
     for video_id in "${video_ids[@]}"; do
         # Get video attributes
         video_url="https://www.youtube.com/watch?v=$video_id"
-        video_title="$(yt-dlp --print title "$video_url")"
-        video_date="$(yt-dlp --get-filename -o "%(release_date>%Y-%m-%d)" "$video_url")"
-        video_description="$(yt-dlp --print description "$video_url")"
+        video_title="$(yt-dlp --print title "$video_url" 2>/dev/null)"
+        video_date="$(yt-dlp --get-filename -o "%(release_date>%Y-%m-%d)" "$video_url" 2>/dev/null)"
+        video_description="$(yt-dlp --print description "$video_url" 2>/dev/null)"
         # Video RSS entry
         echo " <entry>"
         echo "  <id>yt:video:$video_id</id>"
