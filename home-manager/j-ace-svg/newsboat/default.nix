@@ -67,7 +67,7 @@
       {
         title = "~YOUTUBE: SkilledMusician";
         tags = ["YOUTUBE"];
-        url = "exec:${./execurl/youtube.sh} UCxDJZNKl0RHU3wnT3c6LhSQ";
+        url = "\"exec:${./execurl/youtube.sh} UCxDJZNKl0RHU3wnT3c6LhSQ\"";
       }
       {
         title = "---GAME DEV---";
