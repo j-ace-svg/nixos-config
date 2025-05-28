@@ -10,7 +10,7 @@ channel_id="$1"
 channel_url="https://www.youtube.com/channel/$channel_id"
 channel_name="$(yt-dlp --extractor-args youtube:player-skip=js -I 1 --print channel "$channel_url" 2>/dev/null)"
 # Angle brackets are one of the few characters not allowed in video titles
-mapfile -t video_infos < <(yt-dlp --extractor-args youtube:player-skip=js --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos")
+mapfile -t video_infos < <(yt-dlp --extractor-args youtube:player-skip=js --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
 
 # Starting RSS boilerplate
 cat <<EOF
