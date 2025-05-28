@@ -67,7 +67,7 @@
       {
         title = "~YOUTUBE: SkilledMusician";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCxDJZNKl0RHU3wnT3c6LhSQ&name=SkilledMusician";
+        url = "exec:${./execurl/youtube.sh} UCxDJZNKl0RHU3wnT3c6LhSQ";
       }
       {
         title = "---GAME DEV---";
