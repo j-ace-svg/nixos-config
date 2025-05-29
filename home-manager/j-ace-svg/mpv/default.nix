@@ -41,5 +41,6 @@
   };
 
   home.packages = [
+    pkgs.python313Packages.yt-dlp-dearrow
   ];
 }
