@@ -8,12 +8,12 @@ channel_id="$1"
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-mapfile -d ">" -t recent_video_info <(yt-dlp --extractor-args youtube:player-skip=js -I 1 --get-filename -o "%(channel)s>%(upload_date)s" "$channel_url" 2>/dev/null)
+mapfile -d ">" -t recent_video_info < <(yt-dlp --extractor-args youtube:player-skip=js -I 1 --get-filename -o "%(channel)s>%(upload_date)s" "$channel_url" 2>/dev/null)
 channel_name="${recent_video_info[0]}"
 new_last_poll_date="${recent_video_info[1]}"
-if [ -e "~/.local/share/youtuberss/$channel_id" ]
+if [ -e "$HOME/.local/share/youtuberss/$channel_id" ]
 then
-    old_last_poll_date="$(cat "~/.local/share/youtuberss/$channel_id")"
+    old_last_poll_date="$(cat "$HOME/.local/share/youtuberss/$channel_id")"
     # Angle brackets are one of the few characters not allowed in video titles
     mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --match-filter "upload_date>$old_last_poll_date" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
 else
@@ -74,5 +74,5 @@ EOF
     echo "</feed>"
 }
 
-mkdir -p "~/.local/share/youtuberss"
-echo new_last_poll_date >"~/.local/share/youtuberss/$channel_id"
+mkdir -p "$HOME/.local/share/youtuberss"
+echo "$new_last_poll_date" >"$HOME/.local/share/youtuberss/$channel_id"
