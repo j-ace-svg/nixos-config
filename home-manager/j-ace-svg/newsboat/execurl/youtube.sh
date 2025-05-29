@@ -58,6 +58,7 @@ EOF
 {
     if [ "${#video_infos[@]}" -ne 0 ]
     then
+        unset 'video_infos[${#video_infos[@]}-1]' # Trailing '<' delimiter on last item creates a blank video entry
         for video_info in "${video_infos[@]}"; do
             # Get video attributes
             mapfile -d ">" -t video_info_array <<< "$video_info"
