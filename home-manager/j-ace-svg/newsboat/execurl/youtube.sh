@@ -8,14 +8,18 @@ channel_id="$1"
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-mapfile -d ">" -t recent_video_info < <(yt-dlp --extractor-args youtube:player-skip=js -I 1 --get-filename -o "%(channel)s>%(upload_date)s" "$channel_url" 2>/dev/null)
-channel_name="${recent_video_info[0]}"
-new_last_poll_date="${recent_video_info[1]}"
+channel_name="$(yt-dlp --extractor-args youtube:player-skip=js -I 1 --print channel "$channel_url" 2>/dev/null)"
+new_video_count="$(yt-dlp --flat-playlist --get-id "$channel_url" | wc -l)"
 if [ -e "$HOME/.local/share/youtuberss/$channel_id" ]
 then
-    old_last_poll_date="$(cat "$HOME/.local/share/youtuberss/$channel_id")"
-    # Angle brackets are one of the few characters not allowed in video titles
-    mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --match-filter "upload_date>$old_last_poll_date" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+    old_video_count="$(cat "$HOME/.local/share/youtuberss/$channel_id")"
+    if [ "$new_video_count" -ne "$old_video_count" ]
+    then
+        # Angle brackets are one of the few characters not allowed in video titles
+        mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_count - old_video_count))" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+    else
+        video_infos=""
+    fi
 else
     mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
 fi
@@ -37,36 +41,39 @@ cat <<EOF
 
 EOF
 {
-    for video_info in "${video_infos[@]}"; do
-        # Get video attributes
-        mapfile -d ">" -t video_info_array <<< "$video_info"
-        video_id="${video_info_array[0]}"
-        video_url="${video_info_array[1]}"
-        video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[2]}")"
-        video_date="${video_info_array[3]}"
-        video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[4]}")"
-        # Video RSS entry
-        echo " <entry>"
-        echo "  <id>yt:video:$video_id</id>"
-		echo "  <yt:videoId>$video_id</yt:videoId>"
-		echo "  <yt:channelId>$channel_id</yt:channelId>"
-		echo "  <title>$video_title</title>"
-		echo "  <link rel="alternate" href="$video_url"/>"
-		echo ""
-		echo "  <author>"
-		echo "   <name>$channel_name</name>"
-		echo "    --:--:-- 10273<uri>$channel_url</uri>"
-		echo "  </author>"
-		echo "  "
-		echo "  <published>$video_date</published>"
-		echo "  <media:group>"
-		echo "   <media:title>$video_title</media:title>"
-		echo "   <media:content url="https://www.youtube.com/v/$video_id?version=3" type="application/x-shockwave-flash" width="640" height="390"/>"
-		echo "   <media:thumbnail url="https://i4.ytimg.com/vi/$video_id/hqdefault.jpg" width="480" height="360"/>"
-		echo "   <media:description>$video_description</media:description>"
-		echo "  </media:group>"
-		echo " </entry>"
-    done
+    if [ "$new_video_count" != "$old_video_count" ]
+    then
+        for video_info in "${video_infos[@]}"; do
+            # Get video attributes
+            mapfile -d ">" -t video_info_array <<< "$video_info"
+            video_id="${video_info_array[0]}"
+            video_url="${video_info_array[1]}"
+            video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[2]}")"
+            video_date="${video_info_array[3]}"
+            video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[4]}")"
+            # Video RSS entry
+            echo " <entry>"
+            echo "  <id>yt:video:$video_id</id>"
+            echo "  <yt:videoId>$video_id</yt:videoId>"
+            echo "  <yt:channelId>$channel_id</yt:channelId>"
+            echo "  <title>$video_title</title>"
+            echo "  <link rel="alternate" href="$video_url"/>"
+            echo ""
+            echo "  <author>"
+            echo "   <name>$channel_name</name>"
+            echo "    --:--:-- 10273<uri>$channel_url</uri>"
+            echo "  </author>"
+            echo "  "
+            echo "  <published>$video_date</published>"
+            echo "  <media:group>"
+            echo "   <media:title>$video_title</media:title>"
+            echo "   <media:content url="https://www.youtube.com/v/$video_id?version=3" type="application/x-shockwave-flash" width="640" height="390"/>"
+            echo "   <media:thumbnail url="https://i4.ytimg.com/vi/$video_id/hqdefault.jpg" width="480" height="360"/>"
+            echo "   <media:description>$video_description</media:description>"
+            echo "  </media:group>"
+            echo " </entry>"
+        done
+    fi
 
     # Ending RSS boilerplate
     echo ""
@@ -75,4 +82,4 @@ EOF
 }
 
 mkdir -p "$HOME/.local/share/youtuberss"
-echo "$new_last_poll_date" >"$HOME/.local/share/youtuberss/$channel_id"
+echo "$new_video_count" >"$HOME/.local/share/youtuberss/$channel_id"
