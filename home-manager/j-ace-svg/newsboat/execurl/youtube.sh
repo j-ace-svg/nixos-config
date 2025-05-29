@@ -8,7 +8,7 @@ channel_id="$1"
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-channel_name="$(yt-dlp --extractor-args youtube:player-skip=js -I 1 --print channel "$channel_url" 2>/dev/null)"
+channel_name="$(yt-dlp --flat-playlist -I 1 --print channel "$channel_url" 2>/dev/null)"
 new_video_count="$(yt-dlp --flat-playlist --get-id "$channel_url" | wc -l)"
 if [ -e "$HOME/.local/share/youtuberss/$channel_id" ]
 then
@@ -16,12 +16,12 @@ then
     if [ "$new_video_count" -ne "$old_video_count" ]
     then
         # Angle brackets are one of the few characters not allowed in video titles
-        mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_count - old_video_count))" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+        mapfile -t video_infos < <(yt-dlp --flat-playlist -I "1:$((new_video_count - old_video_count))" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
     else
         video_infos=""
     fi
 else
-    mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+    mapfile -t video_infos < <(yt-dlp --flat-playlist --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
 fi
 
 # Starting RSS boilerplate
