@@ -57,12 +57,12 @@
       {
         title = "~YOUTUBE: PhrogPollen";
         tags = ["YOUTUBE"];
-        url = "\"exec:${./execurl/youtube.sh} UC1gfzrtu1lNDAkQUKkR0OJA\"";
+        url = "\"exec:${./execurl/youtube.sh} UC1gfzrtu1lNDAkQUKkR0OJA videos shorts streams\"";
       }
       {
         title = "~YOUTUBE: Samuel Bonilla";
         tags = ["YOUTUBE"];
-        url = "\"exec:${./execurl/youtube.sh} UCjU1efB7RcrXTc6M5FwkEmg\"";
+        url = "\"exec:${./execurl/youtube.sh} UCjU1efB7RcrXTc6M5FwkEmg videos shorts streams\"";
       }
       {
         title = "~YOUTUBE: SkilledMusician";
