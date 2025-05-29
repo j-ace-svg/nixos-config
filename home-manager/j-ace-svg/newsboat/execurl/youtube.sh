@@ -8,9 +8,17 @@ channel_id="$1"
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-channel_name="$(yt-dlp --extractor-args youtube:player-skip=js -I 1 --print channel "$channel_url" 2>/dev/null)"
-# Angle brackets are one of the few characters not allowed in video titles
-mapfile -t video_infos < <(yt-dlp --extractor-args youtube:player-skip=js --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+mapfile -d ">" -t recent_video_info <(yt-dlp --extractor-args youtube:player-skip=js -I 1 --get-filename -o "%(channel)s>%(upload_date)s" "$channel_url" 2>/dev/null)
+channel_name="${recent_video_info[0]}"
+new_last_poll_date="${recent_video_info[1]}"
+if [ -e "~/.local/share/youtuberss/$channel_id" ]
+then
+    old_last_poll_date="$(cat "~/.local/share/youtuberss/$channel_id")"
+    # Angle brackets are one of the few characters not allowed in video titles
+    mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --match-filter "upload_date>$old_last_poll_date" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+else
+    mapfile -t video_infos < <(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+fi
 
 # Starting RSS boilerplate
 cat <<EOF
@@ -34,9 +42,9 @@ EOF
         mapfile -d ">" -t video_info_array <<< "$video_info"
         video_id="${video_info_array[0]}"
         video_url="${video_info_array[1]}"
-        video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g' <<< "${video_info_array[2]}")"
+        video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[2]}")"
         video_date="${video_info_array[3]}"
-        video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g' <<< "${video_info_array[4]}")"
+        video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[4]}")"
         # Video RSS entry
         echo " <entry>"
         echo "  <id>yt:video:$video_id</id>"
@@ -65,3 +73,6 @@ EOF
     echo ""
     echo "</feed>"
 }
+
+mkdir -p "~/.local/share/youtuberss"
+echo new_last_poll_date >"~/.local/share/youtuberss/$channel_id"
