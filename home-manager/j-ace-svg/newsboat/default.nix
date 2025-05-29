@@ -10,59 +10,59 @@
       {
         title = "~YOUTUBE: Mumbo Jumbo";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UChFur_NwVSbUozOcF_F2kMg&name=MumboJumbo";
+        url = "\"exec:${./execurl/youtube.sh} UChFur_NwVSbUozOcF_F2kMg\"";
       }
       {
         title = "~YOUTUBE: Mental Outlaw";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7YOGHUfC1Tb6E4pudI9STA&name=MentalOutlaw";
+        url = "\"exec:${./execurl/youtube.sh} UC7YOGHUfC1Tb6E4pudI9STA\"";
         #url = "https://odysee.com/$/rss/@AlphaNerd:8";
       }
       {
         title = "~YOUTUBE: LibrePhoenix";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCeZyoDTk0J-UPhd7MUktexw&name=LibrePhoenix";
+        url = "\"exec:${./execurl/youtube.sh} UCeZyoDTk0J-UPhd7MUktexw\"";
         #url = "https://odysee.com/$/rss/@LibrePhoenix:8";
       }
       {
         title = "~YOUTUBE: Ryclic";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC7d6soE3Z3Duuo4OD-BibpQ&name=Ryclic";
+        url = "\"exec:${./execurl/youtube.sh} UC7d6soE3Z3Duuo4OD-BibpQ\"";
       }
       {
         title = "~YOUTUBE: No Boilerplate";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCUMwY9iS8oMyWDYIe6_RmoA&name=NoBoilerplate";
+        url = "\"exec:${./execurl/youtube.sh} UCUMwY9iS8oMyWDYIe6_RmoA\"";
       }
       {
         title = "~YOUTUBE: TheVimeagen";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCVk4b-svNJoeytrrlOixebQ&name=TheVimeagen";
+        url = "\"exec:${./execurl/youtube.sh} UCVk4b-svNJoeytrrlOixebQ\"";
       }
       {
         title = "~YOUTUBE: Shnee";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCIJhUaFcOoxyE4ImRpCaNhw&name=Shnee";
+        url = "\"exec:${./execurl/youtube.sh} UCIJhUaFcOoxyE4ImRpCaNhw\"";
       }
       {
         title = "~YOUTUBE: Two Minute Papers";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCbfYPyITQ-7l4upoX8nvctg&name=TwoMinutePapers";
+        url = "\"exec:${./execurl/youtube.sh} UCbfYPyITQ-7l4upoX8nvctg\"";
       }
       {
         title = "~YOUTUBE: ThrillSeeker";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCSbdMXOI_3HGiFviLZO6kNA&name=ThrillSeeker";
+        url = "\"exec:${./execurl/youtube.sh} UCSbdMXOI_3HGiFviLZO6kNA\"";
       }
       {
         title = "~YOUTUBE: PhrogPollen";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UC1gfzrtu1lNDAkQUKkR0OJA&name=PhrogPollen";
+        url = "\"exec:${./execurl/youtube.sh} UC1gfzrtu1lNDAkQUKkR0OJA\"";
       }
       {
         title = "~YOUTUBE: Samuel Bonilla";
         tags = ["YOUTUBE"];
-        url = "https://www.scriptbarrel.com/xml.cgi?channel_id=UCjU1efB7RcrXTc6M5FwkEmg&name=SamuelBonilla";
+        url = "\"exec:${./execurl/youtube.sh} UCjU1efB7RcrXTc6M5FwkEmg\"";
       }
       {
         title = "~YOUTUBE: SkilledMusician";
@@ -76,17 +76,17 @@
       {
         title = "~GAME DEV: CodeParade";
         tags = ["GAME DEV"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCrv269YwJzuZL3dH5PCgxUw";
+        url = "\"exec:${./execurl/youtube.sh} UCrv269YwJzuZL3dH5PCgxUw\"";
       }
       {
         title = "~GAME DEV: Virus (Wavefront dev)";
         tags = ["GAME DEV"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC4OINWRGOtWPZRjp-v4DPyA";
+        url = "\"exec:${./execurl/youtube.sh} UC4OINWRGOtWPZRjp-v4DPyA\"";
       }
       {
         title = "~GAME DEV: delgoodie (Astro dev)";
         tags = ["GAME DEV"];
-        url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCLwIwKFEh0Dy_IGCDXZuoWA";
+        url = "\"exec:${./execurl/youtube.sh} UCLwIwKFEh0Dy_IGCDXZuoWA\"";
       }
       {
         title = "---NEWS---";
