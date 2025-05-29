@@ -3,25 +3,40 @@
 # Make script fail if any individual commands fail
 set -e
 
-# Args: channel_id
+# Args: channel_id, video_type*
 channel_id="$1"
+shift
+# all remaining arguments are video types, ie https://youtube.com/channel/<id>/<type>
+mapfile -d " " -t video_types < <(echo "${@:-"videos"}")
 
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
-channel_name="$(yt-dlp --flat-playlist -I 1 --print channel "$channel_url" 2>/dev/null)"
-new_video_count="$(yt-dlp --flat-playlist --get-id "$channel_url" | wc -l)"
+channel_name="$(yt-dlp -I 1 --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --print channel "$channel_url/videos" 2>/dev/null)"
+new_video_count=()
+for video_type in $video_types; do
+    new_video_counts+=("$(yt-dlp --flat-playlist --get-id "$channel_url/$video_type" | wc -l)")
+done
 if [ -e "$HOME/.local/share/youtuberss/$channel_id" ]
 then
-    old_video_count="$(cat "$HOME/.local/share/youtuberss/$channel_id")"
-    if [ "$new_video_count" -ne "$old_video_count" ]
+    old_video_counts=()
+    while read -r line; do
+        old_video_counts+=("$line")
+    done < "$HOME/.local/share/youtuberss/$channel_id"
+    if [ "${new_video_count[@]}" != "${old_video_count[@]}" ]
     then
         # Angle brackets are one of the few characters not allowed in video titles
-        mapfile -t video_infos < <(yt-dlp --flat-playlist -I "1:$((new_video_count - old_video_count))" --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+        mapfile -d "<" -t video_infos < <(
+            for i in $(seq 0 $((${#video_types[@]}-1))); do
+                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_count[i] - old_video_count[i]))" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+            done)
     else
         video_infos=""
     fi
 else
-    mapfile -t video_infos < <(yt-dlp --flat-playlist --get-filename -o "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s" "$channel_url/videos" 2>/dev/null)
+    mapfile -d "<" -t video_infos < <(
+        for i in $(seq 0 $((${#video_types[@]}-1))); do
+            yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+        done)
 fi
 
 # Starting RSS boilerplate
@@ -41,16 +56,16 @@ cat <<EOF
 
 EOF
 {
-    if [ "$new_video_count" != "$old_video_count" ]
+    if [ "${#video_infos[@]}" -ne 0 ]
     then
         for video_info in "${video_infos[@]}"; do
             # Get video attributes
             mapfile -d ">" -t video_info_array <<< "$video_info"
             video_id="${video_info_array[0]}"
             video_url="${video_info_array[1]}"
-            video_title="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[2]}")"
+            video_title="${video_info_array[2]}"
             video_date="${video_info_array[3]}"
-            video_description="$(sed 's/：/:/g;s/⧸/\//g;s/？/?/g;s/｜/|/g' <<< "${video_info_array[4]}")"
+            video_description="${video_info_array[4]}"
             # Video RSS entry
             echo " <entry>"
             echo "  <id>yt:video:$video_id</id>"
