@@ -12,8 +12,8 @@ mapfile -d " " -t video_types < <(echo "${@:-"videos"}")
 # Get channel attributes
 channel_url="https://www.youtube.com/channel/$channel_id"
 channel_name="$(yt-dlp -I 1 --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --print channel "$channel_url/videos" 2>/dev/null)"
-new_video_count=()
-for video_type in $video_types; do
+new_video_counts=()
+for video_type in "${video_types[@]}"; do
     new_video_counts+=("$(yt-dlp --flat-playlist --get-id "$channel_url/$video_type" | wc -l)")
 done
 if [ -e "$HOME/.local/share/youtuberss/$channel_id" ]
@@ -22,12 +22,12 @@ then
     while read -r line; do
         old_video_counts+=("$line")
     done < "$HOME/.local/share/youtuberss/$channel_id"
-    if [ "${new_video_count[@]}" != "${old_video_count[@]}" ]
+    if [[ "${new_video_counts[@]}" != "${old_video_counts[@]}" ]]
     then
         # Angle brackets are one of the few characters not allowed in video titles
         mapfile -d "<" -t video_infos < <(
             for i in $(seq 0 $((${#video_types[@]}-1))); do
-                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_count[i] - old_video_count[i]))" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_counts[i] - old_video_counts[i]))" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
             done)
     else
         video_infos=""
@@ -98,4 +98,7 @@ EOF
 }
 
 mkdir -p "$HOME/.local/share/youtuberss"
-echo "$new_video_count" >"$HOME/.local/share/youtuberss/$channel_id"
+rm -f "$HOME/.local/share/youtuberss/$channel_id"
+for video_count in "${new_video_counts[@]}"; do
+    echo "$video_count" >>"$HOME/.local/share/youtuberss/$channel_id"
+done
