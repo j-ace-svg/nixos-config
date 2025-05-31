@@ -27,15 +27,18 @@ then
         # Angle brackets are one of the few characters not allowed in video titles
         mapfile -d "<" -t video_infos < <(
             for i in $(seq 0 $((${#video_types[@]}-1))); do
-                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_counts[i] - old_video_counts[i]))" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_counts[i] - old_video_counts[i])):-1" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
             done)
     else
         video_infos=""
     fi
 else
+    recieved_video_counts=()
     mapfile -d "<" -t video_infos < <(
         for i in $(seq 0 $((${#video_types[@]}-1))); do
-            yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+            category_video_infos=$(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1::-1"--print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null)
+            recieved_video_counts+=($(echo $category_video_infos | tr -cd "<" | wc -c))
+            echo $category_video_infos
         done)
 fi
 
@@ -99,6 +102,6 @@ EOF
 
 mkdir -p "$HOME/.local/share/youtuberss"
 rm -f "$HOME/.local/share/youtuberss/$channel_id"
-for video_count in "${new_video_counts[@]}"; do
-    echo "$video_count" >>"$HOME/.local/share/youtuberss/$channel_id"
+for i in $(seq 0 $((${#video_types[@]}-1))); do
+    echo $(("${old_video_counts[i]}" + "${recieved_video_counts[i]}")) >>"$HOME/.local/share/youtuberss/$channel_id"
 done
