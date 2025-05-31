@@ -27,19 +27,23 @@ then
         # Angle brackets are one of the few characters not allowed in video titles
         mapfile -d "<" -t video_infos < <(
             for i in $(seq 0 $((${#video_types[@]}-1))); do
-                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1:$((new_video_counts[i] - old_video_counts[i])):-1" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
+                yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --playlist-reverse -I "1:$((new_video_counts[i] - old_video_counts[i]))" --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null
             done)
     else
         video_infos=""
     fi
 else
-    recieved_video_counts=()
+    received_video_counts=()
+    video_infos_categories=()
+    for i in $(seq 0 $((${#video_types[@]}-1))); do
+        video_infos_categories+=("$(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" --playlist-reverse --print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null)")
+        received_video_counts+=($(echo "${video_infos_categories[i]}" | tr -cd "<" | wc -c))
+    done
     mapfile -d "<" -t video_infos < <(
-        for i in $(seq 0 $((${#video_types[@]}-1))); do
-            category_video_infos=$(yt-dlp --extractor-args "youtube:player_skip=webpage,config,js;player_client=android;web" -I "1::-1"--print "%(id)s>https://www.youtube.com/watch?v=%(id)s>%(title)s>%(upload_date>%Y-%m-%d)s>%(description)s<" "$channel_url/${video_types[i]}" 2>/dev/null)
-            recieved_video_counts+=($(echo $category_video_infos | tr -cd "<" | wc -c))
-            echo $category_video_infos
+        for video_infos_category in "${video_infos_categories[@]}"; do
+            echo "$video_infos_category"
         done)
+    echo "${received_video_counts[@]}"
 fi
 
 # Starting RSS boilerplate
@@ -103,5 +107,5 @@ EOF
 mkdir -p "$HOME/.local/share/youtuberss"
 rm -f "$HOME/.local/share/youtuberss/$channel_id"
 for i in $(seq 0 $((${#video_types[@]}-1))); do
-    echo $(("${old_video_counts[i]}" + "${recieved_video_counts[i]}")) >>"$HOME/.local/share/youtuberss/$channel_id"
+    echo $(("${old_video_counts[i]}" + "${received_video_counts[i]}")) >>"$HOME/.local/share/youtuberss/$channel_id"
 done
