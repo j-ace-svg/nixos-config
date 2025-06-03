@@ -82,6 +82,7 @@
     pkgs.picard
     pkgs.ventoy-full
     pkgs.go-sct
+    pkgs.teams-for-linux # The closest I will ever get to installing a microsoft product (I hope)
 
     # Basic Services
     pkgs.libnotify
