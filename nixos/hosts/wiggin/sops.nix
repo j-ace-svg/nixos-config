@@ -4,16 +4,10 @@
   pkgs,
   modulesPath,
   ...
-}: let
-  isEd25519 = k: k.type == "ed25519";
-  getKeyPath = k: k.path;
-  keys = builtins.filter isEd25519 config.services.openssh.hostKeys;
-in {
+}: {
   sops = {
     age = {
-      #sshKeyPaths = map getKeyPath keys;
-      keyFile = "/var/lib/sops-nix/key.txt";
-      generateKey = true;
+      keyFile = "/root/.config/sops/age/key.txt";
     };
     defaultSopsFile = ./secrets.yaml;
   };
