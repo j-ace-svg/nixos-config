@@ -5,8 +5,7 @@
   modulesPath,
   ...
 }: {
-  /*
-    sops = {
+  sops = {
     secrets = {
       "cloudflare/email" = {};
       "cloudflare/api_key" = {};
@@ -28,5 +27,7 @@
     interval = "5min";
     configFile = "${config.sops.templates."ddclient-config".path}";
   };
-  */
+  systemd.services.ddclient = {
+    after = ["sops-install-secrets.service"];
+  };
 }
