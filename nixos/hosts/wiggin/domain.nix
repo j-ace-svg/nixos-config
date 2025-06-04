@@ -17,7 +17,7 @@
       use=web
       protocol=cloudflare, \
       zone=${config.sops.placeholder."cloudflare/domain"}, \
-      login=user@myemail.com, \
+      login=${config.sops.placeholder."cloudflare/email"}, \
       password=${config.sops.placeholder."cloudflare/api_key"} \
       ${config.sops.placeholder."cloudflare/domain"}
     '';

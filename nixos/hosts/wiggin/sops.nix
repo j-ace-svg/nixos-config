@@ -12,8 +12,6 @@ in {
   sops = {
     age = {
       sshKeyPaths = map getKeyPath keys;
-      #keyFile = "/var/lib/sops-nix/key.txt";
-      #generateKey = true;
     };
     defaultSopsFile = ./secrets.yaml;
   };
