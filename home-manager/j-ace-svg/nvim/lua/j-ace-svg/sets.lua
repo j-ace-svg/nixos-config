@@ -20,3 +20,6 @@ vim.opt.incsearch = true
 
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = "cu"
