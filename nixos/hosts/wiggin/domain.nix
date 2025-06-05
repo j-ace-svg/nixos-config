@@ -14,6 +14,7 @@
     templates."ddclient-config".content = ''
       ssl=yes
 
+      cache=/var/cache/ddclient/ddclient.cache
       use=web
       protocol=cloudflare, \
       zone=${config.sops.placeholder."cloudflare/domain"}, \
