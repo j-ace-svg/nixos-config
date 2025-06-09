@@ -38,7 +38,7 @@
       adminpassFile = config.sops.secrets."nextcloud/admin_password".path;
       dbtype = "sqlite";
     };
-    secretFile = config.sops.templates."nextcloud/secretFile".path;
+    #secretFile = config.sops.templates."nextcloud/secretFile".path;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
     };
