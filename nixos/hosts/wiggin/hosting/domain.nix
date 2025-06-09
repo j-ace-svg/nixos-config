@@ -31,4 +31,7 @@
   systemd.services.ddclient = {
     after = ["sops-install-secrets.service"];
   };
+  networking.firewall = {
+    enable = true;
+  };
 }

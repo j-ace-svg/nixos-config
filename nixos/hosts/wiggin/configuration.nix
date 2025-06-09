@@ -181,6 +181,7 @@
       AllowUsers = ["j-ace-svg"];
     };
   };
+  networking.firewall.allowedTCPPorts = [22];
 
   # Enable USB-related services
   services.devmon.enable = true;
