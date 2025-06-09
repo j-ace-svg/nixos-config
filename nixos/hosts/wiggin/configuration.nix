@@ -178,6 +178,7 @@
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";
+      AllowUsers = ["j-ace-svg"];
     };
   };
 

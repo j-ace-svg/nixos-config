@@ -11,7 +11,7 @@
       "cloudflare/api_key" = {};
       "cloudflare/domain" = {};
     };
-    templates."ddclient-config".content = ''
+    templates."ddclient/config".content = ''
       ssl=yes
 
       cache=/var/lib/ddclient/ddclient.cache
@@ -26,7 +26,7 @@
   services.ddclient = {
     enable = true;
     interval = "5min";
-    configFile = "${config.sops.templates."ddclient-config".path}";
+    configFile = "${config.sops.templates."ddclient/config".path}";
   };
   systemd.services.ddclient = {
     after = ["sops-install-secrets.service"];
