@@ -13,11 +13,10 @@
       trusted_domains = [config.sops.placeholder."cloudflare/domain"];
     };
   };
-  systemd.paths."nextcloud-secretFile-watcher" = {
+  /*
+    systemd.paths."nextcloud-secretFile-watcher" = {
     wantedBy = ["multi-user.target"];
     before = [
-      "nextcloud-setup.service"
-      "nextcloud-update-db.service"
       "phpfpm-nextcloud.service"
     ];
     pathConfig = {
@@ -30,6 +29,7 @@
       ExecStart = "systemctl restart phpfpm-nextcloud.service";
     };
   };
+  */
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud31;
