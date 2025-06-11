@@ -288,7 +288,7 @@ in {
       };
     };
     extraConfig = ''
-      exec inactive-windows-transparency.py -o 0.9
+      exec inactive-windows-transparency.py -o 0.8
       exec snap run accountable2you
     '';
   };
