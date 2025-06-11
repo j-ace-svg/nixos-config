@@ -20,7 +20,7 @@
           ];
         }
       ];
-      iconUpdateURL = iconPath;
+      icon = iconPath;
       definedAliases = [alias];
     };
   in {
@@ -44,7 +44,7 @@
           ];
         }
       ];
-      iconUpdateURL = "https://search.nixos.org/favicon.png";
+      icon = "https://search.nixos.org/favicon.png";
       definedAliases = ["ns"];
     };
     "Nix Options" = {
@@ -67,7 +67,7 @@
           ];
         }
       ];
-      iconUpdateURL = "https://search.nixos.org/favicon.png";
+      icon = "https://search.nixos.org/favicon.png";
       definedAliases = ["ns"];
     };
     "Home-Manager Options" = {
@@ -86,7 +86,7 @@
           ];
         }
       ];
-      iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
+      icon = "https://home-manager-options.extranix.com/images/favicon.png";
       definedAliases = ["hs"];
     };
     "Youtube" = {
@@ -101,7 +101,7 @@
           ];
         }
       ];
-      iconUpdateURL = "https://www.youtube.com/s/desktop/ee47b5e0/img/logos/favicon_32x32.png";
+      icon = "https://www.youtube.com/s/desktop/ee47b5e0/img/logos/favicon_32x32.png";
       definedAliases = ["yt"];
     };
     "Wayback Machine" = {
@@ -110,7 +110,7 @@
           template = "https://web.archive.org/web/*/{searchTerms}";
         }
       ];
-      iconUpdateURL = "https://web-static.archive.org/_static/images/archive.ico";
+      icon = "https://web-static.archive.org/_static/images/archive.ico";
       definedAliases = ["way"];
     };
     "WordReference" = {
@@ -125,7 +125,7 @@
           ];
         }
       ];
-      iconUpdateURL = "https://www.wordreference.com/favicon.ico";
+      icon = "https://www.wordreference.com/favicon.ico";
       definedAliases = ["wr"];
     };
     "Searx Belgium" = mkSearXNG {
@@ -140,10 +140,10 @@
       url = "https://priv.au/";
       alias = "au";
     };
-    "Google".metaData.hidden = true;
-    "Bing".metaData.hidden = true;
+    "google".metaData.hidden = true;
+    "bing".metaData.hidden = true;
     "You.com".metaData.hidden = true;
-    "DuckDuckGo".metaData.alias = "ddg";
+    "ddg".metaData.alias = "ddg";
   };
   default = "PrivAU";
   force = true;

@@ -89,7 +89,7 @@ in {
         # in your lua config via
         # vim.g.python3_host_prog
         # or run from nvim terminal via :!<packagename>-python3
-        extraPython3Packages = {
+        python3.libraries = {
           test = [(_: [])];
           latex = [(ps: with ps; [sympy])];
         };

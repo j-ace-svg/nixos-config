@@ -5,12 +5,20 @@
   modulesPath,
   ...
 }: {
+  imports = [
+    ./acme-emailFromEnvironment/default.nix
+  ];
   sops = {
     secrets = {
       "nextcloud/admin_password" = {};
     };
-    templates."nextcloud/secretFile".content = builtins.toJSON {
-      trusted_domains = [config.sops.placeholder."cloudflare/domain"];
+    templates = {
+      "nextcloud/secretFile".content = builtins.toJSON {
+        trusted_domains = ["nextcloud.${config.sops.placeholder."cloudflare/domain"}"];
+      };
+      "nextcloud/nginx_extraConfig".content = ''
+        server_name nextcloud.${config.sops.placeholder."cloudflare/domain"};
+      '';
     };
   };
   /*
@@ -33,7 +41,7 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud31;
-    hostName = "localhost";
+    hostName = "nextcloud.localhost";
     config = {
       adminpassFile = config.sops.secrets."nextcloud/admin_password".path;
       dbtype = "sqlite";
@@ -44,6 +52,17 @@
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
     };
     extraAppsEnable = true;
+    https = true;
   };
-  networking.firewall.allowedTCPPorts = [80 443];
+
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    extraConfig = ''
+      include ${config.sops.templates."nextcloud/nginx_extraConfig".path}
+    '';
+    forceSSL = true;
+    useACMEHost = "acmechallenge.localhost";
+    acmeRoot = null;
+  };
+
+  security.acme.certs."acmechallenge.localhost".extraDomainNames = ["nextcloud.$cert_domain"];
 }
