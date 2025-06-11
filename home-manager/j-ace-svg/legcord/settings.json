@@ -4,7 +4,17 @@
     "legcordCSP": true,
     "minimizeToTray": true,
     "keybinds": [],
-    "audio": "loopbackWithMute",
+    "audio": {
+        "workaround": false,
+        "deviceSelect": true,
+        "granularSelect": true,
+        "ignoreVirtual": false,
+        "ignoreDevices": false,
+        "ignoreInputMedia": false,
+        "onlySpeakers": false,
+        "onlyDefaultSpeakers": true,
+        "loopbackType": "loopback"
+    },
     "multiInstance": false,
     "mods": [
         "vencord"
@@ -31,6 +41,19 @@
     "autoScroll": false,
     "modCache": {
         "shelter": "5927dbd4254a9a2d60163c93e4ae7438b833f32a",
-        "vencord": "503c90c201e9aeca9db622bde8fa9366edfd2a0d"
-    }
+        "vencord": "bb106b7c49a6f1019194738a66ee75c8584680a8"
+    },
+    "bounceOnPing": false,
+    "overlayButtonColor": "#121214",
+    "autoHideMenuBar": true,
+    "blockPowerSavingInVoiceChat": false,
+    "useMacSystemPicker": true,
+    "popoutPiP": false,
+    "spellcheckLanguage": [
+        "en-US"
+    ],
+    "sleepInBackground": false,
+    "noBundleUpdates": false,
+    "additionalArguments": "",
+    "useSystemCssEditor": false
 }
