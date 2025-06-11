@@ -1,0 +1,23 @@
+[req]
+default_bits = 4096
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]
+emailAddress = <<<email address/admin@example.com>>>
+CN = <<<domain name/www.example.com>>>
+
+[ req_ext ]
+subjectAltName = @alt_names
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+
+[ alt_names ]
+DNS.1 = <<<first domain name option/www.example.com>>>
+DNS.2 = <<<secord domain name option/test.example.com>>>
+
+<<<run with openssl req -new -sha256 -nodes -out www.domain.net.csr -newkey rsa:4096 -keyout www.domain.net.key -config csr_details.txt>>>
