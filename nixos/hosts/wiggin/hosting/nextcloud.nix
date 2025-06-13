@@ -16,9 +16,12 @@
       "nextcloud/secretFile".content = builtins.toJSON {
         trusted_domains = ["nextcloud.${config.sops.placeholder."cloudflare/domain"}"];
       };
-      "nextcloud/nginx_extraConfig".content = ''
-        server_name nextcloud.${config.sops.placeholder."cloudflare/domain"};
-      '';
+      "nextcloud/nginx_extraConfig" = {
+        content = ''
+          server_name nextcloud.${config.sops.placeholder."cloudflare/domain"};
+        '';
+        owner = config.services.nginx.user;
+      };
     };
   };
   /*
@@ -47,7 +50,7 @@
       dbtype = "sqlite";
     };
     secretFile = config.sops.templates."nextcloud/secretFile".path;
-    phpOptions."realpath_cache_size" = "0";
+    phpOptions."realpath_cache_size" = "0"; # Don't cache symlink realpaths because they change on rebuild
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
     };
@@ -57,7 +60,7 @@
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
     extraConfig = ''
-      include ${config.sops.templates."nextcloud/nginx_extraConfig".path}
+      include ${config.sops.templates."nextcloud/nginx_extraConfig".path};
     '';
     forceSSL = true;
     useACMEHost = "acmechallenge.localhost";

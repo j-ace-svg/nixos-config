@@ -288,7 +288,8 @@ in {
       };
     };
     extraConfig = ''
-      exec inactive-windows-transparency.py -o 0.9
+      exec_always pkill -f "inactive-windows-transparency.py"
+      exec_always inactive-windows-transparency.py -o 0.9
       exec snap run accountable2you
     '';
   };
