@@ -7,9 +7,9 @@
 }: {
   sops = {
     secrets = {
-      "cloudflare/email" = {};
-      "cloudflare/api_key" = {};
-      "cloudflare/domain" = {};
+      "cloudflare/email" = {sopsFile = ./secrets.yaml;};
+      "cloudflare/api_key" = {sopsFile = ./secrets.yaml;};
+      "cloudflare/domain" = {sopsFile = ./secrets.yaml;};
     };
     templates = {
       "ddclient/config".content = ''

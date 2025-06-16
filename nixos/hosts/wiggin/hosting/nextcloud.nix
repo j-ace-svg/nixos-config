@@ -10,7 +10,7 @@
   ];
   sops = {
     secrets = {
-      "nextcloud/admin_password" = {};
+      "nextcloud/admin_password" = {sopsFile = ./secrets.yaml;};
     };
     templates = {
       "nextcloud/secretFile".content = builtins.toJSON {
@@ -55,14 +55,16 @@
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
     };
     extraAppsEnable = true;
-    https = true;
+    #https = true;
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    extraConfig = ''
+    /*
+      extraConfig = ''
       include ${config.sops.templates."nextcloud/nginx_extraConfig".path};
     '';
-    forceSSL = true;
+    */
+    #forceSSL = true;
     useACMEHost = "acmechallenge.localhost";
     acmeRoot = null;
   };

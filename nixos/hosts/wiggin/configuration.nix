@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./sops.nix
     ./hosting/default.nix
+    ./ssh/default.nix
   ];
 
   nix = {
@@ -171,17 +172,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-      AllowUsers = ["j-ace-svg"];
-    };
-  };
-  networking.firewall.allowedTCPPorts = [22];
 
   # Enable USB-related services
   services.devmon.enable = true;
