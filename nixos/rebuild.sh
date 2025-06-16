@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{ # Try rebuilding
+( # Try rebuilding
     # Make script fail if any individual commands fail
     set -e
 
@@ -50,6 +50,7 @@
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
 
-} || { # Warn if any errors occured
+)
+if [ $? -ne 0 ]; then # Warn if any errors occured
     notify-send -e "Error Rebuilding NixOS" --icon=alert
-}
+fi
