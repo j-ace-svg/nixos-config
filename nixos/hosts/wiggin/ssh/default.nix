@@ -26,6 +26,7 @@
       PermitRootLogin = "no";
       AllowUsers = ["j-ace-svg"];
     };
+    ports = [22 80];
   };
   networking.firewall.allowedTCPPorts = [22];
 }
