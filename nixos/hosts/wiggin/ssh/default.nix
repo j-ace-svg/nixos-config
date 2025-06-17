@@ -10,9 +10,12 @@
       "ssh/termux" = {sopsFile = ./secrets.yaml;};
     };
     templates = {
-      "ssh/authorized_keys".content = ''
-        ${config.sops.placeholder."ssh/termux"}
-      '';
+      "ssh/authorized_keys/j-ace-svg" = {
+        content = ''
+          ${config.sops.placeholder."ssh/termux"}
+        '';
+        path = "${config.users.users.j-ace-svg.home}/.ssh/authorized_keys";
+      };
     };
   };
   # Enable the OpenSSH daemon.

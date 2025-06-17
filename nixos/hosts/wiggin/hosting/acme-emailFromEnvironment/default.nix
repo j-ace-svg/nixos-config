@@ -426,7 +426,7 @@
             --domains ${builtins.concatStringsSep "," ([data.domain] ++ extraDomains)}
 
           # Create files to match directory layout for real certificates
-          cd '${keyName}'
+          cd "${keyName}"
           cp ../ca/cert.pem chain.pem
           cat cert.pem chain.pem > fullchain.pem
           cat key.pem fullchain.pem > full.pem
@@ -579,7 +579,7 @@
           # Check if we can renew.
           # We can only renew if the list of domains has not changed.
           # We also need an account key. Avoids #190493
-          if cmp -s domainhash.txt certificates/domainhash.txt && [ -e '${certificateKey}' ] && [ -e 'certificates/${keyName}.crt' ] && [ -n "$(find accounts -name "$EMAIL.key")" ]; then
+          if cmp -s domainhash.txt certificates/domainhash.txt && [ -e "${certificateKey}" ] && [ -e "certificates/${keyName}.crt" ] && [ -n "$(find accounts -name "$EMAIL.key")" ]; then
 
             # Even if a cert is not expired, it may be revoked by the CA.
             # Try to renew, and silently fail if the cert is not expired.
@@ -610,12 +610,12 @@
           chown '${user}:${data.group}' certificates/*
 
           # Copy all certs to the "real" certs directory
-          if ! cmp -s 'certificates/${keyName}.crt' out/fullchain.pem; then
+          if ! cmp -s "certificates/${keyName}.crt" out/fullchain.pem; then
             touch out/renewed
             echo Installing new certificate
-            cp -vp 'certificates/${keyName}.crt' out/fullchain.pem
-            cp -vp '${certificateKey}' out/key.pem
-            cp -vp 'certificates/${keyName}.issuer.crt' out/chain.pem
+            cp -vp "certificates/${keyName}.crt" out/fullchain.pem
+            cp -vp "${certificateKey}" out/key.pem
+            cp -vp "certificates/${keyName}.issuer.crt" out/chain.pem
             ln -sf fullchain.pem out/cert.pem
             cat out/key.pem out/fullchain.pem > out/full.pem
           fi
