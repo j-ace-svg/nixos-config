@@ -17,6 +17,7 @@
           ${config.sops.placeholder."ssh/delphiki"}
         '';
         path = "${config.users.users.j-ace-svg.home}/.ssh/authorized_keys";
+        owner = config.users.users.j-ace-svg.name;
       };
     };
   };
