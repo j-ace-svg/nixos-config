@@ -33,15 +33,23 @@
       url = "github:BirdeeHub/nixCats-nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
+    home-manager,
     sops-nix,
     nix-snapd,
-    home-manager,
     firefox-addons,
+    plover-wayland,
+    nixCats,
+    nix-minecraft,
     ...
   }: {
     nixosConfigurations = let

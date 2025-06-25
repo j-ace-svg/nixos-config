@@ -13,6 +13,7 @@
     ./sops.nix
     ./hosting/default.nix
     ./ssh/default.nix
+    ./minecraft-server/default.nix
   ];
 
   nix = {
@@ -22,7 +23,7 @@
     '';
   };
 
-  # Only allow steam but no other proprietary apps
+  # Only allow steam, printer and mc server but no other proprietary apps
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
@@ -31,6 +32,7 @@
       "steam-run"
       "steamcmd"
       "hplip"
+      "minecraft-server"
     ];
 
   # Use the systemd-boot EFI boot loader.
