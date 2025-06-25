@@ -26,6 +26,7 @@
       shakespeare = {
         enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_6;
+        openFirewall = true;
 
         serverProperties = {
           server-port = 25565;
