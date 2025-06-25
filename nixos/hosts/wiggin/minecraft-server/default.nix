@@ -26,6 +26,10 @@
       shakespeare = {
         enable = true;
         package = pkgs.vanillaServers.vanilla-1_21_6;
+
+        serverProperties = {
+          server-port = 25565;
+        };
       };
       # Name for next server (follow order of planets visited by Andrew Wiggin)
       # ganges =
