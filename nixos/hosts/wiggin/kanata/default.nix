@@ -3,7 +3,13 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  hyprkan = pkgs.python313Packages.callPackage ./hyprkan.nix {
+    inherit (pkgs.python313Packages) buildPythonApplication;
+    inherit (pkgs.python313Packages) i3ipc;
+    inherit (pkgs) kanata;
+  };
+in {
   systemd.services."kanata-dell-manual" = {
     description = "Kanata for Dell";
     #unitConfig = {
@@ -13,8 +19,8 @@
     serviceConfig = {
       ExecStart = lib.escapeShellArgs [
         "${pkgs.kanata}/bin/kanata"
-        #"--input"
-        #"device-file /dev/input/by-path/platform-i8042-serio-0-event-kbd"
+        "-p"
+        "10000"
         "-c"
         "${./config.kbd}"
       ];
@@ -28,5 +34,18 @@
       Nice = -20;
     };
     wantedBy = ["default.target"];
+  };
+
+  systemd.user.services.hyprkan = {
+    description = "App-aware Kanata layer switcher";
+    serviceConfig = {
+      ExecStart = lib.escapeShellArgs [
+        "${hyprkan}/bin/hyprkan"
+        "-p"
+        "1000"
+        "-c"
+        "${./hyprkan.json}"
+      ];
+    };
   };
 }
