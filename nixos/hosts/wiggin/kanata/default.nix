@@ -45,13 +45,12 @@ in {
         "10000"
         "-c"
         "${./hyprkan.json}"
-        "--log-level"
-        "INFO"
       ];
       Restart = "on-failure";
       RestartSec = 5;
       Type = "simple";
     };
+    restartTriggers = [./hyprkan.json];
     wantedBy = ["graphical-session.target"];
     after = ["graphical-session.target"];
   };
