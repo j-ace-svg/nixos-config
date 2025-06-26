@@ -37,7 +37,7 @@ in {
   };
 
   systemd.user.services.hyprkan = {
-    description = "App-aware Kanata layer switcher";
+    description = "Kanata Layer Switcher";
     serviceConfig = {
       ExecStart = lib.escapeShellArgs [
         "${hyprkan}/bin/hyprkan"
@@ -46,11 +46,12 @@ in {
         "-c"
         "${./hyprkan.json}"
       ];
-      Restart = "always";
-      RestartSec = 2;
+      Restart = "on-failure";
+      RestartSec = 5;
+      Type = "simple";
     };
-    wantedBy = ["default.target"];
+    wantedBy = ["graphical-session.target"];
     requires = ["kanata-dell-manual.service"];
-    after = ["kanata-dell-manual.service"];
+    after = ["graphical-session.target"];
   };
 }
