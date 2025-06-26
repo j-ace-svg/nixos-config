@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "class": "^minecraft$",
+    "layer": "gaming"
+  },
+  {
+    "layer": "rpdv"
+  }
+]
