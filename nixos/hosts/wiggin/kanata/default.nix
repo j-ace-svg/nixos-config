@@ -45,6 +45,8 @@ in {
         "10000"
         "-c"
         "${./hyprkan.json}"
+        "--log-level"
+        "INFO"
       ];
       Restart = "on-failure";
       RestartSec = 5;
