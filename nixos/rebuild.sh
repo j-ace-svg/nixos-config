@@ -36,6 +36,9 @@
     if [[ "$args" == *"o"* ]]; then
         rebuild_extra_args+=" --offline "
     fi
+    if [[ "$args" == *"v"* ]]; then
+        rebuild_extra_args+=" --show-trace "
+    fi
 
     # Rebuild, output simplified errors, log trackebacks
     sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
