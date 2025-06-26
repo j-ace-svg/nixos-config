@@ -111,6 +111,8 @@
   lp  (multi lsft 9 reverse-release-order)    ;; (unicode "(")
   rp  (multi lsft 0 reverse-release-order)    ;; (unicode ")")
   und (multi lsft - reverse-release-order)    ;; (unicode "_")
+  lbc (multi lsft [ reverse-release-order)    ;; (unicode "{")
+  rbc (multi lsft ] reverse-release-order)    ;; (unicode "}")
   bar (multi lsft \ reverse-release-order)    ;; (unicode "|")
   col (multi lsft ; reverse-release-order)    ;; (unicode ":")
   lt  (multi lsft , reverse-release-order)    ;; (unicode "<")
