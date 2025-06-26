@@ -99,24 +99,24 @@
 
 ;; Symbols (not aliased by default + prevents registering shift)
 (defalias
-  til `    ;; (unicode "~") ;; Shifted versions in qwerty
-  exc 1    ;; (unicode "!")
-  at  2    ;; (unicode "@")
-  oct 3    ;; (unicode "#")
-  dol 4    ;; (unicode "$")
-  pct 5    ;; (unicode "%")
-  car 6    ;; (unicode "^")
-  amp 7    ;; (unicode "&")
-  ast 8    ;; (unicode "*")
-  lp  9    ;; (unicode "(")
-  rp  0    ;; (unicode ")")
-  und -    ;; (unicode "_")
-  bar \    ;; (unicode "|")
-  col ;    ;; (unicode ":")
-  lt  ,    ;; (unicode "<")
-  gt  .    ;; (unicode ">")
-  qst /    ;; (unicode "?")
-  dbq ')   ;; (unicode r#"""#))
+  til (multi lsft ` reverse-release-order)    ;; (unicode "~") ;; Shifted versions in qwerty instead of unicode
+  exc (multi lsft 1 reverse-release-order)    ;; (unicode "!")
+  at  (multi lsft 2 reverse-release-order)    ;; (unicode "@")
+  oct (multi lsft 3 reverse-release-order)    ;; (unicode "#")
+  dol (multi lsft 4 reverse-release-order)    ;; (unicode "$")
+  pct (multi lsft 5 reverse-release-order)    ;; (unicode "%")
+  car (multi lsft 6 reverse-release-order)    ;; (unicode "^")
+  amp (multi lsft 7 reverse-release-order)    ;; (unicode "&")
+  ast (multi lsft 8 reverse-release-order)    ;; (unicode "*")
+  lp  (multi lsft 9 reverse-release-order)    ;; (unicode "(")
+  rp  (multi lsft 0 reverse-release-order)    ;; (unicode ")")
+  und (multi lsft - reverse-release-order)    ;; (unicode "_")
+  bar (multi lsft \ reverse-release-order)    ;; (unicode "|")
+  col (multi lsft ; reverse-release-order)    ;; (unicode ":")
+  lt  (multi lsft , reverse-release-order)    ;; (unicode "<")
+  gt  (multi lsft . reverse-release-order)    ;; (unicode ">")
+  qst (multi lsft / reverse-release-order)    ;; (unicode "?")
+  dbq (multi lsft ' reverse-release-order))   ;; (unicode r#"""#))
 
 ;;; Layers
 
