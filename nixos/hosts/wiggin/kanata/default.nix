@@ -53,4 +53,8 @@ in {
     wantedBy = ["graphical-session.target"];
     after = ["graphical-session.target"];
   };
+
+  environment.systemPackages = [
+    hyprkan
+  ];
 }
