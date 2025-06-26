@@ -51,7 +51,6 @@ in {
       Type = "simple";
     };
     wantedBy = ["graphical-session.target"];
-    requires = ["kanata-dell-manual.service"];
     after = ["graphical-session.target"];
   };
 }
