@@ -29,7 +29,7 @@
 ;;
 ;; (deflayer name
 ;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        ssrq slck pause
-;;   @dol @pls [    {    @lp  @amp  =   @rp  }    ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
+;;   @dol +    [    {    @lp  @amp  =   @rp  }    ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
 ;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @at       \          del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    o    e    u    i    d    h    t    n    s    -              ret                            kp4  kp5  kp6
 ;;   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl            up             kp1  kp2  kp3  kprt
@@ -99,25 +99,24 @@
 
 ;; Symbols (not aliased by default + prevents registering shift)
 (defalias
-  til (unicode "~")
-  exc (unicode "!")
-  at  (unicode "@")
-  oct (unicode "#")
-  dol (unicode "$")
-  pct (unicode "%")
-  car (unicode "^")
-  amp (unicode "&")
-  ast (unicode "*")
-  lp  (unicode "(")
-  rp  (unicode ")")
-  und (unicode "_")
-  pls (unicode "+")
-  bar (unicode "|")
-  col (unicode ":")
-  lt  (unicode "<")
-  gt  (unicode ">")
-  qst (unicode "?")
-  dbq (unicode r#"""#))
+  til `    ;; (unicode "~") ;; Shifted versions in qwerty
+  exc 1    ;; (unicode "!")
+  at  2    ;; (unicode "@")
+  oct 3    ;; (unicode "#")
+  dol 4    ;; (unicode "$")
+  pct 5    ;; (unicode "%")
+  car 6    ;; (unicode "^")
+  amp 7    ;; (unicode "&")
+  ast 8    ;; (unicode "*")
+  lp  9    ;; (unicode "(")
+  rp  0    ;; (unicode ")")
+  und -    ;; (unicode "_")
+  bar \    ;; (unicode "|")
+  col ;    ;; (unicode ":")
+  lt  ,    ;; (unicode "<")
+  gt  .    ;; (unicode ">")
+  qst /    ;; (unicode "?")
+  dbq ')   ;; (unicode r#"""#))
 
 ;;; Layers
 
@@ -135,7 +134,7 @@
 
 (deflayer rpdv
   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
-  @dol @pls [    {    @lp  @amp =    @rp  }    ]    @ast @exc @bar      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  @dol +    [    {    @lp  @amp =    @rp  }    ]    @ast @exc @bar      bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @at       \         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl           up             kp1  kp2  kp3  kprt
@@ -172,7 +171,7 @@ My friends are going to hate me when they see my keyboard now.
 ;; Yes, you do have to move your right hand 2 keys to the right in the home row
 (deflayer rpdv-wide
   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
-  @dol @pls [    {    @lp  @amp =    @exc @bar @rp  }    ]    @ast      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  @dol +    [    {    @lp  @amp =    @exc @bar @rp  }    ]    @ast      bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  ;    @,nw @.mt p    y    @at  \    f    g    @cmt @rnm l         /         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amw @oal @ect @usw i    -    ret  d    @hsw @tct @nal           s                             kp4  kp5  kp6
   @lsw '    q    j    k    x    @rsw z    b    m    w                   v              up             kp1  kp2  kp3  kprt
