@@ -42,7 +42,7 @@ in {
       ExecStart = lib.escapeShellArgs [
         "${hyprkan}/bin/hyprkan"
         "-p"
-        "1000"
+        "10000"
         "-c"
         "${./hyprkan.json}"
       ];
