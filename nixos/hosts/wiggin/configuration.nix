@@ -14,7 +14,7 @@
     ./hosting/default.nix
     ./ssh/default.nix
     ./minecraft-server/default.nix
-    ./kmonad/default.nix
+    ./kanata/default.nix
   ];
 
   nix = {

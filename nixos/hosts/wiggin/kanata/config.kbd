@@ -1,6 +1,6 @@
 ;;                      Realer Programmer's Dvorak
 ;;
-;; KMonad variation of Real Programmer Dvorak with home row mods and such.
+;; Kanata variation of Real Programmer Dvorak with home row mods and such.
 ;; Based on Michael Paulson's poor ideas.
 ;;
 ;; Template for a new layer:
@@ -17,28 +17,30 @@
 ;; Template for a QWERTY layer:
 ;;
 ;; (deflayer name
-;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt slck pause
+;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq slck pause
 ;;   `    1    2    3    4    5    6    7    8    9    0    -    =         bspc      ins  home pgup      nlck kp/  kp*  kp-
 ;;   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
 ;;   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
-;;   lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+;;   lctl lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 ;; )
 ;;
 ;; Template for a Dvorak layer:
 ;;
 ;; (deflayer name
-;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        @prt slck pause
-;;   $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc       ins  home pgup      nlck kp/  kp*  kp-
-;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @         \          del  end  pgdn      kp7  kp8  kp9  kp+
+;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        ssrq slck pause
+;;   @dol @pls [    {    @lp  @amp  =   @rp  }    ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
+;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @at       \          del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    o    e    u    i    d    h    t    n    s    -              ret                            kp4  kp5  kp6
 ;;   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl            up             kp1  kp2  kp3  kprt
-;;   lctl lmet lalt           spc            ralt rmet cmp                 rctl       left down rght      kp0       kp.
+;;   lctl lmet lalt           spc            ralt rmet menu                rctl       left down rght      kp0       kp.
 ;; )
 
 (defcfg
-  input (device-file "/dev/input/by-id/usb-Dell_Dell_USB_Entry_Keyboard-event-kbd")
-  output (uinput-sink "Kmonad: Dell"))
+  linux-dev "/dev/input/by-id/usb-Dell_Dell_USB_Entry_Keyboard-event-kbd"
+  ;;linux-output-device-name "Kanata: Dell"
+  process-unmapped-keys yes
+  )
 
 ;;; Aliases
 
@@ -47,68 +49,75 @@
 
 ;; Layer aliases
 (defalias
-  lsl (around (layer-toggle rpdv-lsft) lsft)
-  rsl (around (layer-toggle rpdv-rsft) rsft)
+  lsl (multi (layer-while-held rpdv-sft) lsft)
+  rsl (multi (layer-while-held rpdv-sft) rsft)
   dvk (layer-switch rpdv)
-  lsw (around (layer-toggle rpdv-lsft-wide) lsft)
-  rsw (around (layer-toggle rpdv-rsft-wide) rsft)
+  lsw (multi (layer-while-held rpdv-sft-wide) lsft)
+  rsw (multi (layer-while-held rpdv-sft-wide) rsft)
   wdv (layer-switch rpdv-wide)
   qwt (layer-switch qwerty)
   gam (layer-switch gaming)
-  mvt (layer-toggle mvmt)
-  mvw (layer-toggle mvmt-wide)
-  lnl (layer-toggle lnum)
-  rnl (layer-toggle rnum)
-  rnw (layer-toggle rnum-wide)
-  lay (layer-toggle layer-sel))
+  mvt (layer-while-held mvmt)
+  mvw (layer-while-held mvmt-wide)
+  lnl (layer-while-held lnum)
+  rnl (layer-while-held rnum)
+  rnw (layer-while-held rnum-wide)
+  lay (layer-while-held layer-sel))
 
 ;; Functions
 (defalias
-  amv (tap-hold-next-release 1000 a @mvt :timeout-button a)
-  amw (tap-hold-next-release 1000 a @mvw :timeout-button a)
-  ,nm (tap-hold-next-release 1000 , @rnl :timeout-button ,)
-  ,nw (tap-hold-next-release 1000 , @rnw :timeout-button ,)
-  oal (tap-hold-next-release 1000 o lalt :timeout-button o)
-  .mt (tap-hold-next-release 1000 . lmet :timeout-button .)
-  ect (tap-hold-next-release 1000 e lctl :timeout-button e)
-  usf (tap-hold-next-release 1000 u @lsl :timeout-button u)
-  usw (tap-hold-next-release 1000 u @lsw :timeout-button u)
-  hsf (tap-hold-next-release 1000 h @rsl :timeout-button h)
-  hsw (tap-hold-next-release 1000 h @rsw :timeout-button h)
-  tct (tap-hold-next-release 1000 t rctl :timeout-button t)
-  cmt (tap-hold-next-release 1000 c rmet :timeout-button c)
-  nal (tap-hold-next-release 1000 n ralt :timeout-button n)
-  rnm (tap-hold-next-release 1000 r @lnl :timeout-button r))
+  amv (tap-hold-release-timeout 0 1000 a @mvt a)
+  amw (tap-hold-release-timeout 0 1000 a @mvw a)
+  ,nm (tap-hold-release-timeout 0 1000 , @rnl ,)
+  ,nw (tap-hold-release-timeout 0 1000 , @rnw ,)
+  oal (tap-hold-release-timeout 0 1000 o lalt o)
+  .mt (tap-hold-release-timeout 0 1000 . lmet .)
+  ect (tap-hold-release-timeout 0 1000 e lctl e)
+  usf (tap-hold-release-timeout 0 1000 u @lsl u)
+  usw (tap-hold-release-timeout 0 1000 u @lsw u)
+  hsf (tap-hold-release-timeout 0 1000 h @rsl h)
+  hsw (tap-hold-release-timeout 0 1000 h @rsw h)
+  tct (tap-hold-release-timeout 0 1000 t rctl t)
+  cmt (tap-hold-release-timeout 0 1000 c rmet c)
+  nal (tap-hold-release-timeout 0 1000 n ralt n)
+  rnm (tap-hold-release-timeout 0 1000 r @lnl r))
 
 ;; Shifted Dvorak keys
 (defalias
-  ls0 (tap-macro-release lsft 0 lsft)
-  rs0 (tap-macro-release rsft 0 rsft)
-  ls1 (tap-macro-release lsft 1 lsft)
-  rs1 (tap-macro-release rsft 1 rsft)
-  ls2 (tap-macro-release lsft 2 lsft)
-  rs2 (tap-macro-release rsft 2 rsft)
-  ls3 (tap-macro-release lsft 3 lsft)
-  rs3 (tap-macro-release rsft 3 rsft)
-  ls4 (tap-macro-release lsft 4 lsft)
-  rs4 (tap-macro-release rsft 4 rsft)
-  ls5 (tap-macro-release lsft 5 lsft)
-  rs5 (tap-macro-release rsft 5 rsft)
-  ls6 (tap-macro-release lsft 6 lsft)
-  rs6 (tap-macro-release rsft 6 rsft)
-  ls7 (tap-macro-release lsft 7 lsft)
-  rs7 (tap-macro-release rsft 7 rsft)
-  ls8 (tap-macro-release lsft 8 lsft)
-  rs8 (tap-macro-release rsft 8 rsft)
-  ls9 (tap-macro-release lsft 9 lsft)
-  rs9 (tap-macro-release rsft 9 rsft)
-  ls` (tap-macro-release lsft ` lsft)
-  rs` (tap-macro-release rsft ` rsft)
+  us0 (unshift 0)
+  us1 (unshift 1)
+  us2 (unshift 2)
+  us3 (unshift 3)
+  us4 (unshift 4)
+  us5 (unshift 5)
+  us6 (unshift 6)
+  us7 (unshift 7)
+  us8 (unshift 8)
+  us9 (unshift 9)
+  us` (unshift `)
 )
 
-;; Misc
+;; Symbols (not aliased by default + prevents registering shift)
 (defalias
-  prt sysrq)
+  til (unicode "~")
+  exc (unicode "!")
+  at  (unicode "@")
+  oct (unicode "#")
+  dol (unicode "$")
+  pct (unicode "%")
+  car (unicode "^")
+  amp (unicode "&")
+  ast (unicode "*")
+  lp  (unicode "(")
+  rp  (unicode ")")
+  und (unicode "_")
+  pls (unicode "+")
+  bar (unicode "|")
+  col (unicode ":")
+  lt  (unicode "<")
+  gt  (unicode ">")
+  qst (unicode "?")
+  dbq (unicode r#"""#))
 
 ;;; Layers
 
@@ -121,33 +130,24 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
   caps a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+  lctl lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 )
 
 (deflayer rpdv
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
-  $    +    [    {    \(   &    =    \)   }    ]    *    !    |         bspc      ins  home pgup      nlck kp/  kp*  kp-
-  tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @         \         del  end  pgdn      kp7  kp8  kp9  kp+
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
+  @dol @pls [    {    @lp  @amp =    @rp  }    ]    @ast @exc @bar      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @at       \         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl           up             kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+  lctl lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 )
 
-(deflayer rpdv-lsft
+(deflayer rpdv-sft
   _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
-  ~    @ls1 @ls2 @ls3 @ls4 @ls5 @ls6 @ls7 @ls8 @ls9 @ls0 %    @ls`      _         _    _    _         _    _    _    _
-  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #         _    _    _         _    _    _    _
-  _    A    O    E    U    I    D    H    T    N    S    \_             _                             _    _    _
-  caps "    Q    J    K    X    B    M    W    V    Z                   caps           _              _    _    _    _
-  _    _    _              _              _    _    _                   _         _    _    _         _         _
-)
-
-(deflayer rpdv-rsft
-  _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
-  ~    @rs1 @rs2 @rs3 @rs4 @rs5 @rs6 @rs7 @rs8 @rs9 @rs0 %    @rs`      _         _    _    _         _    _    _    _
-  _    :    <    >    P    Y    F    G    C    R    L    ?    ^         #         _    _    _         _    _    _    _
-  _    A    O    E    U    I    D    H    T    N    S    \_             _                             _    _    _
-  caps "    Q    J    K    X    B    M    W    V    Z                   caps           _              _    _    _    _
+  @til @us1 @us2 @us3 @us4 @us5 @us6 @us7 @us8 @us9 @us0 @pct @us`      _         _    _    _         _    _    _    _
+  _    @col @lt  @gt  p    y    f    g    c    r    l    @qst @car      @oct      _    _    _         _    _    _    _
+  _    a    o    e    u    i    d    h    t    n    s    @und           _                             _    _    _
+  caps @dbq q    j    k    x    b    m    w    v    z                   caps           _              _    _    _    _
   _    _    _              _              _    _    _                   _         _    _    _         _         _
 )
 
@@ -171,29 +171,20 @@ My friends are going to hate me when they see my keyboard now.
 |#
 ;; Yes, you do have to move your right hand 2 keys to the right in the home row
 (deflayer rpdv-wide
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
-  $    +    [    {    \(   &    =    !    |    \)   }    ]    *         bspc      ins  home pgup      nlck kp/  kp*  kp-
-  tab  ;    @,nw @.mt p    y    @    \    f    g    @cmt @rnm l         /         del  end  pgdn      kp7  kp8  kp9  kp+
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
+  @dol @pls [    {    @lp  @amp =    @exc @bar @rp  }    ]    @ast      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  tab  ;    @,nw @.mt p    y    @at  \    f    g    @cmt @rnm l         /         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amw @oal @ect @usw i    -    ret  d    @hsw @tct @nal           s                             kp4  kp5  kp6
   @lsw '    q    j    k    x    @rsw z    b    m    w                   v              up             kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc            f13  rmet cmp                 rctl      left down rght      kp0       kp.
+  lctl lmet lalt           spc            f13  rmet menu                rctl      left down rght      kp0       kp.
 )
 
-(deflayer rpdv-lsft-wide
+(deflayer rpdv-sft-wide
   _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
-  ~    @ls1 @ls2 @ls3 @ls4 @ls5 %    @ls` @ls6 @ls7 @ls8 @ls9 @ls0      _         _    _    _         _    _    _    _
-  _    :    <    >    P    Y    ^    #    F    G    C    R    L         ?         _    _    _         _    _    _    _
-  _    A    O    E    U    I    \_   _    D    H    T    N              S                             _    _    _
-  caps "    Q    J    K    X    caps Z    B    M    W                   V              _              _    _    _    _
-  _    _    _              _              _    _    _                   _         _    _    _         _         _
-)
-
-(deflayer rpdv-rsft-wide
-  _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
-  ~    @rs1 @rs2 @rs3 @rs4 @rs5 %    @rs` @rs6 @rs7 @rs8 @rs9 @rs0      _         _    _    _         _    _    _    _
-  _    :    <    >    P    Y    ^    #    F    G    C    R    L         ?         _    _    _         _    _    _    _
-  _    A    O    E    U    I    \_   _    D    H    T    N              S                             _    _    _
-  caps "    Q    J    K    X    caps Z    B    M    W                   V              _              _    _    _    _
+  @til @us1 @us2 @us3 @us4 @us5 @pct @us` @us6 @us7 @us8 @us9 @us0      _         _    _    _         _    _    _    _
+  _    @col @lt  @gt  p    y    @car @oct f    g    c    r    l         @qst      _    _    _         _    _    _    _
+  _    a    o    e    u    i    @und _    d    h    t    n              s                             _    _    _
+  caps @dbq q    j    k    x    caps z    b    m    w                   v              _              _    _    _    _
   _    _    _              _              _    _    _                   _         _    _    _         _         _
 )
 
@@ -243,21 +234,21 @@ My friends are going to hate me when they see my keyboard now.
 )
 
 (deflayer qwerty
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
   `    1    2    3    4    5    6    7    8    9    0    -    =         bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
   caps a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+  lctl lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 )
 
 (deflayer gaming
-  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       @prt @lay pause
+  esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
   `    1    2    3    4    5    6    7    8    9    0    -    =         bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
   lctl a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
-  f13  lmet lalt           spc            ralt rmet cmp                 rctl      left down rght      kp0       kp.
+  f13  lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 )
 
 
