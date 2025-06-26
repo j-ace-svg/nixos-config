@@ -263,8 +263,6 @@ in {
           "Shift+b" = "exec ${pkgs.bitwarden}/bin/bitwarden";
           "l" = "exec ${pkgs.legcord}/bin/legcord; mode default";
           "Shift+l" = "exec ${pkgs.legcord}/bin/legcord";
-          "s" = "exec ${pkgs.steam}/bin/steam; mode default";
-          "Shift+s" = "exec ${pkgs.steam}/bin/steam";
           "n" = "exec ${terminal} nvim; mode default";
           "Shift+n" = "exec ${terminal} nvim";
           "d" = "exec ${terminal} ${pkgs.bc}/bin/dc; mode default";
@@ -272,15 +270,33 @@ in {
           "z" = "exec ${config.programs.zathura.package}/bin/zathura; mode default";
           "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
           "h" = "mode docs";
+          "Shift+h" = "mode docs";
+          "g" = "mode games";
+          "Shift+g" = "mode games";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
         };
         docs = {
           "h" = "exec ${terminal} man home-configuration.nix; mode default";
-          "Shift+h" = "exec ${terminal} man home-configuration.nix; mode launch";
+          "Shift+h" = "exec ${terminal} man home-configuration.nix";
           "n" = "exec ${terminal} man configuration.nix; mode default";
-          "Shift+n" = "exec ${terminal} man configuration.nix; mode launch";
+          "Shift+n" = "exec ${terminal} man configuration.nix";
+          "l" = "mode launch";
+          "Shift+l" = "mode launch";
+          "Escape" = "mode default";
+          "Return" = "mode default";
+          "F13" = "mode default";
+        };
+        games = {
+          "s" = "exec ${pkgs.steam}/bin/steam; mode default";
+          "Shift+s" = "exec ${pkgs.steam}/bin/steam";
+          "m" = "exec ${pkgs.mari0}/bin/mari0; mode default";
+          "Shift+m" = "exec ${pkgs.mari0}/bin/mari0";
+          "p" = "exec ${pkgs.prismlauncher}/bin/prismlauncher; mode default";
+          "Shift+p" = "exec ${pkgs.prismlauncher}/bin/prismlauncher";
+          "l" = "mode launch";
+          "Shift+l" = "mode launch";
           "Escape" = "mode default";
           "Return" = "mode default";
           "F13" = "mode default";
