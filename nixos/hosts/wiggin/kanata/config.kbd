@@ -29,7 +29,7 @@
 ;;
 ;; (deflayer name
 ;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        ssrq slck pause
-;;   @dol +    [    {    @lp  @amp  =   @rp  }    ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
+;;   @dol +    [    @lbc @lp  @amp  =   @rp  @rbc ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
 ;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @at       \          del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    o    e    u    i    d    h    t    n    s    -              ret                            kp4  kp5  kp6
 ;;   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl            up             kp1  kp2  kp3  kprt
@@ -136,7 +136,7 @@
 
 (deflayer rpdv
   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
-  @dol +    [    {    @lp  @amp =    @rp  }    ]    @ast @exc @bar      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  @dol +    [    @lbc @lp  @amp =    @rp  @rbc ]    @ast @exc @bar      bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  ;    @,nm @.mt p    y    f    g    @cmt @rnm l    /    @at       \         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amv @oal @ect @usf i    d    @hsf @tct @nal s    -              ret                           kp4  kp5  kp6
   @lsl '    q    j    k    x    b    m    w    v    z                   @rsl           up             kp1  kp2  kp3  kprt
@@ -173,7 +173,7 @@ My friends are going to hate me when they see my keyboard now.
 ;; Yes, you do have to move your right hand 2 keys to the right in the home row
 (deflayer rpdv-wide
   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
-  @dol +    [    {    @lp  @amp =    @exc @bar @rp  }    ]    @ast      bspc      ins  home pgup      nlck kp/  kp*  kp-
+  @dol +    [    @lbc @lp  @amp =    @exc @bar @rp  @rbc ]    @ast      bspc      ins  home pgup      nlck kp/  kp*  kp-
   tab  ;    @,nw @.mt p    y    @at  \    f    g    @cmt @rnm l         /         del  end  pgdn      kp7  kp8  kp9  kp+
   lctl @amw @oal @ect @usw i    -    ret  d    @hsw @tct @nal           s                             kp4  kp5  kp6
   @lsw '    q    j    k    x    @rsw z    b    m    w                   v              up             kp1  kp2  kp3  kprt
