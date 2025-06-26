@@ -46,6 +46,11 @@ in {
         "-c"
         "${./hyprkan.json}"
       ];
+      Restart = "always";
+      RestartSec = 2;
     };
+    wantedBy = ["default.target"];
+    requires = ["kanata-dell-manual.service"];
+    after = ["kanata-dell-manual.service"];
   };
 }
