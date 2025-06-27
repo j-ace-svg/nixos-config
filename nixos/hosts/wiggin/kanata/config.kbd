@@ -84,7 +84,7 @@
 
 ;; Shifted Functions
 (defalias
-  cwt (caps-word-toggle 2000))
+  cwt (multi (release-key lsft) (release-key rsft) (caps-word-toggle 2000)))
 
 ;; Shifted Dvorak keys
 (defalias
