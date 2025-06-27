@@ -5,9 +5,7 @@
   ...
 }: let
   hyprkan = pkgs.python313Packages.callPackage ./hyprkan.nix {
-    inherit (pkgs.python313Packages) buildPythonApplication;
-    inherit (pkgs.python313Packages) i3ipc;
-    inherit (pkgs) kanata;
+    inherit (pkgs.python313Packages) buildPythonApplication i3ipc;
   };
 in {
   systemd.services."kanata-dell-manual" = {

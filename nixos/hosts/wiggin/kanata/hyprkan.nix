@@ -3,7 +3,6 @@
   fetchFromGitHub,
   buildPythonApplication,
   i3ipc,
-  kanata,
 }:
 buildPythonApplication rec {
   pname = "hyprkan";
@@ -25,9 +24,6 @@ buildPythonApplication rec {
 
   propagatedBuildInputs = [
     i3ipc
-  ];
-  dependencies = [
-    kanata
   ];
   meta = with lib; {
     description = "App-aware Kanata layer switcher for Linux";
