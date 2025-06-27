@@ -64,7 +64,7 @@
   rnw (layer-while-held rnum-wide)
   lay (layer-while-held layer-sel))
 
-;; Functions
+;; Regular Functions
 (defalias
   amv (tap-hold-release-timeout 0 1000 a @mvt a)
   amw (tap-hold-release-timeout 0 1000 a @mvw a)
@@ -81,6 +81,10 @@
   cmt (tap-hold-release-timeout 0 1000 c rmet c)
   nal (tap-hold-release-timeout 0 1000 n ralt n)
   rnm (tap-hold-release-timeout 0 1000 r @lnl r))
+
+;; Shifted Functions
+(defalias
+  cwt (caps-word-toggle 2000))
 
 ;; Shifted Dvorak keys
 (defalias
@@ -149,7 +153,7 @@
   _    @col @lt  @gt  p    y    f    g    c    r    l    @qst @car      @oct      _    _    _         _    _    _    _
   _    a    o    e    u    i    d    h    t    n    s    @und           _                             _    _    _
   caps @dbq q    j    k    x    b    m    w    v    z                   caps           _              _    _    _    _
-  _    _    _              _              _    _    _                   _         _    _    _         _         _
+  _    _    _              @cwt           _    _    _                   _         _    _    _         _         _
 )
 
 #|
@@ -186,7 +190,7 @@ My friends are going to hate me when they see my keyboard now.
   _    @col @lt  @gt  p    y    @car @oct f    g    c    r    l         @qst      _    _    _         _    _    _    _
   _    a    o    e    u    i    @und _    d    h    t    n              s                             _    _    _
   caps @dbq q    j    k    x    caps z    b    m    w                   v              _              _    _    _    _
-  _    _    _              _              _    _    _                   _         _    _    _         _         _
+  _    _    _              @cwt           _    _    _                   _         _    _    _         _         _
 )
 
 (deflayer mvmt
