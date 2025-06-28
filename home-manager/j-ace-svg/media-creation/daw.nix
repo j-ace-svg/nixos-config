@@ -35,5 +35,6 @@ in {
     # Plugins
     pkgs.swh_lv2
     ll-plugins
+    pkgs.zynaddsubfx
   ];
 }
