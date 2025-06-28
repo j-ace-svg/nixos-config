@@ -42,7 +42,8 @@ stdenv.mkDerivation rec {
     longDescription = ''
       ll-plugins includes:
       basic arpeggiator, control2midi, klaviatur, math-constants,
-      math-functions, peak meter, rudolf 556, sineshaper, Elven (a host)
+      math-functions, peak meter, rudolf 556, sineshaper, and Elven (a
+      host)
     '';
     license = licenses.gpl3;
   };

@@ -4,7 +4,10 @@
   ...
 }: let
   ll-plugins = pkgs.callPackage ./ll-plugins.nix {
-    inherit (pkgs) boost cairomm gtkmm2 libjack2 libsndfile libsamplerate lv2 lv2-cpp-tools;
+    inherit (pkgs) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
+  };
+  invada-studio = pkgs.callPackage ./invada-studio.nix {
+    inherit (pkgs) ladspa-sdk;
   };
 in {
   imports = [
@@ -36,5 +39,6 @@ in {
     pkgs.swh_lv2
     ll-plugins
     pkgs.zynaddsubfx
+    invada-studio
   ];
 }
