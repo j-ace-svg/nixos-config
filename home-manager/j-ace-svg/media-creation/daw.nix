@@ -2,7 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  ll-plugins = pkgs.callPackage ./ll-plugins.nix {
+    inherit (pkgs) boost cairomm gtkmm2 libjack2 libsndfile libsamplerate lv2 lv2-cpp-tools;
+  };
+in {
   imports = [
   ];
 
@@ -30,5 +34,6 @@
 
     # Plugins
     pkgs.swh_lv2
+    ll-plugins
   ];
 }
