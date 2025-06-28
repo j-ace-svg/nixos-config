@@ -20,6 +20,7 @@
     ./git/default.nix
     ./latex/default.nix
     ./legcord/default.nix
+    ./media-creation/default.nix
     ./mpv/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
@@ -91,22 +92,6 @@
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep
-
-    # Media creation
-    pkgs.tenacity # The community fork of alacritty after the controversy
-    #pkgs.alacritty
-    pkgs.musescore # It's actually FOSS! This is a surprise and absolutely a win
-    pkgs.lilypond # Text-based music engraving
-    pkgs.obs-studio
-    pkgs.libsForQt5.kdenlive
-    pkgs.inkscape
-    pkgs.krita
-    pkgs.gimp
-    pkgs.lmms
-    pkgs.ardour
-    pkgs.sfizz
-    pkgs.ffmpeg
-    pkgs.dl-librescore
 
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
     pkgs.brave
