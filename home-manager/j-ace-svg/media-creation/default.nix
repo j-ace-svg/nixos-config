@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./ardour.nix
+    ./daw.nix
   ];
 
   home.packages = [
@@ -17,7 +17,6 @@
     pkgs.inkscape
     pkgs.krita
     pkgs.gimp
-    pkgs.lmms
     pkgs.sfizz
     pkgs.ffmpeg
     pkgs.dl-librescore
