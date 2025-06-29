@@ -19,12 +19,12 @@ stdenv.mkDerivation rec {
   buildPhase = "";
   installPhase = ''
     install -Dm444 -t "$out/doc/${pname}/" "$src/Readme.txt"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 AB Cardioid V1.3.sfz"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 AB Omni V1.3.sfz"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 Ambisonic Down V1.3.sfz"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 Ambisonic Level V1.3.sfz"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 Ambisonic Up V1.3.sfz"
-    install -Dm444 -t "$out/lib/swz" "$src/The Experience Yamaha S6 ORTF Hammers V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 AB Cardioid V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 AB Omni V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 Ambisonic Down V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 Ambisonic Level V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 Ambisonic Up V1.3.sfz"
+    install -Dm444 -t "$out/lib/sfz" "$src/The Experience Yamaha S6 ORTF Hammers V1.3.sfz"
   '';
 
   meta = with lib; {
