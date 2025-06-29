@@ -9,6 +9,7 @@
   invada-studio = pkgs.callPackage ./invada-studio.nix {
     inherit (pkgs) ladspa-sdk;
   };
+  the-experience-yamaha-s6 = pkgs.callPackage ./the-experience-yamaha-s6.nix {};
 in {
   imports = [
   ];
@@ -27,6 +28,7 @@ in {
     LADSPA_PATH = makePluginPath "ladspa";
     LV2_PATH = makePluginPath "lv2";
     LXVST_PATH = makePluginPath "lxvst";
+    SFZ_PATH = makePluginPath "sfz";
     VST_PATH = makePluginPath "vst";
     VST3_PATH = makePluginPath "vst3";
   };
@@ -40,5 +42,8 @@ in {
     ll-plugins
     pkgs.zynaddsubfx
     invada-studio
+
+    # Instruments
+    the-experience-yamaha-s6
   ];
 }
