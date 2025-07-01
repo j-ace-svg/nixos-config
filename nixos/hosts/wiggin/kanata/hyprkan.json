@@ -1,6 +1,6 @@
 [
   {
-    "class": "Minecraft 1.21.6",
+    "class": "^Minecraft \d+.\d+.\d+$",
     "layer": "gaming"
   }
 ]
