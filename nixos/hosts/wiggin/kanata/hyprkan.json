@@ -4,6 +4,6 @@
     "layer": "gaming"
   },
   {
-    "fake_key": "restore-layer-encoding"
+    "fake_key": ["restore-layer-encoding", "tap"]
   }
 ]
