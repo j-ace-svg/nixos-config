@@ -13,9 +13,11 @@ in {
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/html" = ["floorp.desktop"];
-    "inode/directory" = ["foot.desktop"];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = ["foot.desktop"];
+    };
   };
 
   home.packages = [

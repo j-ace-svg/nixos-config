@@ -7,6 +7,13 @@
     ./daw.nix
   ];
 
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "audio/mpeg" = ["tenacity.desktop"];
+    };
+  };
+
   home.packages = [
     pkgs.tenacity # The community fork of alacritty after the controversy
     #pkgs.alacritty

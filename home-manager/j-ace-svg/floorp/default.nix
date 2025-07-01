@@ -161,13 +161,23 @@
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/html" = ["floorp.desktop"];
-    "text/xml" = ["floorp.desktop"];
-    "x-scheme-handler/http" = ["floorp.desktop"];
-    "x-scheme-handler/https" = ["floorp.desktop"];
-    "x-scheme-handler/about" = ["floorp.desktop"];
-    "x-scheme-handler/unknown" = ["floorp.desktop"];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = ["floorp.desktop"];
+      "text/xml" = ["floorp.desktop"];
+      "x-scheme-handler/http" = ["floorp.desktop"];
+      "x-scheme-handler/https" = ["floorp.desktop"];
+      "x-scheme-handler/about" = ["floorp.desktop"];
+      "x-scheme-handler/chrome" = ["floorp.desktop"];
+      "x-scheme-handler/unknown" = ["floorp.desktop"];
+      "application/x-extension-htm" = ["floorp.desktop"];
+      "application/x-extension-html" = ["floorp.desktop"];
+      "application/x-extension-shtml" = ["floorp.desktop"];
+      "application/xhtml+xml" = ["floorp.desktop"];
+      "application/x-extension-xhtml" = ["floorp.desktop"];
+      "application/x-extension-xht" = ["floorp.desktop"];
+    };
   };
 
   home.packages = [
