@@ -73,7 +73,9 @@
 
           {
             # Per-device module selection (may be a better approach than specialArgs)
-            #j-ace-svg.daw.enable = true;
+            home-manager.users.j-ace-svg.local = {
+              daw.enable = true;
+            };
           }
         ];
 

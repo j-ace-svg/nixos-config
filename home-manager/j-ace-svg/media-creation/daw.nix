@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  cfg = config.j-ace-svg.daw;
+  cfg = config.local.daw;
   ll-plugins = pkgs.callPackage ./ll-plugins.nix {
     inherit (pkgs) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
   };
@@ -17,7 +17,7 @@ in {
   ];
 
   options = {
-    j-ace-svg.daw.enable = lib.mkOption {
+    local.daw.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = ''
@@ -27,7 +27,7 @@ in {
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     # This is relevant: https://wiki.nixos.org/wiki/Audio_production
     home.sessionVariables = let
       makePluginPath = format:
