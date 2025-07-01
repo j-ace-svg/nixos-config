@@ -1,8 +1,10 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
+  cfg = config.j-ace-svg.daw;
   ll-plugins = pkgs.callPackage ./ll-plugins.nix {
     inherit (pkgs) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
   };
@@ -14,36 +16,49 @@ in {
   imports = [
   ];
 
-  # This is relevant: https://wiki.nixos.org/wiki/Audio_production
-  home.sessionVariables = let
-    makePluginPath = format:
-      (lib.makeSearchPath format [
-        "$HOME/.nix-profile/lib"
-        "/run/current-system/sw/lib"
-        "/etc/profiles/per-user/$USER/lib"
-      ])
-      + ":$HOME/.${format}";
-  in {
-    DSSI_PATH = makePluginPath "dssi";
-    LADSPA_PATH = makePluginPath "ladspa";
-    LV2_PATH = makePluginPath "lv2";
-    LXVST_PATH = makePluginPath "lxvst";
-    SFZ_PATH = makePluginPath "sfz";
-    VST_PATH = makePluginPath "vst";
-    VST3_PATH = makePluginPath "vst3";
+  options = {
+    j-ace-svg.daw.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Whether or not to install Digital Audio Workspace tooling
+        and related dependencies
+      '';
+    };
   };
 
-  home.packages = [
-    pkgs.ardour
-    pkgs.lmms
+  config = {
+    # This is relevant: https://wiki.nixos.org/wiki/Audio_production
+    home.sessionVariables = let
+      makePluginPath = format:
+        (lib.makeSearchPath format [
+          "$HOME/.nix-profile/lib"
+          "/run/current-system/sw/lib"
+          "/etc/profiles/per-user/$USER/lib"
+        ])
+        + ":$HOME/.${format}";
+    in {
+      DSSI_PATH = makePluginPath "dssi";
+      LADSPA_PATH = makePluginPath "ladspa";
+      LV2_PATH = makePluginPath "lv2";
+      LXVST_PATH = makePluginPath "lxvst";
+      SFZ_PATH = makePluginPath "sfz";
+      VST_PATH = makePluginPath "vst";
+      VST3_PATH = makePluginPath "vst3";
+    };
 
-    # Plugins
-    pkgs.swh_lv2
-    ll-plugins
-    pkgs.zynaddsubfx
-    invada-studio
+    home.packages = [
+      pkgs.ardour
+      pkgs.lmms
 
-    # Instruments
-    the-experience-yamaha-s6
-  ];
+      # Plugins
+      pkgs.swh_lv2
+      ll-plugins
+      pkgs.zynaddsubfx
+      invada-studio
+
+      # Instruments
+      the-experience-yamaha-s6
+    ];
+  };
 }

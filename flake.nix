@@ -70,6 +70,11 @@
           home-manager.nixosModules.home-manager
           ./home-manager/default.nix
           #kmonad.nixosModules.default
+
+          {
+            # Per-device module selection (may be a better approach than specialArgs)
+            #j-ace-svg.daw.enable = true;
+          }
         ];
 
         specialArgs = {
