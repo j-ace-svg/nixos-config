@@ -30,6 +30,7 @@
 
         serverProperties = {
           server-port = 25565;
+          motd = "Self-hosted by yours truly!";
         };
       };
       # Name for next server (follow order of planets visited by Andrew Wiggin)
