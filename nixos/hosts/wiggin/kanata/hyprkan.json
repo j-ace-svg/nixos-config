@@ -2,5 +2,8 @@
   {
     "class": "^Minecraft \d+.\d+.\d+$",
     "layer": "gaming"
+  },
+  {
+    "fake_key": "restore-layer-encoding"
   }
 ]
