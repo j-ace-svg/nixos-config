@@ -2,7 +2,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  profileName = "j-ace-svg";
+in {
   programs.floorp = {
     enable = true;
     package = pkgs.floorp;
@@ -58,7 +60,7 @@
         };
     };
 
-    profiles.j-ace-svg = {
+    profiles."${profileName}" = {
       search = import ./search.nix {inherit pkgs inputs;};
 
       extensions = import ./extensions.nix {inherit pkgs inputs;};
@@ -158,6 +160,40 @@
         };
         "floorp.lepton.interface" = 3;
       };
+    };
+  };
+
+  home.file.".mozilla/filefox/${profileName}/handlers.json" = {
+    force = true;
+    text = builtins.toJSON {
+      "defaultHandlersVersion" = {};
+      "mimeTypes" = {
+        "application/pdf" = {
+          "action" = 3;
+          "extensions" = ["pdf"];
+        };
+        "image/webp" = {
+          "action" = 3;
+          "extensions" = ["webp"];
+        };
+        "image/avif" = {
+          "action" = 3;
+          "extensions" = ["avif"];
+        };
+      };
+      "schemes" = {
+        "mailto" = {
+          "stubEntry" = true;
+          "handlers" = [
+            null
+            {
+              "name" = "Gmail";
+              "uriTemplate" = "https://mail.google.com/mail/?extsrc=mailto&url=%s";
+            }
+          ];
+        };
+      };
+      "isDownloadsImprovementsAlreadyMigrated" = false;
     };
   };
 
