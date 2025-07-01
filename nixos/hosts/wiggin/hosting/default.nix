@@ -8,5 +8,6 @@
   imports = [
     ./domain.nix
     ./nextcloud.nix
+    ./minecraft-server/default.nix
   ];
 }

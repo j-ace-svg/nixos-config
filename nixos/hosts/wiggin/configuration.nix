@@ -13,7 +13,6 @@
     ./sops.nix
     ./hosting/default.nix
     ./ssh/default.nix
-    ./minecraft-server/default.nix
     ./kanata/default.nix
   ];
 
