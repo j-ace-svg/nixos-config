@@ -54,8 +54,8 @@
   dvk (multi (layer-switch rpdv) (on-press tap-vkey update-layer-encoding))
   lsw (multi (layer-while-held rpdv-sft-wide) lsft)
   rsw (multi (layer-while-held rpdv-sft-wide) rsft)
-  wdv ((layer-switch rpdv-wide) (on-press tap-vkey update-layer-encoding))
-  qwt ((layer-switch qwerty) (on-press tap-vkey update-layer-encoding))
+  wdv (multi (layer-switch rpdv-wide) (on-press tap-vkey update-layer-encoding))
+  qwt (multi (layer-switch qwerty) (on-press tap-vkey update-layer-encoding))
   gam (layer-switch gaming)
   mvt (layer-while-held mvmt)
   mvw (layer-while-held mvmt-wide)
@@ -152,10 +152,10 @@
                         )
 
   restore-layer-encoding (switch
-                           ((t! check-layer-encoding 0 0)) (@dvk) break
-                           ((t! check-layer-encoding 0 1)) (@wdv) break
-                           ((t! check-layer-encoding 1 0)) (@qwt) break
-                                                        () (@dvk) break
+                           ((t! check-layer-encoding 0 0)) (layer-switch rpdv) break
+                           ((t! check-layer-encoding 0 1)) (layer-switch rpdv-wide) break
+                           ((t! check-layer-encoding 1 0)) (layer-switch qwerty) break
+                                                        () (layer-switch rpdv) break
                          )
 )
 
