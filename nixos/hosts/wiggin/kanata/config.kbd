@@ -51,11 +51,11 @@
 (defalias
   lsl (multi (layer-while-held rpdv-sft) lsft)
   rsl (multi (layer-while-held rpdv-sft) rsft)
-  dvk (layer-switch rpdv)
+  dvk (multi (layer-switch rpdv) (on-press tap-vkey update-layer-encoding))
   lsw (multi (layer-while-held rpdv-sft-wide) lsft)
   rsw (multi (layer-while-held rpdv-sft-wide) rsft)
-  wdv (layer-switch rpdv-wide)
-  qwt (layer-switch qwerty)
+  wdv ((layer-switch rpdv-wide) (on-press tap-vkey update-layer-encoding))
+  qwt ((layer-switch qwerty) (on-press tap-vkey update-layer-encoding))
   gam (layer-switch gaming)
   mvt (layer-while-held mvmt)
   mvw (layer-while-held mvmt-wide)
@@ -103,26 +103,61 @@
 
 ;; Symbols (not aliased by default + prevents registering shift)
 (defalias
-  til (multi lsft ` reverse-release-order)    ;; (unicode "~") ;; Shifted versions in qwerty instead of unicode
-  exc (multi lsft 1 reverse-release-order)    ;; (unicode "!")
-  at  (multi lsft 2 reverse-release-order)    ;; (unicode "@")
-  oct (multi lsft 3 reverse-release-order)    ;; (unicode "#")
-  dol (multi lsft 4 reverse-release-order)    ;; (unicode "$")
-  pct (multi lsft 5 reverse-release-order)    ;; (unicode "%")
-  car (multi lsft 6 reverse-release-order)    ;; (unicode "^")
-  amp (multi lsft 7 reverse-release-order)    ;; (unicode "&")
-  ast (multi lsft 8 reverse-release-order)    ;; (unicode "*")
-  lp  (multi lsft 9 reverse-release-order)    ;; (unicode "(")
-  rp  (multi lsft 0 reverse-release-order)    ;; (unicode ")")
-  und (multi lsft - reverse-release-order)    ;; (unicode "_")
-  lbc (multi lsft [ reverse-release-order)    ;; (unicode "{")
-  rbc (multi lsft ] reverse-release-order)    ;; (unicode "}")
-  bar (multi lsft \ reverse-release-order)    ;; (unicode "|")
-  col (multi lsft ; reverse-release-order)    ;; (unicode ":")
-  lt  (multi lsft , reverse-release-order)    ;; (unicode "<")
-  gt  (multi lsft . reverse-release-order)    ;; (unicode ">")
-  qst (multi lsft / reverse-release-order)    ;; (unicode "?")
-  dbq (multi lsft ' reverse-release-order))   ;; (unicode r#"""#))
+  til S-`  ;; (multi lsft ` reverse-release-order)  ;; Multi triggers unwanted modifiers  ;; (unicode "~") ;; Shifted versions in qwerty instead of unicode
+  exc S-1  ;; (multi lsft 1 reverse-release-order)                                        ;; (unicode "!")
+  at  S-2  ;; (multi lsft 2 reverse-release-order)                                        ;; (unicode "@")
+  oct S-3  ;; (multi lsft 3 reverse-release-order)                                        ;; (unicode "#")
+  dol S-4  ;; (multi lsft 4 reverse-release-order)                                        ;; (unicode "$")
+  pct S-5  ;; (multi lsft 5 reverse-release-order)                                        ;; (unicode "%")
+  car S-6  ;; (multi lsft 6 reverse-release-order)                                        ;; (unicode "^")
+  amp S-7  ;; (multi lsft 7 reverse-release-order)                                        ;; (unicode "&")
+  ast S-8  ;; (multi lsft 8 reverse-release-order)                                        ;; (unicode "*")
+  lp  S-9  ;; (multi lsft 9 reverse-release-order)                                        ;; (unicode "(")
+  rp  S-0  ;; (multi lsft 0 reverse-release-order)                                        ;; (unicode ")")
+  und S--  ;; (multi lsft - reverse-release-order)                                        ;; (unicode "_")
+  lbc S-[  ;; (multi lsft [ reverse-release-order)                                        ;; (unicode "{")
+  rbc S-]  ;; (multi lsft ] reverse-release-order)                                        ;; (unicode "}")
+  bar S-\  ;; (multi lsft \ reverse-release-order)                                        ;; (unicode "|")
+  col S-;  ;; (multi lsft ; reverse-release-order)                                        ;; (unicode ":")
+  lt  S-,  ;; (multi lsft , reverse-release-order)                                        ;; (unicode "<")
+  gt  S-.  ;; (multi lsft . reverse-release-order)                                        ;; (unicode ">")
+  qst S-/  ;; (multi lsft / reverse-release-order)                                        ;; (unicode "?")
+  dbq S-') ;; (multi lsft ' reverse-release-order))                                       ;; (unicode r#"""#))
+
+;; Update the last selected general layer encoding
+(deftemplate store-layer-encoding (digit2 digit1)
+  (multi (if-equal $digit2 1 (on-press press-vkey   layerdigit2))
+         (if-equal $digit2 0 (on-press release-vkey layerdigit2))
+         (if-equal $digit1 1 (on-press press-vkey   layerdigit1))
+         (if-equal $digit1 0 (on-press release-vkey layerdigit1))))
+
+(deftemplate check-layer-encoding (digit2 digit1)
+  (and
+    (if-equal $digit2 1      (input virtual layerdigit2))
+    (if-equal $digit2 0 (not (input virtual layerdigit2)))
+    (if-equal $digit1 1      (input virtual layerdigit1))
+    (if-equal $digit1 0 (not (input virtual layerdigit1)))))
+
+;; Virtual Keys
+(defvirtualkeys
+  ;; Last selected general (not application-specific) layer, encoded in binary
+  layerdigit2 nop0
+  layerdigit1 nop0
+
+  update-layer-encoding (switch
+                               ((base-layer rpdv)) (t! store-layer-encoding 0 0) break
+                          ((base-layer rpdv-wide)) (t! store-layer-encoding 0 1) break
+                             ((base-layer qwerty)) (t! store-layer-encoding 1 0) break
+                                                () nop0 break
+                        )
+
+  restore-layer-encoding (switch
+                           ((t! check-layer-encoding 0 0)) (@dvk) break
+                           ((t! check-layer-encoding 0 1)) (@wdv) break
+                           ((t! check-layer-encoding 1 0)) (@qwt) break
+                                                        () (@dvk) break
+                         )
+)
 
 ;;; Layers
 
@@ -255,7 +290,6 @@ My friends are going to hate me when they see my keyboard now.
   lsft z    x    c    v    b    n    m    ,    .    /                   rsft           up             kp1  kp2  kp3  kprt
   f13  lmet lalt           spc            ralt rmet menu                rctl      left down rght      kp0       kp.
 )
-
 
 (deflayer layer-sel
   _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
