@@ -161,6 +161,8 @@
     };
   };
 
+  home.sessionVariables.BROWSER = "floorp";
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
