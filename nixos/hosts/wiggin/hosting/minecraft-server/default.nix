@@ -25,7 +25,7 @@
     servers = {
       shakespeare = {
         enable = true;
-        package = pkgs.vanillaServers.vanilla-1_21_6;
+        package = pkgs.vanillaServers.vanilla-1_21_7;
         openFirewall = true;
 
         serverProperties = {
