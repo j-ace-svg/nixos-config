@@ -13,6 +13,11 @@ in {
     };
   };
 
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = ["floorp.desktop"];
+    "inode/directory" = ["foot.desktop"];
+  };
+
   home.packages = [
     pkgs.libsixel
   ];
