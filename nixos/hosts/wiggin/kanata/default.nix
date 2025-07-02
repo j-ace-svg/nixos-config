@@ -39,6 +39,8 @@ in {
     serviceConfig = {
       ExecStart = lib.escapeShellArgs [
         "${hyprkan}/bin/hyprkan"
+        "--log-level"
+        "INFO"
         "-p"
         "10000"
         "-c"
