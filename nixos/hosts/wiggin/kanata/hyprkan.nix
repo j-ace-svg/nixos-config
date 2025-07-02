@@ -15,7 +15,7 @@ buildPythonApplication rec {
     owner = "j-ace-svg";
     repo = "hyprkan";
     rev = "fea05abb57317a7df24bde650944e7047f8a469f";
-    hash = "sha256-Rog6IUZ1slt4Rm67vsNUUBuZY6NLWdr75rwezlMJ3S8=";
+    hash = "sha256-byrlomOdirZd0lEMRQDTatuTsL8Sc0H/iqgPK4+KvZY=";
   };
 
   dontUnpack = true;
