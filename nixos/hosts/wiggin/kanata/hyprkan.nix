@@ -11,9 +11,10 @@ buildPythonApplication rec {
 
   src = fetchFromGitHub {
     inherit pname version;
-    owner = "mdSlash";
+    # owner = "mdSlash"; # Temporarily trying out a feature I added
+    owner = "j-ace-svg";
     repo = "hyprkan";
-    rev = "10d63fa6afeffd7507b27cc7c1eeb6be83004b50";
+    rev = "fea05abb57317a7df24bde650944e7047f8a469f";
     hash = "sha256-Rog6IUZ1slt4Rm67vsNUUBuZY6NLWdr75rwezlMJ3S8=";
   };
 
