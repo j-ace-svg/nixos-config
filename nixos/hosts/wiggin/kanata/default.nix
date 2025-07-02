@@ -41,8 +41,6 @@ in {
         "${hyprkan}/bin/hyprkan"
         "--log-level"
         "DEBUG"
-        "-p"
-        "10000"
         "-c"
         "${./hyprkan.json}"
       ];
@@ -50,7 +48,7 @@ in {
       RestartSec = 5;
       Type = "simple";
     };
-    restartTriggers = [./hyprkan.json];
+    restartTriggers = [./hyprkan.json ./hyprkan.nix];
     wantedBy = ["graphical-session.target"];
     after = ["graphical-session.target"];
   };
