@@ -51,18 +51,18 @@
 (defalias
   lsl (multi (layer-while-held rpdv-sft) lsft)
   rsl (multi (layer-while-held rpdv-sft) rsft)
-  dvk (multi (layer-switch rpdv) (on-press tap-vkey update-layer-encoding))
+  dvk (layer-switch rpdv)
   lsw (multi (layer-while-held rpdv-sft-wide) lsft)
   rsw (multi (layer-while-held rpdv-sft-wide) rsft)
-  wdv (multi (layer-switch rpdv-wide) (on-press tap-vkey update-layer-encoding))
-  qwt (multi (layer-switch qwerty) (on-press tap-vkey update-layer-encoding))
+  wdv (layer-switch rpdv-wide)
+  qwt (layer-switch qwerty)
   gam (layer-switch gaming)
   mvt (layer-while-held mvmt)
   mvw (layer-while-held mvmt-wide)
   lnl (layer-while-held lnum)
   rnl (layer-while-held rnum)
   rnw (layer-while-held rnum-wide)
-  lay (layer-while-held layer-sel))
+  lay (multi (layer-while-held layer-sel) (on-release tap-vkey update-layer-encoding)))
 
 ;; Regular Functions
 (defalias
