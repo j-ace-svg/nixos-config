@@ -158,6 +158,10 @@
                                                         () (layer-switch rpdv) break
                          )
 )
+;; Temporary virtual key aliases for testing
+(defalias
+  ule (on-press tap-vkey update-layer-encoding)
+  rle (on-press tap-vkey restore-layer-encoding))
 
 ;;; Layers
 
@@ -295,7 +299,7 @@ My friends are going to hate me when they see my keyboard now.
   _    _    _    _    _         _    _    _    _         _    _    _    _         _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
   _    @qwt @dvk @wdv _    _    _    _    _    _    _    _    _         _         _    _    _         _    _    _    _
-  _    @gam _    _    _    _    _    _    _    _    _    _              _                             _    _    _
+  _    @gam @ule @rle _    _    _    _    _    _    _    _              _                             _    _    _
   _    _    _    _    _    _    _    _    _    _    _                   _              _              _    _    _    _
   _    _    _              _              _    _    _                   _         _    _    _         _         _
 )
