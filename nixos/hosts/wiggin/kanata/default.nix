@@ -40,7 +40,7 @@ in {
       ExecStart = lib.escapeShellArgs [
         "${hyprkan}/bin/hyprkan"
         "--log-level"
-        "INFO"
+        "DEBUG"
         "-p"
         "10000"
         "-c"
