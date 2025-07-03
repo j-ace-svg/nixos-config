@@ -55,5 +55,6 @@ in {
 
   environment.systemPackages = [
     hyprkan
+    pkgs.plover.dev
   ];
 }
