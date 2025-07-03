@@ -14,8 +14,8 @@ buildPythonApplication rec {
     # owner = "mdSlash"; # Temporarily trying out a feature I added
     owner = "j-ace-svg";
     repo = "hyprkan";
-    rev = "fea05abb57317a7df24bde650944e7047f8a469f";
-    hash = "sha256-byrlomOdirZd0lEMRQDTatuTsL8Sc0H/iqgPK4+KvZY=";
+    rev = "4f12126a5f6c2c466027fa1011447d99d8d5173f";
+    hash = "sha256-4ReaXeafUfFR9YAVkRMZTcVFjgRwOgUGoffeYBdyQMA=";
   };
 
   dontUnpack = true;
