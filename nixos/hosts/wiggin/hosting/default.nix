@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./domain.nix
+    ./immich.nix
     ./nextcloud.nix
     ./minecraft-server/default.nix
   ];
