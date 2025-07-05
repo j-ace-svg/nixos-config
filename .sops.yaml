@@ -6,3 +6,7 @@ creation_rules:
     key_groups:
     - age:
       - *host_wiggin
+  - path_regex: nixos/hosts/wiggin/(.*/)?secrets/
+    key_groups:
+    - age:
+      - *host_wiggin
