@@ -369,13 +369,13 @@ in {
     layout = [
       {
         label = "lock";
-        action = "swaylock";
+        action = "loginctl lock-session";
         text = "Lock";
         keybind = "l";
       }
       {
         label = "hibernate";
-        action = "swaylock; systemctl hibernate";
+        action = "loginctl lock-session; systemctl hibernate";
         text = "Hibernate";
         keybind = "h";
       }
@@ -393,7 +393,7 @@ in {
       }
       {
         label = "suspend";
-        action = "swaylock; systemctl suspend";
+        action = "loginctl lock-session; systemctl suspend";
         text = "Suspend";
         keybind = "u";
       }
@@ -417,6 +417,22 @@ in {
       grace = 2;
       fade-in = 0.2;
     };
+  };
+
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "lock";
+        command = "swaylock";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 60;
+        command = "loginctl lock-session -fF";
+      }
+    ];
   };
 
   xdg = {
