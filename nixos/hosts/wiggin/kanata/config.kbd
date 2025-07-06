@@ -192,7 +192,7 @@
   _    @col @lt  @gt  p    y    f    g    c    r    l    @qst @car      @oct      _    _    _         _    _    _    _
   _    a    o    e    u    i    d    h    t    n    s    @und           _                             _    _    _
   caps @dbq q    j    k    x    b    m    w    v    z                   caps           _              _    _    _    _
-  _    _    _              @cwt           _    _    _                   _         _    _    _         _         _
+  _    _    _              spc            _    _    _                   _         _    _    _         _         _
 )
 
 #|
@@ -229,7 +229,7 @@ My friends are going to hate me when they see my keyboard now.
   _    @col @lt  @gt  p    y    @car @oct f    g    c    r    l         @qst      _    _    _         _    _    _    _
   _    a    o    e    u    i    @und _    d    h    t    n              s                             _    _    _
   caps @dbq q    j    k    x    caps z    b    m    w                   v              _              _    _    _    _
-  _    _    _              @cwt           _    _    _                   _         _    _    _         _         _
+  _    _    _              spc            _    _    _                   _         _    _    _         _         _
 )
 
 (deflayer mvmt
