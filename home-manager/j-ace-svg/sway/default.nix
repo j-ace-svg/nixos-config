@@ -414,7 +414,7 @@ in {
       clock = true;
       indicator = true;
       effect-blur = "7x5";
-      compose = "${./sway-wallpaper.png}";
+      effect-compose = "${./sway-wallpaper.png}";
       grace = 2;
       fade-in = 0.2;
     };
