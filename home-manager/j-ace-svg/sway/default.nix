@@ -369,13 +369,13 @@ in {
     layout = [
       {
         label = "lock";
-        action = "loginctl lock-session";
+        action = "swaylock";
         text = "Lock";
         keybind = "l";
       }
       {
         label = "hibernate";
-        action = "systemctl hibernate";
+        action = "swaylock; systemctl hibernate";
         text = "Hibernate";
         keybind = "h";
       }
@@ -393,7 +393,7 @@ in {
       }
       {
         label = "suspend";
-        action = "systemctl suspend";
+        action = "swaylock; systemctl suspend";
         text = "Suspend";
         keybind = "u";
       }
@@ -414,7 +414,6 @@ in {
       clock = true;
       indicator = true;
       effect-blur = "7x5";
-      effect-compose = "${./sway-wallpaper.png}";
       grace = 2;
       fade-in = 0.2;
     };
