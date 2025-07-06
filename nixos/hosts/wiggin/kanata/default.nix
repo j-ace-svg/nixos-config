@@ -53,6 +53,8 @@ in {
     after = ["graphical-session.target"];
   };
 
+  services.logind.powerKey = "ignore"; # Allow short power key press to trigger power menu
+
   environment.systemPackages = [
     hyprkan
     pkgs.plover.dev

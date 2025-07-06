@@ -234,6 +234,7 @@ in {
         "${modifier}+t" = "mode launch";
         "${modifier}+n" = "${pkgs.mako}/bin/makoctl dismiss";
         "F13" = "mode leader";
+        "XF86PowerOff" = "exec wlogout";
       };
       modes = {
         leader = {
