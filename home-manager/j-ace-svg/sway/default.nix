@@ -406,6 +406,20 @@ in {
     ];
   };
 
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      screenshots = true;
+      clock = true;
+      indicator = true;
+      effect-blur = "7x5";
+      compose = "${./sway-wallpaper.png}";
+      grace = 2;
+      fade-in = 0.2;
+    };
+  };
+
   xdg = {
     userDirs = {
       enable = true;
