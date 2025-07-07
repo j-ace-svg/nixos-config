@@ -17,5 +17,6 @@
   services.immich = {
     enable = true;
     openFirewall = true;
+    host = "immich.${config.local.hosting.domain}";
   };
 }

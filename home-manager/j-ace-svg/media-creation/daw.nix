@@ -21,8 +21,8 @@ in {
       type = lib.types.bool;
       default = false;
       description = ''
-        Whether or not to install Digital Audio Workspace tooling
-        and related dependencies
+        Whether or not to install Digital Audio Workspace tooling and related
+        dependencies
       '';
     };
   };

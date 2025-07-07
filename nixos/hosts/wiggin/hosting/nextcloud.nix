@@ -44,7 +44,7 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud31;
-    hostName = "nextcloud.localhost";
+    hostName = "nextcloud.${config.local.hosting.domain}";
     config = {
       adminpassFile = config.sops.secrets."nextcloud/admin_password".path;
       dbtype = "sqlite";
@@ -55,19 +55,14 @@
       inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
     };
     extraAppsEnable = true;
-    #https = true;
+    https = true;
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
-    /*
-      extraConfig = ''
-      include ${config.sops.templates."nextcloud/nginx_extraConfig".path};
-    '';
-    */
-    #forceSSL = true;
-    useACMEHost = "acmechallenge.localhost";
+    forceSSL = true;
+    useACMEHost = "acmechallenge.${config.local.hosting.domain}";
     acmeRoot = null;
   };
 
-  security.acme.certs."acmechallenge.localhost".extraDomainNames = ["nextcloud.$cert_domain"];
+  security.acme.certs."acmechallenge.${config.local.hosting.domain}".extraDomainNames = [config.services.nextcloud.hostName];
 }
