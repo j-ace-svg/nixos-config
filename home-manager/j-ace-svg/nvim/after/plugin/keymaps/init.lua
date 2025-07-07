@@ -25,3 +25,11 @@ nnrm("<Leader>q", ":q<CR>", {silent = true})
 nnrm("<Leader>Q", ":q!<CR>", {silent = true})
 nnrm("<Leader>o", ":wq<CR>", {silent = true})
 nnrm("<Leader>O", ":wqa<CR>", {silent = true})
+
+-- Access command mode easier
+nnrm(",", ":")
+nnrm(";", ",")
+nnrm(":", ";")
+
+-- Command mode
+cnrm("<C-t>", "<C-R>=expand('%:h')<cr>/")
