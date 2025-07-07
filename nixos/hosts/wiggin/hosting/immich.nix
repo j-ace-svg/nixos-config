@@ -17,7 +17,6 @@
   services.immich = {
     enable = true;
     openFirewall = true;
-    host = "immich.${config.local.hosting.domain}";
   };
 
   services.nginx.virtualHosts.${config.services.immich.host} = {
@@ -26,7 +25,7 @@
     #acmeRoot = null;
     locations = {
       "/" = {
-        proxyPass = "http://[::1]:${toString config.services.immich.port}";
+        proxyPass = "http://${config.services.immich.host}:${toString config.services.immich.port}";
         proxyWebsockets = true;
         recommendedProxySettings = true;
         extraConfig = ''
