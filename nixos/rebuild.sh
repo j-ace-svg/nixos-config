@@ -28,7 +28,7 @@
         || ( sudo alejandra /etc/nixos ; echo "formatting failed!" && exit 1)
 
     # Shows your changes
-    sudo git -C /etc/nixos/ diff -U0 '/etc/nixos/*.nix'
+    sudo git -C /etc/nixos/ diff -U0 '/etc/nixos/*.nix' || true
 
     echo "NixOS Rebuilding..."
 
