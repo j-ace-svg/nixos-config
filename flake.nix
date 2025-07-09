@@ -53,57 +53,68 @@
     ...
   }: {
     nixosConfigurations = let
-      defaultOpts = {
-        configPath = "/etc/nixos";
-      };
+      mkSystem = {
+        system ? "x86_64-linux",
+        modules,
+        specialArgs ? {},
+        systemOpts ? {},
+        homeOpts ? {},
+      }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules =
+            [
+              ./nixos/modules/default.nix
+              sops-nix.nixosModules.sops
+              nix-snapd.nixosModules.default
+              {
+                services.snap.enable = true;
+              }
+              home-manager.nixosModules.home-manager
+              ./home-manager/default.nix
+              #kmonad.nixosModules.default
+
+              {
+                local = systemOpts;
+                home-manager.users.j-ace-svg.local = homeOpts;
+              }
+            ]
+            ++ modules;
+
+          specialArgs = {
+            inherit inputs;
+            opts =
+              {
+                configPath = "/etc/nixos";
+              }
+              // specialArgs;
+          };
+        };
     in {
       # Desktop
-      wiggin = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      wiggin = mkSystem {
         modules = [
           ./nixos/hosts/wiggin/configuration.nix
-          sops-nix.nixosModules.sops
-          nix-snapd.nixosModules.default
-          {
-            services.snap.enable = true;
-          }
-          home-manager.nixosModules.home-manager
-          ./home-manager/default.nix
-          #kmonad.nixosModules.default
-
-          {
-            # Per-device module selection (may be a better approach than specialArgs)
-            home-manager.users.j-ace-svg.local = {
-              daw.enable = true;
-            };
-          }
         ];
-
-        specialArgs = {
-          inherit inputs;
-          opts = defaultOpts // {};
+        systemOpts = {
+          hosting = {
+            enable = true;
+            domain = "philotic.xyz";
+            immich.enable = true;
+            nextcloud.enable = true;
+            minecraft-server.enable = true;
+          };
+        };
+        homeOpts = {
+          daw.enable = true;
         };
       };
 
       # Laptop
-      delphiki = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      delphiki = mkSystem {
         modules = [
           ./nixos/hosts/delphiki/configuration.nix
-          sops-nix.nixosModules.sops
-          nix-snapd.nixosModules.default
-          {
-            services.snap.enable = true;
-          }
-          home-manager.nixosModules.home-manager
-          ./home-manager/default.nix
-          #kmonad.nixosModules.default
         ];
-
-        specialArgs = {
-          inherit inputs;
-          opts = defaultOpts // {};
-        };
       };
     };
   };

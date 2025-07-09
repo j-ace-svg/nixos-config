@@ -11,7 +11,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./sops.nix
-    ./hosting/default.nix
     ./ssh/default.nix
     ./kanata/default.nix
   ];

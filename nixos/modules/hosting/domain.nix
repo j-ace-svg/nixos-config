@@ -3,25 +3,45 @@
   lib,
   pkgs,
   modulesPath,
+  opts,
   ...
-}: {
+}: let
+  cfg = config.local.hosting;
+in {
   options = {
     local.hosting = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = ''
+          Whether or not to enable self-hosted services on this host
+        '';
+      };
+
       domain = lib.mkOption {
         type = lib.types.string;
         description = ''
           What domain to point all externally-facing tools towards
         '';
       };
+
+      secretsDir = lib.mkOption {
+        type = lib.types.path;
+        default = ../../hosts/${config.networking.hostName}/hosting;
+        description = ''
+          The location of the directory containing sops files with secrets for
+          self-hosted services
+        '';
+      };
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     sops = {
       secrets = {
-        "cloudflare/email" = {sopsFile = ./secrets.yaml;};
-        "cloudflare/api_key" = {sopsFile = ./secrets.yaml;};
-        "cloudflare/domain" = {sopsFile = ./secrets.yaml;};
+        "cloudflare/email" = {sopsFile = cfg.secretsDir + /secrets.yaml;};
+        "cloudflare/api_key" = {sopsFile = cfg.secretsDir + /secrets.yaml;};
+        "cloudflare/domain" = {sopsFile = cfg.secretsDir + /secrets.yaml;};
       };
       templates = {
         "ddclient/config".content = ''
@@ -40,8 +60,6 @@
       };
     };
 
-    local.hosting.domain = "philotic.xyz";
-
     services.ddclient = {
       enable = true;
       interval = "5min";
@@ -58,8 +76,8 @@
     users.users.nginx.extraGroups = ["acme"];
     services.nginx = {
       enable = true;
-      virtualHosts."acmechallenge.${config.local.hosting.domain}" = {
-        serverAliases = ["*.${config.local.hosting.domain}"];
+      virtualHosts."acmechallenge.${cfg.domain}" = {
+        serverAliases = ["*.${cfg.domain}"];
         locations."/.well-known/acme-challenge" = {
           root = "/var/lib/acme/acme-challenge";
         };
@@ -76,8 +94,8 @@
         emailFromEnvironment = true;
         webroot = "/var/lib/acme/acme-challenge";
       };
-      certs."acmechallenge.${config.local.hosting.domain}" = {
-        domain = config.local.hosting.domain;
+      certs."acmechallenge.${cfg.domain}" = {
+        domain = cfg.domain;
       };
     };
   };
