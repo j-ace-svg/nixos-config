@@ -20,7 +20,7 @@
     pkgs.musescore # It's actually FOSS! This is a surprise and absolutely a win
     pkgs.lilypond # Text-based music engraving
     pkgs.obs-studio
-    pkgs.libsForQt5.kdenlive
+    pkgs.kdePackages.kdenlive
     pkgs.inkscape
     pkgs.krita
     pkgs.gimp
