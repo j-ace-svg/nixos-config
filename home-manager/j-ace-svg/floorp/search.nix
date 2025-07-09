@@ -145,6 +145,6 @@
     "You.com".metaData.hidden = true;
     "ddg".metaData.alias = "ddg";
   };
-  default = "PrivAU";
+  default = "PaulGO";
   force = true;
 }
