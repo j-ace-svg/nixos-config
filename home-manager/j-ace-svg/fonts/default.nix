@@ -8,7 +8,7 @@
     defaultFonts = {
       serif = ["DejaVu Serif"];
       sansSerif = ["DejaVu Sans" "DejaVuSansM Nerd Font Propo" "Hack Nerd Font Propo"];
-      monospace = ["DejaVuSansM Nerd Font Mono" "Hack Nerd Font Mono"];
+      monospace = ["DejaVuSansM Nerd Font Mono" "DejaVuSansM Nerd Font" "Hack Nerd Font Mono"];
     };
   };
 
