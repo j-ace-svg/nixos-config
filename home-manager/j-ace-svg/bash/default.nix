@@ -9,8 +9,11 @@
   programs.readline = {
     enable = true;
     bindings = {
-      "\\xxaccept-line" = "accept-line";
-      "\\C-n" = ''"la\xxaccept-line"'';
+      "\\xxkill-line " = "kill-line"; # Spaces improve legibility but are also now necessary
+      "\\xxaccept-line " = "accept-line";
+      "\\xxyank " = "yank";
+      "\\xxyank-pop " = "yank-pop";
+      "\\C-n" = ''"\xxkill-line la\xxaccept-line \xxyank-pop"'';
     };
     variables = {
       editing-mode = "vi";
