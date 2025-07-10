@@ -14,7 +14,7 @@
       "\\xxaccept-line_" = "accept-line";
       "\\xxyank_" = "yank";
       "\\xxyank-pop_" = "yank-pop";
-      "\\C-n" = ''"\xxkill-whole-line_la\xxaccept-line_\xxyank_\xxyank-pop_"'';
+      "\\C-n" = ''"\xxkill-whole-line_la\xxaccept-line_ \\kill-whole-line_\C-y\M-y"'';
     };
     variables = {
     };
