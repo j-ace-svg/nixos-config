@@ -28,8 +28,7 @@ nnrm("<Leader>O", ":wqa<CR>", {silent = true})
 
 -- Access command mode easier
 nnrm(",", ":")
-nnrm(";", ",")
-nnrm(":", ";")
+nnrm(":", ",")
 
 -- Command mode
 cnrm("<C-t>", "<C-R>=expand('%:h')<cr>/")
