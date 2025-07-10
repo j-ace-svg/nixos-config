@@ -17,7 +17,6 @@
       "\\C-n" = ''"\xxkill-whole-line la\xxaccept-line \xxyank-pop"'';
     };
     variables = {
-      show-mode-in-prompt = true;
     };
   };
 
