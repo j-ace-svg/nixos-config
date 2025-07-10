@@ -10,6 +10,7 @@
     enable = true;
     bindings = {
       "\\xxkill-whole-line " = "kill-whole-line"; # Spaces improve legibility but are also now necessary
+      "\\C-u" = ''"\xxkill-whole-line"'';
       "\\xxaccept-line " = "accept-line";
       "\\xxyank " = "yank";
       "\\xxyank-pop " = "yank-pop";
