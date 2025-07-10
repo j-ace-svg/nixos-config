@@ -140,7 +140,7 @@ in {
             unwrappedCfgPath = "${opts.configPath}/home-manager/j-ace-svg/nvim/";
             # IMPORTANT:
             # your alias may not conflict with your other packages.
-            aliases = ["tvi" "tvim" "tnv" "tnvim"];
+            aliases = ["t" "tvi" "tvim" "tnv" "tnvim"];
             # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
           };
           # and a set of categories that you want
