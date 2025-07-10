@@ -111,7 +111,7 @@ in {
             wrapRc = true;
             # IMPORTANT:
             # your alias may not conflict with your other packages.
-            aliases = ["vi" "vim" "nv"];
+            aliases = ["n" "vi" "vim" "nv"];
             # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
           };
           # and a set of categories that you want
