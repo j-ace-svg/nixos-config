@@ -17,7 +17,6 @@
       "\\C-n" = ''"\xxkill-whole-line la\xxaccept-line \xxyank-pop"'';
     };
     variables = {
-      editing-mode = "vi";
       show-mode-in-prompt = true;
     };
   };
