@@ -9,12 +9,12 @@
   programs.readline = {
     enable = true;
     bindings = {
-      "\\xxkill-whole-line_" = "kill-whole-line"; # Commas improve legibility but are also now necessary
-      "\\C-u" = ''"\xxkill-whole-line_"'';
+      "\\xxbeginning-of-line_" = "beginning-of-line"; # Commas improve legibility but are also now necessary
+      "\\xxkill-line_" = "kill-line"; # Commas improve legibility but are also now necessary
       "\\xxaccept-line_" = "accept-line";
       "\\xxyank_" = "yank";
       "\\xxyank-pop_" = "yank-pop";
-      "\\C-n" = ''"\xxkill-whole-line_la\xxaccept-line_ \xxkill-whole-line_\xxyank_\xxyank-pop_"'';
+      "\\C-n" = ''"\M--\xxkill-line_\xxkill-line_la\xxaccept-line_\xxyank_\xxbeginning-of-line_\xxyank_\xxyank-pop_"'';
     };
     variables = {
     };
