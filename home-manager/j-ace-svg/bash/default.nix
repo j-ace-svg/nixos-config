@@ -26,7 +26,7 @@
         # User-facing bindings
         "\\C-n" = silent "la";
         "\\C-p" = silent "cd ..";
-        "\\C-u" = "kill-whole-line";
+        "\\C-u" = "kill-entire-line";
       };
     variables = {
     };
