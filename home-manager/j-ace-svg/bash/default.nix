@@ -27,6 +27,7 @@
         "\\C-n" = silent "la";
         "\\C-p" = silent "cd ..";
         "\\C-u" = "kill-whole-line";
+        "\\C-S-w" = "shell-backward-kill-word";
       };
     variables = {
     };
