@@ -96,6 +96,9 @@
     # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
     pkgs.brave
 
+    # Messaging
+    pkgs.signal-desktop
+
     # Game dev
     pkgs.godot_4
     #pkgs.godot_4-mono
