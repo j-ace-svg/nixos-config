@@ -55,9 +55,9 @@ in {
     };
 
     services.nginx.virtualHosts."${cfg.immich.subdomain}.${cfg.domain}" = {
-      #forceSSL = true;
-      #useACMEHost = "acmechallenge.${config.local.hosting.domain}";
-      #acmeRoot = null;
+      forceSSL = true;
+      useACMEHost = "acmechallenge.${config.local.hosting.domain}";
+      acmeRoot = null;
       locations = {
         "/" = {
           proxyPass = "http://${config.services.immich.host}:${toString config.services.immich.port}";
