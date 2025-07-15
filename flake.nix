@@ -106,7 +106,10 @@
           };
         };
         homeOpts = {
-          daw.enable = true;
+          gui = {
+            enable = true;
+            daw.enable = true;
+          };
         };
       };
 
@@ -115,6 +118,9 @@
         modules = [
           ./nixos/hosts/delphiki/configuration.nix
         ];
+        homeOpts = {
+          gui.enable = true;
+        };
       };
     };
   };

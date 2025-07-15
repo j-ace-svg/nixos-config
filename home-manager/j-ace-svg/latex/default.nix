@@ -1,21 +1,26 @@
 {
   pkgs,
   lib,
+  config,
   ...
-}: {
-  home.file = {
-    ".config/latex/preamble.sty" = {
-      source = ./preamble.sty;
+}: let
+  cfg = config.local.gui;
+in {
+  config = lib.mkIf cfg.enable {
+    home.file = {
+      ".config/latex/preamble.sty" = {
+        source = ./preamble.sty;
+      };
+      ".config/latex/main.tex" = {
+        source = ./main.tex;
+      };
     };
-    ".config/latex/main.tex" = {
-      source = ./main.tex;
-    };
-  };
 
-  home.packages = [
-    (pkgs.texlive.combine {
-      inherit (pkgs.texlive) scheme-full latexmk;
-    })
-    pkgs.poppler_utils
-  ];
+    home.packages = [
+      (pkgs.texlive.combine {
+        inherit (pkgs.texlive) scheme-full latexmk;
+      })
+      pkgs.poppler_utils
+    ];
+  };
 }

@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  cfg = config.local.daw;
+  cfg = config.local.gui;
   ll-plugins = pkgs.callPackage ./ll-plugins.nix {
     inherit (pkgs) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
   };
@@ -17,7 +17,7 @@ in {
   ];
 
   options = {
-    local.daw.enable = lib.mkOption {
+    local.gui.daw.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = ''
@@ -27,7 +27,18 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.daw.enable {
+    assertions = [
+      {
+        /*
+        Directly enforce cfg.enable rather than using `->` because the
+        assertion is part of the conditional configuration
+        */
+        assertion = cfg.enable;
+        message = "local.gui.daw.enable requires local.gui.enable";
+      }
+    ];
+
     # This is relevant: https://wiki.nixos.org/wiki/Audio_production
     home.sessionVariables = let
       makePluginPath = format:

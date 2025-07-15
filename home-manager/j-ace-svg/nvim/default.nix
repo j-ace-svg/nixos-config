@@ -6,6 +6,7 @@
   opts,
   ...
 }: let
+  cfg = config.local.gui;
   utils = inputs.nixCats.utils;
 in {
   imports = [
@@ -119,7 +120,7 @@ in {
           categories = {
             general = true;
             fixPy = true;
-            latex = true;
+            latex = cfg.enable; # Only latex tools in graphical interfaces
             test = false;
             example = {
               youCan = "add more than just booleans";
@@ -148,7 +149,7 @@ in {
           categories = {
             general = true;
             fixPy = true;
-            latex = true;
+            latex = cfg.enable; # Only latex tools in graphical interfaces
             test = true;
             example = {
               youCan = "add more than just booleans";

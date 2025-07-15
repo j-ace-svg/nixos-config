@@ -1,7 +1,12 @@
 {
   pkgs,
   lib,
+  config,
   ...
-}: {
-  services.easyeffects.enable = true;
+}: let
+  cfg = config.local.gui;
+in {
+  config = lib.mkIf cfg.enable {
+    services.easyeffects.enable = true;
+  };
 }
