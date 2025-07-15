@@ -10,3 +10,11 @@ creation_rules:
     key_groups:
     - age:
       - *host_wiggin
+  - path_regex: nixos/hosts/jane/.*secrets.yaml$
+    key_groups:
+    - age:
+      - *host_wiggin
+  - path_regex: nixos/hosts/jane/(.*/)?secrets/
+    key_groups:
+    - age:
+      - *host_wiggin

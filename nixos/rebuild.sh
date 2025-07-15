@@ -1,9 +1,22 @@
 #!/bin/sh
 
+startsudo() { # Background process to prevent re-authenticating sudo
+    sudo -v
+    ( while true; do sudo -v; sleep 50; done; ) &
+    SUDO_PID="$!"
+    trap stopsudo SIGINT SIGTERM
+}
+stopsudo() {
+    kill "$SUDO_PID"
+    trap - SIGINT SIGTERM
+    sudo -k
+}
+
 ( # Try rebuilding
     # Make script fail if any individual commands fail
     set -e
 
+    startsudo
     args=""
     # Possible args:
     # -f: Rebuild even if no .nix files are changed
@@ -53,6 +66,7 @@
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
 
+    stopsudo
 )
 if [ $? -ne 0 ]; then # Warn if any errors occured
     notify-send -e "Error Rebuilding NixOS" --icon=alert

@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    ./deploy.nix
     ./domain.nix
     ./immich.nix
     ./nextcloud.nix
