@@ -15,6 +15,7 @@ in {
     };
 
     home.packages = [
+      pkgs.legcord
     ];
   };
 }

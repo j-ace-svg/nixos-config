@@ -11,31 +11,16 @@
   imports = [
     ./bash/default.nix
     ./custom-scripts/default.nix
-    ./easyeffects/default.nix
     ./fastfetch/default.nix
-    ./floorp/default.nix
-    ./fonts/default.nix
-    ./foot/default.nix
-    ./games/default.nix
     ./git/default.nix
-    ./latex/default.nix
-    ./legcord/default.nix
-    ./media-creation/default.nix
-    ./mpv/default.nix
+    ./gui/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
     ./plover/default.nix
     ./rnnoise/default.nix
     ./ssh/default.nix
-    ./sway/default.nix
     ./vifm/default.nix
-    ./zathura/default.nix
   ];
-
-  # Notification daemon
-  services.mako = {
-    enable = true;
-  };
 
   programs = {
     # Fuzzy finding
@@ -52,25 +37,15 @@
   };
 
   home.packages = [
-    pkgs.qutebrowser
-    pkgs.legcord
-    pkgs.sxiv # Image viewer
-    #pkgs.vimiv-qt # Other image viewer (maybe more vim-like?) #Uncomment later once bug w/ py312 is fixed
     pkgs.zip
     pkgs.unzip
     pkgs.ripgrep
-    pkgs.pavucontrol
-    pkgs.sx
     pkgs.hollywood
     pkgs.nms
     pkgs.unimatrix
-    pkgs.nuclear
     pkgs.cava
-    pkgs.zotify # Spotify downloader
     pkgs.python3Full
-    pkgs.libsForQt5.kolourpaint
     pkgs.mov-cli
-    pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
     pkgs.file # |
@@ -80,28 +55,12 @@
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
-    pkgs.picard
-    pkgs.go-sct
-
-    # Basic Services
-    pkgs.libnotify
-    pkgs.ueberzugpp
 
     # Basic Utilities
     #pkgs.cheese
     pkgs.bc
     pkgs.wl-clipboard
     pkgs.ripgrep
-
-    # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
-    pkgs.brave
-
-    # Messaging
-    pkgs.signal-desktop
-
-    # Game dev
-    pkgs.godot_4
-    #pkgs.godot_4-mono
 
     # Installing postmarketos
     pkgs.android-tools
@@ -114,10 +73,6 @@
     #pkgs.python311Packages.osmnx
     #pkgs.python311Packages.haversine
     #pkgs.python311Packages.geopy
-
-    # Voicechanger (custom derivation, pulled from pypi)
-    #(pkgs.callPackage ./voicechanger/default.nix { inherit fetchFromGithub lib python3 })
-    #(pkgs.callPackage ./voicechanger/default.nix {})
   ];
 
   # This value determines the Home Manager release from which the default

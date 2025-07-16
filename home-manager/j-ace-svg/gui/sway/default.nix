@@ -49,16 +49,6 @@
     };
   };
 in {
-  options = {
-    local.gui.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = ''
-        Whether or not to install graphical interface and applications
-      '';
-    };
-  };
-
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
       enable = true;

@@ -122,6 +122,23 @@
           gui.enable = true;
         };
       };
+
+      # Server
+      jane = mkSystem {
+        modules = [
+          ./nixos/hosts/wiggin/configuration.nix
+        ];
+        systemOpts = {
+          hosting = {
+            enable = true;
+            domain = "philotic.xyz";
+            immich.enable = true;
+            nextcloud.enable = true;
+            minecraft-server.enable = true;
+          };
+        };
+        # Don't install a gui
+      };
     };
   };
 }
