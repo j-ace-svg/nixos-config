@@ -26,6 +26,7 @@ in {
     ./legcord/default.nix
     ./media-creation/default.nix
     ./mpv/default.nix
+    ./nextcloud-client/default.nix
     ./sway/default.nix
     ./zathura/default.nix
   ];
