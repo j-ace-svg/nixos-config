@@ -12,7 +12,8 @@ in {
       startInBackground = true;
     };
 
-    home.file.".config/Nextcloud/nextcloud.cfg" = {
+    /*
+      home.file.".config/Nextcloud/nextcloud.cfg" = {
       force = true;
       text = let
         server = "https://nextcloud.philotic.xyz";
@@ -65,6 +66,7 @@ in {
         0\webflow_user=${user}
       '';
     };
+    */
 
     home.packages = [
     ];

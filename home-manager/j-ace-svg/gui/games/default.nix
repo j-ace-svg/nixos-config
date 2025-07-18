@@ -14,6 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.mari0
+      pkgs.dolphin-emu
 
       pkgs.steamcmd
       pkgs.steam-tui
