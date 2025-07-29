@@ -37,7 +37,7 @@
 ;; )
 
 (defcfg
-  linux-dev "/dev/input/by-id/usb-Dell_Dell_USB_Entry_Keyboard-event-kbd"
+  linux-dev ("/dev/input/by-id/usb-Dell_Dell_USB_Entry_Keyboard-event-kbd" "/dev/input/by-usb/usb-NOVATEK_USB_NETVISTA_FULL_WIDTH_KEYBOARD-event-kbd")
   ;;linux-output-device-name "Kanata: Dell"
   process-unmapped-keys yes
   )
