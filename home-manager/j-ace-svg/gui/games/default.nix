@@ -14,7 +14,7 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.mari0
-      pkgs.dolphin-emu
+      pkgs.dolphin-emu # Check out GoodSets (Piracy? Me? Nooooo, that's for a friend, who already owns every GameCube and Wii game)
 
       pkgs.steamcmd
       pkgs.steam-tui

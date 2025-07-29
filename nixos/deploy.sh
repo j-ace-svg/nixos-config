@@ -41,7 +41,7 @@ stopsudo() {
     fi
 
     # Autoformat your nix files
-    sudo alejandra /etc/nixos &>/dev/null \
+    sudo alejandra ${git_paths[@]} &>/dev/null \
         || ( sudo alejandra /etc/nixos ; echo "formatting failed!" && exit 1)
 
     # Shows your changes

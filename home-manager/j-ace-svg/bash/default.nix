@@ -11,6 +11,7 @@ in {
       enable = true;
       shellAliases = {
         la = "ls -A";
+        susops = "sudo SOPS_AGE_KEY=\"$(sudo cat /run/secrets.d/age-keys.txt)\" sops nixos/hosts/wiggin/hosting/secrets.yaml";
       };
     };
 
