@@ -100,7 +100,7 @@ in {
           };
 
           files = {
-            "whitelist.json" = config.sops.templates."minecraft-server/whitelist.json".path;
+            #"whitelist.json" = config.sops.templates."minecraft-server/whitelist.json".path;
           };
         };
         # Name for next server (follow order of planets visited by Andrew Wiggin)
