@@ -64,10 +64,10 @@ stopsudo() {
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
 
     # Notify all OK!
-    notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+    notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK!"
 
     stopsudo
 )
 if [ $? -ne 0 ]; then # Warn if any errors occured
-    notify-send -e "Error Rebuilding NixOS" --icon=alert
+    notify-send -e "Error Rebuilding NixOS" --icon=alert 2>/dev/null || echo "Error Rebuilding NixOS"
 fi
