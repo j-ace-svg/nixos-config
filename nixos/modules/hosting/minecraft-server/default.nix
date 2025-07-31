@@ -32,7 +32,7 @@ in {
     inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
 
-  config = {
+  config = lib.mkIf cfg.minecraft-server.enable {
     assertions = [
       {
         /*
