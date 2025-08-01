@@ -25,6 +25,13 @@ in {
           minecraft servers
         '';
       };
+      whitelist-num-players = lib.mkOption {
+        type = lib.types.int;
+        default = 0;
+        description = ''
+          The number of players in the whitelist for the server (0 is no whitelist)
+        '';
+      };
     };
   };
 
@@ -46,7 +53,7 @@ in {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
     sops = let
-      whitelist-count = 4;
+      whitelist-count = cfg.minecraft-server.whitelist-num-players;
       inc-num-string = x: builtins.toString (x + 1);
     in {
       secrets =
@@ -100,7 +107,7 @@ in {
           };
 
           files = {
-            #"whitelist.json" = config.sops.templates."minecraft-server/whitelist.json".path;
+            #"whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players > 0) config.sops.templates."minecraft-server/whitelist.json".path;
           };
         };
         # Name for next server (follow order of planets visited by Andrew Wiggin)

@@ -13,6 +13,7 @@
     ./sops.nix
     ./ssh/default.nix
     ./kanata/default.nix
+    ./hosting/minecraft-server/default.nix
   ];
 
   nix = {

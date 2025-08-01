@@ -126,7 +126,7 @@
       # Server
       jane = mkSystem {
         modules = [
-          ./nixos/hosts/wiggin/configuration.nix
+          ./nixos/hosts/jane/configuration.nix
         ];
         systemOpts = {
           hosting = {

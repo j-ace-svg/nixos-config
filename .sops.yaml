@@ -1,6 +1,7 @@
 keys:
   - &host_wiggin age1nquhp6kxf5eve3x0tfmtn6lzp7mt2lqdcdacrwl4zhy2kgkc2a4qk38hvw
   - &wiggin_j-ace-svg age1av8jcsatxtaafuak5t9gcf8kq0ekpdyk66rzey86vzvcews57vgqpl08w0
+  - &host_jane age1fk79eyuhtpk4xy2y5k55syu7ghcec3hh442nsdympw7sgshpeekqsntkhd
 creation_rules:
   - path_regex: nixos/hosts/wiggin/.*secrets.yaml$
     key_groups:
@@ -14,7 +15,9 @@ creation_rules:
     key_groups:
     - age:
       - *host_wiggin
+      - *host_jane
   - path_regex: nixos/hosts/jane/(.*/)?secrets/
     key_groups:
     - age:
       - *host_wiggin
+      - *host_jane
