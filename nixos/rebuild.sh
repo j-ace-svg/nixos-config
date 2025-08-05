@@ -2,7 +2,7 @@
 
 startsudo() { # Background process to prevent re-authenticating sudo
     sudo -v
-    ( while true; do sudo -v; sleep 50; done; ) &
+    ( while true; do sudo -v >/dev/null 2>&1; sleep 50; done; ) &
     SUDO_PID="$!"
     trap stopsudo SIGINT SIGTERM
 }
