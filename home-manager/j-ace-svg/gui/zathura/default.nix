@@ -5,6 +5,9 @@
   ...
 }: let
   cfg = config.local.gui;
+  zaread = pkgs.callPackage ./zaread.nix {
+    inherit (pkgs) fetchFromGitHub libreoffice calibre md2pdf;
+  };
 in {
   config = lib.mkIf cfg.enable {
     # Document viewer/PDF viewer
@@ -23,6 +26,7 @@ in {
     };
 
     home.packages = [
+      zaread
     ];
   };
 }
