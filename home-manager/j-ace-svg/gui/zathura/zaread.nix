@@ -36,6 +36,7 @@ pkgs.stdenvNoCC.mkDerivation {
   */
 
   patchPhase = ''
+    ls
     sed -ie '3i PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"' zaread
   '';
 
