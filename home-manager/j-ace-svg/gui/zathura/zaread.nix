@@ -25,7 +25,7 @@ pkgs.stdenvNoCC.mkDerivation {
 
   patchPhase = ''
     rm Makefile
-    sed -i '3i PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"' zaread
+    sed -ie '3i PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"' zaread
   '';
 
   installPhase = ''
