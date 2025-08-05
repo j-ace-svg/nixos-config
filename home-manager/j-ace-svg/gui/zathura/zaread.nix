@@ -17,7 +17,7 @@ pkgs.stdenvNoCC.mkDerivation {
     hash = "sha256-g4Xb6gGA09/rfv0myzHbc830BwtD37IOYuEIwoOigP8=";
   };
 
-  propogatedBuildInputs = [
+  buildInputs = [
     libreoffice
     calibre
     md2pdf
@@ -25,6 +25,7 @@ pkgs.stdenvNoCC.mkDerivation {
 
   patchPhase = ''
     rm Makefile
+    sed -i '3i PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"' zaread
   '';
 
   installPhase = ''
