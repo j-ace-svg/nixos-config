@@ -23,8 +23,19 @@ pkgs.stdenvNoCC.mkDerivation {
     md2pdf
   ];
 
+  dontBuild = true;
+
+  /*
+    patches = [
+    ''
+      zaread
+      @@ -2,0 +3 @@
+      +PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"
+    ''
+  ];
+  */
+
   patchPhase = ''
-    rm Makefile
     sed -ie '3i PATH="${libreoffice}/bin:${calibre}/bin:${md2pdf}/bin:$PATH"' zaread
   '';
 
