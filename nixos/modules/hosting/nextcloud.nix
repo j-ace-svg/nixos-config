@@ -95,7 +95,5 @@ in {
       useACMEHost = "acmechallenge.${config.local.hosting.domain}";
       acmeRoot = null;
     };
-
-    security.acme.certs."acmechallenge.${config.local.hosting.domain}".extraDomainNames = [config.services.nextcloud.hostName];
   };
 }
