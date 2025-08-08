@@ -7,5 +7,6 @@
 }: {
   imports = [
     ./immich.nix
+    ./hdd.nix
   ];
 }
