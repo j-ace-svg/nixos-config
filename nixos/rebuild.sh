@@ -57,7 +57,7 @@ stopsudo() {
     sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
 
     # Get current generation metadata
-    current=$(nixos-rebuild list-generations | grep current)
+    current=$(nixos-rebuild list-generations --json | jq -r '.[] | select(.current == true) | (.generation | tostring) + " current" + "  " + .date + "  " + .nixosVersion + "  " + .kernelVersion')
     hostname=$(hostname)
 
     # Commit all changes witih the generation metadata

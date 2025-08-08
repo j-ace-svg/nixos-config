@@ -114,6 +114,7 @@
     htop
     system-config-printer
     alejandra
+    jq
 
     age
     sops
