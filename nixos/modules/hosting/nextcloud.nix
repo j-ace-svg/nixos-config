@@ -10,7 +10,7 @@ in {
   options = {
     local.hosting.nextcloud = {
       subdomain = lib.mkOption {
-        type = lib.types.string;
+        type = lib.types.str;
         default = "nextcloud";
         description = ''
           What subdomain to run nextcloud on

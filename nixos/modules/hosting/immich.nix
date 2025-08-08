@@ -10,7 +10,7 @@ in {
   options = {
     local.hosting.immich = {
       subdomain = lib.mkOption {
-        type = lib.types.string;
+        type = lib.types.str;
         default = "immich";
         description = ''
           What subdomain to run immich on

@@ -25,5 +25,10 @@ in {
     networking.hosts = {
       "philotic.xyz" = ["jane"];
     };
+    programs.ssh.extraConfig = ''
+      Host jane
+        Hostname philotic.xyz
+        Port 2222
+    '';
   };
 }

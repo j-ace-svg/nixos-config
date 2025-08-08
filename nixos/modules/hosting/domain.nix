@@ -19,7 +19,7 @@ in {
       };
 
       domain = lib.mkOption {
-        type = lib.types.string;
+        type = lib.types.str;
         description = ''
           What domain to point all externally-facing tools towards
         '';

@@ -96,15 +96,6 @@
         modules = [
           ./nixos/hosts/wiggin/configuration.nix
         ];
-        systemOpts = {
-          hosting = {
-            enable = true;
-            domain = "philotic.xyz";
-            immich.enable = true;
-            nextcloud.enable = true;
-            minecraft-server.enable = true;
-          };
-        };
         homeOpts = {
           gui = {
             enable = true;
@@ -120,6 +111,7 @@
         ];
         homeOpts = {
           gui.enable = true;
+          daw.enable = true;
         };
       };
 
