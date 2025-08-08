@@ -11,6 +11,6 @@ in {
   ];
 
   config = lib.mkIf cfg.immich.enable {
-    #services.immich.mediaLocation = "/srv/hdd/immich";
+    services.immich.mediaLocation = "/srv/hdd/immich";
   };
 }
