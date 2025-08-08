@@ -30,5 +30,9 @@ in {
         Hostname philotic.xyz
         Port 2222
     '';
+
+    environment.systemPackages = [
+      (pkgs.writeShellScriptBin "deploy" (builtins.readFile ../../deploy.sh))
+    ];
   };
 }
