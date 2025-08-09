@@ -84,7 +84,7 @@ in {
       };
       phpOptions."realpath_cache_size" = "0"; # Don't cache symlink realpaths because they change on rebuild
       extraApps = {
-        inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks;
+        inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks richdocuments;
       };
       extraAppsEnable = true;
       https = true;
