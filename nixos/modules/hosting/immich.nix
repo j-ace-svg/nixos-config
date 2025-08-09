@@ -58,6 +58,10 @@ in {
       forceSSL = true;
       useACMEHost = "acmechallenge.${config.local.hosting.domain}";
       acmeRoot = null;
+      extraConfig = ''
+        # Increase max upload size (duplicated from the config for `/`, maybe that will help?)
+        client_max_body_size 50000M;
+      '';
       locations = {
         "/" = {
           proxyPass = "http://${config.services.immich.host}:${toString config.services.immich.port}";
