@@ -9,6 +9,13 @@
 in {
   options = {
     local.hosting.nextcloud = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = ''
+          Whether or not to run nextcloud on this host
+        '';
+      };
       subdomain = lib.mkOption {
         type = lib.types.str;
         default = "nextcloud";
@@ -16,11 +23,12 @@ in {
           What subdomain to run nextcloud on
         '';
       };
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
+      collaboraSubdomain = lib.mkOption {
+        type = lib.types.str;
+        default = "docs.${cfg.nextcloud.subdomain}";
+        defaultText = lib.literalExpression ''"docs.''${local.hosting.nextcloud.subdomain}"'';
         description = ''
-          Whether or not to run nextcloud on this host
+          What subdomain to run collabora (realtime document collaboration) on
         '';
       };
       secretsDir = lib.mkOption {
@@ -57,27 +65,11 @@ in {
       templates = {
       };
     };
-    /*
-      systemd.paths."nextcloud-secretFile-watcher" = {
-      wantedBy = ["multi-user.target"];
-      before = [
-        "phpfpm-nextcloud.service"
-      ];
-      pathConfig = {
-        PathModified = config.sops.templates."nextcloud/secretFile".path;
-      };
-    };
-    systemd.services."nextcloud-secretFile-watcher" = {
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "systemctl restart phpfpm-nextcloud.service";
-      };
-    };
-    */
+
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud31;
-      hostName = "${cfg.nextcloud.subdomain}.${config.local.hosting.domain}";
+      hostName = "${cfg.nextcloud.subdomain}.${cfg.domain}";
       config = {
         adminpassFile = config.sops.secrets."nextcloud/admin_password".path;
         dbtype = "sqlite";
@@ -90,10 +82,40 @@ in {
       https = true;
     };
 
+    services.collabora-online = {
+      enable = true;
+      port = 9980;
+      settings = {
+        ssl = {
+          enable = false;
+          termination = true;
+        };
+        net = {
+          listen = "loopback";
+          post_allow.hook = ["::1"];
+        };
+        storage.wopi = {
+          "@allow" = true;
+          host = [config.services.nextcloud.hostName];
+        };
+        server_name = "${cfg.nextcloud.collaboraSubdomain}.${cfg.domain}";
+      };
+    };
+
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
-      useACMEHost = "acmechallenge.${config.local.hosting.domain}";
+      useACMEHost = "acmechallenge.${cfg.domain}";
       acmeRoot = null;
+    };
+
+    services.nginx.virtualHosts.${config.services.collabora-online.settings.server_name} = {
+      forceSSL = true;
+      useACMEHost = "acmechallenge.${cfg.domain}";
+      acmeRoot = null;
+      locations."/" = {
+        proxyPass = "http://[::1]:${toString config.services.collabora-online.port}";
+        proxyWebsockets = true; # Collabora uses websockets
+      };
     };
   };
 }
