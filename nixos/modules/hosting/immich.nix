@@ -56,8 +56,8 @@ in {
 
     services.nginx.virtualHosts."${cfg.immich.subdomain}.${cfg.domain}" = {
       forceSSL = true;
-      useACMEHost = "acmechallenge.${config.local.hosting.domain}";
-      acmeRoot = null;
+      useACMEHost = "acmechallenge.${cfg.domain}";
+      acmeRoot = "/var/lib/acme/acme-challenge";
       extraConfig = ''
         # Increase max upload size (duplicated from the config for `/`, maybe that will help?)
         client_max_body_size 50000M;
@@ -74,10 +74,9 @@ in {
             send_timeout         600s;
           '';
         };
-        #inherit (config.services.nginx.virtualHosts."acmechallenge.${config.local.hosting.domain}".locations) "/.well-known/acme-challenge";
       };
     };
 
-    #security.acme.certs."acmechallenge.${config.local.hosting.domain}".extraDomainNames = [config.services.immich.host];
+    security.acme.certs."acmechallenge.${cfg.domain}".extraDomainNames = ["${cfg.immich.subdomain}.${cfg.domain}"];
   };
 }
