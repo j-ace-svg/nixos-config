@@ -105,17 +105,22 @@ in {
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       forceSSL = true;
       useACMEHost = "acmechallenge.${cfg.domain}";
-      acmeRoot = null;
+      acmeRoot = "/var/lib/acme/acme-challenge";
     };
 
     services.nginx.virtualHosts.${config.services.collabora-online.settings.server_name} = {
       forceSSL = true;
       useACMEHost = "acmechallenge.${cfg.domain}";
-      acmeRoot = null;
+      acmeRoot = "/var/lib/acme/acme-challenge";
       locations."/" = {
         proxyPass = "http://[::1]:${toString config.services.collabora-online.port}";
         proxyWebsockets = true; # Collabora uses websockets
       };
     };
+
+    security.acme.certs."acmechallenge.${cfg.domain}".extraDomainNames = [
+      config.services.nextcloud.hostName
+      config.services.collabora-online.settings.server_name
+    ];
   };
 }
