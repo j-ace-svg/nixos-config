@@ -96,6 +96,7 @@ in {
       };
       certs."acmechallenge.${cfg.domain}" = {
         domain = cfg.domain;
+        #extraDomainNames = ["*.${cfg.domain}"];
       };
     };
   };
