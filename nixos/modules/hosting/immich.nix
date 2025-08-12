@@ -52,6 +52,9 @@ in {
     services.immich = {
       enable = true;
       openFirewall = true;
+      machine-learning.environment = {
+        HF_XET_CACHE = "/var/cache/immich/huggingface-xet";
+      };
     };
 
     services.nginx.virtualHosts."${cfg.immich.subdomain}.${cfg.domain}" = {

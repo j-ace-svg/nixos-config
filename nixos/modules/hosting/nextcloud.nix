@@ -82,6 +82,22 @@ in {
       https = true;
     };
 
+    /*
+    systemd.service.nextcloud-config-collabora = let
+      inherit (config.services.nextcloud) occ;
+      wopi_url = "http://[::1]:${toString config.services.collabora-online.port}";
+      public_wopi_url = "https://${config.services.collabora-online.settings.server_name}";
+      wopi_allowlist = lib.concatStringsSep "," [
+        "127.0.0.1"
+        "::1"
+      ];
+    in {
+      wantedBy = ["multi-user.target"];
+      after = ["nextxloud-setup.service" "coolwsd.service"];
+      requires = ["coolwsd.service"];
+    };
+    */
+
     services.collabora-online = {
       enable = true;
       port = 9980;
