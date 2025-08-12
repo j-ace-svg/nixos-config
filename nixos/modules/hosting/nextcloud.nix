@@ -82,8 +82,7 @@ in {
       https = true;
     };
 
-    /*
-    systemd.service.nextcloud-config-collabora = let
+    systemd.services.nextcloud-config-collabora = let
       inherit (config.services.nextcloud) occ;
       wopi_url = "http://[::1]:${toString config.services.collabora-online.port}";
       public_wopi_url = "https://${config.services.collabora-online.settings.server_name}";
@@ -95,8 +94,16 @@ in {
       wantedBy = ["multi-user.target"];
       after = ["nextxloud-setup.service" "coolwsd.service"];
       requires = ["coolwsd.service"];
+      script = ''
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments wopi_url --value ${lib.escapeShellArg wopi_url}
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments public_wopi_url --value ${lib.escapeShellArg public_wopi_url}
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments wopi_allowlist --value ${lib.escapeShellArg wopi_allowlist}
+        ${occ}/bin/nextcloud-occ richdocuments:setup
+      '';
+      serviceConfig = {
+        Type = "oneshot";
+      };
     };
-    */
 
     services.collabora-online = {
       enable = true;
