@@ -272,6 +272,8 @@ in {
             "Shift+d" = "exec ${terminal} ${pkgs.bc}/bin/dc";
             "z" = "exec ${config.programs.zathura.package}/bin/zathura; mode default";
             "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
+            "m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`; mode default";
+            "Shift+m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`";
             "h" = "mode docs";
             "Shift+h" = "mode docs";
             "g" = "mode games";
