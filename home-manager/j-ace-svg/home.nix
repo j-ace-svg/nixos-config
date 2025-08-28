@@ -16,6 +16,7 @@
     ./gui/default.nix
     ./newsboat/default.nix
     ./nvim/default.nix
+    ./remind/default.nix
     ./plover/default.nix
     ./rnnoise/default.nix
     ./ssh/default.nix
