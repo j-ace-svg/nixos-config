@@ -234,7 +234,7 @@ in {
           "${modifier}+d" = "exec ${menu}";
           "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
           "${modifier}+t" = "mode launch";
-          "${modifier}+n" = "${pkgs.mako}/bin/makoctl dismiss";
+          "${modifier}+n" = "exec ${pkgs.mako}/bin/makoctl dismiss";
           "F13" = "mode leader";
           "XF86PowerOff" = "exec wlogout";
         };
