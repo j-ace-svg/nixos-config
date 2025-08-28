@@ -17,6 +17,7 @@ in {
   };
 
   imports = [
+    ./calendar/default.nix
     ./easyeffects/default.nix
     ./floorp/default.nix
     ./fonts/default.nix
