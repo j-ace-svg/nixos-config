@@ -1,10 +1,66 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   force = true;
-  packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+  packages = with inputs.firefox-addons.packages."x86_64-linux"; let
+    buildFirefoxXpiAddon = lib.makeOverridable (
+      {
+        stdenv ? pkgs.stdenv,
+        fetchurl ? pkgs.fetchurl,
+        pname,
+        version,
+        addonId,
+        url,
+        sha256,
+        meta,
+        ...
+      }:
+        stdenv.mkDerivation {
+          name = "${pname}-${version}";
+
+          inherit meta;
+
+          src = fetchurl {inherit url sha256;};
+
+          preferLocalBuild = true;
+          allowSubstitutes = true;
+
+          passthru = {
+            inherit addonId;
+          };
+
+          buildCommand = ''
+            dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+            mkdir -p "$dst"
+            install -v -m644 "$src" "$dst/${addonId}.xpi"
+          '';
+        }
+    );
+
+    request-control = buildFirefoxXpiAddon {
+      pname = "request-control";
+      version = "1.15.5";
+      addonId = "{1b1e6108-2d88-4f0f-a338-01f9dbcccd6f}";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3604499/requestcontrol-1.15.5.xpi";
+      sha256 = "sha256-paOqaw26lGuIClp/OfIJfY87a/TTNSS1KwLicUwMI1g=";
+      meta = with lib; {
+        homepage = "https://github.com/tumpio/requestcontrol";
+        description = "An extension for controlling requests.";
+        license = licenses.gpl3;
+        mozPermissions = [
+          "<all_urls>"
+          "storage"
+          "webNavigation"
+          "webRequest"
+          "webRequestBlocking"
+        ];
+        platforms = platforms.all;
+      };
+    };
+  in [
     bitwarden
     ublock-origin
     sponsorblock
@@ -13,6 +69,8 @@
     youtube-shorts-block
     firenvim
     gruvbox-dark-theme
+
+    request-control
   ];
   settings = {
     # Gruvbox dark theme

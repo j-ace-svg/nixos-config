@@ -68,7 +68,7 @@ in {
       profiles."${profileName}" = {
         search = import ./search.nix {inherit pkgs inputs;};
 
-        extensions = import ./extensions.nix {inherit pkgs inputs;};
+        extensions = import ./extensions.nix {inherit pkgs inputs lib;};
 
         settings = {
           "extensions.autoDisableScopes" = 0;
