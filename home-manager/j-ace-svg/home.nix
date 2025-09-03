@@ -56,6 +56,7 @@
     pkgs.emacs
     pkgs.cmus
     pkgs.python313Packages.jupyterlab
+    pkgs.python313Packages.ipykernel
 
     # Basic Utilities
     #pkgs.cheese
