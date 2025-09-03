@@ -55,7 +55,7 @@
     pkgs.stack
     pkgs.emacs
     pkgs.cmus
-    pkgs.python313Packages.jupyter-core
+    pkgs.python313Packages.jupyterlab
 
     # Basic Utilities
     #pkgs.cheese
