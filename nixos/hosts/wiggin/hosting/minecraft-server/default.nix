@@ -6,5 +6,5 @@
   inputs,
   ...
 }: {
-  local.hosting.minecraft-server.whitelist-num-players = 5;
+  local.hosting.minecraft-server.whitelist-num-players.shakespeare = 5;
 }

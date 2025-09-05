@@ -46,7 +46,7 @@ in {
       pkgs.sx
       pkgs.nuclear
       pkgs.zotify # Spotify downloader
-      pkgs.libsForQt5.kolourpaint
+      pkgs.kdePackages.kolourpaint
       pkgs.bitwarden-desktop
       pkgs.picard
       pkgs.go-sct

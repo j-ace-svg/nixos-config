@@ -25,12 +25,21 @@ in {
           minecraft servers
         '';
       };
-      whitelist-num-players = lib.mkOption {
-        type = lib.types.int;
-        default = 0;
-        description = ''
-          The number of players in the whitelist for the server (0 is no whitelist)
-        '';
+      whitelist-num-players = {
+        shakespeare = lib.mkOption {
+          type = lib.types.int;
+          default = 0;
+          description = ''
+            The number of players in the whitelist for the shakespeare server (0 is no whitelist)
+          '';
+        };
+        ganges = lib.mkOption {
+          type = lib.types.int;
+          default = 0;
+          description = ''
+            The number of players in the whitelist for the ganges server (0 is no whitelist)
+          '';
+        };
       };
     };
   };
@@ -53,42 +62,50 @@ in {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
     sops = let
-      whitelist-count = cfg.minecraft-server.whitelist-num-players;
+      inherit (cfg.minecraft-server) whitelist-num-players;
       inc-num-string = x: builtins.toString (x + 1);
-    in {
-      secrets =
+      gen-server-secrets = servername:
         builtins.listToAttrs (
           builtins.genList (
             num: {
-              name = "minecraft-server/whitelist/user-${inc-num-string num}/uuid";
+              name = "minecraft-server/whitelist/${servername}/user-${inc-num-string num}/uuid";
               value = {sopsFile = cfg.minecraft-server.secretsDir + /secrets.yaml;};
             }
           )
-          whitelist-count
+          whitelist-num-players.${servername}
           ++ builtins.genList (
             num: {
-              name = "minecraft-server/whitelist/user-${inc-num-string num}/name";
+              name = "minecraft-server/whitelist/${servername}/user-${inc-num-string num}/name";
               value = {sopsFile = cfg.minecraft-server.secretsDir + /secrets.yaml;};
             }
           )
-          whitelist-count
-        )
-        // {
-        };
-      templates = {
-        "minecraft-server/whitelist.json" = {
+          whitelist-num-players.${servername}
+        );
+      gen-whitelist = servername: {
+        "minecraft-server/${servername}/whitelist.json" = {
           content = builtins.toJSON (
             builtins.genList (
               num: {
-                "uuid" = config.sops.placeholder."minecraft-server/whitelist/user-${inc-num-string num}/uuid";
-                "name" = config.sops.placeholder."minecraft-server/whitelist/user-${inc-num-string num}/name";
+                "uuid" = config.sops.placeholder."minecraft-server/whitelist/${servername}/user-${inc-num-string num}/uuid";
+                "name" = config.sops.placeholder."minecraft-server/whitelist/${servername}/user-${inc-num-string num}/name";
               }
             )
-            whitelist-count
+            whitelist-num-players.${servername}
           );
           owner = config.services.minecraft-servers.user;
         };
       };
+    in {
+      secrets =
+        gen-server-secrets "shakespeare"
+        // gen-server-secrets "ganges"
+        // {
+        };
+      templates =
+        gen-whitelist "shakespeare"
+        // gen-whitelist "ganges"
+        // {
+        };
     };
 
     services.minecraft-servers = {
@@ -98,7 +115,7 @@ in {
       servers = {
         shakespeare = {
           enable = true;
-          package = pkgs.vanillaServers.vanilla-1_21_7;
+          package = pkgs.vanillaServers.vanilla-1_21_8;
           openFirewall = true;
 
           serverProperties = {
@@ -107,12 +124,35 @@ in {
           };
 
           files = {
-            #"whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players > 0) config.sops.templates."minecraft-server/whitelist.json".path;
+            #"whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players.shakespeare > 0) config.sops.templates."minecraft-server/shakespeare/whitelist.json".path;
+          };
+        };
+        ganges = {
+          enable = true;
+          package = pkgs.vanillaServers.vanilla-1_21_8;
+          openFirewall = true;
+
+          serverProperties = {
+            server-port = 25566;
+            motd = "Self-hosted by yours truly!";
+          };
+
+          files = {
+            "whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players.ganges > 0) config.sops.templates."minecraft-server/ganges/whitelist.json".path;
           };
         };
         # Name for next server (follow order of planets visited by Andrew Wiggin)
-        # ganges =
+        # helvetica - DO NOT USE (the only failed human colony in the series)
+        # sorelledolce
       };
     };
+
+    services.nginx.streamConfig = ''
+      server {
+        server_name ganges.${cfg.domain}
+        listen [::1]:25565; # Default MC server port
+        proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.ganges.serverProperties.server-port};
+      }
+    '';
   };
 }
