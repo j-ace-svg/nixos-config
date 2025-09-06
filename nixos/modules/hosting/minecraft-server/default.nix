@@ -150,6 +150,7 @@ in {
     services.nginx.streamConfig = ''
       server {
         server_name ganges.${cfg.domain}
+        listen 0.0.0.0:25565; # Default MC server port
         listen [::1]:25565; # Default MC server port
         proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.ganges.serverProperties.server-port};
       }

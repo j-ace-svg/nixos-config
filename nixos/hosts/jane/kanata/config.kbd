@@ -39,6 +39,7 @@
 (defcfg
   linux-dev "/dev/input/by-id/usb-Dell_Dell_USB_Entry_Keyboard-event-kbd"
   ;;linux-output-device-name "Kanata: Dell"
+  linux-continue-if-no-devs-found yes
   process-unmapped-keys yes
   )
 
