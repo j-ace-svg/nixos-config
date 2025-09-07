@@ -150,15 +150,15 @@ in {
     services.nginx.streamConfig = ''
       server {
         server_name ${cfg.domain} shakespeare.${cfg.domain}
-        listen 25565; # Default MC server port
-        listen [::1]:25565; # Default MC server port
+        listen 25565 reuseport; # Default MC server port
+        listen [::1]:25565 reuseport; # Default MC server port
         proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.shakespeare.serverProperties.server-port};
       }
 
       server {
         server_name ganges.${cfg.domain}
-        listen 25565; # Default MC server port
-        listen [::1]:25565; # Default MC server port
+        listen 25565 reuseport; # Default MC server port
+        listen [::1]:25565 reuseport; # Default MC server port
         proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.ganges.serverProperties.server-port};
       }
     '';
