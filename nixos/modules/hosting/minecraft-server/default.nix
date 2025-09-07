@@ -119,7 +119,7 @@ in {
           openFirewall = true;
 
           serverProperties = {
-            server-port = 25565;
+            server-port = 25566;
             motd = "Self-hosted by yours truly!";
           };
 
@@ -133,7 +133,7 @@ in {
           openFirewall = true;
 
           serverProperties = {
-            server-port = 25566;
+            server-port = 25567;
             motd = "Self-hosted by yours truly!";
           };
 
@@ -147,15 +147,20 @@ in {
       };
     };
 
-    /*
-      services.nginx.streamConfig = ''
+    services.nginx.streamConfig = ''
+      server {
+        server_name ${cfg.domain} shakespeare.${cfg.domain}
+        listen 25565; # Default MC server port
+        listen [::1]:25565; # Default MC server port
+        proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.shakespeare.serverProperties.server-port};
+      }
+
       server {
         server_name ganges.${cfg.domain}
-        listen 0.0.0.0:25565; # Default MC server port
+        listen 25565; # Default MC server port
         listen [::1]:25565; # Default MC server port
         proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.ganges.serverProperties.server-port};
       }
     '';
-    */
   };
 }
