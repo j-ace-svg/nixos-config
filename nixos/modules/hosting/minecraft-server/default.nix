@@ -119,7 +119,7 @@ in {
           openFirewall = true;
 
           serverProperties = {
-            server-port = 25566;
+            server-port = 25565;
             motd = "Self-hosted by yours truly!";
           };
 
@@ -133,7 +133,7 @@ in {
           openFirewall = true;
 
           serverProperties = {
-            server-port = 25567;
+            server-port = 25566;
             motd = "Self-hosted by yours truly!";
           };
 
@@ -147,7 +147,8 @@ in {
       };
     };
 
-    services.nginx.streamConfig = ''
+    /*
+      services.nginx.streamConfig = ''
       server {
         server_name ${cfg.domain} shakespeare.${cfg.domain}
         listen 25565 reuseport; # Default MC server port
@@ -162,5 +163,6 @@ in {
         proxy_pass localhost:${builtins.toString config.services.minecraft-servers.servers.ganges.serverProperties.server-port};
       }
     '';
+    */
   };
 }
