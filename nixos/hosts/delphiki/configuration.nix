@@ -159,9 +159,21 @@
 
   services.fprintd = {
     enable = true;
-    tod = {
+    tod = let
+      nix_pkgs_with_working_vfs0090 = import (builtins.fetchTree {
+        type = "github";
+        owner = "nixos";
+        repo = "nixpkgs";
+        rev = "73cf49b8ad837ade2de76f87eb53fc85ed5d4680";
+      }) {inherit (pkgs) system;};
+    in {
       enable = true;
-      driver = pkgs.libfprint-2-tod1-vfs0090;
+      driver = nix_pkgs_with_working_vfs0090.libfprint-2-tod1-vfs0090;
+      /*
+        driver = pkgs.libfprint-2-tod1-vfs0090.overrideAttrs (self: {
+        meta = self.meta // {broken = false;}; # Uhhhhh pin it to use a previous version of the base thing (mentioned in the commit that marks it broken)?
+      });
+      */
     };
   };
 

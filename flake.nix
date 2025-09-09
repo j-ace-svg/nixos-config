@@ -110,8 +110,10 @@
           ./nixos/hosts/delphiki/configuration.nix
         ];
         homeOpts = {
-          gui.enable = true;
-          daw.enable = true;
+          gui = {
+            enable = true;
+            daw.enable = true;
+          };
         };
       };
 
