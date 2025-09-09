@@ -10,7 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../kmonad.mod.nix
+    ./kanata/default.nix
   ];
 
   nix = {
@@ -78,30 +78,6 @@
     #layout = "us,us";
     #variant = "dvorak,";
     #options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
-  };
-  systemd.services."kmonad-thinkpad-manual" = {
-    description = "KMonad for Thinkpad";
-    #unitConfig = {
-    #  StartLimitIntervalSec = 2;
-    #  StartLimitBurst = 5;
-    #};
-    serviceConfig = {
-      ExecStart = lib.escapeShellArgs [
-        "${pkgs.kmonad}/bin/kmonad"
-        #"--input"
-        #"device-file /dev/input/by-path/platform-i8042-serio-0-event-kbd"
-        "${./kmonad/config.kbd}"
-      ];
-      Restart = "always";
-      RestartSec = 2;
-      #RestartSteps = 30;
-      #RestartMaxDelaySec = "1min";
-      #DynamicUser = true;
-      #User = "kmonad";
-      #SupplementaryGroups = ["input" "uinput"];
-      Nice = -20;
-    };
-    wantedBy = ["default.target"];
   };
 
   hardware.trackpoint = {
@@ -202,8 +178,6 @@
     sops
 
     floorp
-
-    haskellPackages.kmonad
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))

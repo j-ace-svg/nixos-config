@@ -32,7 +32,6 @@
       "steam-run"
       "steamcmd"
       "hplip"
-      "minecraft-server"
     ];
 
   # Use the systemd-boot EFI boot loader.
