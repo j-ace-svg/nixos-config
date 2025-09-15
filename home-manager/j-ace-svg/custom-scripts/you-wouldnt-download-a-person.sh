@@ -30,8 +30,8 @@ fi
 
 dlExtraArgs=""
 
-if [[ "$args" == *"s"* ]]; then
-    dlExtraArgs+='--parse-metadata "playlist_title:Album - (?P<playlist_title>.+)"'
+if [[ "$args" == *"m"* ]]; then
+    dlExtraArgs+='--parse-metadata "playlist_title:(Album - )?(?P<playlist_title>.+)"'
 fi
 
 if [[ "$args" == *"s"* ]]; then
