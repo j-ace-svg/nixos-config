@@ -31,7 +31,7 @@ fi
 dlExtraArgs=()
 
 if [[ "$args" == *"m"* ]]; then
-    dlExtraArgs+=('--parse-metadata' '"playlist_title:Album - (?P<playlist_title>.+)"')
+    dlExtraArgs+=(--parse-metadata "playlist_title:(Album - )?(?P<playlist_title>.+)")
 fi
 
 if [[ "$args" == *"s"* ]]; then
