@@ -44,12 +44,6 @@ if [[ "$args" == *"a"* ]]; then
     yt-dlp "${dlExtraArgs[@]}" -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
 fi
 
-
-if [[ "$args" == *"a"* ]]; then
-    shift
-    yt-dlp $dlExtraArgs -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
-fi
-
 if [[ "$args" == *"r"* ]]; then
     shift
     while [[ $# != 0 ]]; do
