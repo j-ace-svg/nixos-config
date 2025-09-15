@@ -104,6 +104,21 @@
       icon = "https://www.youtube.com/s/desktop/ee47b5e0/img/logos/favicon_32x32.png";
       definedAliases = ["yt"];
     };
+    "Youtube Music" = {
+      urls = [
+        {
+          template = "https://music.youtube.com/search";
+          params = [
+            {
+              name = "q";
+              value = "{searchTerms}";
+            }
+          ];
+        }
+      ];
+      icon = "https://music.youtube.com/favicon.ico";
+      definedAliases = ["ym"];
+    };
     "Wayback Machine" = {
       urls = [
         {
