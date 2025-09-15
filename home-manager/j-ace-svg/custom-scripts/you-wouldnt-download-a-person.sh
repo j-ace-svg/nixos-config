@@ -36,18 +36,18 @@ fi
 
 if [[ "$args" == *"s"* ]]; then
     shift
-    yt-dlp "$dlExtraArgs" -xo "%(title)s.%(ext)s" "$1"
+    yt-dlp $dlExtraArgs -xo "%(title)s.%(ext)s" "$1"
 fi
 
 if [[ "$args" == *"a"* ]]; then
     shift
-    yt-dlp "$dlExtraArgs" -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+    yt-dlp $dlExtraArgs -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
 fi
 
 
 if [[ "$args" == *"a"* ]]; then
     shift
-    yt-dlp "$dlExtraArgs" -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+    yt-dlp $dlExtraArgs -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
 fi
 
 if [[ "$args" == *"r"* ]]; then
@@ -57,7 +57,7 @@ if [[ "$args" == *"r"* ]]; then
         echo "$channel"
         mkdir "$channel"
         pushd "$channel"
-        yt-dlp "$dlExtraArgs" -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+        yt-dlp $dlExtraArgs -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
         shift
         popd
     done
