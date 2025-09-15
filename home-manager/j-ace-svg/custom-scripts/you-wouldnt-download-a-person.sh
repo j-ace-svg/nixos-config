@@ -4,8 +4,8 @@
 set -e
 
 args=""
-if [ "${arg:0:1}" = "-" ]; then
-    args="${arg:0}"
+if [ "${1:0:1}" = "-" ]; then
+    args="${1:0}"
 fi
 
 if [[ "$args" = "" ]] || [[ "$args" == *"h"* ]]; then
