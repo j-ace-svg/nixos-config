@@ -53,6 +53,7 @@ in {
       # Basic Services
       pkgs.libnotify
       pkgs.ueberzugpp
+      pkgs.soteria # PolicyKit authentication (gui app needs sudo)
 
       # Browser (adding a chromium one for once in a blue moon when sites require it, booooo :( )
       pkgs.brave
