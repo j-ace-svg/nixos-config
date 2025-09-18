@@ -7,7 +7,7 @@
 }: {
   services.monado = {
     enable = true;
-    defaultRuntime = true;
+    #defaultRuntime = true;
   };
 
   # Disabled - prevents steamvr from being able to write to it
