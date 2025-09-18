@@ -10,7 +10,9 @@
     defaultRuntime = true;
   };
 
-  home-manager.users.j-ace-svg.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+  # Disabled - prevents steamvr from being able to write to it
+  /*
+    home-manager.users.j-ace-svg.xdg.configFile."openvr/openvrpaths.vrpath".text = ''
     {
       "config" :
       [
@@ -29,6 +31,7 @@
       "version" : 1
     }
   '';
+  */
 
   environment.systemPackages = [
     pkgs.opencomposite
