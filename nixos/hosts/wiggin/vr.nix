@@ -26,7 +26,7 @@
         valve-URI-vrmonitor = {
           name = "URI-vrmonitor";
           comment = "URI handler for vrmonitor://";
-          exec = "\"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrmonitor.sh\" %U";
+          exec = "\"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrmonitor\" %U";
           terminal = false;
           noDisplay = true;
           type = "Application";
