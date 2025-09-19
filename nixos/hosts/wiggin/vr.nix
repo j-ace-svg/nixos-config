@@ -16,7 +16,7 @@
         valve-URI-steamvr = {
           name = "URI-steamvr";
           comment = "URI handler for steamvr://";
-          exec = "\"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrurlhandler\" %U";
+          exec = "${pkgs.steam-run} \"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrurlhandler\" %U";
           terminal = false;
           noDisplay = true;
           type = "Application";
@@ -26,7 +26,7 @@
         valve-URI-vrmonitor = {
           name = "URI-vrmonitor";
           comment = "URI handler for vrmonitor://";
-          exec = "\"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrmonitor\" %U";
+          exec = "${pkgs.steam-run} \"/home/j-ace-svg/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrmonitor\" %U";
           terminal = false;
           noDisplay = true;
           type = "Application";
