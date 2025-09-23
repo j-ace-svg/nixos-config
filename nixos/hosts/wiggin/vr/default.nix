@@ -108,5 +108,6 @@
       echo "Done!"
     '')
     pkgs.opencomposite
+    pkgs.flatpak
   ];
 }
