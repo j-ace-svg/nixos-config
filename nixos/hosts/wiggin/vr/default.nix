@@ -95,6 +95,10 @@
     })
   ];
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2833", TAG+="uaccess"
+  '';
+
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "amdgpu-vr-on" ''
       echo "Setting AMD card to VR mode..."
