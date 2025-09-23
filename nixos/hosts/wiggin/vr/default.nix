@@ -95,6 +95,8 @@
     })
   ];
 
+  services.flatpak.enable = true;
+
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "amdgpu-vr-on" ''
       echo "Setting AMD card to VR mode..."
@@ -108,6 +110,5 @@
       echo "Done!"
     '')
     pkgs.opencomposite
-    pkgs.flatpak
   ];
 }
