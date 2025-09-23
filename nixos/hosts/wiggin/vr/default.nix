@@ -109,5 +109,6 @@
     '')
     pkgs.opencomposite
     pkgs.xr-hardware
+    pkgs.openhmd
   ];
 }
