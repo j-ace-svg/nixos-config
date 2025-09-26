@@ -44,7 +44,7 @@
     pkgs.nms
     pkgs.unimatrix
     pkgs.cava
-    pkgs.python3Full
+    pkgs.python3
     pkgs.mov-cli
     pkgs.bitwarden-cli
     pkgs.gptfdisk # Remove these after sh1mmer stuffs
