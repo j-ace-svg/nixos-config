@@ -4,7 +4,31 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}: let
+  thaytan-openhmd = pkgs.openhmd.overrideAttrs (final: old: {
+    src = pkgs.fetchFromGitHub {
+      owner = "thaytan";
+      repo = "OpenHMD";
+      # Specifically branch `rift-room-config`
+      rev = "bd1e9f9b4f9283060b1e1a3563c05379041d8e97";
+      sha256 = "sha256-xZ22V5HG0L02YMbb0dlb3mBLcz+BICULaeDaDhh1ZJo=";
+    };
+    buildInputs =
+      old.buildInputs
+      ++ [
+        (pkgs.libusb1.overrideAttrs (final: old: {
+          propagatedBuildInputs =
+            old.propagatedBuildInputs
+            ++ [
+              pkgs.opencv
+            ];
+        }))
+      ];
+  });
+  custom-monado = pkgs.monado.override {
+    openhmd = thaytan-openhmd;
+  };
+in {
   services.monado = {
     enable = true;
     defaultRuntime = true;
@@ -63,7 +87,7 @@
         }
       '';
 
-      configFile."openxr/1/active_runtime.json".source = "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+      configFile."openxr/1/active_runtime.json".source = "${custom-monado}/share/openxr/1/openxr_monado.json";
     };
   };
 
@@ -107,6 +131,12 @@
     '')
     pkgs.opencomposite
     pkgs.xr-hardware
-    pkgs.openhmd
+    thaytan-openhmd
+    # For ongoing reference: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/by-name/en/envision/package.nix
+    /*
+      (pkgs.envision.overrideAttrs (final: old: {
+      targetPkgs = old.targetPkgs ++ [pkgs.opencv]; # Needed for openhmd
+    }))
+    */
   ];
 }
