@@ -32,6 +32,7 @@ in {
   services.monado = {
     enable = true;
     defaultRuntime = true;
+    package = custom-monado;
   };
 
   home-manager.users.j-ace-svg = {
