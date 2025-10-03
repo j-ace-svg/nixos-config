@@ -21,9 +21,9 @@
             old.propagatedBuildInputs
             ++ [
               pkgs.opencv
+              pkgs.libjpeg
             ];
         }))
-        pkgs.libjpeg
       ];
   });
   custom-monado = pkgs.monado.override {
