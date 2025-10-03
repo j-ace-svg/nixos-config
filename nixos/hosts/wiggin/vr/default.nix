@@ -23,6 +23,7 @@
               pkgs.opencv
             ];
         }))
+        pkgs.libjpeg
       ];
   });
   custom-monado = pkgs.monado.override {
