@@ -69,6 +69,7 @@
     youtube-shorts-block
     firenvim
     gruvbox-dark-theme
+    bionic-reader
 
     request-control
   ];
