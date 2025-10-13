@@ -128,6 +128,10 @@
       icon = "https://www.wordreference.com/favicon.ico";
       definedAliases = ["wr"];
     };
+    "OpnXNG" = mkSearXNG {
+      url = "https://opnxng.com/";
+      alias = "op";
+    };
     "Searx Belgium" = mkSearXNG {
       url = "https://searx.be/";
       alias = "sb";
