@@ -379,7 +379,7 @@ in {
         }
         {
           label = "hibernate";
-          action = "swaylock; systemctl hibernate";
+          action = "systemctl hibernate; swaylock";
           text = "Hibernate";
           keybind = "h";
         }
