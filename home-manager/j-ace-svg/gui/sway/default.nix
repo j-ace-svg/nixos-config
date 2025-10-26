@@ -236,7 +236,6 @@ in {
           "${modifier}+t" = "mode launch";
           "${modifier}+n" = "exec ${pkgs.mako}/bin/makoctl dismiss";
           "F13" = "mode leader";
-          "XF86PowerOff" = "exec wlogout";
         };
         modes = {
           leader = {
@@ -309,6 +308,18 @@ in {
         };
       };
       extraConfig = ''
+        # Media Keys
+        bindsym --locked XF86PowerOff exec wlogout
+        bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume 1 +3%
+        bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume 1 -3%
+        bindsym --locked XF86AudioMute exec pactl set-sink-mute 1 toggle
+        bindsym --locked XF86AudioPlay exec playerctl play-pause
+        bindsym --locked XF86AudioNext exec playerctl next
+        bindsym --locked XF86AudioPrev exec playerctl previous
+        bindsym --locked XF86MonBrightnessUp exec brightnessctl 5%+
+        bindsym --locked XF86MonBrightnessDown exec brightnessctl 5%-
+
+        # Autostart
         exec_always pkill -f "inactive-windows-transparency.py"
         exec_always inactive-windows-transparency.py -o 0.9
         exec snap run accountable2you
