@@ -316,8 +316,8 @@ in {
           "XF86AudioPlay" = "exec playerctl play-pause";
           "XF86AudioNext" = "exec playerctl next";
           "XF86AudioPrev" = "exec playerctl previous";
-          "XF86MonBrightnessUp" = "exec brightnessctl 5%+";
-          "XF86MonBrightnessDown" = "exec brightnessctl 5%-";
+          "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+          "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
         };
         mkMediaKeyConfig = key: value: "bindsym ${key} ${value}";
         mkMediaKeyLockedConfig = key: value: "bindsym --locked ${key} ${value}";
