@@ -307,23 +307,32 @@ in {
           };
         };
       };
-      extraConfig = ''
-        # Media Keys
-        bindsym --locked XF86PowerOff exec wlogout
-        bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume 1 +3%
-        bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume 1 -3%
-        bindsym --locked XF86AudioMute exec pactl set-sink-mute 1 toggle
-        bindsym --locked XF86AudioPlay exec playerctl play-pause
-        bindsym --locked XF86AudioNext exec playerctl next
-        bindsym --locked XF86AudioPrev exec playerctl previous
-        bindsym --locked XF86MonBrightnessUp exec brightnessctl 5%+
-        bindsym --locked XF86MonBrightnessDown exec brightnessctl 5%-
-
-        # Autostart
-        exec_always pkill -f "inactive-windows-transparency.py"
-        exec_always inactive-windows-transparency.py -o 0.9
-        exec snap run accountable2you
-      '';
+      extraConfig = let
+        mediaKeys = {
+          "XF86PowerOff" = "exec wlogout";
+          "XF86AudioRaiseVolume" = "exec pactl set-sink-volume %DEFAULT_SINK% +3%";
+          "XF86AudioLowerVolume" = "exec pactl set-sink-volume %DEFAULT_SINK% -3%";
+          "XF86AudioMute" = "exec pactl set-sink-mute %DEFAULT_SINK% toggle";
+          "XF86AudioPlay" = "exec playerctl play-pause";
+          "XF86AudioNext" = "exec playerctl next";
+          "XF86AudioPrev" = "exec playerctl previous";
+          "XF86MonBrightnessUp" = "exec brightnessctl 5%+";
+          "XF86MonBrightnessDown" = "exec brightnessctl 5%-";
+        };
+        mkMediaKeyConfig = key: value: "bindsym ${key} ${value}";
+        mkMediaKeyLockedConfig = key: value: "bindsym --locked ${key} ${value}";
+        mediaKeysConfig = lib.strings.concatLines (
+          lib.attrsets.mapAttrsToList mkMediaKeyConfig mediaKeys
+          ++ lib.attrsets.mapAttrsToList mkMediaKeyLockedConfig mediaKeys
+        );
+      in
+        mediaKeysConfig
+        + ''
+          # Autostart
+          exec_always pkill -f "inactive-windows-transparency.py"
+          exec_always inactive-windows-transparency.py -o 0.9
+          exec snap run accountable2you
+        '';
     };
 
     programs.i3status = {
