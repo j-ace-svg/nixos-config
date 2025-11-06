@@ -276,6 +276,8 @@ in {
             "Shift+m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`";
             "h" = "mode docs";
             "Shift+h" = "mode docs";
+            "f" = "mode folders";
+            "Shift+f" = "mode folders";
             "g" = "mode games";
             "Shift+g" = "mode games";
             "Escape" = "mode default";
