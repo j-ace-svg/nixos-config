@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  opts,
   ...
 }: let
   cfg = config.local.gui;
@@ -292,6 +293,17 @@ in {
             "Return" = "mode default";
             "F13" = "mode default";
           };
+          folders = {
+            "c" = "exec ${terminal} -D ${opts.configPath}; mode default";
+            "Shift+c" = "exec ${terminal} -D ${opts.configPath}";
+            "n" = "exec ${terminal} -D ~/Nextcloud/Notes || ${terminal} -D ~/Notes; mode default";
+            "Shift+n" = "exec ${terminal} -D ~/Nextcloud/Notes || ${terminal} -D ~/Notes";
+            "l" = "mode launch";
+            "Shift+l" = "mode launch";
+            "Escape" = "mode default";
+            "Return" = "mode default";
+            "F13" = "mode default";
+          };
           games = {
             "s" = "exec ${pkgs.steam}/bin/steam; mode default";
             "Shift+s" = "exec ${pkgs.steam}/bin/steam";
@@ -331,7 +343,6 @@ in {
           # Autostart
           exec_always pkill -f "inactive-windows-transparency.py"
           exec_always inactive-windows-transparency.py -o 0.9
-          exec snap run accountable2you
         '';
     };
 
