@@ -115,7 +115,7 @@ in {
       servers = {
         shakespeare = {
           enable = true;
-          package = pkgs.vanillaServers.vanilla-1_21_8;
+          package = pkgs.vanillaServers.vanilla-1_21_10;
           openFirewall = true;
 
           serverProperties = {
@@ -129,7 +129,7 @@ in {
         };
         ganges = {
           enable = true;
-          package = pkgs.vanillaServers.vanilla-1_21_8;
+          package = pkgs.vanillaServers.vanilla-1_21_10;
           openFirewall = true;
 
           serverProperties = {
