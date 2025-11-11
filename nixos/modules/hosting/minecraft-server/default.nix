@@ -135,6 +135,7 @@ in {
           serverProperties = {
             server-port = 25566;
             motd = "Self-hosted by yours truly!";
+            difficulty = "normal";
           };
 
           files = {
