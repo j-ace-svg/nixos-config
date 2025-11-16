@@ -399,7 +399,7 @@ in {
         }
         {
           label = "hibernate";
-          action = "systemctl hibernate; swaylock --grace 0";
+          action = "systemctl hibernate; swaylock --grace 0 --fade-in 0";
           text = "Hibernate";
           keybind = "h";
         }
