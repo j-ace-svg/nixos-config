@@ -12,7 +12,8 @@ in {
       startInBackground = true;
     };
 
-    systemd.user.services.nextcloud-client.Service.ExecStartPre = let
+    /*
+      systemd.user.services.nextcloud-client.Service.ExecStartPre = let
       server = "https://nextcloud.philotic.xyz";
       user = "j.ace.svg";
       displayName = "J.ace.svg";
@@ -69,6 +70,7 @@ in {
     in ''
       /bin/sh ${execstartpre-script}
     '';
+    */
 
     home.packages = [
     ];
