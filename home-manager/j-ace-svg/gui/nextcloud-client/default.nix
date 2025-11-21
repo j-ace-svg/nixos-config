@@ -63,7 +63,7 @@ in {
         0\webflow_user=${user}
       '';
     in ''
-      /bin/sh mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
+      /bin/sh -c -- mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
     '';
 
     home.packages = [
