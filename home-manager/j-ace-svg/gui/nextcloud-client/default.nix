@@ -73,6 +73,7 @@ in {
     */
 
     home.packages = [
+      pkgs.nextcloud-client
     ];
   };
 }
