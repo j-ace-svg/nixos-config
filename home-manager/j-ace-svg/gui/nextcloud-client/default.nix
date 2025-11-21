@@ -64,7 +64,7 @@ in {
       '';
       execstartpre-script = pkgs.writeScript "nextcloud-config-setup.sh" ''
         #!/bin/sh
-        /usr/bin/env mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && /usr/bin/env cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
+        /run/current-system/sw/bin/mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && /run/current-system/sw/bin/cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
       '';
     in ''
       /bin/sh ${execstartpre-script}
