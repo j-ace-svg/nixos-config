@@ -259,10 +259,10 @@ in {
             "F13" = "mode default";
           };
           launch = {
-            "t" = "exec ${pkgs.floorp}/bin/floorp; mode default";
-            "Shift+t" = "exec ${pkgs.floorp}/bin/floorp";
-            "b" = "exec ${pkgs.bitwarden}/bin/bitwarden; mode default";
-            "Shift+b" = "exec ${pkgs.bitwarden}/bin/bitwarden";
+            "t" = "exec ${config.programs.floorp.package}/bin/floorp; mode default";
+            "Shift+t" = "exec ${config.programs.floorp.package}/bin/floorp";
+            "b" = "exec ${pkgs.bitwarden-desktop}/bin/bitwarden; mode default";
+            "Shift+b" = "exec ${pkgs.bitwarden-desktop}/bin/bitwarden";
             "l" = "exec ${pkgs.legcord}/bin/legcord; mode default";
             "Shift+l" = "exec ${pkgs.legcord}/bin/legcord";
             "n" = "exec ${terminal} nvim; mode default";

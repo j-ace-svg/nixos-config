@@ -20,7 +20,7 @@ in {
       (pkgs.texlive.combine {
         inherit (pkgs.texlive) scheme-full latexmk;
       })
-      pkgs.poppler_utils
+      pkgs.poppler-utils
     ];
   };
 }

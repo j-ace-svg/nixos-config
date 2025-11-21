@@ -7,8 +7,10 @@
     enable = true;
     package = pkgs.gitFull;
     lfs.enable = true;
-    userEmail = "j.ace.svg@gmail.com";
-    userName = "J.ace.svg";
+    settings.user = {
+      email = "j.ace.svg@gmail.com";
+      name = "J.ace.svg";
+    };
   };
 
   home.packages = [

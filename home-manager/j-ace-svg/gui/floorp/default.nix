@@ -12,7 +12,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.floorp = {
       enable = true;
-      package = pkgs.floorp;
+      package = pkgs.floorp-bin;
       policies = {
         DontCheckDefaultBrowser = true;
         DisableTelemetry = true;

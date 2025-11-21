@@ -52,6 +52,9 @@ stopsudo() {
     if [[ "$args" == *"v"* ]]; then
         rebuild_extra_args+=" --show-trace "
     fi
+    if [[ "$args" == *"V"* ]]; then
+        rebuild_extra_args+=" --print-build-logs "
+    fi
 
     # Rebuild, output simplified errors, log trackebacks
     sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)

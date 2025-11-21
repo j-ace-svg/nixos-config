@@ -53,7 +53,7 @@ in {
     after = ["graphical-session.target"];
   };
 
-  services.logind.powerKey = "ignore"; # Allow short power key press to trigger power menu
+  services.logind.settings.Login.HandlePowerKey = "ignore"; # Allow short power key press to trigger power menu
 
   environment.systemPackages = [
     hyprkan

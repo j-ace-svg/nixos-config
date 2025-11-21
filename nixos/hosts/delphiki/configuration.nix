@@ -177,7 +177,7 @@
     age
     sops
 
-    floorp
+    floorp-bin
 
     (writeShellScriptBin "rebuild" (builtins.readFile ../../rebuild.sh))
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))

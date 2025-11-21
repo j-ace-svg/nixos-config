@@ -45,7 +45,6 @@ in {
       pkgs.pavucontrol
       pkgs.sx
       pkgs.nuclear
-      pkgs.zotify # Spotify downloader
       pkgs.kdePackages.kolourpaint
       pkgs.bitwarden-desktop
       pkgs.picard
