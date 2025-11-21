@@ -62,8 +62,11 @@ in {
         0\version=13
         0\webflow_user=${user}
       '';
+      execstartpre-script = pkgs.writeScript "nextcloud-config-setup.sh" ''
+        mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
+      '';
     in ''
-      /bin/sh -c -- /run/current-system/sw/bin/mkdir -p ${config.home.homeDirectory}/.config/Nextcloud && /run/current-system/sw/bin/cp "${nextcloud-client-config}" -T "${config.home.homeDirectory}/.config/Nextcloud/nextcloud.cfg"
+      /bin/sh ${execstartpre-script}
     '';
 
     home.packages = [
