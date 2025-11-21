@@ -3,8 +3,13 @@
 # Make script fail if any individual commands fail
 set -e
 
-if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
-    if [[ $# = 0 ]]; then
+args=""
+if [ "${arg:0:1}" = "-" ]; then
+    args="${arg:0}"
+fi
+
+if [[ "$args" = "" ]] || [[ "$args" == *"h"* ]]; then
+    if [[ "$args" = "" ]]; then
       # App introduction
       echo "You wouldn't download a person - quickly download music from a youtube url"
       echo ""
@@ -23,24 +28,36 @@ if [[ $# = 0 ]] || [[ "$1" = "-h" ]]; then
     exit 0
 fi
 
-if [ "$1" = "-s" ]; then
-    shift
-    yt-dlp -xo "%(title)s.%(ext)s" "$1"
+dlExtraArgs=""
+
+if [[ "$args" == *"s"* ]]; then
+    dlExtraArgs+='--parse-metadata "album:(?P<playlist_title>)"'
 fi
 
-if [ "$1" = "-a" ]; then
+if [[ "$args" == *"s"* ]]; then
     shift
-    yt-dlp -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+    yt-dlp "$dlExtraArgs" -xo "%(title)s.%(ext)s" "$1"
 fi
 
-if [ "$1" = "-r" ]; then
+if [[ "$args" == *"a"* ]]; then
+    shift
+    yt-dlp "$dlExtraArgs" -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+fi
+
+
+if [[ "$args" == *"a"* ]]; then
+    shift
+    yt-dlp "$dlExtraArgs" -xo "%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+fi
+
+if [[ "$args" == *"r"* ]]; then
     shift
     while [[ $# != 0 ]]; do
         channel="$(yt-dlp --print channel "$1")"
         echo "$channel"
         mkdir "$channel"
         pushd "$channel"
-        yt-dlp -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
+        yt-dlp "$dlExtraArgs" -xo "%(channel)s/%(playlist_title)s/%(playlist_index)s %(title)s.%(ext)s" "$1"
         shift
         popd
     done
