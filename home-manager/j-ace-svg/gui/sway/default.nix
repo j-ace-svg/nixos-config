@@ -66,6 +66,7 @@ in {
         input = {
           "*" = {
             dwt = "disabled";
+            natural_scroll = "enabled";
           };
         };
         output = {
