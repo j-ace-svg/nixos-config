@@ -276,8 +276,8 @@ in {
             "Shift+m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`";
             "h" = "mode docs";
             "Shift+h" = "mode docs";
-            "f" = "mode folders";
-            "Shift+f" = "mode folders";
+            "e" = "mode dirs";
+            "Shift+e" = "mode dirs";
             "g" = "mode games";
             "Shift+g" = "mode games";
             "Escape" = "mode default";
@@ -295,7 +295,7 @@ in {
             "Return" = "mode default";
             "F13" = "mode default";
           };
-          folders = {
+          dirs = {
             "c" = "exec ${terminal} -D ${opts.configPath}; mode default";
             "Shift+c" = "exec ${terminal} -D ${opts.configPath}";
             "n" = "exec ${terminal} -D ~/Nextcloud/Notes || ${terminal} -D ~/Notes; mode default";
