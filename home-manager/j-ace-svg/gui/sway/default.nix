@@ -63,6 +63,11 @@ in {
         #    xkb_options = "ctrl:nocaps,ctrl:lctrl_meta,shift:both_capslock,grp:rctrl_toggle";
         #  };
         #};
+        input = {
+          "*" = {
+            dwt = "disabled";
+          };
+        };
         output = {
           "*" = {
             bg = "${./sway-wallpaper.png} fill";
