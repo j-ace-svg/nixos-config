@@ -64,7 +64,7 @@ in {
         #  };
         #};
         input = {
-          "*" = {
+          "type:touchpad" = {
             dwt = "disabled";
             natural_scroll = "enabled";
           };
