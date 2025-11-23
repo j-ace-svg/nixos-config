@@ -86,6 +86,10 @@
     speed = 20; # Default 97
   };
 
+  services.libinput = {
+    enable = true;
+  };
+
   # Wayland
   programs.sway.enable = true;
   security.polkit.enable = true;
