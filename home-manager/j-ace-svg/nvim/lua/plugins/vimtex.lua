@@ -18,6 +18,7 @@ return {
         '-file-line-error',
         '-synctex=1',
         '-interaction=nonstopmode',
+        '-lualatex',
       },
     }
     vim.g.vimtex_view_method = "zathura"
