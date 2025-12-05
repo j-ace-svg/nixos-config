@@ -73,6 +73,7 @@ in {
         settings = {
           "extensions.autoDisableScopes" = 0;
           "extensions.activeThemeID" = "{eb8c4a94-e603-49ef-8e81-73d3c4cc04ff}";
+          "accessibility.typeaheadfind.manual" = false;
 
           # Disable first-run stuff
           "browser.aboutwelcome.enabled" = false;
