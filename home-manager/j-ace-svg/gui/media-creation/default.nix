@@ -32,6 +32,7 @@ in {
       pkgs.sfizz
       pkgs.ffmpeg
       pkgs.dl-librescore
+      pkgs.libreoffice
     ];
   };
 }
