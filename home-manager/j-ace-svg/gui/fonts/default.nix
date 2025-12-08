@@ -22,6 +22,7 @@ in {
       pkgs.nerd-fonts.hack
       pkgs.nerd-fonts.dejavu-sans-mono
       pkgs.dejavu_fonts
+      pkgs.texlivePackages.cm
     ];
   };
 }
