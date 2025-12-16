@@ -13,7 +13,6 @@ in {
         plugins = [
           "fromfilename"
           "musicbrainz"
-          "discogs"
           "chroma"
         ];
       };
