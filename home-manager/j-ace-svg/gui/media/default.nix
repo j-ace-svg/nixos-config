@@ -4,30 +4,23 @@
   config,
   ...
 }: let
-  cfg = config.local.gui;
+  cfg = config.local.gui.media;
 in {
   options = {
-    local.gui.enable = lib.mkOption {
+    local.gui.media.enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = config.local.gui.enable;
       description = ''
-        Whether or not to install graphical interface and applications
+        Whether or not to install media playback tools
       '';
     };
   };
 
   imports = [
-    ./calendar/default.nix
-    ./floorp/default.nix
-    ./fonts/default.nix
-    ./foot/default.nix
-    ./games/default.nix
-    ./latex/default.nix
-    ./legcord/default.nix
-    ./media/default.nix
-    ./nextcloud-client/default.nix
-    ./sway/default.nix
-    ./zathura/default.nix
+    ./beets/default.nix
+    ./easyeffects/default.nix
+    ./media-creation/default.nix
+    ./mpv/default.nix
   ];
 
   config = lib.mkIf cfg.enable {

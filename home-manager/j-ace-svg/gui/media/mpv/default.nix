@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  cfg = config.local.gui;
+  cfg = config.local.gui.media;
 in {
   config = lib.mkIf cfg.enable {
     programs.mpv = {

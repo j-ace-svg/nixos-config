@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  cfg = config.local.gui;
+  cfg = config.local.gui.media;
 in {
   imports = [
     ./daw.nix
