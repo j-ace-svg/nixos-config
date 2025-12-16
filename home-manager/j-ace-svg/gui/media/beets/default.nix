@@ -16,6 +16,11 @@ in {
           "chroma"
         ];
         directory = "~/Music";
+        import = {
+          write = "yes";
+          copy = "no";
+          move = "no";
+        };
       };
     };
 
