@@ -280,6 +280,8 @@ in {
             "Shift+z" = "exec ${config.programs.zathura.package}/bin/zathura";
             "m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`; mode default";
             "Shift+m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`";
+            "p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol; mode default";
+            "Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
             "h" = "mode docs";
             "Shift+h" = "mode docs";
             "e" = "mode dirs";

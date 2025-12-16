@@ -15,6 +15,7 @@ in {
           "musicbrainz"
           "chroma"
         ];
+        directory = "~/Music";
       };
     };
 
