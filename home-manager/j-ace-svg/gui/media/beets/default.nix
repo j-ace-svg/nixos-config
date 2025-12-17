@@ -20,6 +20,7 @@ in {
           write = true;
           copy = false;
           move = false;
+          incremental = true;
         };
       };
     };
