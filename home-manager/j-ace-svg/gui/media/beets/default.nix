@@ -17,9 +17,9 @@ in {
         ];
         directory = "~/Music";
         import = {
-          write = "yes";
-          copy = "no";
-          move = "no";
+          write = true;
+          copy = false;
+          move = false;
         };
       };
     };
