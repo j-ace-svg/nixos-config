@@ -129,7 +129,7 @@ in {
         };
         ganges = {
           enable = true;
-          package = pkgs.vanillaServers.vanilla-1_21_10;
+          package = pkgs.vanillaServers.vanilla-1_21_11;
           openFirewall = true;
 
           serverProperties = {
