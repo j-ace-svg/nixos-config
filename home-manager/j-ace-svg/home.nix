@@ -19,6 +19,7 @@
     ./plover/default.nix
     ./rnnoise/default.nix
     ./ssh/default.nix
+    ./tty/default.nix
     ./vifm/default.nix
   ];
 
