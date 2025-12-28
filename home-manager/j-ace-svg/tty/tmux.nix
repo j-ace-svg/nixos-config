@@ -5,7 +5,7 @@
 }: {
   programs.tmux = {
     enable = true;
-    prefix = "S-e";
+    prefix = "C-_";
   };
 
   home.packages = [
