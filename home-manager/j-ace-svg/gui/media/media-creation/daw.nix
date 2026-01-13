@@ -67,6 +67,7 @@ in {
       ll-plugins
       pkgs.zynaddsubfx
       invada-studio
+      pkgs.rnnoise-plugin
 
       # Instruments
       the-experience-yamaha-s6
