@@ -14,7 +14,7 @@ in {
     xdg.mimeApps = {
       enable = true;
       associations.added = {
-        "audio/mpeg" = ["tenacity.desktop"];
+        "audio/*" = ["tenacity.desktop"];
       };
     };
 
