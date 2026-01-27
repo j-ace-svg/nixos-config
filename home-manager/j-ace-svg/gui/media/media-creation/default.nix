@@ -33,6 +33,7 @@ in {
       pkgs.ffmpeg
       pkgs.dl-librescore
       pkgs.libreoffice
+      pkgs.kdePackages.k3b
     ];
   };
 }
