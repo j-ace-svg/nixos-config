@@ -94,7 +94,10 @@
     j-ace-svg = {
       createHome = true;
       isNormalUser = true;
-      extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+      extraGroups = [
+        "wheel" # Enable ‘sudo’ for the user.
+        "disk" # Allow writing to disks (makes burning cds convenient)
+      ];
     };
     test-second-user = {
       createHome = true;
