@@ -97,6 +97,7 @@
       extraGroups = [
         "wheel" # Enable ‘sudo’ for the user.
         "disk" # Allow writing to disks (makes burning cds convenient)
+        "cdrom" # "
       ];
     };
     test-second-user = {
