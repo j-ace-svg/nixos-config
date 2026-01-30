@@ -15,26 +15,23 @@
   programs.readline = {
     enable = true;
     bindings = let
-      silent = command: ''" \e-\xxkill-line_ \xxbackward-char_\xxkill-line_${command}\xxaccept-line_\xxyank_\xxbeginning-of-line_\xxdelete-char_\xxyank_\xxyank-pop_\xxbackward-delete-char_"'';
-    in
-      {
-        # Readline commands to compose
-        "\\xxbeginning-of-line_" = "beginning-of-line"; # Commas improve legibility but are also now necessary
-        "\\xxbackward-char_" = "backward-char";
-        "\\xxdelete-char_" = "delete-char";
-        "\\xxbackward-delete-char_" = "backward-delete-char";
-        "\\xxkill-line_" = "kill-line";
-        "\\xxaccept-line_" = "accept-line";
-        "\\xxyank_" = "yank";
-        "\\xxyank-pop_" = "yank-pop";
-      }
-      // {
-        # User-facing bindings
-        "\\C-n" = silent "la";
-        "\\C-p" = silent "cd ..";
-        "\\C-u" = "kill-whole-line";
-        "\\e\\C-w" = "shell-backward-kill-word";
-      };
+      sub = command: "\\ex${command}\n"; # Function to make substitutable shortcuts for builtin funs
+      beginning-of-line = sub "beginning-of-line"; # Commas improve legibility but are also now necessary
+      backward-char = sub "backward-char";
+      delete-char = sub "delete-char";
+      backward-delete-char = sub "backward-delete-char";
+      kill-line = sub "kill-line";
+      accept-line = sub "accept-line";
+      yank = sub "yank";
+      yank-pop = sub "yank-pop";
+      silent = command: ''" \e-${kill-line} ${backward-char}${kill-line}${command}${accept-line}${yank}${beginning-of-line}${delete-char}${yank}${yank-pop}${backward-delete-char}"'';
+    in {
+      # User-facing bindings
+      "\\C-n" = silent "la";
+      "\\C-p" = silent "cd ..";
+      "\\C-u" = "kill-whole-line";
+      "\\e\\C-w" = "shell-backward-kill-word";
+    };
     variables = {
     };
   };
