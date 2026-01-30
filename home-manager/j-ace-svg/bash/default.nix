@@ -15,7 +15,7 @@
   programs.readline = {
     enable = true;
     bindings = let
-      sub = command: "\\ex${command}\n"; # Function to make substitutable shortcuts for builtin funs
+      sub = command: "\\ex${command}\\C-m"; # Function to make substitutable shortcuts for builtin funs
       beginning-of-line = sub "beginning-of-line"; # Commas improve legibility but are also now necessary
       backward-char = sub "backward-char";
       delete-char = sub "delete-char";
