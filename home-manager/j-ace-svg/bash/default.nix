@@ -22,8 +22,10 @@
       backward-delete-char = sub "backward-delete-char";
       kill-line = sub "kill-line";
       accept-line = sub "accept-line";
-      yank = sub "yank";
-      yank-pop = sub "yank-pop";
+      #yank = sub "yank";
+      yank = "\\C-y";
+      #yank-pop = sub "yank-pop";
+      yank-pop = "\\ey";
       silent = command: ''" \e-${kill-line} ${backward-char}${kill-line}${command}${accept-line}${yank}${beginning-of-line}${delete-char}${yank}${yank-pop}${backward-delete-char}"'';
     in {
       # User-facing bindings
