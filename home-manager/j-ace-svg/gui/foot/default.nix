@@ -12,6 +12,9 @@ in {
       enable = true;
       server.enable = true;
       settings = {
+        main = {
+          term = "xterm-256color";
+        };
         colors = colors.gruvbox-dark // {alpha = colors.alpha;};
       };
     };
