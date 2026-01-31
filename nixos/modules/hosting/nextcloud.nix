@@ -129,6 +129,10 @@ in {
       forceSSL = true;
       useACMEHost = "acmechallenge.${cfg.domain}";
       acmeRoot = "/var/lib/acme/acme-challenge";
+      extraConfig = ''
+        # Increase max upload size
+        client_max_body_size 50000M;
+      '';
     };
 
     services.nginx.virtualHosts.${config.services.collabora-online.settings.server_name} = {
