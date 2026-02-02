@@ -18,7 +18,7 @@ in {
 
     home.packages = [
       (pkgs.texlive.combine {
-        inherit (pkgs.texlive) scheme-full latexmk;
+        inherit (pkgs.texlive) scheme-full latexmk pgf;
       })
       pkgs.poppler-utils
     ];
