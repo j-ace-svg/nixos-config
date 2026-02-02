@@ -9,16 +9,21 @@ in {
   config = lib.mkIf cfg.enable {
     programs.mpv = {
       enable = true;
-      scripts = with pkgs; [
-        mpvScripts.sponsorblock
-        mpvScripts.quality-menu
-        mpvScripts.thumbfast
-        mpvScripts.mpv-slicing
-        (callPackage ./mpv-youtube-chat.nix {
-          inherit fetchFromGitHub lib unstableGitUpdater;
-          buildLua = mpvScripts.buildLua;
-        })
-      ];
+      package = pkgs.mpv.override {
+        mpv = pkgs.mpv-unwrapped.override {
+          cddaSupport = true;
+        };
+        scripts = with pkgs; [
+          mpvScripts.sponsorblock
+          mpvScripts.quality-menu
+          mpvScripts.thumbfast
+          mpvScripts.mpv-slicing
+          (callPackage ./mpv-youtube-chat.nix {
+            inherit fetchFromGitHub lib unstableGitUpdater;
+            buildLua = mpvScripts.buildLua;
+          })
+        ];
+      };
       bindings = {
         "<" = "add chapter -1";
         ">" = "add chapter 1";
