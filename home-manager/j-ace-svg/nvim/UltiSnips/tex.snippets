@@ -417,7 +417,62 @@ snippet plot "Plot" w
 		\end{axis}
 	\end{tikzpicture}
 	\caption{$8}
-	\label{${9:$8}}
+	\label{fig:${9:${8/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet dataplot "Plot from raw data" w
+\begin{figure}[${1:htpb}]
+	\centering
+	\begin{tikzpicture}
+		\begin{${3:$2axis}}[
+			${4:title={$5},}
+			${5:xlabel={$7},}
+			${8:ylabel={$9},}
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+		]
+
+			\addplot[
+				${10:color=$11}
+				]
+				coordinates {
+					$12
+				};
+
+			${13:\legend{$14}}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{${15:$5}}
+	\label{fig:${16:${15/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet boxplot "Box plot from raw data" w
+\begin{figure}[${1:htpb}]
+	\centering
+	\begin{tikzpicture}
+		\begin{${3:$2axis}}[
+			${4:title={$5},}
+			${5:xlabel={$7},}
+			ytick={$10},
+			yticklabels={$11},
+		]
+
+			\addplot[
+				boxplot,
+				${12:color=$13}
+				]
+				table[y index=0] {
+					data
+					$14
+				};
+
+		\end{axis}
+	\end{tikzpicture}
+	\caption{${15:$5}}
+	\label{fig:${16:${15/\W+/-/g}}}
 \end{figure}
 endsnippet
 
