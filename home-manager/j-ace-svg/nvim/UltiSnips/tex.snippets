@@ -22,7 +22,10 @@ snippet hdr "Fancy header" b
 \pagestyle{fancy}
 \lhead{${3:$1: $2}}
 \chead{$4}
-\rhead{$5}
+\rhead{${5:`!p
+import time
+snip.rv = time.strftime("%B %-d, %Y")
+`}}
 endsnippet
 
 snippet beg "begin{} / end{}" bA
