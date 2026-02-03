@@ -17,10 +17,18 @@ snippet taupi "Tau usage notice" A
 $0
 endsnippet
 
+context "not math()"
+snippet hdr "Fancy header" b
+\pagestyle{fancy}
+\lhead{${3:$1: $2}}
+\chead{$4}
+\rhead{$5}
+endsnippet
+
 snippet beg "begin{} / end{}" bA
-\\begin{$1}
+\begin{$1}
 	$0
-\\end{$1}
+\end{$1}
 endsnippet
 
 priority 100
