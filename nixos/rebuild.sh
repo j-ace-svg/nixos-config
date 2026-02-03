@@ -30,7 +30,7 @@ stopsudo() {
 
     if [[ "$args" != *"f"* ]]; then
         # Early return if no changes were detected
-        if sudo git -C /etc/nixos/ diff --quiet '/etc/nixos/*.nix'; then
+        if sudo git -C /etc/nixos/ diff --quiet; then
             echo "No changes detected, exiting."
             exit 0
         fi
