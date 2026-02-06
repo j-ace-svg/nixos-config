@@ -75,6 +75,7 @@ in {
         dbtype = "sqlite";
       };
       phpOptions."realpath_cache_size" = "0"; # Don't cache symlink realpaths because they change on rebuild
+      maxUploadSize = "1G";
       extraApps = {
         inherit (config.services.nextcloud.package.packages.apps) contacts calendar tasks richdocuments;
       };
