@@ -9,6 +9,7 @@
     shellAliases = {
       la = "ls -A";
       susops = "sudo SOPS_AGE_KEY=\"$(sudo cat /run/secrets.d/age-keys.txt)\" sops";
+      usops = "SOPS_AGE_KEY=\"$(sudo cat /run/secrets.d/age-keys.txt)\" sops";
     };
   };
 
