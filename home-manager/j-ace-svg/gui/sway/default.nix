@@ -440,7 +440,7 @@ in {
         }
         {
           label = "suspend";
-          action = "swaylock; systemctl suspend";
+          action = "systemctl suspend; swaylock --grace 0 --fade-in 0";
           text = "Suspend";
           keybind = "u";
         }

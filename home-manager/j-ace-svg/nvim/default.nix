@@ -165,6 +165,8 @@ in {
       };
     };
 
+    home.sessionVariables.EDITOR = "nvim";
+
     home.packages = [
     ];
   };

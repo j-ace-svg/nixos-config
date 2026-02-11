@@ -2,6 +2,7 @@
   programs.ssh = {
     enable = true;
 
+    enableDefaultConfig = false;
     # Default values
     matchBlocks."*" = {
       forwardAgent = false;
