@@ -67,10 +67,8 @@ stopsudo() {
     hostname=$(hostname)
 
     # Save state after rebuild (to preserve logs/any manual changes made during rebuild)
-    echo "Saving state"
     git_post="$(sudo git -C /etc/nixos/ stash create)"
     git_post="${git_post:-$(git rev-parse --verify HEAD)}"
-    echo "Committing"
     # Commit all changes witih the generation metadata
     # git stash apply "${git_post}"
     sudo git reset --hard HEAD
