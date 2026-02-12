@@ -7,6 +7,7 @@
 }: let
   cfg = config.local.gui;
   endcord = pkgs.callPackage ./endcord.nix {
+    # No work yet :(
     inherit (pkgs) fetchFromGitHub python3Packages python3 fetchPypi rustPlatform makeWrapper;
   };
 in {

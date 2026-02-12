@@ -40,6 +40,9 @@ stopsudo() {
     sudo alejandra /etc/nixos &>/dev/null \
         || ( sudo alejandra /etc/nixos ; echo "formatting failed!" && exit 1)
 
+    # Save changes so we only commit what was build (and not any working tree modifications made during build)
+    git_pre="$(sudo git -C /etc/nixos/ stash create)"
+    git_pre="${git_pre:-$(git rev-parse --verify HEAD)}"
     # Shows your changes
     sudo git -C /etc/nixos/ diff -U0 '/etc/nixos/*.nix' || : # Ignore exit code of git diff
 
@@ -63,8 +66,14 @@ stopsudo() {
     current=$(nixos-rebuild list-generations --json | jq -r '.[] | select(.current == true) | (.generation | tostring) + " current" + "  " + .date + "  " + .nixosVersion + "  " + .kernelVersion')
     hostname=$(hostname)
 
+    # Save state after rebuild (to preserve logs/any manual changes made during rebuild)
+    git_post="$(sudo git -C /etc/nixos/ stash create)"
+    git_post="${git_post:-$(git rev-parse --verify HEAD)}"
     # Commit all changes witih the generation metadata
+    # git stash apply "${git_post}"
+    git stash apply "${git_pre}" &>/dev/null || git checkout "${git_pre}" -- . &>/dev/null
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
+    git stash apply "${git_post}" &>/dev/null || git checkout "${git_post}" -- . &>/dev/null
 
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK!"
