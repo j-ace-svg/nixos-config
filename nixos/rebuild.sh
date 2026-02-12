@@ -73,6 +73,7 @@ stopsudo() {
     echo "Committing"
     # Commit all changes witih the generation metadata
     # git stash apply "${git_post}"
+    sudo git reset --hard HEAD
     sudo git stash apply "${git_pre}" >/dev/null || sudo git checkout "${git_pre}" -- . >/dev/null
     echo "Pre-stash apply"
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
