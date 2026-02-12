@@ -57,7 +57,7 @@ in {
       pkgs.brave
 
       # Messaging
-      pkgs.signal-desktop
+      #pkgs.signal-desktop
 
       # Game dev
       pkgs.godot_4

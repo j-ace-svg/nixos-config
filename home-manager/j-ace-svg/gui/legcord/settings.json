@@ -40,8 +40,8 @@
     "smoothScroll": true,
     "autoScroll": false,
     "modCache": {
-        "shelter": "7bdfd0dd0a1bfb6b4750059eaa2edf5eac0e46bb",
-        "vencord": "1af7eb62f197766c4a20aa7a9dcdbef5d84ca062"
+        "shelter": "7b4aac004d71bbfd3f88658d604887b712f6fb0d",
+        "vencord": "f9c404c229af828b362086ae954252647c80b208"
     },
     "bounceOnPing": false,
     "overlayButtonColor": "#121214",
