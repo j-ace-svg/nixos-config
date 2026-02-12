@@ -282,6 +282,8 @@ in {
             "Shift+m" = "exec ${config.programs.mpv.package}/bin/mpv `${pkgs.wl-clipboard}/bin/wl-paste`";
             "p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol; mode default";
             "Shift+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
+            "f" = "exec ${terminal} tail -n +1 ${opts.configPath}/nixos-switch.log; mode default";
+            "Shift+f" = "exec ${terminal} tail -n +1 ${opts.configPath}/nixos-switch.log";
             "h" = "mode docs";
             "Shift+h" = "mode docs";
             "e" = "mode dirs";

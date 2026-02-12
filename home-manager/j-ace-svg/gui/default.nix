@@ -23,7 +23,7 @@ in {
     ./foot/default.nix
     ./games/default.nix
     ./latex/default.nix
-    ./legcord/default.nix
+    ./discord/default.nix
     ./media/default.nix
     ./nextcloud-client/default.nix
     ./sway/default.nix
