@@ -75,11 +75,8 @@ stopsudo() {
     # git stash apply "${git_post}"
     sudo git reset --hard HEAD
     sudo git stash apply "${git_pre}" >/dev/null || sudo git checkout "${git_pre}" -- . >/dev/null
-    echo "Pre-stash apply"
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
-    echo "Commit"
     sudo git stash apply "${git_post}" &>/dev/null || sudo git checkout "${git_post}" -- . &>/dev/null
-    echo "Post-stash apply"
 
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK!"
