@@ -130,11 +130,13 @@ in
         soundfile
       ]);
 
-    postInstall = ''
+    /*
+      postInstall = ''
       makeWrapper ${lib.getExe python3} $out/bin/endcord \
         --set PYTHONPATH "$PYTHONPATH" \
         --add-flags "-m endcord_cython"
     '';
+    */
 
     meta = {
       mainProgram = "endcord";

@@ -67,13 +67,18 @@ stopsudo() {
     hostname=$(hostname)
 
     # Save state after rebuild (to preserve logs/any manual changes made during rebuild)
+    echo "Saving state"
     git_post="$(sudo git -C /etc/nixos/ stash create)"
     git_post="${git_post:-$(git rev-parse --verify HEAD)}"
+    echo "Committing"
     # Commit all changes witih the generation metadata
     # git stash apply "${git_post}"
-    git stash apply "${git_pre}" &>/dev/null || git checkout "${git_pre}" -- . &>/dev/null
+    sudo git stash apply "${git_pre}" >/dev/null || sudo git checkout "${git_pre}" -- . >/dev/null
+    echo "Pre-stash apply"
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
-    git stash apply "${git_post}" &>/dev/null || git checkout "${git_post}" -- . &>/dev/null
+    echo "Commit"
+    sudo git stash apply "${git_post}" &>/dev/null || sudo git checkout "${git_post}" -- . &>/dev/null
+    echo "Post-stash apply"
 
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK!"
