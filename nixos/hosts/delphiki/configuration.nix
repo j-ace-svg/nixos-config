@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./kanata/default.nix
     ./rnnoise.nix
+    ./sops.nix
   ];
 
   nix = {
