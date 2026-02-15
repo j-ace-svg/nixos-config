@@ -20,7 +20,18 @@ return {
         '-interaction=nonstopmode',
       },
     }
-    vim.g.vimtex_compiler_latexmk_engines["_"] = "-lualatex"
+    vim.g.vimtex_compiler_latexmk_engines = {
+      _                = "-lualatex", -- Default compiler
+      pdfdvi           = "-pdfdvi",
+      pdfps            = "-pdfps",
+      pdflatex         = "-pdf",
+      luatex           = "-lualatex",
+      lualatex         = "-lualatex",
+      xelatex          = "-xelatex",
+      ["context (pdftex)"] = "-pdf -pdflatex=texexec",
+      ["context (luatex)"] = "-pdf -pdflatex=context",
+      ["context (xetex)"]  = "-pdf -pdflatex=\"texexec --xtx\"",
+    }
     vim.g.vimtex_view_method = "zathura"
     vim.g.vimtex_quickfix_mode = 0
     vim.o.conceallevel = 1
