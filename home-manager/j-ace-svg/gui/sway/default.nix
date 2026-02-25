@@ -310,8 +310,8 @@ in {
           dirs = {
             "c" = "exec ${terminal} -D ${opts.configPath}; mode default";
             "Shift+c" = "exec ${terminal} -D ${opts.configPath}";
-            "n" = "exec ${terminal} -D ~/Nextcloud/Notes || ${terminal} -D ~/Notes; mode default";
-            "Shift+n" = "exec ${terminal} -D ~/Nextcloud/Notes || ${terminal} -D ~/Notes";
+            "n" = "exec \"if [-d ~/Nextcloud/Notes ]; then ${terminal} -D ~/Nextcloud/Notes; else ${terminal} -D ~/Notes; fi\"; mode default";
+            "Shift+n" = "exec \"if [-d ~/Nextcloud/Notes ]; then ${terminal} -D ~/Nextcloud/Notes; else ${terminal} -D ~/Notes; fi\"";
             "l" = "mode launch";
             "Shift+l" = "mode launch";
             "Escape" = "mode default";
