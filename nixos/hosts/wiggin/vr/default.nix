@@ -5,30 +5,12 @@
   modulesPath,
   ...
 }: let
-  thaytan-openhmd = pkgs.openhmd.overrideAttrs (final: old: {
-    src = pkgs.fetchFromGitHub {
-      owner = "thaytan";
-      repo = "OpenHMD";
-      # Specifically branch `rift-room-config`
-      rev = "bd1e9f9b4f9283060b1e1a3563c05379041d8e97";
-      sha256 = "sha256-xZ22V5HG0L02YMbb0dlb3mBLcz+BICULaeDaDhh1ZJo=";
-    };
-    buildInputs =
-      old.buildInputs
-      ++ [
-        (pkgs.libusb1.overrideAttrs (final: old: {
-          propagatedBuildInputs =
-            old.propagatedBuildInputs
-            ++ [
-              pkgs.opencv
-              pkgs.libjpeg
-            ];
-        }))
-      ];
-  });
-  custom-monado = pkgs.monado.override {
-    openhmd = thaytan-openhmd;
+  thaytan-openhmd = pkgs.callPackage ./thaytan-openhmd.nix {
+    inherit (pkgs) hidapi SDL2 libGL glew libusb1 opencv libjpeg;
   };
+  custom-monado = pkgs.monado.overrideAttrs (final: prev: {
+    buildInputs = prev.buildInputs ++ [thaytan-openhmd];
+  });
 in {
   services.monado = {
     enable = true;

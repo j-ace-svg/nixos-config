@@ -10,7 +10,7 @@ in {
     programs.mpv = {
       enable = true;
       package = pkgs.mpv.override {
-        mpv = pkgs.mpv-unwrapped.override {
+        mpv-unwrapped = pkgs.mpv-unwrapped.override {
           cddaSupport = true;
         };
         scripts = with pkgs; [

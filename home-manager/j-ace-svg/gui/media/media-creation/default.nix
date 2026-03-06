@@ -5,6 +5,9 @@
   ...
 }: let
   cfg = config.local.gui.media;
+  updated-dl-librescore = pkgs.callPackage ./updated-dl-librescore.nix {
+    inherit (pkgs) python3 cctools;
+  };
 in {
   imports = [
     ./daw.nix
@@ -31,9 +34,9 @@ in {
       pkgs.gimp
       pkgs.sfizz
       pkgs.ffmpeg
-      pkgs.dl-librescore
-      pkgs.libreoffice
       pkgs.kdePackages.k3b
+
+      #updated-dl-librescore
     ];
   };
 }
