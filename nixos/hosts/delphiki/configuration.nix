@@ -130,7 +130,7 @@
     j-ace-svg = {
       createHome = true;
       isNormalUser = true;
-      extraGroups = ["wheel" "input" "uinput"]; # Enable ‘sudo’ for the user.
+      extraGroups = ["wheel" "input" "uinput" "networkmanager"]; # Enable ‘sudo’ for the user.
     };
     test-second-user = {
       createHome = true;
