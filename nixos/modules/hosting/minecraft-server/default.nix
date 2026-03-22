@@ -121,6 +121,7 @@ in {
           serverProperties = {
             server-port = 25565;
             motd = "Self-hosted by yours truly!";
+            white-list = cfg.minecraft-server.whitelist-num-players.shakespeare > 0;
           };
 
           files = {
