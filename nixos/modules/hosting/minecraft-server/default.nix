@@ -136,6 +136,7 @@ in {
             server-port = 25566;
             motd = "Self-hosted by yours truly!";
             difficulty = "normal";
+            white-list = cfg.minecraft-server.whitelist-num-players.ganges > 0;
           };
 
           files = {
