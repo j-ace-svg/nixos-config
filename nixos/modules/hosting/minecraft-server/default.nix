@@ -141,6 +141,14 @@ in {
             white-list = cfg.minecraft-server.whitelist-num-players.ganges > 0;
           };
 
+          symlinks = {
+            # Mandatory paper config files
+            "spigot.yml" = ./ganges-paper-config/spigot.yml;
+            "bukkit.yml" = ./ganges-paper-config/bukkit.yml;
+            "config/paper-global.yml" = ./ganges-paper-config/config/paper-global.yml;
+            "config/paper-world-defaults.yml" = ./ganges-paper-config/config/paper-world-defaults.yml;
+          };
+
           files = {
             "whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players.ganges > 0) config.sops.templates."minecraft-server/ganges/whitelist.json".path;
           };
