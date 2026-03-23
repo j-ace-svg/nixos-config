@@ -128,9 +128,10 @@ in {
             #"whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players.shakespeare > 0) config.sops.templates."minecraft-server/shakespeare/whitelist.json".path;
           };
         };
+
         ganges = {
           enable = true;
-          package = pkgs.vanillaServers.vanilla-1_21_11;
+          package = pkgs.paperServers.paper-1_21_11;
           openFirewall = true;
 
           serverProperties = {
