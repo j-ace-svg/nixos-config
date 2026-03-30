@@ -7,5 +7,5 @@
   ...
 }: {
   local.hosting.minecraft-server.whitelist-num-players.shakespeare = 5;
-  local.hosting.minecraft-server.whitelist-num-players.ganges = 10;
+  local.hosting.minecraft-server.whitelist-num-players.ganges = 11;
 }
