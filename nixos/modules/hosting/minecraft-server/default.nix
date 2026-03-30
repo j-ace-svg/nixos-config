@@ -147,7 +147,9 @@ in {
             "bukkit.yml" = ./ganges-paper-config/bukkit.yml;
             "config/paper-global.yml" = ./ganges-paper-config/config/paper-global.yml;
             "config/paper-world-defaults.yml" = ./ganges-paper-config/config/paper-world-defaults.yml;
+          };
 
+          symlinks = {
             "whitelist.json" = lib.mkIf (cfg.minecraft-server.whitelist-num-players.ganges > 0) config.sops.templates."minecraft-server/ganges/whitelist.json".path;
           };
         };
