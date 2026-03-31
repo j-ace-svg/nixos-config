@@ -153,7 +153,7 @@
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
 
   boot = {
-    kernelModules = [
+    initrd.kernelModules = [
       "vfio_pci"
       "vfio"
       "vfio_iommu_type1"
