@@ -160,6 +160,7 @@
 
       "amdgpu"
     ];
+    kernelModules = ["kvm-amd"];
     kernelParams = [
       "intel_iommu=on"
       "vfio-pci.ids=1002:67ef,1002:aae0"
