@@ -151,6 +151,7 @@
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["j-ace-svg"];
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
+  boot.kernelParams = ["intel_iommu=on"];
 
   virtualisation = {
     docker.enable = true;
