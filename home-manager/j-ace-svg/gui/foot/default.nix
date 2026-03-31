@@ -15,7 +15,7 @@ in {
         main = {
           term = "xterm-256color";
         };
-        colors = colors.gruvbox-dark // {alpha = colors.alpha;};
+        colors-dark = colors.gruvbox-dark // {alpha = colors.alpha;};
       };
     };
 
