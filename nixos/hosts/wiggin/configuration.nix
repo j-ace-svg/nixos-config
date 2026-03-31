@@ -14,7 +14,7 @@
     ./ssh/default.nix
     ./kanata/default.nix
     ./hosting/minecraft-server/default.nix
-    ./vr/default.nix
+    #./vr/default.nix
   ];
 
   nix = {
@@ -151,7 +151,13 @@
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["j-ace-svg"];
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
-  boot.kernelParams = ["intel_iommu=on"];
+
+  boot = {
+    kernelParams = ["intel_iommu=on"];
+    blacklistedKernelModules = ["amdgpu"];
+    kernelModules = ["vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio"];
+    extraModprobeConfig = "options vfio-pci ids=1002:67ef,1002:aae0";
+  };
 
   virtualisation = {
     docker.enable = true;
