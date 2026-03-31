@@ -153,24 +153,26 @@
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
 
   boot = {
-    kernelParams = ["intel_iommu=on"];
-    blacklistedKernelModules = ["amdgpu"];
-    kernelModules = ["vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio"];
+    kernelModules = [
+      "vfio_pci"
+      "vfio"
+      "vfio_iommu_type1"
 
-    postBootCommands = ''
-      DEVS="0000:03:00.0 0000:03:00.1"
-
-      for DEV in $DEVS; do
-        echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
-      done
-      modprobe -i vfio-pci
-    '';
+      "amdgpu"
+    ];
+    kernelParams = [
+      "intel_iommu=on"
+      "vfio-pci.ids=1002:67ef,1002:aae0"
+    ];
   };
 
   virtualisation = {
     docker.enable = true;
     virtualbox.host.enable = true;
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.package = pkgs.qemu_kvm;
+    };
     spiceUSBRedirection.enable = true;
   };
 
