@@ -147,9 +147,17 @@
     (writeShellScriptBin "update" (builtins.readFile ../../update.sh))
   ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  # Virtualisation
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["j-ace-svg"];
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
+
+  virtualisation = {
+    docker.enable = true;
+    virtualbox.host.enable = true;
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
+  };
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

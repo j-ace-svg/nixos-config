@@ -2,6 +2,7 @@ return {
   "SirVer/ultisnips",
   event = "InsertEnter",
   ft = "snippets",
+  cond = false,
   init = function()
     vim.g.UltiSnipsSnippetDirectories = { "UltiSnips" }
     vim.g.UltiSnipsExpandTrigger = "<tab>"

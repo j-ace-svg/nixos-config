@@ -40,8 +40,8 @@
     "smoothScroll": true,
     "autoScroll": false,
     "modCache": {
-        "shelter": "7b4aac004d71bbfd3f88658d604887b712f6fb0d",
-        "vencord": "15e92a49a1c31ce2d40c10ea1770da53b7c8e1bd"
+        "shelter": "cb3c6523b89f074e3af396a89ecf391f2f9a9db3",
+        "vencord": "cba0eb9897419432e68277b0b60c301a6f8323cf"
     },
     "bounceOnPing": false,
     "overlayButtonColor": "#121214",
@@ -55,5 +55,10 @@
     "sleepInBackground": false,
     "noBundleUpdates": false,
     "additionalArguments": "",
-    "useSystemCssEditor": false
+    "useSystemCssEditor": false,
+    "processScanning": true,
+    "windowsLegacyScanning": false,
+    "scanInterval": 5000,
+    "extendedPluginAbilities": false,
+    "quickCss": true
 }
