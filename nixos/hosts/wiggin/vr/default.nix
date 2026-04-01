@@ -160,24 +160,26 @@ in {
       enable = true;
       qemu.package = pkgs.qemu_kvm;
       hooks.qemu = {
-        "hook.sh" = pkgs.writeShellApplication {
-          name = "libvirt-qemu-hook.sh";
-          runtimeInputs = [
-            (pkgs.writeShellApplication
-              {
-                name = "vfio-startup";
-                runtimeInputs = [];
-                text = builtins.readFile ./vfio-startup.sh;
-              })
-            (pkgs.writeShellApplication
-              {
-                name = "vfio-teardown";
-                runtimeInputs = [];
-                text = builtins.readFile ./vfio-teardown.sh;
-              })
-          ];
-          text = builtins.readFile ./libvirt-qemu-hook.sh;
-        };
+        "hook.sh" = let
+          hook = pkgs.writeShellApplication {
+            name = "libvirt-qemu-hook.sh";
+            runtimeInputs = [
+              (pkgs.writeShellApplication
+                {
+                  name = "vfio-startup";
+                  runtimeInputs = [];
+                  text = builtins.readFile ./vfio-startup.sh;
+                })
+              (pkgs.writeShellApplication
+                {
+                  name = "vfio-teardown";
+                  runtimeInputs = [];
+                  text = builtins.readFile ./vfio-teardown.sh;
+                })
+            ];
+            text = builtins.readFile ./libvirt-qemu-hook.sh;
+          };
+        in "${hook}/bin/libvirt-qemu-hook.sh";
       };
     };
     spiceUSBRedirection.enable = true;
