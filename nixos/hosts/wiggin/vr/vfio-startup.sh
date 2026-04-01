@@ -12,7 +12,9 @@ echo "$DATE Beginning of Startup!"
 
 
 function stop_display_manager_if_running {
-    rm "/tmp/vfio-sway-was-running"
+    if test -e "/tmp/vfio-sway-was-running"; then
+        rm -f "/tmp/vfio-sway-was-running"
+    fi
     for sock in /run/user/1000/sway-ipc.*; do
         echo "true" >"/tmp/vfio-sway-was-running"
         swaymsg exit -s "$sock"
