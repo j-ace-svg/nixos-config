@@ -14,7 +14,7 @@
     ./ssh/default.nix
     ./kanata/default.nix
     ./hosting/minecraft-server/default.nix
-    #./vr/default.nix
+    ./vr/default.nix
   ];
 
   nix = {
@@ -152,27 +152,11 @@
   users.groups.libvirtd.members = ["j-ace-svg"];
   users.extraGroups.vboxusers.members = ["j-ace-svg"];
 
-  boot = {
-    initrd.kernelModules = [
-      "vfio_pci"
-      "vfio"
-      "vfio_iommu_type1"
-
-      "amdgpu"
-    ];
-    kernelModules = ["kvm-amd"];
-    kernelParams = [
-      "intel_iommu=on"
-      "vfio-pci.ids=1002:67ef,1002:aae0"
-    ];
-  };
-
   virtualisation = {
     docker.enable = true;
     virtualbox.host.enable = true;
     libvirtd = {
       enable = true;
-      qemu.package = pkgs.qemu_kvm;
     };
     spiceUSBRedirection.enable = true;
   };

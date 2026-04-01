@@ -123,4 +123,63 @@ in {
     }))
     */
   ];
+
+  ### The virtualization workaround
+  # Virtualisation
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["j-ace-svg"];
+  users.extraGroups.vboxusers.members = ["j-ace-svg"];
+
+  boot = {
+    initrd.kernelModules = [
+      "vfio_pci"
+      "vfio"
+      "vfio_iommu_type1"
+
+      "amdgpu"
+    ];
+    kernelModules = ["kvm-amd"];
+    kernelParams = [
+      "intel_iommu=on"
+      "vfio-pci.ids=1002:67ef,1002:aae0"
+    ];
+  };
+
+  systemd.services."libvirt-nosleep@" = {
+    description = ''Preventing sleep while libvirt domain "%i" is running'';
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''/usr/bin/systemd-inhibit --what=sleep --why="Libvirt domain \"%i\" is running" --who=%U --mode=block sleep infinity'';
+    };
+  };
+
+  virtualisation = {
+    docker.enable = true;
+    virtualbox.host.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.package = pkgs.qemu_kvm;
+      hooks.qemu = {
+        "hook.sh" = pkgs.writeShellApplication {
+          name = "libvirt-qemu-hook.sh";
+          runtimeInputs = [
+            (pkgs.writeShellApplication
+              {
+                name = "vfio-startup";
+                runtimeInputs = [];
+                text = builtins.readFile ./vfio-startup.sh;
+              })
+            (pkgs.writeShellApplication
+              {
+                name = "vfio-teardown";
+                runtimeInputs = [];
+                text = builtins.readFile ./vfio-teardown.sh;
+              })
+          ];
+          text = builtins.readFile ./libvirt-qemu-hook.sh;
+        };
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
 }
