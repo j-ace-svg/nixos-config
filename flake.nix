@@ -130,6 +130,7 @@
             nextcloud.enable = true;
             minecraft-server.enable = true;
           };
+          keyboard.enableHyprkan = false;
         };
         # Don't install a gui
       };

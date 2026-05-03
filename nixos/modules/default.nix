@@ -7,5 +7,6 @@
 }: {
   imports = [
     ./hosting/default.nix
+    ./keyboard/default.nix
   ];
 }
