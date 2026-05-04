@@ -8,6 +8,10 @@
   hyprkan = pkgs.python313Packages.callPackage ./hyprkan.nix {
     inherit (pkgs.python313Packages) buildPythonApplication i3ipc;
   };
+  kbd-types = [
+    "fullwidth"
+    "delphiki"
+  ];
 in {
   options = {
     local.keyboard = {
@@ -30,7 +34,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     systemd.services = let
-      gen-kanata-config = name: {
+      gen-kanata-config = i: name: {
         "kanata-${name}-manual" = {
           description = "Kanata for Dell";
           #unitConfig = {
@@ -41,7 +45,7 @@ in {
             ExecStart = lib.escapeShellArgs [
               "${pkgs.kanata}/bin/kanata"
               "-p"
-              "10000"
+              (toString (10000 + i))
               "-c"
               "${./kbds/${name}.kbd}"
             ];
@@ -57,30 +61,31 @@ in {
           wantedBy = ["default.target"];
         };
       };
-    in
-      lib.attrsets.mergeAttrsList (map gen-kanata-config [
-        "fullwidth"
-        "delphiki"
-      ]);
-
-    systemd.user.services.hyprkan = lib.mkIf cfg.enableHyprkan {
-      description = "Kanata Layer Switcher";
-      serviceConfig = {
-        ExecStart = lib.escapeShellArgs [
-          "${hyprkan}/bin/hyprkan"
-          "--log-level"
-          "DEBUG"
-          "-c"
-          "${./hyprkan.json}"
-        ];
-        Restart = "on-failure";
-        RestartSec = 5;
-        Type = "simple";
+      gen-hyprkan-config = i: val: {
+        "hyprkan-instance-${toString i}" = {
+          description = "Kanata Layer Switcher";
+          serviceConfig = {
+            ExecStart = lib.escapeShellArgs [
+              "${hyprkan}/bin/hyprkan"
+              "--log-level"
+              "DEBUG"
+              "-p"
+              (toString (10000 + i))
+              "-c"
+              "${./hyprkan.json}"
+            ];
+            Restart = "on-failure";
+            RestartSec = 5;
+            Type = "simple";
+          };
+          restartTriggers = [./hyprkan.json ./hyprkan.nix];
+          wantedBy = ["graphical-session.target"];
+          after = ["graphical-session.target"];
+        };
       };
-      restartTriggers = [./hyprkan.json ./hyprkan.nix];
-      wantedBy = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-    };
+    in
+      lib.attrsets.mergeAttrsList (lib.imap0 gen-kanata-config kbd-types)
+      // lib.attrsets.optionalAttrs cfg.enableHyprkan (lib.attrsets.mergeAttrsList (lib.imap0 gen-hyprkan-config kbd-types));
 
     services.logind.settings.Login.HandlePowerKey = "ignore"; # Allow short power key press to trigger power menu
 
