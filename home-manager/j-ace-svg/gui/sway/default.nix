@@ -71,6 +71,8 @@ in {
         };
         output = {
           "*" = {
+            # Add https://apod.nasa.gov/apod/ap240531.html to the collection, maybe one version original colors and find a way to make a version mapped to gruvbox?
+            # Might write a custom opengl shader (or much simpler alternative) to map the blue channel to gruvbox blue, red channel to gruvbox red, and overall luminosity to general gruvbox light color (whiteish)? Looking into CLUTs seemed promising but lutgen-studio felt jank
             bg = "${./sway-wallpaper.png} fill";
             #bg = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill";
           };

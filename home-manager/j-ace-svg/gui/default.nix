@@ -25,7 +25,7 @@ in {
     ./latex/default.nix
     ./discord/default.nix
     ./media/default.nix
-    ./nextcloud-client/default.nix
+    ./nextcloud/default.nix
     ./sway/default.nix
     ./zathura/default.nix
   ];
@@ -47,6 +47,7 @@ in {
       pkgs.bitwarden-desktop
       pkgs.picard
       pkgs.go-sct
+      pkgs.anki
 
       # Basic Services
       pkgs.libnotify
