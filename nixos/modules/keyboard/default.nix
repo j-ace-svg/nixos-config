@@ -62,7 +62,7 @@ in {
         };
       };
       gen-hyprkan-config = i: val: {
-        "hyprkan-instance-${toString i}" = {
+        "hyprkan-instance-${toString i}-${val}" = {
           description = "Kanata Layer Switcher";
           serviceConfig = {
             ExecStart = lib.escapeShellArgs [
