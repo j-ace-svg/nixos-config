@@ -13,6 +13,16 @@ in {
     };
 
     /*
+      systemd.user.services."nextcloud-sync" = {
+      Unit = {
+        Description = "Synchronize with nextcloud self-host";
+        After = "network-online.target";
+      };
+      Service.ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h --user j-ace-svg --password ${config.sops.secrets."
+    };
+    */
+
+    /*
       systemd.user.services.nextcloud-client.Service.ExecStartPre = let
       server = "https://nextcloud.philotic.xyz";
       user = "j.ace.svg";
