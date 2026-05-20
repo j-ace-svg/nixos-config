@@ -48,6 +48,14 @@ stopsudo() {
 
     echo "NixOS Rebuilding..."
 
+    rebuild_action="switch"
+    if [[ "$args" == *"b"* ]]; then
+        rebuild_action="boot"
+    fi
+    if [[ "$args" == *"r"* ]]; then # Also reboots afterwards
+        rebuild_action="boot"
+    fi
+
     rebuild_extra_args=""
     if [[ "$args" == *"o"* ]]; then
         rebuild_extra_args+=" --offline "
@@ -60,7 +68,7 @@ stopsudo() {
     fi
 
     # Rebuild, output simplified errors, log trackebacks
-    sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos switch &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
+    sudo sh -c "nixos-rebuild ${rebuild_extra_args} --flake /etc/nixos $rebuild_action &> /etc/nixos/nixos-switch.log" || (cat /etc/nixos/nixos-switch.log | grep --color error && exit 1)
 
     # Get current generation metadata
     current=$(nixos-rebuild list-generations --json | jq -r '.[] | select(.current == true) | (.generation | tostring) + " current" + "  " + .date + "  " + .nixosVersion + "  " + .kernelVersion')
@@ -75,6 +83,11 @@ stopsudo() {
     sudo git stash apply "${git_pre}" >/dev/null || sudo git checkout "${git_pre}" -- . >/dev/null
     sudo git -C /etc/nixos/ commit -am "$hostname: $current"
     sudo git stash apply "${git_post}" &>/dev/null || sudo git checkout "${git_post}" -- . &>/dev/null
+
+    if [[ "$args" == *"r"* ]]; then
+        notify-send -e "NixOS Rebuild OK! Rebooting..." --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK! Rebooting..."
+        reboot
+    fi
 
     # Notify all OK!
     notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK!"

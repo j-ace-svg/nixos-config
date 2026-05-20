@@ -10,7 +10,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./kanata/default.nix
     ./rnnoise.nix
     ./sops.nix
   ];

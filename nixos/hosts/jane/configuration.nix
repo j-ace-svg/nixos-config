@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     ./sops.nix
     ./ssh/default.nix
-    ./kanata/default.nix
     ./hosting/default.nix
   ];
 

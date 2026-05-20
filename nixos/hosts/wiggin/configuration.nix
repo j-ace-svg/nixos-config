@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     ./sops.nix
     ./ssh/default.nix
-    #./kanata/default.nix # Trying module-level config
     ./hosting/minecraft-server/default.nix
     ./vr/default.nix
   ];
