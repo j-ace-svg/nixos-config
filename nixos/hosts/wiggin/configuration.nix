@@ -44,8 +44,8 @@
   # Enable sysrq
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
-  # Use dbus rather than dbus-broker (for some reason boot was hanging when the default changed to broker
-  services.dbus.implementation = "dbus";
+  # Use dbus rather than dbus-broker (for some reason boot was hanging when the default changed to broker) (actually this didn't fix it, just temp undoing the flake update)
+  #services.dbus.implementation = "dbus";
 
   networking.hostName = "wiggin"; # Define your hostname.
 

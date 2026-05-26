@@ -91,7 +91,7 @@ in {
 
     environment.systemPackages = [
       hyprkan
-      pkgs.plover
+      pkgs.plover.dev
     ];
   };
 }
