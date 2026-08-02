@@ -67,6 +67,7 @@ in {
       ll-plugins
       pkgs.zynaddsubfx
       invada-studio
+      pkgs.calf
       pkgs.rnnoise-plugin
 
       # Instruments
