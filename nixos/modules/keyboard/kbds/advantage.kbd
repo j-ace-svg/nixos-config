@@ -210,8 +210,8 @@
   @lsl '    q    j    k    x                        b    m    w    v    z    @rsl
        @dol @us` left rght                               up   down /    @at
 
-                      lctl lalt                     rmet rctl
-                 bspc del  home                     pgup ret  spc
+                      esc  lalt                     rmet rctl
+                 bspc tab  home                     pgup ret  spc
                            end                      pgdn
 )
 
@@ -224,9 +224,9 @@
   caps @dbq q    j    k    x                        b    m    w    v    z    caps
        @til @til left rght                               up   down @qst @car
 
-                      lctl lalt                     rmet rctl
-                 bspc del  home                     pgup ret  spc
-                           end                      pgdn
+                      _    _                        _    _
+                 _    _    _                        _    _    _
+                           _                        _
 )
 
 #|
@@ -315,8 +315,8 @@ My friends are going to hate me when they see my keyboard now.
   _    lsft z    x    c    v                        b    n    m    ,    .    /
        `    102d left rght                               up   down [    ]
 
-                      f13  lalt                     rmet rctl
-                 bspc spc  home                     pgup ret  @gte
+                      esc  lalt                     rmet rctl
+                 spc  bspc home                     pgup ret  @gte
                            end                      pgdn
 )
 
@@ -329,8 +329,8 @@ My friends are going to hate me when they see my keyboard now.
   lsft z    x    c    v    b                        n    m    ,    .    /    rsft
        `    102d left rght                               up   down [    ]
 
-                      f13  lalt                     rmet rctl
-                 bspc spc  home                     pgup ret  @gte
+                      esc  lalt                     rmet rctl
+                 spc  bspc home                     pgup ret  @gte
                            end                      pgdn
 )
 
