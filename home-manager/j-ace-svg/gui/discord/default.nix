@@ -21,7 +21,7 @@ in {
 
     home.packages = [
       pkgs.legcord
-      endcord
+      #endcord
     ];
   };
 }
