@@ -17,7 +17,7 @@
 ;; Template for a QWERTY layer:
 ;;
 ;; (deflayer name
-;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq slck pause
+;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12       ssrq @lay pause
 ;;   `    1    2    3    4    5    6    7    8    9    0    -    =         bspc      ins  home pgup      nlck kp/  kp*  kp-
 ;;   tab  q    w    e    r    t    y    u    i    o    p    [    ]         bksl      del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    s    d    f    g    h    j    k    l    ;    '              ret                           kp4  kp5  kp6
@@ -28,7 +28,7 @@
 ;; Template for a Dvorak layer:
 ;;
 ;; (deflayer name
-;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        ssrq slck pause
+;;   esc  f1   f2   f3   f4        f5   f6   f7   f8        f9   f10  f11  f12        ssrq @lay pause
 ;;   @dol +    [    @lbc @lp  @amp  =   @rp  @rbc ]    @ast @exc @bar      bspc       ins  home pgup      nlck kp/  kp*  kp-
 ;;   tab  ;    ,    .    p    y    f    g    c    r    l    /    @at       \          del  end  pgdn      kp7  kp8  kp9  kp+
 ;;   caps a    o    e    u    i    d    h    t    n    s    -              ret                            kp4  kp5  kp6

@@ -1,0 +1,71 @@
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  autoreconfHook,
+  pkg-config,
+  autoconf-archive,
+  libGL,
+  libsndfile,
+  lv2,
+  libX11,
+  libXext,
+  libXrandr,
+  libXcursor,
+}:
+stdenv.mkDerivation rec {
+  pname = "liquidsfz";
+  version = "0.4.1";
+
+  src = fetchFromGitHub {
+    owner = "swesterfeld";
+    repo = "liquidsfz";
+    #tag = version;
+    rev = "9b6ddb666bda1168fba8a1008743141c1051a990";
+    hash = "sha256-f9T0jGf/w6KHRecG9zcGDwNaChNFPJ4RQhMDZ6zs0cM=";
+    fetchSubmodules = true;
+  };
+
+  unpackPhase = ''
+    runHook preUnpack
+    unpackFile $src
+
+    ls -la source/3rdparty
+    ls -la source/3rdparty/imgui || true
+
+    runHook postUnpack
+  '';
+
+  nativeBuildInputs = [
+    autoreconfHook
+    pkg-config
+    autoconf-archive
+  ];
+
+  buildInputs = [
+    libGL
+    libsndfile
+    # Only used w/ jack client
+    #readline
+    #jack2
+    lv2
+
+    libX11
+    libXext
+    libXrandr
+    libXcursor
+  ];
+
+  configureFlags = ["--without-jack"];
+
+  meta = with lib; {
+    homepage = "https://github.com/swesterfeld/liquidsfz";
+    description = "SFZ sampler";
+    longDescription = ''
+      liquidsfz is a free and open source sampler that can load and play .sfz
+      files. It can also load and play Hydrogen drumkits. We support JACK and
+      LV2.
+    '';
+    license = licenses.mpl20;
+  };
+}

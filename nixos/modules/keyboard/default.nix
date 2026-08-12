@@ -11,6 +11,7 @@
   kbd-types = [
     "fullwidth"
     "delphiki"
+    "advantage"
   ];
 in {
   options = {

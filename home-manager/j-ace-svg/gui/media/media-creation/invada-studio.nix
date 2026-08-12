@@ -32,6 +32,6 @@ stdenv.mkDerivation rec {
       stereo), tube (mono and stereo), compressor (mono and stereo),
       and ER reverb (mono in and sum l+r in)
     '';
-    license = licenses.gpl3;
+    license = licenses.gpl2;
   };
 }
