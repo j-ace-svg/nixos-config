@@ -13,7 +13,7 @@
     ./sops.nix
     ./ssh/default.nix
     ./hosting/minecraft-server/default.nix
-    ./vr/default.nix
+    #./vr/default.nix
   ];
 
   nix = {
