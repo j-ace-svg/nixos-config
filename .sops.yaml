@@ -1,6 +1,7 @@
 keys:
   - &host_wiggin age1nquhp6kxf5eve3x0tfmtn6lzp7mt2lqdcdacrwl4zhy2kgkc2a4qk38hvw
   - &host_delphiki age1flmap86s0cjzt0znwr08wyrfpjyvu9jrer34cqfvlrs9tcn9lupq8amlwg
+  - &j-ace-svg_delphiki age16x6s8akxulw6gu445j67jngnzzc8vgs46kj56l8k0wk9fr9aeyvq06eual
   - &host_jane age1fk79eyuhtpk4xy2y5k55syu7ghcec3hh442nsdympw7sgshpeekqsntkhd
 creation_rules:
   - path_regex: nixos/hosts/wiggin/.*secrets.yaml$
@@ -11,6 +12,14 @@ creation_rules:
     key_groups:
     - age:
       - *host_wiggin
+  - path_regex: nixos/hosts/delphiki/.*secrets.yaml$
+    key_groups:
+    - age:
+      - *host_delphiki
+  - path_regex: nixos/hosts/delphiki/(.*/)?secrets/
+    key_groups:
+    - age:
+      - *host_delphiki
   - path_regex: nixos/hosts/jane/.*secrets.yaml$
     key_groups:
     - age:
@@ -28,8 +37,10 @@ creation_rules:
     - age:
       - *host_wiggin
       - *host_delphiki
+      - *j-ace-svg_delphiki
   - path_regex: home-manager/j-ace-svg/(.*/)?secrets/
     key_groups:
     - age:
       - *host_wiggin
       - *host_delphiki
+      - *j-ace-svg_delphiki

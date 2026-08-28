@@ -18,6 +18,7 @@
     ./nvim/default.nix
     ./plover/default.nix
     ./rnnoise/default.nix
+    ./sops/default.nix
     ./ssh/default.nix
     ./tty/default.nix
     ./vifm/default.nix

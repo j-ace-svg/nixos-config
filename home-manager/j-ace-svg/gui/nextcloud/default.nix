@@ -7,20 +7,48 @@
   cfg = config.local.gui;
 in {
   config = lib.mkIf cfg.enable {
+    sops = {
+      secrets = {
+        "nextcloud-sync/user" = {sopsFile = ./secrets.yaml;};
+        "nextcloud-sync/password" = {sopsFile = ./secrets.yaml;};
+      };
+      templates = {
+        "nextcloud-sync/envfile" = {
+          content = ''
+            NC_USER = ${config.sops.placeholder."nextcloud-sync/user"}
+            NC_PASSWORD = ${config.sops.placeholder."nextcloud-sync/password"}
+          '';
+        };
+      };
+    };
+
+    /*
     services.nextcloud-client = {
       enable = true;
       startInBackground = true;
     };
-
-    /*
-      systemd.user.services."nextcloud-sync" = {
-      Unit = {
-        Description = "Synchronize with nextcloud self-host";
-        After = "network-online.target";
-      };
-      Service.ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h --user j-ace-svg --password ${config.sops.secrets."
-    };
     */
+
+    systemd.user = {
+      services."nextcloud-sync" = {
+        Unit = {
+          Description = "Synchronize with nextcloud self-host";
+          After = "network-online.target";
+        };
+        Service = {
+          ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h --non-interactive ${config.home.homeDirectory} https://nextcloud.philotic.xyz";
+          EnvironmentFile = config.sops.templates."nextcloud-sync/envfile".path;
+        };
+      };
+      timers."nextcloud-sync" = {
+        Unit = {
+          Description = "Automatically run nextcloud-sync.service";
+        };
+        Timer = {
+          OnUnitActiveSec = "5m";
+        };
+      };
+    };
 
     /*
       systemd.user.services.nextcloud-client.Service.ExecStartPre = let

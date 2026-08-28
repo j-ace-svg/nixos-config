@@ -14,5 +14,8 @@ in {
       sshKeyPaths = map getKeyPath keys;
     };
     defaultSopsFile = ./secrets.yaml;
+    secrets = {
+      "tmp" = {};
+    };
   };
 }

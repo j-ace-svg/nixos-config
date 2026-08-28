@@ -2,13 +2,16 @@
   pkgs,
   inputs,
   opts,
+  config,
   ...
 }: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.j-ace-svg.imports = [./j-ace-svg/home.nix];
-    extraSpecialArgs = {inherit inputs opts;};
+    extraSpecialArgs = {
+      inherit inputs opts;
+    };
     sharedModules = [
       inputs.sops-nix.homeManagerModules.sops
     ];
