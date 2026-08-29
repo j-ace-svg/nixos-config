@@ -36,7 +36,7 @@ in {
           After = "network-online.target";
         };
         Service = {
-          ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h --non-interactive ${config.home.homeDirectory} https://nextcloud.philotic.xyz";
+          ExecStart = "${pkgs.nextcloud-client}/bin/nextcloudcmd -h --non-interactive ${config.home.homeDirectory}/Nextcloud https://nextcloud.philotic.xyz";
           EnvironmentFile = config.sops.templates."nextcloud-sync/envfile".path;
         };
       };
