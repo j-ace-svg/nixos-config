@@ -72,7 +72,7 @@ in {
       pkgs.zynaddsubfx
       invada-studio
       liquidsfz
-      pkgs.yad # liquidsfz requires a file dialog helper
+      pkgs.zenity # liquidsfz requires a file dialog helper
       pkgs.calf
       pkgs.rnnoise-plugin
 
