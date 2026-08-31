@@ -37,6 +37,8 @@
     bash.enable = true; # see note on other shells below
   };
 
+  xdg.userDirs.setSessionVariables = true;
+
   home.packages = [
     pkgs.zip
     pkgs.unzip

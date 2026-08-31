@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
+  fetchgit,
   autoreconfHook,
   pkg-config,
   autoconf-archive,
@@ -17,16 +17,19 @@ stdenv.mkDerivation rec {
   pname = "liquidsfz";
   version = "0.4.1";
 
-  src = fetchFromGitHub {
-    owner = "swesterfeld";
-    repo = "liquidsfz";
+  src = fetchgit {
+    #owner = "swesterfeld";
+    #repo = "liquidsfz";
+    url = "https://github.com/swesterfeld/liquidsfz.git";
     #tag = version;
-    rev = "9b6ddb666bda1168fba8a1008743141c1051a990";
-    hash = "sha256-f9T0jGf/w6KHRecG9zcGDwNaChNFPJ4RQhMDZ6zs0cM=";
+    #rev = "9b6ddb666bda1168fba8a1008743141c1051a990";
+    rev = version;
+    hash = "sha256-6E3JT/pWQ1p4RsF9zW2rpOEYn8kCUojVHee7JMZ92wY=";
     fetchSubmodules = true;
   };
 
-  unpackPhase = ''
+  /*
+    unpackPhase = ''
     runHook preUnpack
     unpackFile $src
 
@@ -35,6 +38,7 @@ stdenv.mkDerivation rec {
 
     runHook postUnpack
   '';
+  */
 
   nativeBuildInputs = [
     autoreconfHook
