@@ -12,7 +12,7 @@
     inherit (pkgs) ladspa-sdk;
   };
   liquidsfz = pkgs.callPackage ./liquidsfz.nix {
-    inherit (pkgs) fetchgit autoreconfHook pkg-config autoconf-archive libGL libsndfile lv2 libX11 libXext libXrandr libXcursor;
+    inherit (pkgs) fetchgit autoreconfHook pkg-config autoconf-archive makeWrapper yad libGL libsndfile lv2 libX11 libXext libXrandr libXcursor;
   };
   the-experience-yamaha-s6 = pkgs.callPackage ./the-experience-yamaha-s6.nix {};
   florestan-ahh-choir = pkgs.callPackage ./florestan-ahh-choir.nix {};

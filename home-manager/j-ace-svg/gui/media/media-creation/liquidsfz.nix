@@ -5,6 +5,8 @@
   autoreconfHook,
   pkg-config,
   autoconf-archive,
+  makeWrapper,
+  yad,
   libGL,
   libsndfile,
   lv2,
@@ -40,10 +42,16 @@ stdenv.mkDerivation rec {
   '';
   */
 
+  postPatch = ''
+    substituteInPlace lv2/lv2ui.cc \
+      --replace-fail '"/usr/bin/yad"' '"${lib.getExe yad}"'
+  '';
+
   nativeBuildInputs = [
     autoreconfHook
     pkg-config
     autoconf-archive
+    makeWrapper
   ];
 
   buildInputs = [
