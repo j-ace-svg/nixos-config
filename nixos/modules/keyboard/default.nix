@@ -11,7 +11,7 @@
   kbd-types = [
     "fullwidth"
     "delphiki"
-    "advantage"
+    "glove"
   ];
 in {
   options = {
@@ -37,7 +37,7 @@ in {
     systemd.services = let
       gen-kanata-config = i: name: {
         "kanata-${name}-manual" = {
-          description = "Kanata for Dell";
+          description = "Kanata for ${name}";
           #unitConfig = {
           #  StartLimitIntervalSec = 2;
           #  StartLimitBurst = 5;

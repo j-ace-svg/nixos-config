@@ -6,7 +6,7 @@
   pkg-config,
   autoconf-archive,
   makeWrapper,
-  yad,
+  zenity,
   libGL,
   libsndfile,
   lv2,
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     substituteInPlace lv2/lv2ui.cc \
-      --replace-fail '"/usr/bin/yad"' '"${lib.getExe yad}"'
+      --replace-fail '"/usr/bin/zenity"' '"${lib.getExe zenity}"'
   '';
 
   nativeBuildInputs = [

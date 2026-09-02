@@ -1,0 +1,337 @@
+;;                      Realer Programmer's Dvorak
+;;
+;; Kanata variation of Real Programmer Dvorak with home row mods and such.
+;; Based on Michael Paulson's poor ideas.
+;;
+;; Advantage 2 configuration this is based on: https://github.com/ThePrimeagen/real-prog-dvorak-zmk/blob/master/adv360.keymap
+;;
+;; Template for a new layer:
+;;
+;; (deflayer name
+;;   _    _    _    _    _                   _    _    _    _    _
+;;   _    _    _    _    _    _         _    _    _    _    _    _
+;;   _    _    _    _    _    _         _    _    _    _    _    _
+;;   _    _    _    _    _    _         _    _    _    _    _    _
+;;   _    _    _    _    _    _         _    _    _    _    _    _
+;;        _    _    _    _                   _    _    _    _    _
+;;
+;;                  _    _    _         _    _    _
+;;                  _    _    _         _    _    _
+;; )
+;;
+;; Template for a QWERTY layer:
+;;
+;; (deflayer name
+;;   f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+;;   =    1    2    3    4    5         6    7    8    9    0    -
+;;   tab  q    w    e    r    t         y    u    i    o    p    \
+;;   esc  a    s    d    f    g         h    j    k    l    ;    '
+;;   `    z    x    c    v    b         n    m    ,    .    /    pgup
+;;        home end  left rght                up   down [    ]    pgdn
+;; 
+;;                  lsft lctl @lay      rmet rctl rsft
+;;                  bspc del  lalt      ralt ret  spc
+;; )
+;;
+;; Template for a Dvorak layer:
+;;
+;; (deflayer name
+;;   f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+;;   @bar +    [    @lbc @lp  @amp      =    @rp  @rbc ]    @ast @exc
+;;   tab  ;    ,    .    p    y         f    g    c    r    l    \
+;;   esc  a    o    e    u    i         d    h    t    n    s    -
+;;   lsft '    q    j    k    x         b    m    w    v    z    rsft
+;;        @dol @us` left rght                up   down /    @at  ssrq
+;;
+;;                  lsft lctl @lay      rmet rctl rsft
+;;                  bspc del  lalt      ralt ret  spc
+;; )
+
+(defcfg
+  linux-dev ("/dev/input/by-id/usb-MoErgo_Glove80_Left_moergo.com:GLV80-EF7DAF486EF6501A-event-kbd")
+  linux-continue-if-no-devs-found yes
+  ;;linux-output-device-name "Kanata: Glove80"
+  process-unmapped-keys yes
+  )
+
+;;; Aliases
+
+;; In order to enable dense layout, rename everything >4 chars so I can do 5
+;; char columns.
+
+;; Layer aliases
+(defalias
+  lsl (multi (layer-while-held rpdv-sft) lsft)
+  rsl (multi (layer-while-held rpdv-sft) rsft)
+  dvk (layer-switch rpdv)
+  qwt (layer-switch qwerty)
+  was (layer-switch gaming-wasd)
+  arr (layer-switch gaming-arrow)
+  mvt (layer-while-held mvmt)
+  lnl (layer-while-held lnum)
+  rnl (layer-while-held rnum)
+  lay (multi (layer-while-held layer-sel) (on-release tap-vkey update-layer-encoding)))
+
+;; Regular Functions
+(defalias
+  amv (tap-hold-release-timeout 0 1000 a @mvt a)
+  ,nm (tap-hold-release-timeout 0 1000 , @rnl ,)
+  oal (tap-hold-release-timeout 0 1000 o lalt o)
+  .mt (tap-hold-release-timeout 0 1000 . lmet .)
+  ect (tap-hold-release-timeout 0 1000 e lctl e)
+  usf (tap-hold-release-timeout 0 1000 u @lsl u)
+  hsf (tap-hold-release-timeout 0 1000 h @rsl h)
+  tct (tap-hold-release-timeout 0 1000 t rctl t)
+  cmt (tap-hold-release-timeout 0 1000 c rmet c)
+  nal (tap-hold-release-timeout 0 1000 n ralt n)
+  rnm (tap-hold-release-timeout 0 1000 r @lnl r))
+
+;; Shifted Functions
+(defalias
+  cwt (multi (release-key lsft) (release-key rsft) (caps-word-toggle 2000)))
+
+;; Shifted Dvorak keys
+(defalias
+  us0 (unshift 0)
+  us1 (unshift 1)
+  us2 (unshift 2)
+  us3 (unshift 3)
+  us4 (unshift 4)
+  us5 (unshift 5)
+  us6 (unshift 6)
+  us7 (unshift 7)
+  us8 (unshift 8)
+  us9 (unshift 9)
+  us` (unshift `)
+)
+
+;; Symbols (not aliased by default + prevents registering shift)
+(defalias
+  til S-`  ;; (multi lsft ` reverse-release-order)  ;; Multi triggers unwanted modifiers  ;; (unicode "~") ;; Shifted versions in qwerty instead of unicode
+  exc S-1  ;; (multi lsft 1 reverse-release-order)                                        ;; (unicode "!")
+  at  S-2  ;; (multi lsft 2 reverse-release-order)                                        ;; (unicode "@")
+  oct S-3  ;; (multi lsft 3 reverse-release-order)                                        ;; (unicode "#")
+  dol S-4  ;; (multi lsft 4 reverse-release-order)                                        ;; (unicode "$")
+  pct S-5  ;; (multi lsft 5 reverse-release-order)                                        ;; (unicode "%")
+  car S-6  ;; (multi lsft 6 reverse-release-order)                                        ;; (unicode "^")
+  amp S-7  ;; (multi lsft 7 reverse-release-order)                                        ;; (unicode "&")
+  ast S-8  ;; (multi lsft 8 reverse-release-order)                                        ;; (unicode "*")
+  lp  S-9  ;; (multi lsft 9 reverse-release-order)                                        ;; (unicode "(")
+  rp  S-0  ;; (multi lsft 0 reverse-release-order)                                        ;; (unicode ")")
+  und S--  ;; (multi lsft - reverse-release-order)                                        ;; (unicode "_")
+  lbc S-[  ;; (multi lsft [ reverse-release-order)                                        ;; (unicode "{")
+  rbc S-]  ;; (multi lsft ] reverse-release-order)                                        ;; (unicode "}")
+  bar S-\  ;; (multi lsft \ reverse-release-order)                                        ;; (unicode "|")
+  col S-;  ;; (multi lsft ; reverse-release-order)                                        ;; (unicode ":")
+  lt  S-,  ;; (multi lsft , reverse-release-order)                                        ;; (unicode "<")
+  gt  S-.  ;; (multi lsft . reverse-release-order)                                        ;; (unicode ">")
+  qst S-/  ;; (multi lsft / reverse-release-order)                                        ;; (unicode "?")
+  dbq S-') ;; (multi lsft ' reverse-release-order))                                       ;; (unicode r#"""#))
+
+;; Update the last selected general layer encoding
+(deftemplate store-layer-encoding (digit2 digit1)
+  (multi (if-equal $digit2 1 (on-press press-vkey   layerdigit2))
+         (if-equal $digit2 0 (on-press release-vkey layerdigit2))
+         (if-equal $digit1 1 (on-press press-vkey   layerdigit1))
+         (if-equal $digit1 0 (on-press release-vkey layerdigit1))))
+
+(deftemplate check-layer-encoding (digit2 digit1)
+  (and
+    (if-equal $digit2 1      (input virtual layerdigit2))
+    (if-equal $digit2 0 (not (input virtual layerdigit2)))
+    (if-equal $digit1 1      (input virtual layerdigit1))
+    (if-equal $digit1 0 (not (input virtual layerdigit1)))))
+
+;; Virtual Keys
+(defvirtualkeys
+  ;; Last selected general (not application-specific) layer, encoded in binary
+  layerdigit2 nop0
+  layerdigit1 nop0
+
+  update-layer-encoding (switch
+                               ((base-layer rpdv)) (t! store-layer-encoding 0 0) break
+                             ((base-layer qwerty)) (t! store-layer-encoding 1 0) break
+                                                () nop0 break
+                        )
+
+  restore-layer-encoding (switch
+                           ((t! check-layer-encoding 0 0)) (layer-switch rpdv) break
+                           ((t! check-layer-encoding 1 0)) (layer-switch qwerty) break
+                                                        () (layer-switch rpdv) break
+                         )
+)
+
+;; Temporary virtual key aliases for testing
+(defalias
+  ule (on-press tap-vkey update-layer-encoding)
+  rle (on-press tap-vkey restore-layer-encoding))
+
+;; Gaming typing layer
+(defvirtualkeys
+  gaming-typing (layer-while-held gaming-typing)
+)
+
+(defalias
+  gte (on-press press-vkey gaming-typing)
+  gtd (on-press release-vkey gaming-typing)
+)
+
+;;; Layers
+
+;; Source layer - used to set the default keys to be overwritten later. Not an
+;; actual layer in the layout.
+
+(defsrc
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  =    1    2    3    4    5         6    7    8    9    0    -
+  tab  q    w    e    r    t         y    u    i    o    p    \
+  esc  a    s    d    f    g         h    j    k    l    ;    '
+  `    z    x    c    v    b         n    m    ,    .    /    pgup
+       home end  left rght                up   down [    ]    pgdn
+
+                 lsft lctl lmet      rmet rctl rsft
+                 bspc del  lalt      ralt ret  spc
+)
+
+(deflayer rpdv
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  @bar +    [    @lbc @lp  @amp      =    @rp  @rbc ]    @ast @exc
+  tab  ;    @,nm @.mt p    y         f    g    @cmt @rnm l    \
+  esc  @amv @oal @ect @usf i         d    @hsf @tct @nal s    -
+  @lsl '    q    j    k    x         b    m    w    v    z    @rsl
+       @dol @us` left rght                up   down /    @at  ssrq
+
+                 lsft lctl @lay      rmet rctl rsft
+                 bspc tab  lalt      ralt ret  spc
+)
+
+(deflayer rpdv-sft
+  _    _    _    _    _                   _    _    _    _    _
+  @bar @us1 @us2 @us3 @us4 @us5      @us6 @us7 @us8 @us9 @us0 @pct
+  _    @col @lt  @gt  p    y         f    g    c    r    l    @oct
+  _    a    o    e    u    i         d    h    t    n    s    @und
+  caps '    q    j    k    x         b    m    w    v    z    caps
+       @til @til left rght                up   down @qst @car _
+
+                 _    _    _         _    _    _
+                 _    _    _         _    _    _
+)
+
+#|
+Is this going too far? What even is too far? Every day we take a small step out
+of line, and unless society's normative pressure forces us back to what we once
+were, our past state of being fades into obscurity. Irrelevant. One day, we
+look at where we once were and scoff as though it were once ridiculous, but we
+fail to see how we ourselves are blind to our current state of existence. If we
+could talk to our future selves, would we flee in terror of the sanity that we
+would think we had lost?
+
+What is sanity, if not a construct to tell us that our greatest fears will
+never come to pass? That we will never change so much that our old self truly
+is a different person, and by forgetting them we truly let them die?
+
+If we have changed so much, which of us truly deserves to live on?
+
+
+My friends are going to hate me when they see my keyboard now.
+|#
+;; Yes, you do have to move your right hand 2 keys to the right in the home row
+;; -- LAYER MADE POINTLESS BY SPLIT KEYBOARD, REMOVED (see other keyboard shapes) --
+
+(deflayer mvmt
+  _    _    _    _    _                   _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+  _    _    _    _    _    _         _    pgup up   pgdn _    _
+  _    _    _    lctl lsft _         tab  left down rght ret  _
+  _    _    _    _    _    _         esc  bspc _    _    _    _
+       _    _    _    _                   _    _    _    _    _
+
+                 _    _    _         _    _    _
+                 _    _    _         _    _    _
+)
+
+(deflayer lnum
+  _    _    _    _    _                   _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+  _    0    1    2    3    4         _    _    _    _    _    _
+  _    5    6    7    8    9         _    _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+       _    _    _    _                   _    _    _    _    _
+
+                 _    _    _         _    _    _
+                 _    _    _         _    _    _
+)
+
+(deflayer rnum
+  _    _    _    _    _                   _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+  _    _    _    _    _    _         0    1    2    3    4    _
+  _    _    _    _    _    _         5    6    7    8    9    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+       _    _    _    _                   _    _    _    _    _
+
+                 _    _    _         _    _    _
+                 _    _    _         _    _    _
+)
+
+(deflayer qwerty
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  =    1    2    3    4    5         6    7    8    9    0    -
+  tab  q    w    e    r    t         y    u    i    o    p    \
+  esc  a    s    d    f    g         h    j    k    l    ;    '
+  `    z    x    c    v    b         n    m    ,    .    /    pgup
+       home end  left rght                up   down [    ]    pgdn
+
+                 lsft lctl @lay      rmet rctl rsft
+                 bspc del  lalt      ralt ret  spc
+)
+
+(deflayer gaming-wasd
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  5    =    1    2    3    4         6    7    8    9    0    -
+  t    tab  q    w    e    r         y    u    i    o    p    \
+  g    esc  a    s    d    f         h    j    k    l    ;    '
+  b    `    z    x    c    v         n    m    ,    .    /    pgup
+       home end  left rght                up   down [    ]    pgdn
+
+                 esc  lctl @lay      rmet rctl rsft
+                 spc  bspc lalt      ralt ret  @gte
+)
+
+(deflayer gaming-arrow
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  =    1    2    3    4    5         6    7    8    9    0    -
+  tab  q    w    e    r    t         y    u    up   o    p    \
+  esc  a    s    d    f    g         h    left down rght ;    '
+  `    z    x    c    v    b         n    m    ,    .    /    pgup
+       home end  left rght                up   down [    ]    pgdn
+
+                 esc  lctl @lay      rmet rctl rsft
+                 spc  bspc lalt      ralt ret  @gte
+)
+
+(deflayer gaming-typing
+  f1   f2   f3   f4   f5                  f6   f7   f8   f9   f10
+  =    1    2    3    4    5         6    7    8    9    0    -
+  tab  q    w    e    r    t         y    u    i    o    p    \
+  esc  a    s    d    f    g         h    j    k    l    ;    '
+  `    z    x    c    v    b         n    m    ,    .    /    pgup
+       home end  left rght                up   down [    ]    pgdn
+
+                 lsft lctl @lay      rmet rctl rsft
+                 bspc @gtd lalt      ralt ret  spc
+)
+
+(deflayer layer-sel
+  _    _    _    _    _                   _    _    _    _    _
+  _    _    _    _    _    _         _    _    _    _    _    _
+  _    @qwt @dvk _    _    _         _    _    _    _    _    _
+  _    @was @arr _    _    _         _    _    _    _    _    _
+  _    _    @ule @rle _    _         _    _    _    _    _    _
+       _    _    _    _                   _    _    _    _    _
+
+                 _    _    _         powr _    _
+                 _    _    _         _    _    _
+)
+
+;; vim: tabstop=2 shiftwidth=2
