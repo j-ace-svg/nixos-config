@@ -48,7 +48,7 @@
 ;; )
 
 (defcfg
-  linux-dev ("/dev/input/by-id/usb-MoErgo_Glove80_Left_moergo.com:GLV80-EF7DAF486EF6501A-event-kbd")
+  linux-dev-names-include ("Glove80 Keyboard")
   linux-continue-if-no-devs-found yes
   ;;linux-output-device-name "Kanata: Glove80"
   process-unmapped-keys yes

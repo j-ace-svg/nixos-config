@@ -11,13 +11,14 @@ stopsudo() {
     trap - SIGINT SIGTERM
     sudo -k
 }
+prefix="/etc/nixos/"
+nixgit() {
+    sudo git -C "$prefix" "$@"
+}
 
 ( # Try rebuilding
     # Make script fail if any individual commands fail
     set -e
-
-    prefix="/etc/nixos/"
-    alias nixgit="sudo git -C '$prefix'"
 
     startsudo
     args=""
