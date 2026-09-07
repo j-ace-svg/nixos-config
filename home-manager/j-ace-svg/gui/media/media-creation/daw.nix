@@ -5,8 +5,14 @@
   ...
 }: let
   cfg = config.local.gui;
-  ll-plugins = pkgs.callPackage ./ll-plugins.nix {
-    inherit (pkgs) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
+  nix_pkgs_with_working_gtk2 = import (builtins.fetchTree {
+    type = "github";
+    owner = "nixos";
+    repo = "nixpkgs";
+    rev = "8c50a710ddca43d7a530fb805ad55bde8d0141c5";
+  }) {inherit (pkgs) system;};
+  ll-plugins = nix_pkgs_with_working_gtk2.callPackage ./ll-plugins.nix {
+    inherit (nix_pkgs_with_working_gtk2) boost cairomm gtkmm2 libsamplerate libjack2 libsndfile lv2 lv2-cpp-tools;
   };
   invada-studio = pkgs.callPackage ./invada-studio.nix {
     inherit (pkgs) ladspa-sdk;
