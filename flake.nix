@@ -24,6 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    glide = {
+      url = "github:glide-browser/glide.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     plover-wayland = {
       url = "github:FirelightFlagboy/plover-wayland-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +52,7 @@
     sops-nix,
     nix-snapd,
     firefox-addons,
+    glide,
     plover-wayland,
     nixCats,
     nix-minecraft,
@@ -71,7 +78,6 @@
               }
               home-manager.nixosModules.home-manager
               ./home-manager/default.nix
-              #kmonad.nixosModules.default
 
               {
                 local = systemOpts;
