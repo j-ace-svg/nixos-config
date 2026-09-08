@@ -16,7 +16,6 @@ in {
   config = lib.mkIf cfg.enable {
     programs.glide-browser = {
       enable = true;
-      package = pkgs.floorp-bin;
       policies = {
         DontCheckDefaultBrowser = true;
         DisableTelemetry = true;
