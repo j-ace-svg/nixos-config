@@ -199,7 +199,7 @@
   tab  ;    @,nm @.mt p    y         f    g    @cmt @rnm l    \
   esc  @amv @oal @ect @usf i         d    @hsf @tct @nal s    -
   @lsl '    q    j    k    x         b    m    w    v    z    @rsl
-       @dol @us` left rght                up   down /    @at  ssrq
+       @dol \    @bar +                   @ast @exc /    @at  ssrq
 
                  lsft lctl @lay      rmet rctl rsft
                  bspc tab  lalt      ralt ret  spc
@@ -211,7 +211,7 @@
   _    @col @lt  @gt  p    y         f    g    c    r    l    @oct
   _    a    o    e    u    i         d    h    t    n    s    @und
   caps '    q    j    k    x         b    m    w    v    z    caps
-       @til @til left rght                up   down @qst @car _
+       @til @oct @us` @us1                @us0 @pct @qst @car _
 
                  _    _    _         _    _    _
                  _    _    _         _    _    _
