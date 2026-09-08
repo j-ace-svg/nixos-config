@@ -88,7 +88,7 @@ nixgit() {
     nixgit commit -am "$hostname: $current"
     nixgit stash apply "${git_post}" &>/dev/null || nixgit checkout "${git_post}" -- . &>/dev/null
 
-    sudo chown -R j-ace-svg:user "$prefix/home-manager/j-ace-svg/"
+    sudo chown -R j-ace-svg:users "$prefix/home-manager/j-ace-svg/"
 
     if [[ "$args" == *"r"* ]]; then
         notify-send -e "NixOS Rebuild OK! Rebooting..." --icon=software-update-available 2>/dev/null || echo "NixOS Rebuild OK! Rebooting..."
