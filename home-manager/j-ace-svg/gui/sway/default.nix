@@ -237,6 +237,7 @@ in {
           "${modifier}+Shift+g" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
           "${modifier}+r" = "mode resize";
+          "${modifier}+g" = "mode graphics";
 
           "${modifier}+Shift+q" = "kill";
           "${modifier}+Return" = "exec ${terminal}";
@@ -263,6 +264,14 @@ in {
             "Down" = "resize grow height 10 px";
             "Up" = "resize shrink height 10 px";
             "Right" = "resize grow width 10 px";
+            "Escape" = "mode default";
+            "Return" = "mode default";
+            "F13" = "mode default";
+          };
+          graphics = {
+            "," = "output * scale 1";
+            "." = "output * scale 1.5";
+            "p" = "output * scale 2";
             "Escape" = "mode default";
             "Return" = "mode default";
             "F13" = "mode default";
