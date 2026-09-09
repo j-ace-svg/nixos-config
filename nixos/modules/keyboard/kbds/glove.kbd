@@ -50,7 +50,7 @@
 (defcfg
   linux-dev-names-include ("Glove80 Keyboard")
   linux-continue-if-no-devs-found yes
-  ;;linux-output-device-name "Kanata: Glove80"
+  linux-output-device-name "Kanata: Glove80"
   process-unmapped-keys yes
   )
 

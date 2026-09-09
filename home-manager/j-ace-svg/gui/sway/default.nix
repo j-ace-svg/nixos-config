@@ -312,6 +312,10 @@ in {
             "Shift+c" = "exec ${terminal} -D ${opts.configPath}";
             "n" = "exec \"if [-d ~/Nextcloud/Notes ]; then ${terminal} -D ~/Nextcloud/Notes; else ${terminal} -D ~/Notes; fi\"; mode default";
             "Shift+n" = "exec \"if [-d ~/Nextcloud/Notes ]; then ${terminal} -D ~/Nextcloud/Notes; else ${terminal} -D ~/Notes; fi\"";
+            "b" = "exec ${terminal} -D ~/Books; mode default";
+            "Shift+b" = "exec ${terminal} -D ~/Books";
+            "m" = "exec ${terminal} -D ~/Music; mode default";
+            "Shift+m" = "exec ${terminal} -D ~/Music";
             "l" = "mode launch";
             "Shift+l" = "mode launch";
             "Escape" = "mode default";
