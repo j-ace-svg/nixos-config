@@ -66,6 +66,7 @@ in {
         input = {
           "type:touchpad" = {
             dwt = "disabled";
+            tap = "enabled";
             natural_scroll = "enabled";
           };
         };
