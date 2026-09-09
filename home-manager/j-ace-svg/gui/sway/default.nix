@@ -269,8 +269,8 @@ in {
             "F13" = "mode default";
           };
           graphics = {
-            "," = "output * scale 1";
-            "." = "output * scale 1.5";
+            "comma" = "output * scale 1";
+            "period" = "output * scale 1.5";
             "p" = "output * scale 2";
             "Escape" = "mode default";
             "Return" = "mode default";
