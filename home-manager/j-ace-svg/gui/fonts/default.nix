@@ -19,6 +19,7 @@ in {
     home.packages = [
       pkgs.fontforge-gtk
       (pkgs.callPackage ./ninjargon/derivation.nix {inherit pkgs;})
+      (pkgs.callPackage ./canterbury/derivation.nix {inherit pkgs;})
       pkgs.nerd-fonts.hack
       pkgs.nerd-fonts.dejavu-sans-mono
       pkgs.dejavu_fonts
