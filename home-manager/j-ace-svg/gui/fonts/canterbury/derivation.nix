@@ -1,11 +1,14 @@
-{pkgs}:
+{
+  pkgs,
+  lib,
+}:
 pkgs.stdenvNoCC.mkDerivation {
   name = "canterbury-font";
   dontConfigue = true;
   src = pkgs.fetchzip {
     #url = "https://www.1001fonts.com/download/canterbury.zip";
     url = "file://${./canterbury.zip}";
-    sha256 = "sha256-cejY4XtXogtY6HA4N+mYgHdQyIWd1+uVef4+F9Q2uqQ=";
+    sha256 = "sha256-JczC0gmeO58qYVzIuhmRI9ydpIXpsZF1Yi2PBqAHBLQ=";
     stripRoot = false;
   };
   installPhase = ''
