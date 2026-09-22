@@ -243,7 +243,7 @@ My friends are going to hate me when they see my keyboard now.
   _    _    _    _    _    _         _    _    _    _    _    _
   _    _    _    _    _    _         _    pgup up   pgdn _    _
   _    _    _    lctl lsft _         tab  left down rght ret  _
-  _    _    _    _    _    _         esc  bspc _    _    _    _
+  _    _    _    _    _    _         esc  home end  _    _    _
        _    _    _    _                   _    _    _    _    _
 
                  _    _    _         _    _    _
