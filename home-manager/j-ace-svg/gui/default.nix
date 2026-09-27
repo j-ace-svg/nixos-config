@@ -18,7 +18,7 @@ in {
 
   imports = [
     ./calendar/default.nix
-    ./floorp/default.nix
+    ./browser/default.nix
     ./fonts/default.nix
     ./foot/default.nix
     ./games/default.nix

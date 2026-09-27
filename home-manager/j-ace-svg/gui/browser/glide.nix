@@ -171,7 +171,7 @@ in {
       };
     };
 
-    home.file.".mozilla/filefox/${profileName}/handlers.json" = {
+    xdg.configFile."glide/glide/${profileName}/handlers.json" = {
       force = true;
       text = builtins.toJSON {
         "defaultHandlersVersion" = {};
@@ -203,6 +203,11 @@ in {
         };
         "isDownloadsImprovementsAlreadyMigrated" = false;
       };
+    };
+
+    xdg.configFile."glide" = {
+      recursive = true;
+      source = ./glide-config;
     };
 
     home.packages = [

@@ -173,7 +173,7 @@ in {
       };
     };
 
-    home.file.".mozilla/filefox/${profileName}/handlers.json" = {
+    home.file.".mozilla/firefox/${profileName}/handlers.json" = {
       force = true;
       text = builtins.toJSON {
         "defaultHandlersVersion" = {};
