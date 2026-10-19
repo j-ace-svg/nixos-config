@@ -77,7 +77,6 @@
                 services.snap.enable = true;
               }
               home-manager.nixosModules.home-manager
-              plover.homeManagerModules.plover
               ./home-manager/default.nix
 
               {

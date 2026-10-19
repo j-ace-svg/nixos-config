@@ -3,6 +3,10 @@
   inputs,
   ...
 }: {
+  imports = [
+    inputs.plover.homeManagerModules.plover
+  ];
+
   programs.plover = {
     enable = true;
     settings = {
