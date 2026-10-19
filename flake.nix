@@ -30,8 +30,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    plover-wayland = {
-      url = "github:FirelightFlagboy/plover-wayland-nix";
+    plover = {
+      url = "github:opensteno/plover-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,7 +53,7 @@
     nix-snapd,
     firefox-addons,
     glide,
-    plover-wayland,
+    plover,
     nixCats,
     nix-minecraft,
     ...
@@ -77,6 +77,7 @@
                 services.snap.enable = true;
               }
               home-manager.nixosModules.home-manager
+              plover.homeManagerModules.plover
               ./home-manager/default.nix
 
               {
