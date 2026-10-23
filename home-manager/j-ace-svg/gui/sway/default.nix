@@ -50,6 +50,10 @@
     };
   };
 in {
+  imports = [
+    ./rofi.nix
+  ];
+
   config = lib.mkIf cfg.enable {
     wayland.windowManager.sway = {
       enable = true;
