@@ -144,7 +144,8 @@ in {
           highlight = mkLiteral "underline bold #ffffff";
 
           transparent = mkLiteral "rgba(0,0,0,0)";
-          font = "Source Code Pro 10";
+          #font = "Source Code Pro 10";
+          font = "Kode Mono 10";
         };
         window = {
           location = mkLiteral "center";
@@ -280,6 +281,7 @@ in {
 
     home.packages = [
       pkgs.source-code-pro
+      pkgs.kode-mono
     ];
   };
 }
