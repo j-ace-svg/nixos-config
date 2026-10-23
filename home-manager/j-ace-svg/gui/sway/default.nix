@@ -160,7 +160,8 @@ in {
           "${workspaces."7".name}" = [{class = "^steam$";}];
         };
         terminal = "${pkgs.foot}/bin/foot";
-        menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        #menu = "${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        menu = "${config.programs.rofi.package}/bin/rofi";
         keybindings = {
           # Workspaces
           # "${modifier}+1" = "workspace number 1";
@@ -242,7 +243,7 @@ in {
 
           "${modifier}+Shift+q" = "kill";
           "${modifier}+Return" = "exec ${terminal}";
-          "${modifier}+d" = "exec ${menu}";
+          "${modifier}+d" = "exec ${menu} -show drun";
           "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - $(${pkgs.xdg-user-dirs}/bin/xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')";
           "${modifier}+t" = "mode launch";
           "${modifier}+n" = "exec ${pkgs.mako}/bin/makoctl dismiss";

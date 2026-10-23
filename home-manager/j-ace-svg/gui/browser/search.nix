@@ -68,7 +68,7 @@
         }
       ];
       icon = "https://search.nixos.org/favicon.png";
-      definedAliases = ["ns"];
+      definedAliases = ["nos"];
     };
     "Home-Manager Options" = {
       urls = [
@@ -142,6 +142,15 @@
       ];
       icon = "https://www.wordreference.com/favicon.ico";
       definedAliases = ["wr"];
+    };
+    "Merriam-Webster" = {
+      urls = [
+        {
+          template = "https://www.merriam-webster.com/dictionary/f";
+        }
+      ];
+      icon = "https://www.merriam-webster.com/favicon.ico";
+      definedAliases = ["mw"];
     };
     "OpnXNG" = mkSearXNG {
       url = "https://opnxng.com/";
