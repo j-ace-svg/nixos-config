@@ -15,12 +15,13 @@ in {
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
         /**
-        * ROFI Color theme
-        * User: Qball
-        * Copyright: Dave Davenport
+        * Based on Arthur and Gruvbox dark builtin themes
+        * https://github.com/davatorium/rofi/tree/next/themes
         */
 
         "*" = {
+          # Default Arthur colors
+          /*
           foreground = mkLiteral "#ffeedd";
           backlight = mkLiteral "#ccffeedd";
           background-color = mkLiteral "transparent";
@@ -29,6 +30,7 @@ in {
           black = mkLiteral "#3d352a";
           lightblack = mkLiteral "#554444";
           tlightblack = mkLiteral "#554444cc";
+          tdarkblack = mkLiteral "#1c1c1ccc";
           #
           # Red
           red = mkLiteral "#cd5c5c";
@@ -58,6 +60,85 @@ in {
           # White
           white = mkLiteral "#bbaa99";
           lightwhite = mkLiteral "#ddccbb";
+          #
+          # Bold, Italic, Underline
+          highlight = mkLiteral "underline bold #ffffff";
+          */
+
+          # Gruvbox dark colors
+          gruvbox-dark-bg = mkLiteral "#282828";
+          gruvbox-dark-fg = mkLiteral "#ebdbb2";
+          gruvbox-dark-red-dark = mkLiteral "#cc241d";
+          gruvbox-dark-red-light = mkLiteral "#fb4934";
+          gruvbox-dark-green-dark = mkLiteral "#98971a";
+          gruvbox-dark-green-light = mkLiteral "#b8bb26";
+          gruvbox-dark-yellow-dark = mkLiteral "#d79921";
+          gruvbox-dark-yellow-light = mkLiteral "#fabd2f";
+          gruvbox-dark-blue-dark = mkLiteral "#458588";
+          gruvbox-dark-tblue-dark = mkLiteral "#458588cc";
+          gruvbox-dark-blue-light = mkLiteral "#83a598";
+          gruvbox-dark-tblue-light = mkLiteral "#83a598cc";
+          gruvbox-dark-purple-dark = mkLiteral "#b16286";
+          gruvbox-dark-purple-light = mkLiteral "#d3869b";
+          gruvbox-dark-aqua-dark = mkLiteral "#689d6a";
+          gruvbox-dark-aqua-light = mkLiteral "#8ec07c";
+          gruvbox-dark-orange-dark = mkLiteral "#d65d0e";
+          gruvbox-dark-orange-light = mkLiteral "#fe8019";
+          gruvbox-dark-grey-dark = mkLiteral "#928374";
+          gruvbox-dark-grey-light = mkLiteral "#a89984";
+
+          gruvbox-dark-bg0-hard = mkLiteral "#1d2021";
+          gruvbox-dark-tbg0-hard = mkLiteral "#1d2021cc";
+          gruvbox-dark-bd0 = mkLiteral "#282828";
+          gruvbox-dark-bg0-soft = mkLiteral "#32302f";
+          gruvbox-dark-bg1 = mkLiteral "#3c3836";
+          gruvbox-dark-bg2 = mkLiteral "#504945";
+          gruvbox-dark-tbg2 = mkLiteral "#504945cc";
+          gruvbox-dark-bg3 = mkLiteral "#665c54";
+          gruvbox-dark-bg4 = mkLiteral "#7c6f64";
+          gruvbox-dark-fg4 = mkLiteral "#a89984";
+          gruvbox-dark-fg3 = mkLiteral "#bdae93";
+          gruvbox-dark-fg2 = mkLiteral "#d5c4a1";
+          gruvbox-dark-fg1 = mkLiteral "#ebdbb2";
+          gruvbox-dark-fg0 = mkLiteral "#fbf1c7";
+
+          foreground = mkLiteral "@gruvbox-dark-fg1";
+          backlight = mkLiteral "@gruvbox-dark-tblue-light";
+          background-color = mkLiteral "transparent";
+          dark = mkLiteral "@gruvbox-dark-bg0-hard";
+          # Black
+          black = mkLiteral "@gruvbox-dark-bg1";
+          lightblack = mkLiteral "@gruvbox-dark-bg2";
+          tlightblack = mkLiteral "@gruvbox-dark-tbg2";
+          tdarkblack = mkLiteral "@gruvbox-dark-tbg0-hard";
+          #
+          # Red
+          red = mkLiteral "@gruvbox-dark-red-dark";
+          lightred = mkLiteral "@gruvbox-dark-red-light";
+          #
+          # Green
+          green = mkLiteral "@gruvbox-dark-green-dark";
+          lightgreen = mkLiteral "@gruvbox-dark-green-light";
+          #
+          # Yellow
+          yellow = mkLiteral "@gruvbox-dark-yellow-dark";
+          lightyellow = mkLiteral "@gruvbox-dark-yellow-light";
+          #
+          # Blue
+          blue = mkLiteral "@gruvbox-dark-blue-dark";
+          tblue = mkLiteral "@gruvbox-dark-tblue-dark";
+          lightblue = mkLiteral "@gruvbox-dark-blue-light";
+          #
+          # Magenta
+          magenta = mkLiteral "@gruvbox-dark-purple-dark";
+          lightmagenta = mkLiteral "@gruvbox-dark-purple-light";
+          #
+          # Cyan
+          tcyan = mkLiteral "@tblue";
+          #
+          # White
+          white = mkLiteral "@gruvbox-dark-fg3";
+          lightwhite = mkLiteral "@gruvbox-dark-fg";
           #
           # Bold, Italic, Underline
           highlight = mkLiteral "underline bold #ffffff";
@@ -114,7 +195,7 @@ in {
           border-radius = mkLiteral "0px 0px 15px 15px";
           border-color = mkLiteral "@foreground";
           border = mkLiteral "0px 2px 2px 2px";
-          background-color = mkLiteral "#1c1c1ccc";
+          background-color = mkLiteral "@tdarkblack";
           dynamic = mkLiteral "false";
           lines = mkLiteral "10";
         };
