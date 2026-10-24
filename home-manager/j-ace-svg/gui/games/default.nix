@@ -15,6 +15,7 @@ in {
     home.packages = [
       pkgs.mari0
       pkgs.freedoom
+      pkgs.gzdoom
       pkgs.dolphin-emu # Check out GoodSets (Piracy? Me? Nooooo, that's for a friend, who already owns every GameCube and Wii game)
 
       pkgs.steamcmd
