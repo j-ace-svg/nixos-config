@@ -379,11 +379,11 @@ in {
 
           # Blur rofi
           layer_effects "rofi" {
-            blur enable;
-            blur_ignore_transparent enable;
+            blur enable
+            blur_ignore_transparent enable
           }
 
-          blur_radius 2;
+          blur_radius 2
         '';
     };
 
