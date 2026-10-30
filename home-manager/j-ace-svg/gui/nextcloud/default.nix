@@ -15,8 +15,8 @@ in {
       templates = {
         "nextcloud-sync/envfile" = {
           content = ''
-            NC_USER = ${config.sops.placeholder."nextcloud-sync/user"}
-            NC_PASSWORD = ${config.sops.placeholder."nextcloud-sync/password"}
+            NC_USER=${config.sops.placeholder."nextcloud-sync/user"}
+            NC_PASSWORD=${config.sops.placeholder."nextcloud-sync/password"}
           '';
         };
       };
