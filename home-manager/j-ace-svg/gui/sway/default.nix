@@ -376,6 +376,12 @@ in {
           # Autostart
           exec_always pkill -f "inactive-windows-transparency.py"
           exec_always inactive-windows-transparency.py -o 0.9
+
+          # Blur rofi
+          layer_effects "rofi" {
+            blur enable;
+            #blur_ignore_transparent enable;
+          }
         '';
     };
 
