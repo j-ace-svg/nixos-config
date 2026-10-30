@@ -140,7 +140,7 @@ in {
               };
             }
             {
-              command = "blur enable";
+              command = "blur_radius 4; blur_passes 4; blur enable";
               criteria = {
                 app_id = ".*"; # get with `swaymsg -t get_tree | grep app_id`
                 title = ".*";
@@ -382,6 +382,8 @@ in {
             blur enable;
             blur_ignore_transparent enable;
           }
+
+          blur_radius 2;
         '';
     };
 
