@@ -380,7 +380,7 @@ in {
           # Blur rofi
           layer_effects "rofi" {
             blur enable;
-            #blur_ignore_transparent enable;
+            blur_ignore_transparent enable;
           }
         '';
     };
