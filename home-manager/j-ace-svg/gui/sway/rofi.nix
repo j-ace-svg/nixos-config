@@ -13,6 +13,7 @@ in {
       #theme = "arthur";
       theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
+        mkLiteralT = str: mkLiteral (str + "99");
       in {
         /**
         * Based on Arthur and Gruvbox dark builtin themes
@@ -75,9 +76,9 @@ in {
           gruvbox-dark-yellow-dark = mkLiteral "#d79921";
           gruvbox-dark-yellow-light = mkLiteral "#fabd2f";
           gruvbox-dark-blue-dark = mkLiteral "#458588";
-          gruvbox-dark-tblue-dark = mkLiteral "#458588cc";
+          gruvbox-dark-tblue-dark = mkLiteralT "#458588";
           gruvbox-dark-blue-light = mkLiteral "#83a598";
-          gruvbox-dark-tblue-light = mkLiteral "#83a598cc";
+          gruvbox-dark-tblue-light = mkLiteralT "#83a598";
           gruvbox-dark-purple-dark = mkLiteral "#b16286";
           gruvbox-dark-purple-light = mkLiteral "#d3869b";
           gruvbox-dark-aqua-dark = mkLiteral "#689d6a";
@@ -88,12 +89,12 @@ in {
           gruvbox-dark-grey-light = mkLiteral "#a89984";
 
           gruvbox-dark-bg0-hard = mkLiteral "#1d2021";
-          gruvbox-dark-tbg0-hard = mkLiteral "#1d2021cc";
+          gruvbox-dark-tbg0-hard = mkLiteralT "#1d2021";
           gruvbox-dark-bd0 = mkLiteral "#282828";
           gruvbox-dark-bg0-soft = mkLiteral "#32302f";
           gruvbox-dark-bg1 = mkLiteral "#3c3836";
           gruvbox-dark-bg2 = mkLiteral "#504945";
-          gruvbox-dark-tbg2 = mkLiteral "#504945cc";
+          gruvbox-dark-tbg2 = mkLiteralT "#504945";
           gruvbox-dark-bg3 = mkLiteral "#665c54";
           gruvbox-dark-bg4 = mkLiteral "#7c6f64";
           gruvbox-dark-fg4 = mkLiteral "#a89984";

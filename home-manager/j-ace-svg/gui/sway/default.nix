@@ -140,7 +140,7 @@ in {
               };
             }
             {
-              command = "blur_radius 4; blur_passes 4; blur enable";
+              command = "blur enable";
               criteria = {
                 app_id = ".*"; # get with `swaymsg -t get_tree | grep app_id`
                 title = ".*";
@@ -379,12 +379,9 @@ in {
 
           # Blur rofi
           layer_effects "rofi" {
-            blur enable
-            blur_ignore_transparent enable
+            blur enable;
+            blur_ignore_transparent enable;
           }
-
-          blur_radius 2
-          blur_passes 2
         '';
     };
 
