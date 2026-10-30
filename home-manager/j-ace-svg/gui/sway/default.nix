@@ -381,7 +381,6 @@ in {
           layer_effects "rofi" {
             blur enable;
             blur_ignore_transparent enable;
-            blur_xray enable;
           }
         '';
     };
