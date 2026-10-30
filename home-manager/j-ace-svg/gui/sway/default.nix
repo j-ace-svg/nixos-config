@@ -384,6 +384,7 @@ in {
           }
 
           blur_radius 2
+          blur_passes 2
         '';
     };
 
