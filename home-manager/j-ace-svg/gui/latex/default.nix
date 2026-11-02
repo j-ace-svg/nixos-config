@@ -21,6 +21,8 @@ in {
         inherit (pkgs.texlive) scheme-full latexmk pgf;
       })
       pkgs.poppler-utils
+
+      pkgs.sent # Funnily enough, something that explicitly doesn't use latex, but a generically related purpose
     ];
   };
 }
