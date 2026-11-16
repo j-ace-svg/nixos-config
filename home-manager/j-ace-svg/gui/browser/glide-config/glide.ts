@@ -19,3 +19,14 @@ create_tab_jump("tm", "https://messages.google.com/*", "go to [t]ab with [m]essa
 create_tab_jump("tp", "https://mail.proton.me/*", "go to [t]ab with [p]roton mail");
 
 glide.keymaps.set("normal", "<A-n>", "clear");
+
+glide.keymaps.set("normal", "/", () => glide.findbar.open({mode: "normal", highlight_all: true}));
+glide.keymaps.set("normal", "n", () => glide.findbar.next_match());
+glide.keymaps.set("normal", "N", () => glide.findbar.previous_match());
+
+glide.keymaps.set("normal", "u", "undo");
+glide.keymaps.set("normal", "<C-r>", "redo");
+
+glide.keymaps.set("normal", "J", "tab_next");
+glide.keymaps.set("normal", "K", "tab_prev");
+
