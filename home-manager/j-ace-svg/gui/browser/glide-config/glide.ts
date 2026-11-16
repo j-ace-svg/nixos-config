@@ -13,3 +13,5 @@ function create_tab_jump(map, url, desc) {
 create_tab_jump("tg", "https://mail.google.com/*", "go to [t]ab with [g]mail");
 create_tab_jump("tm", "https://messages.google.com/*", "go to [t]ab with [m]essages");
 create_tab_jump("tp", "https://mail.proton.me/*", "go to [t]ab with [p]roton mail");
+
+glide.keymaps.set("normal", "<A-n>", "clear");
