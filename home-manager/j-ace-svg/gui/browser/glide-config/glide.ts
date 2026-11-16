@@ -7,6 +7,8 @@ function create_tab_jump(map, url, desc) {
         });
         if (!(tab && tab.id)) {
             await browser.notifications.create({
+                type: "basic",
+                iconUrl: "https://glide-browser.app/favicon.ico",
                 title: "Tab jump",
                 message: `No tab found matching ${url}`,
             });
