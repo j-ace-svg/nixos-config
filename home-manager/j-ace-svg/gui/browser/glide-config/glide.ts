@@ -1,9 +1,15 @@
 glide.o.hint_chars = "htnsueoadimwvzkjq'gcrlp.,;bxfy";
 
-glide.keymaps.set("normal", "tg", async () => {
-    const tab = await glide.tabs.get_first({
-        url: "https://mail.google.com/*",
-    });
-    assert(tab && tab.id);
-    await browser.tabs.update(tab.id, { active: true });
-}, { description: "go to [t]ab with [g]mail" });
+function create_tab_jump(map, url, desc) {
+    glide.keymaps.set("normal", map, async () => {
+        const tab = await glide.tabs.get_first({
+            url: url,
+        });
+        assert(tab && tab.id);
+        await browser.tabs.update(tab.id, { active: true });
+    }, { description: desc });
+}
+
+create_tab_jump("tg", "https://mail.google.com/*", "go to [t]ab with [g]mail");
+create_tab_jump("tm", "https://messages.google.com/*", "go to [t]ab with [m]essages");
+create_tab_jump("tp", "https://mail.proton.me/*", "go to [t]ab with [p]roton mail");
