@@ -6,9 +6,7 @@ function create_tab_jump(map, url, desc) {
             url: url,
         });
         if (!(tab && tab.id)) {
-            await browser.notifications.create({
-                message: `No tab found matching ${url}`;
-            });
+            await browser.notifications.create({ message: `No tab found matching ${url}` });
             throw { message: `No tab found matching ${url}` };
         }
         //assert(tab && tab.id, { message: `No tab found matching ${url}` });
