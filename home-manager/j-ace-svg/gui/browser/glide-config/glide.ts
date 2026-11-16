@@ -5,7 +5,10 @@ function create_tab_jump(map, url, desc) {
         const tab = await glide.tabs.get_first({
             url: url,
         });
-        assert(tab && tab.id, { message: `No tab found matching ${url}` });
+        if (!(tab && tab.id)) {
+            throw { message: `No tab found matching ${url}` };
+        }
+        //assert(tab && tab.id, { message: `No tab found matching ${url}` });
         await browser.tabs.update(tab.id, { active: true });
     }, { description: desc });
 }
