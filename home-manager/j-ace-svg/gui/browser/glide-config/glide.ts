@@ -36,9 +36,9 @@ glide.keymaps.set("insert", "kj", "mode_change normal");
 glide.autocmds.create("UrlEnter", {
     hostname: [ "https://docs.google.com/*/edit", "https://docs.google.com/*/edit?*",
                 "https://docs.google.com/*/comment", "https://docs.google.com/*/comment?*",
-                "https://docs.google.com/*/view", "https://docs.google.com/*/view?*"],
+                "https://docs.google.com/*/view", "https://docs.google.com/*/view?*" ],
 }, async () => {
-    glide.buf.keymaps.del("normal", "jk");
-    glide.buf.keymaps.del("normal", "kj");
+    glide.buf.keymaps.del("insert", "jk");
+    glide.buf.keymaps.del("insert", "kj");
 });
 
