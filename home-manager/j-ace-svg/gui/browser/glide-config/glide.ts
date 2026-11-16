@@ -6,13 +6,8 @@ function create_tab_jump(map, url, desc) {
             url: url,
         });
         if (!(tab && tab.id)) {
-            await browser.notifications.create({
-                type: "basic",
-                iconUrl: "https://glide-browser.app/favicon.ico",
-                title: "Tab jump",
-                message: `No tab found matching ${url}`,
-            });
-            throw { message: `No tab found matching ${url}` };
+            // nothing at the moment, no ability to give notification
+            return;
         }
         //assert(tab && tab.id, { message: `No tab found matching ${url}` });
         await browser.tabs.update(tab.id, { active: true });
@@ -34,4 +29,7 @@ glide.keymaps.set("normal", "<C-r>", "redo");
 
 glide.keymaps.set("normal", "J", "tab_next");
 glide.keymaps.set("normal", "K", "tab_prev");
+
+glide.keymaps.set("insert", "jk", "mode_change normal");
+glide.keymaps.set("insert", "kj", "mode_change normal");
 
