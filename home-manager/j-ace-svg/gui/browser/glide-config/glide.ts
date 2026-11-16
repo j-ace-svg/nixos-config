@@ -2,7 +2,7 @@ glide.o.hint_chars = "htnsueoadimwvzkjq'gcrlp.,;bxfy";
 
 glide.keymaps.set("normal", "tg", async () => {
     const tab = await glide.tabs.get_first({
-        url: "mail.google.com",
+        url: "https://mail.google.com/*",
     });
     asset(tab && tab.id);
     await browser.tabs.update(tab.id, { active: true });
